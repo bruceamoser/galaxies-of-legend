@@ -7,7 +7,7 @@ The ship is a shared character. It has a hull, shields, systems and a history of
 | Value | Meaning |
 |---|---|
 | **Hull** | The ship's HP. At 0 Hull, the ship is disabled and in danger of breaking up. |
-| **DR** | Shields and armour. Reduces incoming damage. |
+| **DR** | Shields. Reduces incoming damage. |
 | **Handling** | The ship's Agility for manoeuvres and defence. |
 | **Jump range** | The maximum route length the drive can safely take. |
 | **Systems** | Each system has a Consumable Die: d12, d10, d8, d6, d4 or offline. |
@@ -44,19 +44,19 @@ Ship combat uses the same Legend roll and the same three bands. It uses abstract
 | **Far** | Long-range fire; sensors matter |
 | **Extreme** | Beyond most weapons; a chase or a scan |
 
-A ship attack reduces **Hull** first. A called shot, a critical or a specific ability may damage a **system** instead. Hull loss and system loss are separate consequences: Hull is repaired in a yard; a system can be jury-rigged in the field.
+Apply shield DR to incoming damage, then subtract any remaining damage from **Hull**. A called shot, a critical or a specific ability may damage a **system** instead. Hull loss and system loss are separate consequences: Hull is repaired in a yard; a system can be jury-rigged in the field.
 
 ## Hull hits and system wounds
 
-When a ship takes a hull hit, roll **1d6** on the wound chart after damage is applied.
+When an attack reduces Hull, roll **1d6** on the wound chart after damage is applied. Roll each affected system’s Consumable Die: only a 1 steps it down. Damage fully absorbed by DR causes no wound roll. These wound results and ship values are **playtest** rules.
 
 | d6 | Result |
 |---:|---|
 | 1–2 | **Hull only** — no system effect. |
-| 3 | **Sensors** — step the sensor die down. |
-| 4 | **Engines** — step the sublight engine die down. |
-| 5 | **Weapons** — step the weapon die down. |
-| 6 | **Power or life support** — step the capacitor or life-support die down; the SA chooses the system that fits the hit. |
+| 3 | **Sensors** — roll the sensor Consumable Die. |
+| 4 | **Engines** — roll the sublight engine Consumable Die. |
+| 5 | **Weapons** — roll the weapon Consumable Die. |
+| 6 | **Power or life support** — roll the capacitor or life-support Consumable Die; the SA chooses the system that fits the hit. |
 
 A system that goes offline cannot be used until repaired. Repairing a system in combat is an Engineer action; repairing it fully requires a yard or a long stop.
 

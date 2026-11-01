@@ -48,3 +48,10 @@ The PDF is written to `design/player-book/output/galaxies-of-legend-players-book
 The catalog is approved for initial playtesting. Structural checks do not certify balance. The cover and crest are real assets; interior art is a placeholder in this edition.
 
 Git history is the archive. Do not treat generated Typst or PDFs as editable sources.
+
+## Release preparation
+
+- [Initial release review](release/review.md)
+- [Artwork production plan](release/artwork-plan.md)
+
+The current layout follows the brand guide: Oswald headings, Roboto body/data, Cinzel chapter titles, Stellar White pages and teal/gold accents.
