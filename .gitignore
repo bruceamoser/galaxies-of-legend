@@ -1,0 +1,16 @@
+# Local dependencies and tools
+.venv/
+__pycache__/
+*.pyc
+tools/
+
+# Editors and OS
+.vscode/
+*.code-workspace
+.DS_Store
+Thumbs.db
+
+# Reproducible book artifacts
+/design/player-book/generated/
+/design/player-book/output/
+/dist/
