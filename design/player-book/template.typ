@@ -1,43 +1,45 @@
-#let forest = rgb("#0d1b22")
+#let forest = rgb("#0A0A0C")
 #let space = forest
 #let teal = rgb("#0e7a85")
 #let gold = rgb("#d4af37")
-#let ivory = rgb("#f2ead6")
-#let paper = rgb("#f7f3e9")
-#let ink = rgb("#22272a")
+#let ivory = rgb("#eaf3f4")
+#let paper = rgb("#F4F4F6")
+#let ink = rgb("#0A0A0C")
+#let crimson = rgb("#D92027")
 #let chapter-name = state("chapter-name", "Player’s Book")
 #let setup(body) = {
   set document(title: "Galaxies of Legend — Player’s Book", author: "Bruce A. Moser")
-  set text(font: "EB Garamond", size: 10.5pt, fill: ink, lang: "en", hyphenate: true)
+  set text(font: "Roboto", size: 10.5pt, fill: ink, lang: "en", hyphenate: true)
   set par(leading: 0.42em, spacing: 0.65em, justify: false)
   set page(width: 612pt, height: 792pt, margin: (left: 42pt, right: 42pt, top: 52pt, bottom: 46pt), fill: paper,
     background: context {
+      place(top+left, image("art/vector/page-frame.svg",width:612pt,height:792pt))
       for item in json("generated/space-art.json").filter(it => it.page == here().page()) {
         place(top+left, dx:item.x*1pt, dy:item.y*1pt,
           image("art/interior/"+item.asset+".png",width:item.width*1pt,height:item.height*1pt,fit:"contain"))
       }
     },
     header: context {
-      grid(columns: (1fr, 1fr), text(font: "Cinzel", size: 8pt, fill: forest)[Galaxies of Legend],
+      grid(columns: (1fr, 1fr), text(font: "Oswald", size: 8pt, fill: forest)[Galaxies of Legend],
         align(right, text(size: 8pt, fill: forest, {
           let hs = query(heading.where(level: 1)).filter(h => h.location().page() <= here().page())
           if hs.len() > 0 { hs.last().body } else { [Player’s Book] }
         })))
-      v(4pt); line(length: 100%, stroke: 0.5pt + gold)
+      v(3pt); image("art/vector/header-rail.svg",width:100%,height:12pt)
     },
     footer: context {
-      line(length: 100%, stroke: .5pt + gold)
-      v(4pt)
+      image("art/vector/footer-rail.svg",width:100%,height:12pt)
+      v(3pt)
       grid(columns: (1fr, 1fr), text(size: 8pt)[Player’s Book · Playtest Edition],
-        align(right, text(font: "Cinzel", size: 9pt, counter(page).display())))
+        align(right, text(font: "Oswald", size: 9pt, counter(page).display())))
     })
   set heading(numbering: none)
   show heading.where(level: 1): it => block(above: 0pt, below: 13pt)[
-    #text(font: "Cinzel", size: 26pt, fill: forest, weight: "bold", it.body)
-    #v(7pt)#line(length: 100%, stroke: 1pt + gold)
+    #text(font: "Oswald", size: 26pt, fill: teal, weight: "bold", it.body)
+    #v(5pt)#image("art/vector/tech-rule.svg",width:100%,height:12pt)
   ]
   show heading.where(level: 2): it => block(above: 12pt, below: 6pt)[
-    #text(font: "Cinzel", size: 14pt, fill: forest, weight: "bold", it.body)
+    #text(font: "Oswald", size: 14pt, fill: teal, weight: "bold", it.body)
   ]
   show heading.where(level: 3): it => block(above: 9pt, below: 4pt)[
     #text(size: 11.5pt, fill: forest, weight: "bold", it.body)
@@ -50,7 +52,7 @@
 #let chapter(n, title) = {
   pagebreak(weak: true)
   chapter-name.update(title)
-  block(below: 8pt)[#text(font: "Cinzel", size: 9pt, fill: gold)[CHAPTER #n]]
+  block(below: 8pt)[#text(font: "Oswald", size: 9pt, fill: crimson)[CHAPTER #n]]
   heading(level: 1, title)
 }
 #let entry(title, key) = {
@@ -69,7 +71,7 @@
   #if asset in art-files {
     image("art/interior/" + asset + ".png", width: 100%, height: height, fit: fit, alt: asset.replace("-", " "))
   } else {
-    rect(width: 100%, height: height, fill: ivory, stroke: gold)[#align(center+horizon)[Artwork in production]]
+    rect(width: 100%, height: height, fill: ivory, stroke: teal)[#align(center+horizon)[Artwork in production]]
   }
 ]
 // A fractional block gives the remaining page height without making a new page.
@@ -80,18 +82,18 @@
   set text(size: font-size)
   set par(leading: 0.28em, spacing: 3pt)
   let whole = table(columns: if widths == auto { cols } else { widths }, inset: (x: 5pt, y: pad),
-    stroke: .3pt + rgb("#cfc7b3"),
-    fill: (x,y) => if y == 0 { forest } else if calc.odd(y) { rgb("#ede6d4") } else { paper },
+    stroke: .3pt + rgb("#b5cdd0"),
+    fill: (x,y) => if y == 0 { forest } else if calc.odd(y) { rgb("#e7eef0") } else { paper },
     table.header(repeat: true, ..head.map(c => text(fill: ivory, weight: "bold", c))),
     ..rows.flatten())
   layout(size => {
     let h = measure(block(width:size.width,whole)).height
     // Keep a short reference together. Long references retain repeated headers.
-    block(breakable:h > 620pt,whole)
+    block(breakable:h > 620pt)[#image("art/vector/table-rail.svg",width:100%,height:5pt)#v(-2pt)#whole]
   })
 }
 
-#let signature-menu(body) = block(width:100%,stroke:.5pt+gold,inset:7pt,breakable:false)[
+#let signature-menu(body) = block(width:100%,stroke:.5pt+teal,inset:7pt,breakable:false)[
   #set text(size:9pt)
   #set par(leading:.2em,spacing:3pt)
   #set list(spacing:1pt)
@@ -102,24 +104,24 @@
   set text(size:10pt,hyphenate:false)
   set par(leading:.2em)
   table(columns:(87pt,)+(1fr,)*10,inset:(x:3pt,y:5pt),align:(x,y)=>if x==0 {left} else {center},
-    stroke:.4pt+rgb("#cfc7b3"),fill:(x,y)=>if y==0 {forest} else if calc.odd(y) {ivory} else {paper},
+    stroke:.4pt+rgb("#b5cdd0"),fill:(x,y)=>if y==0 {forest} else if calc.odd(y) {ivory} else {paper},
     table.header(..head.enumerate().map(((i,c))=>text(fill:ivory,weight:"bold",if i==0 {c} else {rotate(-90deg,reflow:true,c)}))),
     ..rows.flatten())
 }
 #let ability-directory(rows) = {
   set text(size:9pt,hyphenate:false)
   set par(leading:.25em,spacing:3pt)
-  table(columns:(125pt,105pt,77pt,1fr),inset:(x:5pt,y:3.5pt),stroke:.3pt+rgb("#cfc7b3"),
+  table(columns:(125pt,105pt,77pt,1fr),inset:(x:5pt,y:3.5pt),stroke:.3pt+rgb("#b5cdd0"),
     fill:(x,y)=>if y==0 {forest} else if calc.odd(y) {ivory} else {paper},
     table.header(repeat:true,..([Ability],[Requirements],[Action],[What it does]).map(c=>text(fill:ivory,weight:"bold",c))),
     ..rows.flatten())
 }
 #let diamond(tier) = box(width: 23pt, height: 23pt)[
-  #place(center + horizon, rotate(45deg, square(size: 17pt, fill: forest, stroke: .7pt + gold)))
+  #place(center + horizon, rotate(45deg, square(size: 17pt, fill: forest, stroke: .7pt + teal)))
   #place(center + horizon, text(size: 9pt, fill: ivory, weight: "bold", tier))
 ]
 #let discipline-mark(name, rank, size: 29pt) = box(width: size + 2pt, height: size)[
-  #place(center+horizon, circle(radius: size/2 - 1pt, fill: rgb("#0e7a85").transparentize(82%), stroke: .6pt + gold))
+  #place(center+horizon, circle(radius: size/2 - 1pt, fill: rgb("#0e7a85").transparentize(82%), stroke: .6pt + teal))
   #place(center+horizon, text(size: size*0.32, weight: "bold", fill: forest, upper(name.slice(0, 1))))
   #if rank != "" {
     place(right+bottom, rect(width:12pt,height:13pt,radius:2pt,fill:ivory,stroke:.5pt+forest,
@@ -136,7 +138,7 @@
     box(icons))
 ]
 #let card(title, tier, req, action, attr, tags, price, key, body, icons: []) = {
-  let whole = block(width:100%,stroke:.7pt+gold,radius:3pt,clip:true,fill:rgb("#fbf8ef"),above:7pt,below:5pt)[
+  let whole = block(width:100%,stroke:.7pt+teal,radius:0pt,clip:true,fill:rgb("#ffffff"),above:7pt,below:5pt)[
     #card-heading(title,key,tier:tier,icons:icons)
     #block(inset:(x:7pt,y:5pt))[
       #set text(size:9.4pt)
@@ -145,7 +147,7 @@
       #text(size:8.6pt,weight:"bold")[#action · #attr]
       #h(1fr)#text(size:8pt,price)
       #linebreak()#text(size:8pt)[#tags · #req]
-      #v(4pt)#line(length:100%,stroke:.4pt+gold)#v(3pt)
+      #v(4pt)#line(length:100%,stroke:.4pt+teal)#v(3pt)
       #body
     ]
   ]
@@ -155,7 +157,7 @@
     block(breakable: height > 675pt, whole)
   })
 }
-#let catalog-card(title,key,body,icons:[]) = block(width:100%,stroke:.7pt+gold,radius:3pt,clip:true,fill:rgb("#fbf8ef"),above:7pt,below:5pt,breakable:false)[
+#let catalog-card(title,key,body,icons:[]) = block(width:100%,stroke:.7pt+teal,radius:0pt,clip:true,fill:rgb("#ffffff"),above:7pt,below:5pt,breakable:false)[
   #card-heading(title,key,icons:icons)
   #block(inset:7pt)[
     #set text(size:9.4pt)
@@ -164,17 +166,17 @@
     #body
   ]
 ]
-#let companion-card(title,key,asset,intro,body) = block(width:100%,stroke:.8pt+gold,radius:4pt,clip:true,fill:rgb("#fbf8ef"),breakable:false,above:6pt,below:8pt)[
+#let companion-card(title,key,asset,intro,body) = block(width:100%,stroke:.8pt+teal,radius:0pt,clip:true,fill:rgb("#ffffff"),breakable:false,above:6pt,below:8pt)[
   #card-heading(title,key,title-size:16pt)
   #block(inset:9pt)[
     #set text(size:9.5pt)
     #set par(leading:.3em,spacing:.45em)
     #grid(columns:(1.5fr,1fr),gutter:12pt,[#intro],[#illustration(asset,height:165pt)])
-    #v(5pt)#line(length:100%,stroke:.5pt+gold)#v(3pt)
+    #v(5pt)#line(length:100%,stroke:.5pt+teal)#v(3pt)
     #body
   ]
 ]
-#let form-field(title, height: 30pt) = block(width: 100%, height: height, stroke: .5pt + gold, inset: 5pt)[#text(size: 8pt, weight: "bold", title)]
+#let form-field(title, height: 30pt) = block(width: 100%, height: height, stroke: .5pt + teal, inset: 5pt)[#text(size: 8pt, weight: "bold", title)]
 #let sheet-page(title, body) = {
   pagebreak(weak: true)
   set page(fill: white)
@@ -186,11 +188,11 @@
 #let form-table(cols, head, rows) = {
   set text(size: 8pt)
   table(columns: (1fr,) * cols, rows: (auto,) + (17pt,) * rows.len(), inset: 4pt,
-    stroke: .4pt + rgb("#a69c83"), fill: (x,y) => if y == 0 { ivory } else { white },
+    stroke: .4pt + rgb("#9ebbc0"), fill: (x,y) => if y == 0 { ivory } else { white },
     table.header(..head.map(c => strong(c))), ..rows.flatten())
 }
 
-#let class-panel(title,key,body) = block(width:100%,stroke:.7pt+gold,radius:3pt,clip:true,breakable:false)[
+#let class-panel(title,key,body) = block(width:100%,stroke:.7pt+teal,radius:0pt,clip:true,breakable:false)[
   #card-heading(title,key,title-size:18pt)
   #block(inset:10pt)[
     #set text(size:9.5pt)

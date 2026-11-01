@@ -1,0 +1,3 @@
+# Tech vector kit
+
+Five editable SVG assets in `design/player-book/art/vector/`: tech-rule (chapter divider), header-rail, footer-rail, table-rail, page-frame. Native vector paths, transparent backgrounds, no raster textures or baked lettering. Palette: Void Black #0A0A0C, Nebula Teal #0E7A85, Warning Crimson #D92027. Gold is restricted to rule callout accents. Stretch rails horizontally to their container; keep the page frame at US Letter proportions. The template integrates these assets in the actual book, including table rails and page furniture. Card borders and data grids use matching cool tones with square corners. Body remains Roboto; technical headings use Oswald.

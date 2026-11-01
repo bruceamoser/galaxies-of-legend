@@ -1,19 +1,19 @@
 #import "template.typ": *
-#let strip(title) = block(width:100%,fill:forest,inset:(x:6pt,y:4pt),above:6pt,below:4pt)[#text(font:"Cinzel",size:9pt,fill:ivory,weight:"bold",title)]
-#let field(title,height:26pt) = block(width:100%,height:height,inset:5pt,stroke:.5pt+gold,radius:3pt,breakable:false)[#text(size:7.5pt,weight:"bold",title)]
-#let ruled(title,n:3) = [#strip(title)#for i in range(n){v(13pt);line(length:100%,stroke:.3pt+rgb("#b9b2a2"))}]
-#let score(title) = block(width:100%,height:58pt,stroke:.8pt+forest,radius:5pt,inset:4pt)[
-  #align(center)[#text(font:"Cinzel",size:8pt,weight:"bold",title)#v(5pt)#circle(width:32pt,stroke:.6pt+gold)]
+#let strip(title) = block(width:100%,fill:forest,inset:(x:6pt,y:4pt),above:6pt,below:4pt)[#text(font:"Oswald",size:9pt,fill:ivory,weight:"bold",title)]
+#let field(title,height:26pt) = block(width:100%,height:height,inset:5pt,stroke:.5pt+teal,radius:0pt,breakable:false)[#text(size:7.5pt,weight:"bold",title)]
+#let ruled(title,n:3) = [#strip(title)#for i in range(n){v(10pt);line(length:100%,stroke:.3pt+rgb("#b5cdd0"))}]
+#let score(title) = block(width:100%,height:52pt,stroke:.8pt+forest,radius:5pt,inset:4pt)[
+  #align(center)[#text(font:"Oswald",size:8pt,weight:"bold",title)#v(5pt)#circle(width:32pt,stroke:.6pt+teal)]
 ]
-#let rows(head,widths,count,height:18pt) = {
+#let rows(head,widths,count,height:16pt) = {
   set text(size:8pt)
-  table(columns:widths,rows:(auto,)+(height,)*count,inset:4pt,stroke:.35pt+rgb("#aaa28f"),
+  table(columns:widths,rows:(auto,)+(height,)*count,inset:4pt,stroke:.35pt+rgb("#9ebbc0"),
     table.header(..head.map(h=>table.cell(fill:ivory,strong(h)))),
     ..range(count*head.len()).map(i=>[]))
 }
 #let sheet-title(subtitle) = grid(columns:(45pt,1fr,110pt),gutter:10pt,
  image("art/gol-crest.png",height:50pt),
- [#text(font:"Almendra",size:25pt,weight:"bold")[Galaxies of Legend]#linebreak()#text(font:"Cinzel",size:10pt,subtitle)],
+ [#text(font:"Oswald",size:21pt,weight:"bold")[Galaxies of Legend]#linebreak()#text(font:"Oswald",size:10pt,subtitle)],
  [#field("LEVEL",height:25pt)#v(3pt)#field("PLAYER",height:25pt)])
 #let page-sheet(body) = {
  pagebreak(weak:true)
@@ -43,7 +43,7 @@
  #strip("Conditions in play")
  #rows(([CONDITION],[RATING],[EXPIRY / REMOVAL / SOURCE]),(1fr,50pt,2fr),3,height:20pt)
  #v(6pt)#field("ACCESSIBLE POTION / SUPPLY DICE / OTHER TURN NOTES",height:35pt)
- #v(8pt)#block(inset:7pt,stroke:.5pt+gold)[
+ #v(8pt)#block(inset:7pt,stroke:.5pt+teal)[
   #strong[3d6 + attribute] · Weak ≤8 · Standard 9–14 · Strong ≥15. Cancel Boons/Banes, then keep best/worst three of up to six dice.
   End turn: resolve temporary conditions, then decay 1. Minimum damage: 1 total per damaging event. Ships use Hull, DR and Consumable Dice.
  ]
@@ -64,10 +64,10 @@
  #sheet-title("Belongings & scars")
  #v(8pt)#grid(columns:(2fr,1fr,1fr),gutter:7pt,field("CHARACTER NAME"),field("COINS"),field("BULK / CAPACITY"))
  #strip("Carried equipment")
- #rows(([ITEM / SUPPLY],[BULK],[DIE],[LOCATION / SPECIAL EFFECT]),(1.7fr,35pt,35pt,1.8fr),14,height:18pt)
+ #rows(([ITEM / SUPPLY],[BULK],[DIE],[LOCATION / SPECIAL EFFECT]),(1.7fr,35pt,35pt,1.8fr),14,height:16pt)
  #v(5pt)#text(size:8.5pt)[Capacity = 10 + 3 × Brawn. Speed loses 1 per excess Bulk. Inventory: d20 → d12 → d10 → d8 → d6 → d4 → out. After use, a 1 steps down.]
  #strip("Recipes, tools & materials")
- #rows(([RECIPE / PERMISSION],[TOOLS / MATERIALS / PROJECT PROGRESS]),(1fr,1.6fr),5,height:18pt)
+ #rows(([RECIPE / PERMISSION],[TOOLS / MATERIALS / PROJECT PROGRESS]),(1fr,1.6fr),5,height:16pt)
  #strip("Wounds & permanent scars")
  #rows(([WOUND / SCAR],[LASTING EFFECT],[TREATMENT / RV],[PROGRESS / LAST DAY]),(1.2fr,1.4fr,1.2fr,1fr),5,height:22pt)
  #v(7pt)#text(size:8.5pt)[One treatment attempt per wound per day. Weak/Standard/Strong gives 1/2/3 recovery progress. Treatment removes the stated penalty; the scar still counts on future wound rolls.]

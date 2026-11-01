@@ -12,4 +12,4 @@ First build of *Galaxies of Legend* on the Legend System chassis.
 - Core rules, harm and recovery, starships and FTL.
 - Player's Book PDF built with Typst.
 
-This is a playtest edition. Ship Hull, DR, FTL clocks and the wound table are seed values. Interior art is a placeholder; the cover and crest are final assets.
+This is a playtest edition. Ship Hull, DR, FTL clocks and the wound table are seed values. Interior art is a placeholder; the cover and crest are existing assets. Brand-guide typography and palette are applied. Hull wounds trigger system Consumable Die rolls after shield DR. See artwork-plan.md for the 12-image interior production scope.

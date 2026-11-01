@@ -14,13 +14,13 @@
   #v(24pt)
   #image("art/gol-crest.png", width: 150pt)
   #v(14pt)
-  #text(font: "Cinzel", size: 34pt, weight: "bold", fill: space)[Galaxies of Legend]
+  #text(font: "Oswald", size: 34pt, weight: "bold", fill: space)[Galaxies of Legend]
   #v(10pt)
-  #text(font: "Cinzel", size: 18pt, fill: teal)[Player’s Book]
+  #text(font: "Oswald", size: 18pt, fill: teal)[Player’s Book]
   #v(10pt)
   #text(size: 13pt)[Levels 1–10 · Playtest Edition]
   #v(18pt)
-  #text(font: "Cinzel", size: 13pt)[Game design by Bruce A. Moser]
+  #text(font: "Oswald", size: 13pt)[Game design by Bruce A. Moser]
 ]
 #v(22pt)
 #block(width: 100%, inset: 12pt, fill: ivory)[
@@ -41,13 +41,13 @@ Initial playtest data set.]
 #pagebreak()
 #include "generated/body.typ"
 
-#pagebreak(weak: false)
+#pagebreak(weak: true)
 #align(center + horizon)[
   #image("art/gol-crest.png", width: 76pt)
   #v(14pt)
-  #text(font: "Cinzel", size: 20pt, fill: space)[Galaxies of Legend]
+  #text(font: "Oswald", size: 20pt, fill: space)[Galaxies of Legend]
   #v(4pt)
-  #text(font: "Cinzel", size: 11pt, fill: teal)[Player’s Book · Playtest Edition]
+  #text(font: "Oswald", size: 11pt, fill: teal)[Player’s Book · Playtest Edition]
   #v(8pt)
   #text(size: 9pt)[Version #release.version · #release.date]
   #v(2pt)

@@ -107,7 +107,7 @@ def render(s, p, base=2, skip_title=True):
         elif t.type in ("bullet_list_close", "ordered_list_close"): out.append(")\n")
         elif t.type == "list_item_open": out.append("[")
         elif t.type == "list_item_close": out.append("],\n")
-        elif t.type == "hr": out.append("#v(3pt)#line(length: 100%, stroke: .4pt + gold)#v(3pt)\n")
+        elif t.type == "hr": out.append("#v(3pt)#line(length: 100%, stroke: .4pt + teal)#v(3pt)\n")
         elif t.type in ("fence", "code_block"): out.append("#raw(" + q(t.content) + ", block: true)\n")
         elif t.type == "table_open":
             rows = []; row = []; i += 1
