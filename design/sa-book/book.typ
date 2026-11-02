@@ -12,6 +12,7 @@
 ]
 #v(28pt)#note[A base SA book for preparing and adjudicating a lived-in frontier. Threat profiles, hazard values and encounter guidance are authoring seeds, not calibrated encounters.]
 #v(12pt)#text(size:9pt)[Version #release.version · #release.date. Companion volumes: Player's Book, Starship Manual and Sector Architect's Book. Ancestries remain placeholders; new ship and SA numbers are untested proposals.]
+#v(10pt)#text(size:8.5pt)[Manuscript and layout prepared with Codex under Bruce's direction. Existing generated review illustrations are reused; font licenses and artwork notes are included in the source archive.]
 #pagebreak()#outline(title:[Contents],depth:1)#pagebreak()
 #include "generated/body.typ"
 #include "sheets.typ"

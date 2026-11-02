@@ -10,7 +10,8 @@ import build as g
 ROOT_BOOK_TITLE={"starship-manual":"Starship Manual","sa-book":"Sector Architect's Book"}
 
 def cover_source(title,subtitle,art):
-    return f'''#set page(width:612pt,height:792pt,margin:0pt,fill:rgb("#0a1018"),header:none,footer:none)
+    return f'''#let release = json("../../release/version.json")
+#set page(width:612pt,height:792pt,margin:0pt,fill:rgb("#0a1018"),header:none,footer:none)
 #place(top+left,dx:42pt,dy:46pt,block(width:528pt)[
  #text(font:"Oswald",size:40pt,weight:"bold",fill:white)[GALAXIES OF LEGEND]
  #v(15pt)#text(font:"Oswald",size:26pt,fill:rgb("#65c5df"))[{title.upper()}]
