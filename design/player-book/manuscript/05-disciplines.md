@@ -15,17 +15,45 @@ Disciplines have ranks **1, 2 and 3**. Buy them in order: rank 2 requires rank 1
 
 Every rank is priced separately. Cheap ranks are a class advantage because they let you reach abilities earlier. A class that gets cheap ranks is not also owed stronger signatures; compare the whole class.
 
-## The nine fields
+## The eighteen fields
 
-- **Arms** — close combat and the grammar of a fight.
-- **Gunnery** — ranged weapons, suppression and ship weapons.
-- **Piloting** — starships, vehicles and evasive handling.
-- **Navigation** — astrogation, survey and FTL plotting.
-- **Engineering** — power, repairs, fabrication and ship systems.
-- **Science** — analysis, xenobiology, physics and computing.
-- **Medicine** — trauma care, stabilisation and surgery.
-- **Subterfuge** — stealth, security, deception and the black market.
-- **Influence** — command, negotiation, morale and bureaucracy.
+- **Armor** - Armour fit, protective suits, bracing and managing protection under pressure. Armor handles protection; Arms handles close attacks.
+
+- **Arms** - Close combat, power armour, and the practical grammar of a fight.
+
+- **Athletics** - Climbing, jumping, swimming, hauling and physical traversal. Piloting operates vehicles; Athletics moves bodies.
+
+- **Command** - Tactical coordination, delegation, morale and organised teams. Influence negotiates consent; Command coordinates willing allies.
+
+- **Computing** - Software, networks, cryptography and digital intrusion. Engineering repairs hardware; Computing handles software permissions and data.
+
+- **Engineering** - Power systems, repairs, fabrication, and keeping a ship alive.
+
+- **Gunnery** - Ranged weapons, ship weapons, suppression, and the discipline of a clean shot.
+
+- **Influence** - Persuasion, diplomacy, negotiation and institutional access. Command coordinates willing allies; Trade handles commercial networks.
+
+- **Investigation** - Evidence, reconstruction, interviews and connecting leads. Science explains phenomena; Investigation reconstructs events.
+
+- **Medicine** - Trauma care, stabilisation, surgery, and the ethics of who gets saved first.
+
+- **Navigation** - Astrogation, orbital routes and FTL plotting. Survival handles ground shelter and wilderness travel; existing cards keep their printed requirements.
+
+- **Piloting** - Starships, ground vehicles, atmospheric flight, and evasive handling.
+
+- **Robotics** - Robots, drones, autonomy, control safeguards and remote platforms. Robotics handles machine behaviour; Engineering handles broken components.
+
+- **Science** - Physical science, laboratory analysis and natural phenomena. Computing handles software, Robotics handles autonomous machines, Xenology handles alien communication and comparative biology; existing cards keep their printed requirements.
+
+- **Subterfuge** - Stealth, disguise, locks and covert deception. Computing handles digital access; Investigation follows evidence.
+
+- **Survival** - Planetary travel, shelter, tracking, foraging and environmental preparation. Navigation plots routes in space; Survival handles ground conditions.
+
+- **Trade** - Markets, contracts, freight, appraisal and supply networks. Influence persuades people; Trade establishes commercial opportunity and terms.
+
+- **Xenology** - Alien communication, comparative biology and cross-species customs. Alien physiology and ancestry benefits remain Bruce's authorship; Xenology grants no innate alien senses.
+
+**Playtest proposal:** expanded disciplines and class affinities are untested. Each new discipline has one starter card; the [coverage plan](../../ability-coverage.md) defines the later waves. Breadth of names is not evidence of finished ability coverage.
 
 ## Choose a direction
 

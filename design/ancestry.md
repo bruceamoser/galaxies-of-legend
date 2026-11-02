@@ -1,8 +1,8 @@
-# Homeworlds
+# Ancestries
 
-Choose two traits from five. Homeworld is independent of culture.
+Placeholder records await Bruce's ancestry material. Homeworld is no longer the biological origin slot. See [legacy environmental drafts](homeworlds/README.md).
 
-- [Beltborn](homeworlds/beltborn.md)
-- [Core World](homeworlds/core-world.md)
-- [Frontier Colonist](homeworlds/frontier-colonist.md)
-- [Voidborn](homeworlds/voidborn.md)
+- [Alien ancestry A](ancestries/alien-a.md)
+- [Alien ancestry B](ancestries/alien-b.md)
+- [Alien ancestry C](ancestries/alien-c.md)
+- [Human](ancestries/human.md)

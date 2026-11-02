@@ -95,12 +95,12 @@
   #body
 ]
 #let cost-matrix(head,rows) = {
+  assert(rows.all(row => row.len() == head.len()), message:"Class-cost matrix row/header mismatch")
   set text(size:10pt,hyphenate:false)
-  set par(leading:.2em)
-  table(columns:(87pt,)+(1fr,)*10,inset:(x:3pt,y:5pt),align:(x,y)=>if x==0 {left} else {center},
+  set par(leading:.45em)
+  table(columns:(112pt,)+(1fr,)*(head.len()-1),inset:(x:6pt,y:7pt),align:(x,y)=>if x==0 {left} else {center},
     stroke:.4pt+rgb("#b5cdd0"),fill:(x,y)=>if y==0 {forest} else if calc.odd(y) {ivory} else {paper},
-    table.header(..head.enumerate().map(((i,c))=>text(fill:ivory,weight:"bold",if i==0 {c} else {rotate(-90deg,reflow:true,c)}))),
-    ..rows.flatten())
+    table.header(..head.map(c=>text(fill:ivory,weight:"bold",c))), ..rows.flatten())
 }
 #let ability-directory(rows) = {
   set text(size:9pt,hyphenate:false)
@@ -116,14 +116,14 @@
 ]
 #let discipline-mark(name, rank, size: 29pt) = box(width: size + 2pt, height: size)[
   #place(center+horizon, circle(radius: size/2 - 1pt, fill: rgb("#0e7a85").transparentize(82%), stroke: .6pt + teal))
-  #place(center+horizon, text(size: size*0.32, weight: "bold", fill: forest, upper(name.slice(0, 1))))
+  #place(center+horizon, text(size: size*0.32, weight: "bold", fill: white, upper(name.slice(0, 1))))
   #if rank != "" {
     place(right+bottom, rect(width:12pt,height:13pt,radius:2pt,fill:ivory,stroke:.5pt+forest,
       align(center+horizon,text(size:11pt,weight:"bold",fill:forest,rank))))
   }
 ]
 
-#let card-heading(title, key, tier: none, icons: [], title-size: 11pt) = block(width:100%,fill:forest,inset:7pt)[
+#let card-heading(title, key, tier: none, icons: [], title-size: 13pt) = block(width:100%,fill:forest,inset:7pt)[
   #set text(fill:ivory)
   #show heading.where(level:3): it => block(above:0pt,below:0pt,text(size:title-size,weight:"bold",fill:ivory,it.body))
   #grid(columns: if tier == none {(1fr,auto)} else {(24pt,1fr,auto)},gutter:6pt,
@@ -131,17 +131,22 @@
     [#heading(level:3,outlined:true,title)#label(key)],
     box(icons))
 ]
+#let outcome-rows(rows) = {
+  for row in rows {
+    block(width:100%,fill:rgb("#eef4f6"),inset:(x:7pt,y:6pt),above:4pt,below:4pt,breakable:false)[#row]
+  }
+}
 #let card(title, tier, req, action, attr, tags, price, key, body, icons: []) = {
-  let whole = block(width:100%,stroke:.7pt+teal,radius:0pt,clip:true,fill:rgb("#ffffff"),above:7pt,below:5pt)[
+  let whole = block(width:100%,stroke:.7pt+teal,radius:0pt,clip:true,fill:rgb("#ffffff"),above:9pt,below:9pt)[
     #card-heading(title,key,tier:tier,icons:icons)
-    #block(inset:(x:7pt,y:5pt))[
-      #set text(size:9.4pt)
-      #set par(leading:.27em,spacing:.45em)
-      #set list(indent:9pt,body-indent:3pt,spacing:1.5pt)
-      #text(size:8.6pt,weight:"bold")[#action · #attr]
-      #h(1fr)#text(size:8pt,price)
-      #linebreak()#text(size:8pt)[#tags · #req]
-      #v(4pt)#line(length:100%,stroke:.4pt+teal)#v(3pt)
+    #block(inset:(x:10pt,y:9pt))[
+      #set text(size:10.5pt,hyphenate:false)
+      #set par(leading:.46em,spacing:.7em)
+      #set list(indent:10pt,body-indent:4pt,spacing:5pt)
+      #text(size:10pt,weight:"bold")[#action · #attr]
+      #h(1fr)#text(size:9pt,price)
+      #v(4pt)#text(size:9pt)[#req]
+      #v(6pt)#line(length:100%,stroke:.4pt+teal)#v(6pt)
       #body
     ]
   ]
@@ -151,12 +156,12 @@
     block(breakable: height > 675pt, whole)
   })
 }
-#let catalog-card(title,key,body,icons:[]) = block(width:100%,stroke:.7pt+teal,radius:0pt,clip:true,fill:rgb("#ffffff"),above:7pt,below:5pt,breakable:false)[
+#let catalog-card(title,key,body,icons:[]) = block(width:100%,stroke:.7pt+teal,radius:0pt,clip:true,fill:rgb("#ffffff"),above:9pt,below:9pt,breakable:false)[
   #card-heading(title,key,icons:icons)
   #block(inset:7pt)[
-    #set text(size:9.4pt)
-    #set par(leading:.27em,spacing:.45em)
-    #set list(indent:9pt,body-indent:3pt,spacing:1.5pt)
+    #set text(size:10.5pt,hyphenate:false)
+    #set par(leading:.46em,spacing:.7em)
+    #set list(indent:10pt,body-indent:4pt,spacing:5pt)
     #body
   ]
 ]
@@ -196,52 +201,7 @@
   ]
 ]
 
-// Prose pages are composed from paragraphs and intact short tables. The final
-// page is split near its midpoint, instead of leaving one long left column.
-#let reading-columns(items, gap:5pt) = context {
-  let w = 255pt
-  let blocks = items.map(it => block(above:0pt,below:gap,it))
-  let heights = blocks.map(it => measure(block(width:w,it)).height + gap)
-  let available = 742pt - here().position().y
-  let cursor = 0
-  while cursor < blocks.len() {
-    let end = cursor
-    let left = 0pt
-    let right = 0pt
-    let on-right = false
-    while end < blocks.len() {
-      let h = heights.at(end)
-      if not on-right and left + h <= available {left += h}
-      else {
-        on-right = true
-        if right + h > available {break}
-        right += h
-      }
-      end += 1
-    }
-    if end == cursor {
-      if available < 680pt {pagebreak(); available = 690pt}
-      else {
-        // An unusually long table retains its normal repeated-header flow.
-        columns(2,gutter:18pt,blocks.at(cursor))
-        cursor += 1
-        if cursor < blocks.len() {pagebreak()}
-      }
-    } else {
-      let best = cursor
-      let best-gap = 100000pt
-      for cut in range(cursor,end+1) {
-        let a = heights.slice(cursor,cut).sum(default:0pt)
-        let b = heights.slice(cut,end).sum(default:0pt)
-        if a <= available and b <= available and calc.abs(a - b) < best-gap {
-          best = cut; best-gap = calc.abs(a - b)
-        }
-      }
-      grid(columns:(1fr,1fr),gutter:18pt,
-        [#for it in blocks.slice(cursor,best) {it}],
-        [#for it in blocks.slice(best,end) {it}])
-      cursor = end
-      if cursor < blocks.len() {pagebreak();available=690pt}
-    }
-  }
-}
+// Native columns use actual layout widths; whole cards move to the next column/page.
+#let reading-columns(items,gap:8pt) = columns(2,gutter:20pt)[
+  #for item in items { item; v(gap) }
+]

@@ -1,6 +1,6 @@
 # Create Your Explorer
 
-You build a character in the same order every time. Each choice has a separate job: attributes define what you can do, your homeworld gives you a body and a history, culture and background give you a paired discipline and ability, and your class gives you training, starting ranks and a signature.
+You build a character in the same order every time. Each choice has a separate job: attributes define what you can do, your ancestry gives you a body and a history, culture and background give you a paired discipline and ability, and your class gives you training, starting ranks and a signature.
 
 ## 1. Assign attributes
 
@@ -17,11 +17,11 @@ Legend uses six attributes. Assign a value from **−2 to +2** to each. The valu
 
 The standard array is **+2, +1, +1, +0, +0, −1**. You may rearrange it, or use another array that totals +3 and stays within the range. Attributes are fixed after creation unless a rule says otherwise.
 
-## 2. Choose a homeworld
+## 2. Choose an ancestry
 
-Each homeworld gives **HP**, **base Speed**, a **starting coin contribution**, and **five traits**. Choose **two** of the five. Traits are alternatives, not a bundle; their benefits should be comparable.
+Ancestry is inherited physiology; culture is upbringing. The final ancestry package will provide HP, base Speed, a coin contribution and five comparable traits, choose two. Alien ancestry material is coming from Bruce.
 
-Record your homeworld HP and Speed now. Culture is independent: a Beltborn can grow up in a Corporate Arcology, and a Core Worlder can be raised on a Nomad Fleet.
+This review contains **placeholders**, not finished ancestries. For arithmetic examples only, Human uses HP +2, base Speed 6 and +0 ancestry coins, with no granted traits. Alien A, B and C have no statistics, biology or benefits. Do not treat these slots as complete character options. The old homeworld packages are legacy environmental drafts and are excluded from creation.
 
 ## 3. Choose one culture and one background
 
@@ -69,11 +69,11 @@ Resolve all granted equipment first, then shop with your starting coins.
 
 | Value | Formula |
 |---|---|
-| **Maximum HP** | 12 + homeworld HP + class HP + Fortitude + explicit benefits |
+| **Maximum HP** | 12 + ancestry HP + class HP + Fortitude + explicit benefits |
 | **Capacity** | 10 + 3 × Brawn |
-| **Speed** | homeworld base Speed + Agility − encumbrance, minimum 0 |
+| **Speed** | ancestry base Speed + Agility − encumbrance, minimum 0 |
 | **Starting Grit** | 2 + explicit increases |
-| **Starting coins** | 40 + homeworld + culture + background + class contributions |
+| **Starting coins** | 40 + ancestry + culture + background + class contributions |
 
 Record current and maximum HP separately. HP does not increase automatically with level.
 

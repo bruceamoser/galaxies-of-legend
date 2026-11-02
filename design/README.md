@@ -1,46 +1,13 @@
-# Galaxies of Legend — current design
+# Galaxies of Legend design
 
-This `design/` tree is the authored source for the game and the Player's Book. The Markdown records are the authority; the book build reads them and writes only disposable files under `player-book/generated/` and `player-book/output/`.
+Current reading review: 18 disciplines, 10 classes, 12 cultures, 12 backgrounds, 69 ability cards and 10 equipment entries. All additions are playtest proposals.
 
-The initial data set is deliberately small. It establishes the construction mechanism and the first playable slice, not the final catalog.
+- [Ancestries](ancestry.md): four placeholders, awaiting Bruce's authored material. Legacy homeworlds are excluded.
+- [Cultures and backgrounds](culture-background.md)
+- [Classes](class.md)
+- [Disciplines](disciplines.md) and [ability coverage waves](ability-coverage.md)
+- [Ability catalog](catalog.md), [equipment](equipment.md), [market](market.md), [starting coins](starting-coins.md)
+- [Ship rules](player-book/manuscript/11-starships.md), [construction data](ships/construction.json), [budgeted examples](ships/examples.json)
+- [Open decisions](open-decisions.md)
 
-## Find the material
-
-- [Design intent](design-intent.md) and [open decisions](open-decisions.md)
-- [Homeworlds](ancestry.md), [cultures and backgrounds](culture-background.md), [classes](class.md), [disciplines](disciplines.md)
-- [Abilities](catalog.md), [card conventions](card-conventions.md)
-- [Equipment](equipment.md), [market](market.md), [starting coins](starting-coins.md)
-- [Player's Book](player-book/README.md)
-
-## Current scope
-
-| Content | Count |
-|---|---:|
-| Homeworlds | 4 |
-| Homeworld traits | 20 |
-| Cultures | 4 |
-| Backgrounds | 4 |
-| Classes | 6 |
-| Disciplines | 9 |
-| Ability cards | 48 |
-| Equipment entries | 10 |
-
-## Edit and validate
-
-Edit the Markdown directly. Stable IDs identify records even when names change.
-
-```sh
-python3 design/index.py
-python3 design/audit.py
-python3 design/player-book/build.py --compile
-```
-
-`index.py` rebuilds navigation only. It never rewrites authored entries. `audit.py` checks record structure, links, DP budgets, coin range and derived values. The build requires Python 3 with `markdown-it-py` and Typst 0.15.1.
-
-## Working rule
-
-A new game built on the Legend System replaces the setting and the lists of options. It does not redesign the character-building chassis. If a rule needs to leave the chassis, record a system delta in [open-decisions.md](open-decisions.md) before writing it into the catalog.
-
-## Ship-system reading review
-
-See the [expanded proposed rules](player-book/manuscript/11-starships.md) and [system delta](system-deltas/2026-11-02-ship-review.md). The ship rules and book presentation are under design review; catalog structural approval does not establish readiness to playtest ships.
+Run `python3 design/ship_builder.py` to validate sample ships, or supply a JSON ship file. The Player's Book reads authored Markdown, not generated Typst. Run index.py, audit.py and player-book/build.py --compile after source changes.

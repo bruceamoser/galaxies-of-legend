@@ -28,7 +28,7 @@
   *Galaxies of Legend*: character creation, advancement, abilities, equipment,
   harm and recovery, starships, and FTL travel.
 
-  This is a reading and visual design review, dated 2 November 2026. The ship chapter expands the proposed mechanics with examples and a two-page ship record. Ship procedures and values await designer review. Character catalog checks do not certify balance or readiness for table playtesting. Interior artwork remains in development.
+  This is a reading and visual design review, dated 2 November 2026. The ship chapter expands the proposed mechanics with examples and a two-page ship record. The expanded roster, class affinities and ship construction rules are untested proposals. Ancestries remain placeholders awaiting Bruce's material. Structural checks do not certify balance or readiness for table playtesting. Interior artwork remains in development.
 ]
 #v(14pt)
 #text(size: 9pt)[Manuscript and layout prepared with Codex under Bruce’s direction.

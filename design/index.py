@@ -36,10 +36,8 @@ def main():
         txt += "\n"
     (R / "catalog.md").write_text(txt.rstrip() + "\n")
 
-    txt = "# Homeworlds\n\nChoose two traits from five. Homeworld is independent of culture.\n\n"
-    for p in sorted((R / "homeworlds").glob("*.md")):
-        if p.name.startswith("trait-"):
-            continue
+    txt = "# Ancestries\n\nPlaceholder records await Bruce's ancestry material. Homeworld is no longer the biological origin slot. See [legacy environmental drafts](homeworlds/README.md).\n\n"
+    for p in sorted((R / "ancestries").glob("*.md")):
         txt += f"- {link(p)}\n"
     (R / "ancestry.md").write_text(txt.rstrip() + "\n")
 

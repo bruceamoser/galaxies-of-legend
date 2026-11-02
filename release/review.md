@@ -17,3 +17,13 @@ Build evidence: 58-page PDF compiled with the available Typst Python runtime 0.1
 Bruce has not approved the ship system or overall book look for table playtesting. The new local reading review expands ship procedures, records proposals in a system delta, and adds a two-page ship record. The visual proof uses cinematic working-ship and crew art with quieter page furniture. All ship timing, damage, repair budgets and action procedures remain proposed. The character chassis and DP economy are unchanged.
 
 Built with Typst 0.15.1. Catalog audit: 48 cards, 4 homeworlds, 6 classes, all 384 coin combinations in range. Rendered pages inspected. This review does not constitute a new published release.
+
+## Expanded reading revision r2 - 2026-11-02
+
+Addresses Bruce's screenshots: larger ability body text, separated shaded outcome rows, simplified metadata, high-contrast marks, native card flow, and a class-cost table sized from actual headers. Ten classes are split across two five-class tables, with eighteen verified discipline rows in each.
+
+Roster: 18 disciplines, 10 classes, 12 cultures, 12 backgrounds, 69 abilities. Nine new starter cards and twelve new signatures form a limited bridge wave; broad coverage is explicitly deferred. Ancestries are placeholders awaiting Bruce; old homeworld packages are legacy reference only. The provisional Human arithmetic scaffold grants no traits.
+
+Ship construction now uses five frames, weighted die allocation, required and optional modules, installed/current capability, and three exact-budget example builds. This supersedes the endurance-only draft. The ship sheet includes construction costs and capacities. The CLI checker has fourteen passing rejection and consistency tests. The catalog audit checks 1,440 provisional Human origin/class purses, range 55-68; it does not claim complete ancestry builds.
+
+All additions are playtest proposals. This is a local reading revision, not a published release or mission. Typst 0.15.1 compilation, all-page render review, PDF text/manifest checks and the ship checks were completed.

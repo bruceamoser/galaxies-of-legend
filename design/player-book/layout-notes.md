@@ -7,3 +7,7 @@ Bruce requested cinematic lived-in science fiction with a small dose of pulp adv
 Ship rules are labeled proposed and untested. The two-page ship record is printable, not a fillable PDF form. No new mission or playtest release is included. The existing 0.1.0 release metadata is not advanced by this review.
 
 Build: Markdown through build.py, Typst 0.15.1. Run release/export-review.py after compiling for the full-book and ship-only PDFs. Image prompts and asset provenance are recorded in release/art-direction-review.md.
+
+## Readability revision r2
+
+Ability body is 10.5 pt with generous leading, disabled word hyphenation, simplified metadata and separate shaded Weak/Standard/Strong rows. Whole cards use native column flow rather than guessed two-column page packing. Class-cost tables derive geometry from header length and use two groups of five horizontal class headers. Current proof includes the expanded roster and frame-based ship builder.

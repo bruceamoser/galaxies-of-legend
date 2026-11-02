@@ -61,11 +61,11 @@ The scene moves because every result changes something the crew has to respond t
 
 This is a **design review draft**, using the initial character data set for *Galaxies of Legend*. It contains:
 
-- four homeworlds and twenty homeworld traits;
-- four cultures and four backgrounds;
-- six classes with signatures at levels 1, 3 and 7;
-- nine disciplines;
-- forty-eight ability cards, including universal actions;
+- four ancestry placeholders, awaiting Bruce's material;
+- twelve cultures and twelve backgrounds;
+- ten classes with signatures at levels 1, 3 and 7;
+- eighteen disciplines;
+- sixty-nine ability cards, including universal actions;
 - ten equipment entries and a market;
 - the core rules for play, harm, recovery, starships and FTL.
 

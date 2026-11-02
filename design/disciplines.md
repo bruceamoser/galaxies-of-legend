@@ -2,9 +2,25 @@
 
 Buy ranks in order. A rank is a prerequisite; it grants no passive bonus.
 
+## [Armor](disciplines/armor.md)
+
+- [Brace in Armor](cards/brace-in-armor.md) — level 1; Reaction.
+
 ## [Arms](disciplines/arms.md)
 
 - [Power Strike](cards/power-strike.md) — level 1; Main Action.
+
+## [Athletics](disciplines/athletics.md)
+
+- [Secure Traverse](cards/secure-traverse.md) — level 1; Main Action.
+
+## [Command](disciplines/command.md)
+
+- [Clear Orders](cards/clear-orders.md) — level 1; Main Action.
+
+## [Computing](disciplines/computing.md)
+
+- [Trace Access](cards/trace-access.md) — level 1; Main Action.
 
 ## [Engineering](disciplines/engineering.md)
 
@@ -27,6 +43,10 @@ Buy ranks in order. A rank is a prerequisite; it grants no passive bonus.
 - [Leverage the Org](cards/leverage-the-org.md) — level 1; Main Action.
 - [Read Intent](cards/read-intent.md) — level 1; Main Action.
 
+## [Investigation](disciplines/investigation.md)
+
+- [Follow Evidence](cards/follow-evidence.md) — level 1; Main Action.
+
 ## [Medicine](disciplines/medicine.md)
 
 - [Combat Medic](cards/combat-medic.md) — level 3; Main Action.
@@ -45,6 +65,10 @@ Buy ranks in order. A rank is a prerequisite; it grants no passive bonus.
 - [Evasive Manoeuvre](cards/evasive-maneuver.md) — level 1; Reaction.
 - [Read the Drift](cards/read-the-drift.md) — level 1; Main Action.
 
+## [Robotics](disciplines/robotics.md)
+
+- [Safe Shutdown](cards/safe-shutdown.md) — level 1; Main Action.
+
 ## [Science](disciplines/science.md)
 
 - [Sensor Sweep](cards/sensor-sweep.md) — level 1; Main Action.
@@ -54,3 +78,15 @@ Buy ranks in order. A rank is a prerequisite; it grants no passive bonus.
 - [Black Market Contact](cards/black-market-contact.md) — level 1; Main Action.
 - [Favour Owed](cards/favor-owed.md) — level 1; Main Action.
 - [Shadow Step](cards/shadow-step.md) — level 1; Maneuver.
+
+## [Survival](disciplines/survival.md)
+
+- [Make Camp](cards/make-camp.md) — level 1; Main Action.
+
+## [Trade](disciplines/trade.md)
+
+- [Find a Market](cards/find-a-market.md) — level 1; Main Action.
+
+## [Xenology](disciplines/xenology.md)
+
+- [Establish Protocol](cards/establish-protocol.md) — level 1; Main Action.

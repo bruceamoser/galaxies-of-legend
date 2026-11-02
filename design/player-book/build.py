@@ -19,12 +19,12 @@ name = lambda p: Path(p).read_text().splitlines()[0].lstrip("# ").strip()
 rel = lambda p: str(Path(p).resolve().relative_to(ROOT))
 
 files = {}; links = []; excluded = set(); card_records = []; included = []
-for folder in ["homeworlds", "origins", "classes", "disciplines", "cards", "equipment"]:
+for folder in ["ancestries", "origins", "classes", "disciplines", "cards", "equipment"]:
     for p in (DESIGN / folder).glob("*.md"):
         files[p.resolve()] = key(p)
 for p in (BOOK / "manuscript").glob("*.md"):
     files[p.resolve()] = key(p)
-for f in ["market.md", "starting-coins.md", "card-conventions.md"]:
+for f in ["market.md", "starting-coins.md", "card-conventions.md", "ability-coverage.md"]:
     p = DESIGN / f
     if p.exists():
         files[p.resolve()] = key(p)
@@ -48,8 +48,8 @@ def clean(p):
     if p.parent.name == "origins":
         s = re.sub(r"^\*\*Type:\*\*[^\n]*\n", "", s, flags=re.M)
         s = re.sub(r"^The discipline rank and the card are one grant\..*\n", "", s, flags=re.M)
-    if p.parent.name == "homeworlds" and p.name.startswith("trait-"):
-        s = re.sub(r"^\*\*Homeworld:\*\*[^\n]*\n", "", s, flags=re.M)
+    if p.parent.name == "ancestries" and p.name.startswith("trait-"):
+        s = re.sub(r"^\*\*Ancestry:\*\*[^\n]*\n", "", s, flags=re.M)
     s = re.sub(r"^\s*-\s*$", "", s, flags=re.M)
     return s.strip() + "\n"
 
@@ -142,18 +142,18 @@ def manuscript(filename, n, title):
     p = BOOK / "manuscript" / filename; record(p, "chapter")
     v = "#chapter(" + q(n) + "," + q(title) + ")\n#metadata(" + q(key(p)) + ")<" + key(p) + ">\n"
     if filename == "11-starships.md":
-        sections = re.split(r"(?=^## )", p.read_text(), flags=re.M)
         v += '#illustration("ship-review-cutter",height:205pt,fit:"cover")\n'
         v += '#set par(leading:.48em,spacing:.7em)\n'
+        sections = re.split(r"(?=^## )", p.read_text(), flags=re.M)
         for index, section in enumerate(sections):
-            if index in (2, 4, 6, 8, 10, 11, 13, 14):
-                v += "#pagebreak(weak:true)\n"
-            if section.startswith("## FTL:"):
-                section = section.replace("### Track B: navigation", "<!-- page -->\n\n### Track B: navigation")
-                chunks = section.split("<!-- page -->")
-                v += render(chunks[0], p, base=1) + "#pagebreak(weak:true)\n" + render(chunks[1], p, base=1)
+            if index: v += "#pagebreak(weak:true)\n"
+            if section.startswith("## 11."):
+                profiles = re.split(r"(?=^### )",section,flags=re.M)
+                v += render(profiles[0],p,base=1)
+                for profile in profiles[1:]:
+                    v += "#block(breakable:false)[" + render(profile,p,base=1) + "]\n"
             else:
-                v += render(section, p, base=1)
+                v += render(section,p,base=1)
     else:
         if filename == "01-welcome.md":
             v += '#illustration("frontier-crew-review",height:215pt,fit:"cover")\n'
@@ -163,7 +163,7 @@ def manuscript(filename, n, title):
 
 def doc(p, kind="entry", wide=False):
     record(p, kind); s = clean(p)
-    if kind in ("homeworld", "trait", "culture", "background", "discipline", "equipment"):
+    if kind in ("ancestry", "trait", "culture", "background", "discipline", "equipment"):
         icons = "[ #discipline-mark(" + q(p.stem) + ",\"\",size:28pt) ]" if kind == "discipline" else "[]"
         text = "#catalog-card(" + q(name(p)) + "," + q(key(p)) + ",icons: " + icons + ")[" + render(s, p) + "]\n"
     else:
@@ -177,10 +177,9 @@ def card(p):
         m = re.search(r"\*\*" + re.escape(label) + r":\*\*\s*(.*?)(?=\s*·\s*\*\*|\n|$)", s)
         return m.group(1).strip() if m else default
     tier = field("Tier / minimum level"); req = field("Requirements to learn")
-    action = field("Action"); attr = field("Attribute"); tags = field("Type"); price = field("DP")
+    action = field("Action"); attr = field("Attribute"); tags = " / ".join(dict.fromkeys(t.strip() for t in (field("Type") + "/" + field("Tags")).split("/") if t.strip())); price = field("DP")
     card_records.append({"path": rel(p), "name": name(p), "tier": tier, "action": action,
                          "requirements": req, "key": key(p)})
-    if field("Tags"): tags += " / " + field("Tags")
     s = re.sub(r"^\*\*(?:Action|Tier / minimum level|Type|Tags):\*\*.*\n", "", s, flags=re.M)
     s = s.replace("## Rules", "---")
     s = s.replace("**Equipment / acquisition:**", "**Gear:**").replace("**Target / range / shape:**", "**Target:**")
@@ -191,7 +190,15 @@ def card(p):
         for d, r in re.findall(r"([A-Za-z]+) ([123])", req)
         if (DESIGN / "disciplines" / (d.lower() + ".md")).exists()
     )
-    return "#card(icons: [" + icons + "]," + ",".join(map(q, [name(p), "U" if tier == "Universal" else tier, req, action, attr, tags, "Universal" if tier == "Universal" else price + " DP", key(p)])) + ")[\n" + render(s, p) + "]\n"
+    match = re.search(r"(?m)^- \*\*Weak:\*\* (.+)\n- \*\*Standard:\*\* (.+)\n- \*\*Strong:\*\* (.+)",s)
+    if match:
+        body = render(s[:match.start()],p)
+        body += "#outcome-rows((" + ",".join("[" + render("**" + label + ":** " + value,p) + "]" for label,value in zip(("Weak","Standard","Strong"),match.groups())) + ",))\n"
+        body += render(s[match.end():],p)
+    else:
+        body = render(s,p)
+    return "#card(icons: [" + icons + "]," + ",".join(map(q, [name(p), "U" if tier == "Universal" else tier, req, action, attr, tags, "Universal" if tier == "Universal" else price + " DP", key(p)])) + ")[\n" + body + "]\n"
+
 
 
 def rank_costs(p):
@@ -216,7 +223,7 @@ def class_page(p):
     coins = re.search(r"\*\*Starting coin contribution:\*\* \+(\d+)", raw).group(1)
     starting = re.search(r"choose two distinct rank-1 disciplines from ([^.]+)", raw).group(1)
     costs = rank_costs(p)
-    band_names = {(1, 2, 4): "Home", (2, 4, 8): "Adjacent", (3, 6, 12): "Neutral", (4, 8, 16): "Opposed"}
+    band_names = {(1, 2, 4): "Home", (2, 4, 8): "Adjacent", (3, 6, 12): "Foreign", (4, 8, 16): "Opposed"}
     cost_table = "| Price band / disciplines | DP: 1 / 2 / 3 |\n|---|---|\n"
     for values, band_name in band_names.items():
         disciplines = ", ".join(d.title() for d in sorted(costs) if costs[d] == values)
@@ -239,19 +246,15 @@ def class_page(p):
 
 def hp_reference():
     p = BOOK / "manuscript/02-creation.md"
-    home = []
-    for f in sorted((DESIGN / "homeworlds").glob("*.md")):
-        if f.name.startswith("trait-"): continue
-        t = f.read_text(); hp = re.search(r"HP \+(\d+)", t).group(1)
-        home.append("| " + name(f) + " | +" + hp + " |")
+    home = ["| Human arithmetic scaffold only | +2 |", "| Alien placeholders | Unset |"]
     cls = []
     for slug, _ in CLASSES:
         f = DESIGN / "classes" / (slug + ".md")
         hp = re.search(r"HP contribution \+(\d+)", f.read_text()).group(1)
         cls.append("| " + name(f) + " | +" + hp + " |")
-    intro = "#heading(level:2)[Starting HP]\n#label(\"starting-hp\")\nYour maximum HP brings together your homeworld, training and endurance. Calculate it after choosing your traits and purchases; then start at that maximum.\n\n#note[#align(center)[#text(size:15pt,weight:\"bold\")[12 + homeworld + class + Fortitude + explicit benefits]]]\n"
+    intro = "#heading(level:2)[Starting HP]\n#label(\"starting-hp\")\nAncestry values are placeholders. Human +2 is an arithmetic scaffold only; alien HP is unset. Calculate the rest from class and Fortitude; no missing ancestry traits are granted.\n\n#note[#align(center)[#text(size:15pt,weight:\"bold\")[12 + ancestry + class + Fortitude + explicit benefits]]]\n"
     table = lambda title, rows: render("## " + title + "\n| Choice | HP |\n|---|---:|\n" + "\n".join(rows), p, base=1)
-    intro += "#grid(columns:(1fr,1fr),gutter:18pt,[" + table("Homeworld", home) + "#heading(level:3)[Fortitude and benefits]\nAdd your Fortitude, including a negative value. Then add only benefits you actually chose. HP does not increase automatically with level. Record current HP separately from your maximum.],[" + table("Class", cls) + "])\n"
+    intro += "#grid(columns:(1fr,1fr),gutter:18pt,[" + table("Ancestry", home) + "#heading(level:3)[Fortitude and benefits]\nAdd your Fortitude, including a negative value. Then add only benefits you actually chose. HP does not increase automatically with level. Record current HP separately from your maximum.],[" + table("Class", cls) + "])\n"
     return intro
 
 
@@ -260,33 +263,32 @@ def coin_reference():
     sections = dict((m.group(1), m.group(2)) for m in re.finditer(r"## ([^\n]+)\n(.*?)(?=\n## |\Z)", t, re.S))
     def table(title):
         return render("### " + title.replace(" contribution", "") + "\n" + sections[title], p, base=1)
-    intro = t.split("## Homeworld")[0]
+    intro = t.split("## Ancestry")[0]
     result = "#pagebreak(weak:true)\n#entry(\"Starting coins\"," + q(key(p)) + ")\n" + render(intro, p) + "\n"
     result += "#grid(columns:(1fr,1fr),gutter:12pt,["
-    result += table("Homeworld contribution") + table("Class contribution")
+    result += table("Ancestry contribution") + table("Class contribution")
     result += "],[" + table("Culture contribution") + table("Background contribution") + "])\n"
     return result
 
 
 def discipline_matrix():
-    classes = [DESIGN / "classes" / (c[0] + ".md") for c in CLASSES]
-    costs = {p.stem: rank_costs(p) for p in classes}
-    head = ["[Discipline]"] + ["[#text(" + q(name(p)) + ")]" for p in classes]
-    rows = []
-    for d in sorted(DISCIPLINES):
-        row = ["[#xref(" + q(key(DESIGN / "disciplines" / (d + ".md"))) + ")[#text(" + q(d.title()) + ")]]"]
-        row += ["[" + "/".join(map(str, costs[p.stem][d])) + "]" for p in classes]
-        rows.append("(" + ",".join(row) + ",)")
-    result = "#pagebreak(weak:true)\n#heading(level:2)[Discipline costs by class]\n"
-    result += "Each cell gives *rank 1 / rank 2 / rank 3*, in DP. These are separate purchases, not cumulative totals.\n\n"
-    result += "#cost-matrix((" + ",".join(head) + ",),(" + ",".join(rows) + ",))\n"
+    result = ""
+    for offset in range(0,len(CLASSES),5):
+        classes = [DESIGN / "classes" / (slug + ".md") for slug,_ in CLASSES[offset:offset+5]]
+        head = ["[Discipline]"] + ["[#text(" + q(name(p)) + ")]" for p in classes]
+        rows=[]
+        for d in DISCIPLINES:
+            row = ["[#xref(" + q(key(DESIGN / "disciplines" / (d + ".md"))) + ")[#text(" + q(d.title()) + ")]]"]
+            row += ["[" + "/".join(map(str,rank_costs(p)[d])) + "]" for p in classes]
+            assert len(row) == len(head)
+            rows.append("(" + ",".join(row) + ",)")
+        result += "#pagebreak(weak:true)\n#heading(level:2)[Discipline costs by class - " + str(offset//5+1) + "]\n"
+        result += "Each cell gives *rank 1 / rank 2 / rank 3*, in DP. Pay each rank separately.\n\n"
+        result += "#cost-matrix((" + ",".join(head) + ",),(" + ",".join(rows) + ",))\n"
     return result
 
+CLASSES = [(p.stem,name(p)) for p in sorted((DESIGN/"classes").glob("*.md"))]
 
-CLASSES = [
-    ("soldier", "Soldier"), ("scientist", "Scientist"), ("spacer", "Spacer"),
-    ("explorer", "Explorer"), ("medic", "Medic"), ("envoy", "Envoy"),
-]
 DISCIPLINES = sorted(p.stem for p in (DESIGN / "disciplines").glob("*.md"))
 
 
@@ -317,12 +319,9 @@ parts.append(manuscript("02-creation.md", "2", "Create Your Explorer"))
 parts.append(hp_reference())
 parts.append(coin_reference())
 
-parts.append("#chapter(\"3\",\"Homeworld, Culture and Background\")\n#illustration(\"frontier-crew-review\",height:300pt,fit:\"cover\")\n")
-parts.append("#twocol[Choose the place that made you, the community that shaped you, and the work that taught you something before the first session. Your homeworld gives you a body and a history; culture and background give you paired training. None of these choices dictates your class or your personality.]\n")
-for h in [p for p in sorted((DESIGN / "homeworlds").glob("*.md")) if not p.name.startswith("trait-")]:
-    parts.append("#pagebreak(weak:true)\n#grid(columns:(1fr,1fr),gutter:18pt,[" + doc(h, "homeworld", wide=True) + "],[#illustration(" + q("homeworld-" + h.stem) + ",height:245pt)])\n")
-    traits = re.findall(r"\]\((trait-[^)]+\.md)\)", h.read_text())
-    parts.append("#twocol[\n" + "".join(doc(DESIGN / "homeworlds" / t, "trait", wide=True) for t in traits) + "]\n")
+parts.append("#chapter(\"3\",\"Ancestry, Culture and Background\")\n")
+parts.append("Ancestry is physiology, culture is community, background is experience. Ancestries below are placeholders awaiting Bruce's material. No alien biology or benefits have been invented.\n\n")
+parts.append(flow([doc(p,"ancestry",wide=True) for p in sorted((DESIGN/"ancestries").glob("*.md"))]))
 for typ, title in [("culture", "Cultures"), ("background", "Backgrounds")]:
     parts.append("#pagebreak(weak:true)\n#heading(level:2," + q(title) + ")\n")
     intro = BOOK / "manuscript" / ("intro-" + typ + ".md"); record(intro, "section")
@@ -341,9 +340,11 @@ for c in CLASSES:
 parts.append(manuscript("05-disciplines.md", "5", "Disciplines"))
 parts.append(discipline_matrix())
 discipline_files = sorted((DESIGN / "disciplines").glob("*.md"), key=name)
-for offset in (0, 5):
-    group = discipline_files[offset:offset + 5]
-    parts.append("#pagebreak(weak:true)\n#grid(columns:(1fr,1fr),gutter:18pt,[" + "".join(doc(p, "discipline", wide=True) for p in group[:3]) + "],[" + "".join(doc(p, "discipline", wide=True) for p in group[3:]) + "])\n")
+for offset in range(0,len(discipline_files),4):
+    group = discipline_files[offset:offset + 4]
+    parts.append("#pagebreak(weak:true)\n#grid(columns:(1fr,1fr),gutter:18pt,[" + "".join(doc(p, "discipline", wide=True) for p in group[:2]) + "],[" + "".join(doc(p, "discipline", wide=True) for p in group[2:]) + "])\n")
+
+parts.append("#pagebreak(weak:true)\n" + doc(DESIGN / "ability-coverage.md", "coverage-plan", wide=True))
 
 parts.append(manuscript("06-playing.md", "6", "Playing the Game"))
 parts.append(manuscript("08-recovery.md", "7", "Harm and Recovery"))
@@ -372,8 +373,8 @@ parts.append('#include "../sheets.typ"\n#include "../ship-sheets.typ"\n')
 (GEN / "body.typ").write_text("".join(parts))
 manifest = {"included": included, "cards": card_records, "internal_links": links,
             "external_design_references_rendered_as_text": sorted(excluded),
-            "expected": {"ability": len(card_records), "homeworld": 4, "trait": 20,
-                         "culture": 4, "background": 4, "class": 6, "discipline": 9,
+            "expected": {"ability": len(card_records), "ancestry": len(list((DESIGN/"ancestries").glob("*.md"))), "trait": 0,
+                         "culture": len(list((DESIGN/"origins").glob("culture-*.md"))), "background": len(list((DESIGN/"origins").glob("background-*.md"))), "class": len(CLASSES), "discipline": len(DISCIPLINES),
                          "equipment": 10}}
 (GEN / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
 print("Included", len(included), "records;", len(card_records), "abilities;", len(links), "internal links.")

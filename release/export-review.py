@@ -10,9 +10,9 @@ out = root / 'output/pdf'
 out.mkdir(parents=True, exist_ok=True)
 reader = PdfReader(source)
 texts = [(p.extract_text() or '') for p in reader.pages]
-start = next(i for i, t in enumerate(texts) if 'CHAPTER 10' in t and 'Starships and FTL' in t)
+start = next(i for i, t in enumerate(texts) if 'CHAPTER 10' in t and ('Starships and FTL' in t or 'Starships: build and operate' in t))
 end = next(i for i, t in enumerate(texts[start+1:], start+1) if 'CHAPTER 11' in t)
-sheets = [i for i, t in enumerate(texts) if 'SHIP RECORD / condition' in t or 'SHIP OPERATIONS / preparation' in t]
+sheets = [i for i, t in enumerate(texts) if ('SHIP RECORD / condition' in t or 'SHIP RECORD / construction' in t) or 'SHIP OPERATIONS / preparation' in t]
 assert len(sheets) == 2, f'Expected two ship sheets, found {sheets}'
 writer = PdfWriter()
 for i in list(range(start, end)) + sheets:
@@ -20,10 +20,10 @@ for i in list(range(start, end)) + sheets:
 writer.add_metadata({'/Title': 'Galaxies of Legend - Ship Systems Reading Review', '/Author': 'Bruce A. Moser', '/Subject': 'Proposed ship mechanics and printable ship record - 2026-11-02'})
 writer.add_outline_item('Proposed ship mechanics', 0)
 writer.add_outline_item('Ship record and operations sheets', end-start)
-ship = out / 'Galaxies-of-Legend-Ship-Review-2026-11-02.pdf'
+ship = out / 'Galaxies-of-Legend-Ship-Review-r2-2026-11-02.pdf'
 with ship.open('wb') as stream:
     writer.write(stream)
-full = out / 'Galaxies-of-Legend-Players-Book-Review-2026-11-02.pdf'
+full = out / 'Galaxies-of-Legend-Players-Book-Review-r2-2026-11-02.pdf'
 shutil.copy2(source, full)
 # Verify the excerpt preserved every chapter and sheet's text.
 extracted = PdfReader(ship)

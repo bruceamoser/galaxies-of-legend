@@ -4,7 +4,7 @@
 
 ## Rules
 
-Stealth, security, deception, infiltration, and the black market.
+Stealth, disguise, locks and covert deception. Computing handles digital access; Investigation follows evidence.
 
 Ranks 1, 2 and 3 are purchased in order. Rank alone grants no action, attribute
 bonus, equipment or permission to use every card in this field. A card prints the

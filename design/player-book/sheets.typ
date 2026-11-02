@@ -26,7 +26,7 @@
 #page-sheet([
  #sheet-title("Hero & encounter")
  #v(8pt)
- #grid(columns:(2fr,1fr,1fr),gutter:6pt,field("CHARACTER NAME / PRONOUNS",height:32pt),field("HOMEWORLD",height:32pt),field("CLASS",height:32pt))
+ #grid(columns:(2fr,1fr,1fr),gutter:6pt,field("CHARACTER NAME / PRONOUNS",height:32pt),field("ANCESTRY",height:32pt),field("CLASS",height:32pt))
  #v(6pt)#grid(columns:(1fr,1fr),gutter:6pt,field("CULTURE"),field("BACKGROUND"))
  #v(10pt)#grid(columns:(1fr,)*6,gutter:7pt,..("Brawn","Fortitude","Agility","Guile","Knowledge","Reason").map(score))
  #strip("Keep fighting")

@@ -1,215 +1,235 @@
-# Starships and FTL
+# Starships: build and operate
 
-> **Design review / playtest proposal.** This chapter collects the existing ship concept and proposes the missing procedures. These ship rules and all ship numbers are untested. They are presented for Bruce's review, not as an approved playtest release. The Legend character rules, attributes and DP economy are unchanged.
+> **Playtest proposal - construction revision.** Bruce requested ship size classes and allocated system dice. This chapter replaces the earlier endurance-only ship proposal. All ship construction budgets, capacities, damage and operating procedures remain untested design material. The character chassis and DP economy are unchanged.
 
-The ship is a shared character: a hull that takes punishment, shields that reduce damage, and systems whose condition changes under strain. A station is a job, not a class. Your abilities describe what you can do exceptionally well; the basic station actions below let any crew member participate.
+The crew builds a ship by choosing its size and spending a finite **allocation budget** on installed system dice. Bigger dice are larger, more capable systems as well as more durable ones. A small hull cannot mount everything. A large hull can carry more and better modules, but has poorer Handling and needs more people, money and maintenance to use its potential.
 
-## Two rolls, two different questions
+## 1. Choose a frame
 
-The **action check** asks how well the crew member performs: roll 3d6 + one attribute, apply Boons and Banes, and read Weak / Standard / Strong. A system die is never added to that total. Discipline ranks grant access to abilities, not a bonus to this roll.
+A ship's **frame class** is its physical scale, not a character class or a station job. Frame size fixes Hull, Handling, available module positions and the allocation budget. These are construction limits, not money and not a pool spent every turn. Hull and Handling are not bought again as systems.
 
-The **Consumable Die** asks whether the machinery holds up: roll the named system die after meaningful load. Only a 1 steps it down. The order is **resolve the action, then check the system**. If a d4 goes offline, the action just resolved still happened. A successful shot can burn out its weapon; a poor shot can leave the weapon working perfectly.
+| Frame | Allocation | Modules max | Die ceiling | Hull | Handling | Scale |
+|---|---:|---:|---|---:|---:|---:|
+| Launch / shuttle | 12 | 8 | d8 | 12 | +2 | 1 |
+| Light ship / cutter | 24 | 12 | d10 | 24 | +1 | 2 |
+| Medium ship / frigate | 36 | 16 | d12 | 40 | +0 | 4 |
+| Heavy ship / cruiser | 50 | 22 | d12 | 64 | -1 | 8 |
+| Capital ship | 70 | 30 | d12 | 100 | -2 | 16 |
 
-The ladder is **d12 > d10 > d8 > d6 > d4 > offline**. On any single load roll the chance of degradation is 1 in the die's size: d12 is about 8%, d8 about 13%, d4 is 25%. A large die means endurance, not more damage or a better action check.
+**Scale** multiplies only life-support capacity and cargo capacity. It is not a combat bonus. A capital ship does not multiply its weapon damage by sixteen. Heavy weapons, very large targets and mixed-scale combat require a later design pass; the current mount table is a review baseline.
 
-## Reading the ship sheet
+## 2. Spend the system-die budget
 
-| Field | What you record |
+| Installed die | Allocation cost | Equipment quality | Load degradation |
+|---|---:|---|---|
+| d4 | 1 | one Bane | On a 1, step down |
+| d6 | 2 | no modifier | On a 1, step down |
+| d8 | 3 | 1 Boon | On a 1, step down |
+| d10 | 4 | 2 Boons | On a 1, step down |
+| d12 | 5 | 3 Boons | On a 1, step down |
+
+Costs are **total costs**, not costs per upgrade: a d8 module costs 3 allocation; replacing its d6 rating costs one additional point. Buying a new d4 module costs 1. Each installed module also occupies one module position, including required systems. Spend at most the frame budget, stay within the die ceiling, and leave unused allocation recorded. Unspent points are empty design capacity, not free power or repair supplies.
+
+**Equipment quality** applies when that system is the primary equipment for a meaningful check. Add its Boons or Bane to the usual Legend pool, cancel modifiers and retain the core limit of three net extra dice. Never add a system die or its size to an attribute total. Use one primary equipment grade per check; do not add grades from several consoles. Abilities and distinct situational modifiers can still contribute within the core limit.
+
+## 3. Install the required systems
+
+Every independent crewed ship needs exactly one of each: **sublight engines, navigation, sensors, life support and communications**. Each starts at least d4 and costs allocation. These are not free fittings. They may go offline during play, but an offline required module remains installed and does not refund points.
+
+| Required system | Capability at higher ratings |
 |---|---|
-| Hull | Maximum and current structure; damage remaining after shields reduces this. |
-| Shield DR | The amount absorbed per incoming attack while defences are online. |
-| Handling | A printed manoeuvring quality; see its use below. |
-| Jump rating | Maximum route distance in abstract route units, not light-years. |
-| Systems | Installed rating, current die, temporary changes and faults for each system. |
-| Weapons | Mount, damage type, range and Weak / Standard / Strong damage. |
-| Preparation | Fuel units, capacitor clock, navigation progress and arrival result. |
+| Sublight engines | Better quality on powered manoeuvres; frame Handling remains the ship's size characteristic. |
+| Navigation | Better route-plotting equipment quality and endurance. There is no additional automatic computer Boon. |
+| Sensors | Better check quality and longer detection reach; reach does not itself identify everything present. |
+| Life support | Supports more occupants; installed capacity is multiplied by frame Scale. |
+| Communications | Better check quality when punching through noise, concealment or interference; ordinary in-system radio needs no check. |
 
-**Installed rating** is the normal serviced die size. **Current die** records wear and available power. A temporary boost can exceed the installed rating, up to d12; ordinary service cannot. Keep the underlying die and any temporary boost separately so ending a boost never erases actual wear. A missing system is absent, not offline, and cannot be restored by a repair.
+**Example: d4 versus d6 sensors.** d4 reaches Near and gives one Bane to an active scan. d6 reaches Far and gives no equipment penalty. d6 also has a lower chance of wear per load roll. The upgrade changes what the crew can attempt and how well it can do it, not merely how long the unit lasts.
 
-## What each system does
+## 4. Choose optional modules
 
-| System | Use and consequence of going offline |
+| Optional system | What the allocation buys |
 |---|---|
-| Power capacitors | Charge and hold jump energy. Offline: no charging or jump. This is not the ship's reactor. |
-| FTL drive | Executes a prepared jump. Offline: no jump. |
-| Navigation suite | Supports route work and gives its stated Boon. Offline: no computer Boon; charts may still permit plotting. |
-| Sensors | Active scans and targeting beyond Near. Offline: visual observation and Close / Near fire remain possible. |
-| Sublight engines | Change range and evade. Offline: the ship coasts; powered manoeuvres are unavailable. |
-| Weapons | Fire the listed mounts. Offline: those mounts cannot fire. |
-| Defences | Maintain shield DR. Offline: printed shield DR becomes 0. |
-| Life support | Maintains breathable, habitable compartments. Offline: start the emergency procedure below. |
-| Communications | Transmit and receive beyond local contact. Offline: no normal radio; physical signals may still work. |
+| Cargo bay | Sealed freight handling and cargo units; multiple bays are allowed. |
+| Med bay | Treatment beds and appropriate facility support; does not grant medical abilities or automatic healing. |
+| Weapon mount | One independently operated ship weapon, with its own die, range and damage. Multiple mounts are allowed. |
+| Targeting array | May replace the weapon's equipment quality on a firing check if better. Does not add another grade or an extra attack. |
+| FTL drive | Rated jump distance; requires a separately allocated capacitor bank. |
+| Jump capacitors | Stores jump charge and sets charging speed; must be paired with an FTL drive in this draft. |
+| Shield generator | Supplies shield DR. An unshielded hull has DR 0. |
+| Workshop | Equipped project positions; does not supply endless parts or grant engineering cards. |
+| Hangar | Launch berths; medium frame or larger, minimum d6. Each docked launch has its own separate build budget. |
 
-The reactor is assumed to function unless a scene explicitly threatens it. Capacitor wear does not shut down every other system. This distinction keeps jump preparation separate from the Engineer's choice of which system to sacrifice.
+Only cargo bays, med bays, weapon mounts, workshops and hangars can be repeated. Each repeat costs its full allocation and a module position and is tracked separately. Do not split a required system into several cheap copies. Every weapon mount gets an identifier; roll and repair that mount, not an imaginary shared weapons pool.
 
-## Crew, turns and access
+The frame includes ordinary crew access, fittings and personal storage, not a commercial cargo bay, clinic, weapon or FTL drive. A targeting array requires at least one weapon mount. A hangar does not grant ships, pilots or extra turns. Dedicated armour plating, stealth systems, reactors and exotic modules are future coverage, not free narrative upgrades.
 
-Use the existing turn structure: one Main Action, one Maneuver, movement and one Reaction per character. Alternate turns by side, choosing the order within a side as play proceeds. The ship has no extra turn or action pool. An enemy ship uses its listed crew stations; it does not receive every station action for free.
+## 5. Read installed capacities
 
-Choose a station at the start of your turn. Switching adjacent bridge consoles uses your Maneuver; reaching engineering or a damaged compartment uses normal movement and any intervening doors or hazards. Remote access must be established in the fiction. One console has one operator at a time; additional crew need another installed console or mount. Each weapon mount fires at most once per round unless an ability explicitly overrides that limit.
+| Module / capacity | d4 | d6 | d8 | d10 | d12 |
+|---|---|---|---|---|---|
+| Sensor reach | Near | Far | Extreme | local orbital region | local system survey |
+| Cargo units, before Scale | 2 | 4 | 8 | 16 | 32 |
+| Occupants, before Scale | 2 | 4 | 8 | 16 | 32 |
+| Med-bay beds | 1 | 2 | 3 | 4 | 6 |
+| Workshop projects | 1 | 2 | 3 | 4 | 6 |
+| Launch berths | 0 | 1 | 2 | 3 | 4 |
+| FTL route units | 1 | 2 | 3 | 4 | 5 |
+| Capacitor segments | 3 | 6 | 9 | 12 | 15 |
+| Minutes per charge segment | 10 | 8 | 6 | 4 | 2 |
+| Shield DR | 1 | 2 | 3 | 4 | 5 |
 
-A solo pilot can fly or fire with their Main Action, not both. An unattended station continues its routine setting but makes no checks. Life support, passive communications and maintained shields do not need an operator each round.
+Cargo units are standard pallet spaces, not an exchange rate for personal Bulk or tonnes. Define unusually bulky freight before accepting it. Multiply each bay's units and life-support occupants by frame Scale; do not multiply beds, workshop positions, hangars, jump range or shields. Med bays hold the stated number of concurrent patients; each treatment still uses the healer's action, ability, supplies and check. Workshop positions measure simultaneous projects, not an automatic progress grant.
 
-## Basic station actions
+Larger sensors permit progressively wider searches. Orbital-region and system surveys take ten-minute intervals, require an SA-set progress target, and give broad contacts or leads, not instant real-time firing solutions. A Near-only array can still make a visual Close observation. Weapon targeting beyond Near needs live sensor coverage or a current contact supplied by an ally; information does not expand weapon range.
 
-All actions in this table are **proposed universal Main Actions**. No DP purchase is required. Have the listed system online, explain the task, and roll the listed attribute. An ability's specific action, range and outcomes replace this baseline when that ability is used.
+## 6. Installed rating, current die and load
 
-| Station / action | Weak / Standard / Strong |
+**Installed rating** is the hardware bought at construction. **Current die** is its operating condition. A serviced system starts at its installed die. Wear steps its current die down: d12 > d10 > d8 > d6 > d4 > offline. Its **effective die** is the lower of installed rating and current die, after any permitted temporary modifiers. Current may be boosted above installed rating for endurance, but this never creates a physically larger bay or a better installed array.
+
+Use the effective die for operating quality, active sensor reach, shield DR, weapon damage, FTL range and capacitor storage/rate. Thus worn d8 sensors operating at d6 have Far reach and normal quality; their larger installed hardware remains d8 and can be restored. Cargo space, berths and the installed number of life-support occupants do not shrink when a die wears. An offline bay becomes inaccessible or unsafe to handle, not a hole that deletes cargo; an offline life-support system starts the reserve clock.
+
+Resolve the crew's **3d6 + attribute action first**, then roll the current system die once for meaningful load. Only a 1 steps it down. A d4 action still resolves before the system goes offline. Roll a weapon mount after a salvo; engines after a powered manoeuvre; sensors after an active scan; navigation after a plotting interval; capacitors after a charging interval; FTL after arrival. Med bays and workshops roll when used for a pressured treatment or project interval; cargo handling, targeting and communications roll when strained. The SA names each strained system before the action.
+
+A firing check that actively uses a targeting array checks both the mount and that array after the shot. Do not also check passive sensors for merely holding a live contact. Routine storage, ordinary radio and passive life support do not check every round. A Hull wound is a separate stress event and can roll a module already checked this round.
+
+## 7. Crew stations and actions
+
+Stations are jobs, not exclusive classes. Each character keeps one Main Action, one Maneuver, movement and one Reaction. Alternate turns by side as in Legend. The ship grants no separate free turn. Choose a station at turn start; switching adjacent consoles uses your Maneuver, while reaching another compartment uses normal movement. One console has one operator at a time.
+
+A pilot may fly or fire with their Main Action, not both. Each mount fires at most once per round unless an explicit ability overrides that limit. More mounts create choices; they do not invent crew. An unattended system holds its routine setting and makes no action checks. The SA states enemy crew and mount limits before a ship scene.
+
+| Universal station action | Weak / Standard / Strong |
 |---|---|
-| Pilot: change range, Agility | Move one band with a declared complication / move one band / move one band and give the next allied station check a Boon. Roll engines after use. |
-| Gunner: fire, Agility | Deal the mount's Weak / Standard / Strong damage. Roll weapons after use. |
-| Engineer: reroute, Knowledge | See power transfer; roll no additional donor or receiver load die for the transfer itself. |
-| Sensors: acquire, Reason | Locate the target, but give the next allied check against it a Bane / identify one active system / identify a system and give the next allied attack a Boon. Roll sensors. |
-| Navigator: plot, Reason | Add 1 progress and a recorded arrival complication / add 2 / add 3. Roll navigation after each plotting interval. |
-| Commander: coordinate, Guile | Give the chosen ally's next station check a Boon, but your next station check a Bane / give that ally a Boon / give two different allies a Boon each. No system load. |
+| Pilot: change range, Agility | Move one band with a declared complication / move one band / move one band and give the next allied station check a Boon. Use engines quality; roll engines. |
+| Gunner: fire, Agility | Use mount damage by band. Use mount quality, or targeting quality if better. Check every actively used firing system once. |
+| Engineer: transfer, Knowledge | One step and donor offline at scene end / one step / up to two steps between the same pair. See transfer limits. |
+| Sensors: acquire, Reason | Locate contact with a declared complication / identify an active system / identify one and give the next allied attack a Boon. Use sensors quality; roll sensors. |
+| Navigator: plot, Reason | 1 progress and recorded complication / 2 / 3. Use navigation quality; roll navigation after an interval. |
+| Commander: coordinate, Guile | One ally's next station check gains a Boon, your next check a Bane / one ally gains a Boon / two different allies gain a Boon each. |
 
-A granted Boon applies to one check and expires at the end of the recipient's next turn. Only one instance of the same basic support action can benefit a check. A Strong result grants its printed benefit; it does not also grant a free system wound or an extra action.
+Unless stated otherwise, station Boons expire at the end of the recipient's next turn; a Weak command Bane expires after use or at scene end. No repeated copy of the same support action stacks on one check. Cards replace the baseline where their specific text applies. A Strong result grants its printed benefit, not an additional unlisted system wound.
 
-For a Weak pilot result, declare a consequence before rolling: expose the ship (one Bane on its next defence), take a hazard hit, or lose a safe approach. Avoid complications that silently cancel the printed movement. Scanner information does not grant the stronger information on the Sensor Sweep card.
+## 8. Handling, weapons and damage
 
-## Handling and defence
+Compare frame **Handling** when one powered ship contests another: higher Handling grants one Boon, lower gives one Bane, equal gives neither. Combine it with one primary system's equipment quality within the core cap. Fixed hazards use declared situational modifiers instead. Offline engines remove the Handling comparison and prevent powered manoeuvres.
 
-**Proposed use of Handling:** compare the printed values only when one ship contests another ship's powered manoeuvre. The more agile ship gains one Boon; the less agile ship gains one Bane. Equal values change nothing. Do not add Handling to an attribute or to a roll total. A fixed hazard uses the SA's declared Boons or Banes instead of this comparison.
+When the player fires, their attack band sets damage; do not also roll an NPC defence. For a contested attack, compare equipment on both sides: use the firing mount's grade (or its targeting grade if better), and invert the defending engine grade as an opposing modifier if an available pilot can manoeuvre. A d8 enemy engine therefore gives your attack one Bane; a d4 enemy engine gives it one Boon. Use only one primary grade per side, not several of that side's consoles. When the player's ship is attacked, its pilot rolls Agility, using engines quality and the Handling comparison. Invert the enemy firing grade on this defence roll as well: enemy d8 weapons impose one Bane; d4 weapons grant one Boon. Weak defence takes the attacker's Strong damage; Standard takes Standard; Strong takes Weak. Defence itself spends no Reaction and causes no extra engine wear. No available pilot or offline engines means Standard incoming damage without that roll.
 
-When a player ship is attacked, one crew member at the Pilot station rolls **3d6 + Agility** for defence. This defence does not itself spend a Reaction or trigger an engine load roll. Apply the Handling comparison if the engines are online. Weak defence takes the enemy mount's Strong damage; Standard takes Standard; Strong takes Weak. The attack then uses shields and Hull normally. With no available pilot or offline engines, take Standard damage without a defence roll. Cover and an explicit ability may still apply.
+**Evasive Manoeuvre** still spends a Reaction for its printed +1 DR and Strong movement. It does not replace the normal defence. Check engines once after using that powered ability. Its one-attack DR can operate without a shield generator if engines work.
 
-When a player fires at an NPC ship, the player's attack check supplies the damage band. Apply the same Handling comparison if the target can manoeuvre; do not also roll an NPC defence. NPC against NPC can be resolved by the SA without additional player rolls.
+All standard mounts in this builder use Close-Near range and one chosen damage type, Kinetic or Thermal. A mount's damage follows its effective die. Far-range mounts and specialised damage types need separately costed designs; a larger sensor or targeting array alone does not extend a weapon.
 
-**Evasive Manoeuvre** remains a Reaction: its check grants +1 DR against that attack on any result, and Strong also moves one band afterwards. It supplements the ordinary defence; it does not replace it or grant a second Reaction. Roll engines once for using this powered ability. A one-attack DR bonus can apply even when printed shield DR is 0, provided the engines needed to evade are working.
+| Effective weapon die | Weak | Standard | Strong |
+|---|---:|---:|---:|
+| d4 | 2 | 3 | 4 |
+| d6 | 3 | 5 | 7 |
+| d8 | 4 | 6 | 8 |
+| d10 | 5 | 7 | 9 |
+| d12 | 6 | 8 | 10 |
 
-## Range and weapon scale
+These are ship-scale values. Personal cards keep their printed personal targets and ranges; Called Shot does not automatically become a ship-scale precision cannon. Ships use relative Close, Near, Far and Extreme bands, not personal square ranges. A pilot action changes one band relative to one chosen ship. Docking or boarding also requires the target to be secured; reaching Extreme does not automatically end pursuit.
 
-Space uses **Close, Near, Far and Extreme** as relative bands. These are not the personal-combat square distances with similar names. Close permits docking or boarding once the target is secured; Near is normal engagement; Far requires working sensors to target; Extreme is observation or pursuit beyond these sample weapons.
+Apply resistance if printed, then current shield DR, then remaining damage to Hull. Ship damage can be **0**; the personal minimum-1 rule does not override a fully absorbed ship hit. Check the shield generator after each incoming attack while online, even if it absorbed all damage. Use its effective DR before the hit; degradation affects later hits.
 
-Set initial range before turns begin. A successful pilot action changes range one band toward or away from one chosen ship; the same pair shares that new range. Other ships keep their relationships unless the SA says the movement changes them. A chase ends when the fiction permits escape; reaching Extreme alone is not automatic invisibility.
+If the attack reduces Hull, roll one wound d6: 1-2 Hull only; 3 sensors; 4 engines; 5 one weapon mount chosen to fit the hit; 6 capacitors or life support, named by the SA. Roll that module's current die: only 1 degrades it. An absent or offline module has no further effect. An explicit targeted-system consequence replaces the random wound unless its ability says otherwise.
 
-| Proposed mount | Type | Range | Weak / Standard / Strong |
-|---|---|---|---|
-| Light pulse cannon | Thermal | Close to Far | 3 / 5 / 7 |
-| Trader defence turret | Kinetic | Close to Near | 2 / 4 / 6 |
+**Worked shot.** The cutter's d6 pulse mount fires at Near. Its mount adds no quality modifier. The cutter and trader both have Handling +1, so no Handling modifier applies. A Strong check deals 7 Thermal. The trader's effective d8 shields have DR 3, leaving 4 Hull loss: 24 to 20. Shields roll 1 and fall to d6, so subsequent attacks meet DR 2. The wound is 5; the trader's d4 turret rolls 3 and holds. The cutter then checks its own mount for firing load.
 
-These are ship-scale values for these hulls only. Personal weapons do not reduce a starship's Hull in ordinary fire. Exposed crew and accessible components can be attacked at personal scale when the fiction permits; the SA states that target separately. Do not convert personal card ranges or damage to ship scale automatically. Called Shot remains a personal-scale card until a ship-scale version is designed.
+## 9. Transfer, repair and emergencies
 
-## Shields, Hull and system wounds
+Basic power transfer moves one current die step from an online donor to an online receiver; a Strong Knowledge check may move two between that pair. Stop at donor offline or receiver d12. Weak also puts the donor offline at scene end. The receiver cannot be restarted by transfer. The transfer itself needs no extra load roll. Record actual die changes; construction allocation, installed size and module positions never change in combat.
 
-Apply any printed damage-type resistance first, then subtract shield DR once from the attack's total. The remainder reduces Hull, to a minimum of **0** ship damage. Personal combat's minimum-1 rule does not override a fully absorbed ship hit. The sample ships have no damage-type resistance.
+A receiver improves performance only up to installed rating. Transferring to an installed d4 gun cannot turn it into a d6 gun. It can add endurance above installed rating. To gain permanently better damage, replace or upgrade its hardware using frame allocation and suitable yard work. A service visit cannot recover a transferred point and leave a recipient permanently above installed rating: full service resets each system to its purchased hardware rating.
 
-Each incoming attack is one defences load event, even if shields absorb all damage. Resolve its damage with the DR that was online at the start of the hit, then roll defences. A 1 on d4 removes shields for later attacks, not retroactively for this hit.
+Power Routing and Overcharge keep their printed temporary outcomes. Record underlying wear separately; removing the temporary modifier never heals wear. If the underlying die goes offline the boost ends. An effective capacitor capacity loss vents charge above the new limit with no fuel refund, including loss caused by a deliberate transfer. Sacrificing life support starts its reserve countdown. Engineering choices should have visible consequences.
 
-If Hull was reduced, roll the wound table once for that attack. Roll each named affected system's current Consumable Die; only a 1 steps it down. An absent or already offline system takes no further effect. A targeted ability that explicitly inflicts a system consequence replaces this random wound unless it says otherwise.
+Basic containment is a Main Action, Knowledge and tools: Weak stops a named breach or fire for one round with a complication; Standard contains it for the scene; Strong also gives its next repair a Boon. It restores no Hull or die. Repair abilities use their cards; offline is one step below d4. Ship-system repairs consume one spare-parts lot per affected module per application. Medical treatment of people does not consume ship repair lots. Normal restoration stops at installed rating; Miracle Worker's explicit minima can raise current endurance but not installed capability.
 
-| d6 | System stressed after a Hull hit |
-|---|---|
-| 1-2 | Hull only: no additional system roll. |
-| 3 | Sensors. |
-| 4 | Sublight engines. |
-| 5 | Weapons. |
-| 6 | Capacitors or life support; the SA names the system that fits the hit. |
+Field Repair's component-HP option does not rebuild Hull. A fragile ship repair fails on that system's next load roll of 1: remove its restored steps and apply ordinary wear, stopping at offline. Temporary repairs cannot be repeatedly stacked on the same module. Safe service takes one hour and one parts lot per restored die step; a yard rebuilds 4 Hull per eight-hour shift and one structural materials lot. Prices and construction labour times remain open economic decisions.
 
-**Worked hit.** A Scout Cutter at Hull 20 and DR 2 takes a 5-damage shot. It falls to Hull 17. Its defences d6 rolls 4: no degradation. The wound roll is 4, so engines d8 rolls next. A 1 lowers engines to d6. The ship lost structure and engine endurance; its Handling and weapon damage did not change.
+At **0 Hull**, engines, weapons and FTL are disabled regardless of their recorded dice. Declare a three-round emergency clock in combat or three ten-minute intervals outside it, and name breakup, fire or compartment loss. Containment pauses the clock for its duration; towing and evacuation may resolve it. There is no automatic explosion. Hull repair in a yard is needed to operate again.
 
-**Fully absorbed hit.** A 2-damage shot against DR 2 causes no Hull loss and no wound roll. Defences still rolls once. If its d4 rolls 1, that shot was absorbed, but the next shot meets DR 0.
+Offline life support gives sealed occupied compartments three ten-minute reserve intervals at or below installed occupant capacity. Above capacity, declare the shortage before departure; no automatic reserve is guaranteed. A breached compartment needs suits or immediate evacuation under personal exposure rules. Restoring life support stops the clock; sealing a leak does not create air.
 
-## When to roll a system die
+## 10. Prepare an FTL jump
 
-Roll once per system per meaningful use, after resolving that use: a firing salvo, powered manoeuvre, active scan, plotting interval, jump-charge interval or jump. A multi-system action names each system it strains. A wound is a separate load event and may roll a die already checked earlier that round.
+Install both an FTL drive and jump capacitors. Required navigation is already on the ship. A route must fit the effective drive range and capacitor capacity. Both **charge** and **navigation progress** must equal **3 times route distance**: route units 1/2/3/4/5 need 3/6/9/12/15 each. An offline capacitor bank or drive blocks jumping.
 
-Do not roll every round for passive life support, routine radio, quiet coasting or simply leaving a console switched on. Roll communications for a jammed or emergency long-range transmission; life support for a breach, overload or hazardous atmosphere. The SA names the load before the action. Do not turn the same action into several wear rolls for one system.
+Normal charging spends one fuel unit per segment and takes the effective capacitor die's minutes per segment. Tick the segment, spend fuel, then check capacitors once. Wear can reduce storage or slow later intervals; vent excess safely to the new capacity with no refund. An ordinary port charger takes one minute per segment for a locally quoted fee, supplies the fuel, and still checks your bank after every segment.
 
-## Power transfer: a deliberate sacrifice
+Emergency charging spends an Engineer's Main Action, Knowledge and two fuel units for one segment in a combat round: Weak fills it then automatically steps capacitors down; Standard fills it and rolls capacitors; Strong fills it with no wear. Do not also make a normal charge load roll. Apply any capacity loss after that result. No roll adds more than one segment.
 
-The basic Engineer action moves **one die step** from an online donor to an online receiver. Knowledge determines the result: Weak moves one step and the donor goes offline at scene end; Standard moves one step; Strong moves two steps between that same pair. Stop when the donor reaches offline or the receiver reaches d12. You can choose fewer steps.
+Navigation normally takes ten minutes per Reason check, adding 1/2/3 progress; use the effective navigation equipment grade, not an extra automatic computer Boon. Charts alone allow plotting without that equipment grade, provided suitable information exists. Check the suite after an interval in which it is used. Record Weak complications; the check completing the target records the arrival band. Emergency Jump permits its printed hurried plotting as a Main Action.
 
-Transfer changes the current dice and persists until reversed or serviced. It cannot restart an offline receiver, charge the jump clock, restore Hull or change weapon damage. Moving a donor from d4 to offline is allowed. Life support is an eligible donor, but the emergency below begins immediately if it goes offline. Do not roll an extra load check for the transfer itself.
+The Pilot commits with a Main Action once both tracks are complete and systems remain eligible. Arrive instantly: Weak off target with a complication; Standard intended approach; Strong a favourable agreed position. Clear both tracks and check the FTL drive after arrival. A drive that fails has still completed that transit. Emergency Jump Strong can include commitment if both targets and system requirements are met; it does not waive fuel or charge. Master Navigator can replace the recorded arrival band with its check once preparation is complete, but fills neither track.
 
-**Worked transfer.** Weapons d4 receives a step from communications d8. Communications becomes d6; weapons becomes d6. With a Strong result the Engineer could instead move two steps: communications d4, weapons d8. The next shot still deals the mount's listed damage. It now has a better chance of leaving the weapon online.
+Plot Course's Strong Boon applies to the next relevant navigation check on the route; if there is none before transit, carry it to the first navigation or piloting check on arrival. Retained triple natural 1s add the core complication, not automatic deletion of all progress. Changing destination invalidates the old plot. Retained charge can be used for a shorter eligible route; a longer route needs more charge, storage and a fresh plot.
 
-**Spacer distinction.** Power Routing is an ability with its own outcomes and one-scene duration, not the basic action above. Its temporary allocations revert at scene end; on Weak its printed extra donor step-down then applies. Overcharge creates its stated temporary boost without a donor. Neither stacks with another copy of itself on the same system. Record temporary adjustments beside the underlying current die; actual wear lowers the underlying die, not the temporary bonus. If the underlying die goes offline, the boost ends and cannot keep it online. Removing a bonus never repairs wear. A temporary donor reduction cannot exceed the available steps; if it reaches offline, the donor is unavailable for the duration. These bookkeeping interpretations are proposals for review, not revisions to the cards' DP or prerequisites.
+**Worked jump.** The scout cutter's d8 drive permits three route units. Its d8 bank stores nine segments and charges one every six minutes. A two-unit route needs six fuel, six segments and six navigation progress. With no degradation, charging takes 36 minutes. The d8 suite grants one Boon on each plot check; Standard, Strong, Standard reaches 2, 5, then 6 progress in thirty minutes. The crew waits six more minutes for charge, commits and arrives using the final Standard band. Every charge interval checked the bank; a 1 would have changed later rate and capacity.
 
-## Damage control and repairs
+## 11. Three budgeted builds
 
-A basic Engineer **containment** action uses Knowledge and tools. Weak contains a named breach or fault for one round with a complication; Standard contains it for the scene; Strong contains it for the scene and gives the next repair of that fault a Boon. Containment does not restore Hull or a die. Restarting an offline system needs a repair ability or service; basic power transfer cannot do it.
-
-Field Repair, Keep It Running, Jury-Rig and Miracle Worker keep their printed actions and outcomes. For ship systems, offline is one step below d4. Normal restoration cannot exceed installed rating; Miracle Worker's explicit minimum d6 / d8 can exceed it. Hull is structure, not a repairable component's HP: Field Repair's HP option does not rebuild Hull during combat. Use a shipyard for structural Hull restoration.
-
-**Proposed repair budget:** before departure, stock spare-parts lots. Each application of a ship repair ability consumes one lot, whether temporary or permanent; a multi-system repair consumes one per affected system. Containment costs no lot. A toolkit enables work but does not supply unlimited replacement hardware. A fragile Field Repair fails on the next 1 rolled by that repaired system: remove that repair's gain as well as the normal wear, stopping at offline. Remove its fragile marker after that failure or full service.
-
-**Service proposal:** one uninterrupted hour and one parts lot restore one current system step, without a check in a safe workshop. Stop at installed rating. Remove temporary repair and transfer markers when full service restores a system to installed rating. A yard repairs 4 Hull per eight-hour work shift using one structural materials lot, up to maximum. Parts, materials, fuel and labour prices remain open economic decisions; record quantities separately from coins rather than inventing a conversion.
-
-## Disabled ships and life-support emergencies
-
-At **0 Hull**, the ship is disabled: weapons, engines and FTL cannot operate, even if their dice remain online. It does not explode automatically. The SA establishes a visible emergency clock of **3 rounds** in combat or **3 ten-minute intervals** outside it, and states the consequence: breakup, fire or loss of a compartment. Containment stops that clock for its stated duration; towing, evacuation or yard support may resolve the danger. In combat it cannot regain operational Hull through a routine component repair.
-
-When life support goes offline, mark **3 ten-minute air intervals** for sealed occupied compartments. This is an abstract reserve, not a vacuum-survival rule. A breached compartment requires immediate suits or evacuation; use the personal hazard rules for exposure. Restoring life support stops the air countdown. Containment can seal a leak but does not create new air. Record oxygen reserves and suits before sacrificing life support for power.
-
-## FTL: prepare, commit, arrive
-
-A jump requires **two completed tracks**, an online capacitor system and FTL drive, and a destination within the drive's rated range. Navigation work and capacitor charging can happen at the same time. Transit itself is instantaneous. Range is a network abstraction: the SA assigns route distance and hazards before the crew spends resources.
-
-| Route distance | Capacitor segments | Navigation progress |
-|---|---|---|
-| 1 route unit | 3 | 3 |
-| 2 route units | 6 | 6 |
-| 3 route units | 9 | 9 |
-
-Do not attempt a route beyond the ship's Jump rating in this review draft. Pushing drive range needs a separately reviewed rule. A shuttle without FTL cannot jump, regardless of navigation progress or external power.
-
-### Track A: charging
-
-**Proposed baseline:** one fuel unit and ten minutes fill one capacitor segment. Tick a segment, spend the fuel, then roll capacitors once. A staffed port charger takes one minute per segment at a locally quoted fee; it supplies the energy and feedstock instead of consuming onboard fuel, but still checks the ship's capacitors per segment. Ordinary charging needs no action check. Filling a clock does not restore the capacitor die.
-
-A d4 that goes offline leaves the newly completed segment on the sheet but blocks further charging and the jump. Repair it to resume. Store charge until the next jump; going offline makes charge inaccessible rather than erasing it. The clock is set for the planned route; longer rerouting needs extra segments, while shorter routing retains excess charge but still empties the bank on jump. After any successful jump, reset charge to zero.
-
-**Emergency charging proposal:** an Engineer's Main Action and Knowledge check forces one segment in a combat round, consuming two fuel units. Weak fills it but steps capacitors down once automatically; Standard fills it and checks the capacitor die; Strong fills it without wear. Do not also make the normal charge load roll. This makes a hurried escape costly without requiring dozens of combat rounds.
-
-### Track B: navigation
-
-One normal plotting interval is ten minutes. Use Reason and add 1 / 2 / 3 progress on Weak / Standard / Strong. An online nav computer gives one Boon; charts alone permit a check without it. Roll navigation once after an interval using the suite. Routine route progress cannot be farmed during combat: Emergency Jump is the ability that permits Main Action hurried plotting.
-
-Record Weak complications as they occur; completing a route later does not erase them. The check that reaches the progress target determines arrival quality. Keep its band on the sheet. A Plot Course Strong also gives its printed next-jump Boon; if there is no further check before transit, carry it to the first navigation or piloting check on arrival. Master Navigator can spend a Main Action once both tracks are ready to replace the arrival band, checking navigation for that use. It does not fill either track.
-
-### Commit to the jump
-
-The Pilot spends a Main Action to commit once the two tracks are complete and the required systems are online. No extra basic navigation roll is required. Resolve arrival from the recorded band: Weak arrives off target with a complication; Standard arrives at the intended system and approach; Strong arrives in a favourable position agreed with the SA. Then roll FTL drive once. If the drive goes offline, the ship has arrived but cannot jump again until repaired.
-
-Emergency Jump's Strong permits immediate commitment as part of that ability's action **when the capacitor clock is full**, its progress target is met and the drive is online. It bypasses the extra commitment action, not fuel or charging. Retained triple natural 1s on the completing navigation check add a complication as in the Legend core; the SA may damage the drive after transit or establish a hazardous arrival, but does not silently delete completed tracks.
-
-### Worked preparation
-
-A Scout Cutter with Jump 3 chooses a two-unit route: both targets are 6. It carries eight fuel units. Charging takes six ten-minute intervals, consumes six units and checks capacitors six times if they stay online. A d8 roll of 1 reduces capacitors to d6; the next interval uses d6. Die size never changes the six-segment target.
-
-Meanwhile the Navigator, Reason +2, uses the online suite's Boon. Retained dice total 10: 12 is Standard, for 2 progress. The next interval is Strong for 3, reaching 5. The third is Standard for 2, reaching 7; cap recorded progress at 6 and record Standard arrival. Navigation is ready after thirty minutes, but the crew waits for the sixty-minute charge. The Pilot commits, arrives as intended, clears both tracks and checks the FTL drive. Fuel remaining: two units.
-
-## Proposed ship profiles
-
-These profiles retain the existing seed Hull, DR, Handling, Jump ratings and system dice. The weapon mounts are new review proposals. Record each listed die as both installed and current before damage or transfers.
+Each module below is bought from the same table. These replace the old unbudgeted scout, trader and shuttle seed profiles. Starting fuel, spare parts, cargo and hired crew are separate purchases and remain unpriced.
 
 ### Scout Cutter
 
-**Hull 20 / Shield DR 2 / Handling +1 / Jump 3.** One light pulse cannon, Thermal, Close-Far, damage 3 / 5 / 7. Capacitors d8; FTL d8; navigation d10; sensors d10; engines d8; weapons d6; defences d6; life support d8; communications d8.
+**Light ship / cutter / 24 of 24 allocation / 10 of 12 modules / Hull 24 / Handling +1.**
 
-A capable survey and courier ship. Its navigation and sensors endure better than its weapon and shield systems. A crew can plot a longer route, but still needs nine fuel units for a full three-unit charge. Fuel and parts are purchased quantities; neither profile grants a free starting stock.
+| Module | Installed die | Cost |
+|---|---|---:|
+| Sublight engines (engines) | d8 | 3 |
+| Navigation suite (nav) | d8 | 3 |
+| Sensors (sensors) | d8 | 3 |
+| Life support (air) | d6 | 2 |
+| Communications (comms) | d4 | 1 |
+| FTL drive (jump) | d8 | 3 |
+| Jump capacitors (bank) | d8 | 3 |
+| Weapon mount (pulse) | d6 | 2 |
+| Shield generator (shield) | d6 | 2 |
+| Cargo bay (hold) | d6 | 2 |
 
 ### Free Trader
 
-**Hull 32 / Shield DR 3 / Handling 0 / Jump 2.** One defence turret, Kinetic, Close-Near, damage 2 / 4 / 6. Capacitors d10; FTL d8; navigation d8; sensors d6; engines d8; weapons d4; defences d8; life support d10; communications d8.
+**Light ship / cutter / 24 of 24 allocation / 12 of 12 modules / Hull 24 / Handling +1.**
 
-Tougher structure and dependable shields support a working crew. The d4 turret is a warning: each firing risks putting that weapon offline. It benefits from power transfer, at the cost of another system's endurance.
+| Module | Installed die | Cost |
+|---|---|---:|
+| Sublight engines (engines) | d6 | 2 |
+| Navigation suite (nav) | d6 | 2 |
+| Sensors (sensors) | d4 | 1 |
+| Life support (air) | d6 | 2 |
+| Communications (comms) | d4 | 1 |
+| Cargo bay (hold) | d10 | 4 |
+| FTL drive (jump) | d6 | 2 |
+| Jump capacitors (bank) | d6 | 2 |
+| Weapon mount (turret) | d4 | 1 |
+| Shield generator (shield) | d8 | 3 |
+| Med bay (clinic) | d6 | 2 |
+| Workshop (shop) | d6 | 2 |
 
 ### System Shuttle
 
-**Hull 12 / Shield DR 1 / Handling +2 / no Jump.** No weapon mount. Capacitors d6; no FTL; navigation d6; sensors d6; engines d10; no weapons; defences d4; life support d6; communications d6.
+**Launch / shuttle / 12 of 12 allocation / 8 of 8 modules / Hull 12 / Handling +2.**
 
-A local transport whose high Handling and engines help it manoeuvre. Its shields are fragile, and it cannot manufacture an interstellar escape by rolling well. It needs a carrier or a larger vessel to leave the system.
+| Module | Installed die | Cost |
+|---|---|---:|
+| Sublight engines (engines) | d8 | 3 |
+| Navigation suite (nav) | d4 | 1 |
+| Sensors (sensors) | d4 | 1 |
+| Life support (air) | d6 | 2 |
+| Communications (comms) | d4 | 1 |
+| Cargo bay (hold) | d6 | 2 |
+| Shield generator (shield) | d4 | 1 |
+| Med bay (clinic) | d4 | 1 |
 
-## Reading a round across the crew
 
-The Cutter is at Near range from a Handling-0 attacker. Its Pilot uses a Main Action to move to Far. Handling +1 gives a Boon; a Standard check moves it one band, then engines d8 rolls 5 and holds. The opposing Gunner attacks. The Cutter's Pilot defends with the Handling Boon; Standard defence takes the enemy turret's 4 damage. DR 2 leaves 2 Hull loss. Defences d6 holds; the wound is 1, Hull only.
+The **scout** spends heavily on survey and jump capability; its d6 cargo bay holds 4 × Scale 2 = 8 cargo units and life support supports 4 × 2 = 8 people. Its d6 shield starts at DR 2. The **trader** uses the same light frame and budget but buys a d10 hold: 16 × 2 = 32 cargo units. Better shields, a clinic and a workshop come at the cost of weaker sensing and weapons. Its d6 drive and bank support a two-unit jump. The **shuttle** spends its full launch budget on eight modules, no FTL and no weapon; d6 life support supports four occupants and d6 cargo holds four units. A good Piloting roll cannot invent a missing drive.
 
-The Cutter's Engineer then transfers one step from communications d8 to weapons d6 on Standard: communications d6, weapons d8. Another enemy station takes its turn. Finally the Cutter's Gunner fires its pulse cannon at Far using online sensors. Its Handling advantage gives a Boon; Strong deals 7 before enemy DR. Weapons d8 rolls 1 and falls to d6. The crew gained position, absorbed damage, sacrificed communications endurance and fired, using their own turns throughout.
+## 12. Build worksheet and review questions
 
-## Decisions this draft asks you to review
+Use the two-page ship record at the back. Record frame, budget and ceiling; fill every required row; list each optional module separately; add allocation costs; check module count; then copy installed dice to current dice. Derive cargo and occupant capacity, shield DR, weapon damage and jump limits. Record actual crew and supplies before departure.
 
-Does Handling as a Boon / Bane comparison feel right? Should shield endurance and DR remain separate? Does power transfer make a meaningful sacrifice when it improves endurance rather than damage? Is a parts budget the right repair limit? Do the ten-minute preparation intervals and costly emergency charging create the tension you want?
+The source includes a working allocation checker: `python3 design/ship_builder.py` checks the three examples; passing it a JSON ship validates your own allocation. It rejects missing required systems, repeated unique systems, excess points, excess modules, die ceilings and invalid FTL or targeting combinations. The printed worksheet permits the same checks by hand.
 
-The sheet at the back makes these decisions visible. Fuel prices, weapon variety, ship acquisition, cargo capacity, boarding procedures, precise repair economies and long-term ship advancement remain to be designed. None of those gaps is evidence that the ship system is ready for a mission or table playtest.
+Questions for Bruce: do the five sizes and budgets leave meaningful sacrifices? Are quality Boons too strong when combined with Handling? Should current condition reduce active capability at every die step? Are cargo and medical facilities distinct enough to justify their allocation? Pricing, hull construction time, oversized weapons, ship advancement and mixed-scale combat remain future work. No new mission or table playtest is assumed.
