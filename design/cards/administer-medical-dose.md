@@ -1,0 +1,27 @@
+# Administer a Medical Dose
+
+*You ready the sealed dose and help the patient take it.*
+
+## Rules
+
+**Action:** Maneuver · **Attribute:** None — no roll
+
+**Target / range / shape:** Self or one adjacent willing creature
+
+Requires a free hand. The giver spends the Maneuver; another recipient spends a Reaction unless at 0 HP. Restore the medical supply’s printed fixed HP, apply Life resistance with minimum 1 actual healing where HP is missing, then check inventory. No outcome roll. Medical doses do not restore the dead or end Last Words.
+
+**Duration:** Instant
+
+**Equipment / acquisition:** None.
+
+---
+
+**Tier / minimum level:** Universal · **DP:** Not purchased · **Requirements to learn:** None
+
+**Type:** Universal
+
+**Limits:** Repeatable; pay the action and any stated costs each use.
+
+**ID:** administer-medical-dose
+
+[Card conventions](../card-conventions.md) · [Catalog](../catalog.md)

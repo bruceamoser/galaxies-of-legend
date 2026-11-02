@@ -8,9 +8,11 @@
 
 **Target / range / shape:** One wounded creature within reach
 
+**Healing cost:** Pay 1 HP before rolling, bypassing resistance; you must remain above 0 HP. Requires a free hand. Apply Life resistance to HP restored, minimum 1 where HP is missing, capped by maximum HP. This emergency-care card may stabilize a Dying recipient as its outcomes state. It never removes a scar, restores Grit or reverses Last Words. Consume one medkit use per application.
+
 Stabilise a wounded or dying creature.
 
-- **Weak:** stop the creature from dying; it remains at 0 HP and unconscious.
+- **Weak:** stabilize at 0 HP, clear death marks; it remains unconscious.
 - **Standard:** stop the dying condition and restore 1 HP.
 - **Strong:** restore 2 HP and remove Bleeding 1.
 

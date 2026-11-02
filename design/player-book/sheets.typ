@@ -33,19 +33,19 @@
  #grid(columns:(2fr,1fr,1fr),gutter:7pt,
   field("HP: CURRENT                         MAXIMUM",height:42pt),
   field("GRIT: CURRENT / TOTAL GRANTED",height:42pt),
-  field("SCARS / DEATH MARKS",height:42pt))
+  field("SCARS: TOTAL / DEATH MARKS: 0 1 2 3",height:42pt))
  #v(6pt)#grid(columns:(1fr,1fr,1fr),gutter:7pt,field("SPEED (SQUARES)"),field("STABILITY"),field("BULK / CAPACITY"))
  #strip("Protection & preparation")
  #grid(columns:(1fr,1fr),gutter:7pt,field("RESISTANCES (HIGHEST OF EACH TYPE; CAP 3)",height:38pt),field("LEFT HAND / RIGHT HAND",height:38pt))
  #strip("Your turn")
- #text(size:9pt)[Main Action → Maneuver → movement. Reaction refreshes at turn start.]
+ #text(size:9pt)[Turn start: if Dying, choose Grit or death roll first. Then refresh actions. Main → Maneuver → movement.]
  #rows(([ABILITY / ACTION],[COST],[ROLL],[OUTCOMES / RANGE / PAGE]),(1.3fr,50pt,55pt,2fr),6,height:20pt)
  #strip("Conditions in play")
  #rows(([CONDITION],[RATING],[EXPIRY / REMOVAL / SOURCE]),(1fr,50pt,2fr),3,height:20pt)
- #v(6pt)#field("ACCESSIBLE POTION / SUPPLY DICE / OTHER TURN NOTES",height:35pt)
+ #v(6pt)#field("MEDICAL DOSE / SUPPLY DICE / DYING OR LAST WORDS",height:35pt)
  #v(8pt)#block(inset:7pt,stroke:.5pt+teal)[
   #strong[3d6 + attribute] · Weak ≤8 · Standard 9–14 · Strong ≥15. Cancel Boons/Banes, then keep best/worst three of up to six dice.
-  End turn: resolve temporary conditions, then decay 1. Minimum damage: 1 total per damaging event. Ships use Hull, DR and Consumable Dice.
+  End turn: resolve temporary conditions, then decay 1. Safe breath restores HP; never refunds Grit. At Dying-turn start: 1 Grit gives full HP, or roll Fortitude. Three marks or wound 666: Last Words; speech only, death at end of second following turn.
  ]
 ])
 #page-sheet([
@@ -69,8 +69,8 @@
  #strip("Recipes, tools & materials")
  #rows(([RECIPE / PERMISSION],[TOOLS / MATERIALS / PROJECT PROGRESS]),(1fr,1.6fr),5,height:16pt)
  #strip("Wounds & permanent scars")
- #rows(([WOUND / SCAR],[LASTING EFFECT],[TREATMENT / RV],[PROGRESS / LAST DAY]),(1.2fr,1.4fr,1.2fr,1fr),5,height:22pt)
- #v(7pt)#text(size:8.5pt)[One treatment attempt per wound per day. Weak/Standard/Strong gives 1/2/3 recovery progress. Treatment removes the stated penalty; the scar still counts on future wound rolls.]
+ #rows(([TABLE + ROLL / SCAR],[EFFECT / STARRED CONDITION],[TREATMENT / RV],[PROGRESS / LAST DAY]),(1.2fr,1.4fr,1.2fr,1fr),5,height:22pt)
+ #v(7pt)#text(size:8.5pt)[Wound roll: 3d6 + 1 die per prior scar, max 5; retain highest 3, sort ascending. Add new scar afterwards. Treatment: matching capability, full hour, one attempt per wound per day; 1/2/3 progress to RV. Scar count never decreases through ordinary healing.]
 ])
 #page-sheet([
  #sheet-title("Creation ledger")

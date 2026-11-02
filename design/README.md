@@ -1,6 +1,6 @@
 # Galaxies of Legend design
 
-Current reading review: 18 disciplines, 10 classes, 12 cultures, 12 backgrounds, 69 ability cards and 10 equipment entries. All additions are playtest proposals.
+Current reading review: 18 disciplines, 10 classes, 12 cultures, 12 backgrounds, 78 ability cards and 13 equipment entries. All additions are playtest proposals.
 
 - [Ancestries](ancestry.md): four placeholders, awaiting Bruce's authored material. Legacy homeworlds are excluded.
 - [Cultures and backgrounds](culture-background.md)

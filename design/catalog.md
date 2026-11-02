@@ -6,8 +6,10 @@ shared abilities are open to anyone who meets the printed requirements.
 
 ## Universal actions
 
+- [Administer a Medical Dose](cards/administer-medical-dose.md) — Maneuver; level Universal; None.
 - [Basic Melee](cards/basic-melee.md) — Main Action; level Universal; None.
 - [Basic Ranged](cards/basic-ranged.md) — Main Action; level Universal; None.
+- [Stabilize](cards/stabilize.md) — Maneuver; level Universal; None.
 
 ## Shared abilities
 
@@ -32,6 +34,7 @@ shared abilities are open to anyone who meets the printed requirements.
 - [Make Camp](cards/make-camp.md) — Main Action; level 1; Survival 1.
 - [Master Navigator](cards/master-navigator.md) — Main Action; level 7; Navigation 3.
 - [Miracle Worker](cards/miracle-worker.md) — Main Action; level 7; Engineering 3.
+- [One More Dawn](cards/one-more-dawn.md) — Passive; level 7; None.
 - [Overcharge](cards/overcharge.md) — Main Action; level 3; Engineering 2.
 - [Overwatch](cards/overwatch.md) — Reaction; level 1; Gunnery 1.
 - [Patch Wounds](cards/patch-wounds.md) — Main Action; level 1; Medicine 1.
@@ -48,6 +51,12 @@ shared abilities are open to anyone who meets the printed requirements.
 - [Shipboard Familiarity](cards/shipboard-familiarity.md) — Passive; level 1; None.
 - [Suppressing Fire](cards/suppressing-fire.md) — Main Action; level 1; Gunnery 1.
 - [Trace Access](cards/trace-access.md) — Main Action; level 1; Computing 1.
+- [Treat Bone](cards/treat-bone.md) — Main Action; level 1; Medicine 1.
+- [Treat Elemental Injury](cards/treat-elemental-injury.md) — Main Action; level 1; Medicine 1.
+- [Treat Life Injury](cards/treat-life-injury.md) — Main Action; level 1; Medicine 1.
+- [Treat Mental Trauma](cards/treat-mental-trauma.md) — Main Action; level 1; Medicine 1.
+- [Treat Radiant Injury](cards/treat-radiant-injury.md) — Main Action; level 1; Medicine 1.
+- [Treat Soft Tissue](cards/treat-soft-tissue.md) — Main Action; level 1; Medicine 1.
 
 ## Class signatures
 

@@ -52,6 +52,12 @@ Buy ranks in order. A rank is a prerequisite; it grants no passive bonus.
 - [Combat Medic](cards/combat-medic.md) — level 3; Main Action.
 - [Field Triage](cards/field-triage.md) — level 1; Main Action.
 - [Patch Wounds](cards/patch-wounds.md) — level 1; Main Action.
+- [Treat Bone](cards/treat-bone.md) — level 1; Main Action.
+- [Treat Elemental Injury](cards/treat-elemental-injury.md) — level 1; Main Action.
+- [Treat Life Injury](cards/treat-life-injury.md) — level 1; Main Action.
+- [Treat Mental Trauma](cards/treat-mental-trauma.md) — level 1; Main Action.
+- [Treat Radiant Injury](cards/treat-radiant-injury.md) — level 1; Main Action.
+- [Treat Soft Tissue](cards/treat-soft-tissue.md) — level 1; Main Action.
 
 ## [Navigation](disciplines/navigation.md)
 

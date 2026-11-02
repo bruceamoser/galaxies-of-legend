@@ -6,15 +6,17 @@
 
 **Action:** Main Action · **Attribute:** Knowledge
 
-**Target / range / shape:** One wounded creature within reach; 10 minutes
+**Target / range / shape:** One wound listing Soft Tissue or Bone on a willing, stable patient within reach; one full hour
 
-Perform field surgery.
+**Healing cost:** Pay 3 HP before rolling, bypassing resistance; you must remain above 0 HP. Requires a free hand. Apply Life resistance to HP restored, minimum 1 where HP is missing, capped by maximum HP. Stabilize a Dying recipient before ordinary HP healing. It never removes a scar, restores Grit or reverses Last Words. Consume one medkit use per application.
 
-- **Weak:** remove one wound penalty, but the patient remains Slowed 1.
-- **Standard:** remove one wound penalty and restore 4 HP.
-- **Strong:** remove one wound penalty, restore 6 HP and remove Bleeding 1.
+Use this signature as the matching Soft Tissue or Bone capability for one wound. It is one treatment attempt, shared with the daily limit across all healers.
 
-**Duration:** Permanent; the scar remains.
+- **Weak:** add 1 recovery progress and restore 2 HP.
+- **Standard:** add 2 recovery progress and restore 4 HP.
+- **Strong:** add 3 recovery progress, restore 6 HP and reduce temporary Bleeding by 1.
+
+**Duration:** HP recovery is instant after the hour; progress persists. Only reaching the wound's RV removes its printed treatable penalties; the scar remains.
 
 **Equipment / acquisition:** Requires a medkit and a safe place to work
 

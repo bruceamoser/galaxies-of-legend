@@ -15,8 +15,8 @@ This repository is the **expanded design review** and the Player's Book build pi
 | Backgrounds | 12 |
 | Classes | 10 |
 | Disciplines | 18 |
-| Ability cards | 69 |
-| Equipment entries | 10 |
+| Ability cards | 78 |
+| Equipment entries | 13 |
 
 The Player's Book covers levels 1–10, character creation, abilities, equipment, harm and recovery, starships, FTL and printable sheets.
 
@@ -60,3 +60,7 @@ The reading-review layout uses white pages, Oswald headings, Roboto text, black 
 The current reading revision fixes ability readability and the class-cost table. The eighteen-field roster matches HOL's field count; [coverage waves](design/ability-coverage.md) define later ability work. Ancestries are placeholders awaiting Bruce.
 
 Ships use five frame sizes, die allocation costs and required/optional modules. Run `python3 design/ship_builder.py` to check the three budgeted builds, or pass a JSON ship file. The [ship chapter](design/player-book/manuscript/11-starships.md) teaches construction and operation; the [delta](design/system-deltas/2026-11-02-expanded-roster-and-ships.md) records replacements to the earlier proposal.
+
+## Full HOL harm foundation
+
+The r3 reading proof restores the complete inherited survival system: damage and resistance, Grit, Dying, all 280 wound results, conditions, healing costs and six treatment capabilities. See [restoration provenance](design/rules/hol-restoration.json) and [the explicit delta](design/system-deltas/2026-11-02-hol-harm-restoration.md). Run `python3 -m unittest discover -s design -p 'test_*.py'` before rebuilding. After compilation, `python3 release/export-harm-review.py` packages the r3 full book and focused harm/healing review (requires pypdf).

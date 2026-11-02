@@ -205,3 +205,15 @@
 #let reading-columns(items,gap:8pt) = columns(2,gutter:20pt)[
   #for item in items { item; v(gap) }
 ]
+
+// The wound reference needs real reading columns and a repeated family/band caption.
+#let wound-table(caption,head,rows) = {
+  set text(size:10pt,hyphenate:false)
+  set par(leading:.4em,spacing:4pt)
+  set table.cell(breakable:false)
+  table(columns:(32pt,128pt,152pt,186pt,30pt),inset:(x:5pt,y:5pt),stroke:.35pt+rgb("#b5cdd0"),
+    fill:(x,y)=>if y < 2 {forest} else if calc.odd(y) {ivory} else {paper},
+    table.header(repeat:true,
+      table.cell(colspan:5,fill:teal,text(font:"Oswald",size:12pt,fill:white,caption)),
+      ..head.map(c=>text(fill:white,weight:"bold",c))), ..rows.flatten())
+}

@@ -23,7 +23,7 @@ Universal actions and class signatures are excluded. A cross-discipline prerequi
 | [Gunnery](disciplines/gunnery.md) | 3 | 1 | 1 | Pending further waves |
 | [Influence](disciplines/influence.md) | 2 | 0 | 0 | Pending further waves |
 | [Investigation](disciplines/investigation.md) | 1 | 0 | 0 | Pending further waves |
-| [Medicine](disciplines/medicine.md) | 2 | 1 | 0 | Pending further waves |
+| [Medicine](disciplines/medicine.md) | 8 | 1 | 0 | Includes all six inherited treatment capabilities; further choices pending |
 | [Navigation](disciplines/navigation.md) | 2 | 1 | 1 | Pending further waves |
 | [Piloting](disciplines/piloting.md) | 2 | 0 | 0 | Pending further waves |
 | [Robotics](disciplines/robotics.md) | 1 | 0 | 0 | Pending further waves |
@@ -41,3 +41,5 @@ Universal actions and class signatures are excluded. A cross-discipline prerequi
 4. **Master identity:** two cards per field, explicit narrative reach and resource limits; supply second level-7 signature options and test the full level-1 to level-10 spend.
 
 A new ancestry will require a separate trait and equipment compatibility review. Ship abilities also require explicit personal versus ship scale and a named module. Counts are coverage gates, not balance certification.
+
+The HOL restoration adds six treatment capabilities, universal Stabilize and medical-dose use, and the once-only One More Dawn Grit grant. These restore the foundation rather than expanding an optional ability wave.

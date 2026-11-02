@@ -40,7 +40,7 @@ The table uses **squares**. One square is roughly two metres. **Adjacent** means
 | **Far** | Within 12 squares |
 | **Extreme** | Beyond 12 squares; usually requires a vehicle or ship weapon |
 
-Difficult terrain costs 2 squares of movement for 1 square entered. Standing from Prone costs half your movement. You can move through an ally's square but not end there; you cannot move through an enemy's square.
+Difficult terrain costs 2 squares of movement for 1 square entered. Standing from Prone costs 2 movement. You cannot cross an occupied square unless its occupant is Prone; crossing costs 2 movement and you cannot end there.
 
 ## Attacks and defence
 
@@ -50,9 +50,9 @@ When an NPC attacks, each affected player makes a defence roll if the ability ca
 
 ## Damage and conditions
 
-Damage has a **type**: Kinetic, Thermal, Cryogenic, Electrical, Corrosive, Sonic or Radiation. Resistance applies to each component separately. A condition is not a damage type: Burning, Corroded, Frozen, Stunned, Dazed, Deafened, Disrupted, Prone, Slowed and Bleeding are conditions.
+Use the complete damage, resistance, weakness, Grit, Dying, wound, healing and condition procedures in Chapter 7. Damage comes from the chosen card outcome, never an added attribute or a weapon damage roll. Armour DR is Physical resistance. Use the highest matching resistance per type, cap 3; apply matching weakness before resistance. Personal damage has a minimum of 1 total per damaging event, not per component.
 
-A condition with a rating (for example, **Bleeding 2**) stacks its rating where the condition says so. A binary condition such as **Prone** does not become Prone 2. A condition's own rules set its duration; an attack with an Instant duration does not make the condition last forever.
+The HOL families are Physical, Fire, Cold, Lightning, Mental, Radiant and Life/Necrotic. Kinetic/Sonic, Thermal, Cryogenic and Electrical are GOL descriptive aliases. Corrosive-to-Physical and Radiation-to-Radiant are explicit proposed mappings. A condition is separate from a damage type. Temporary numbered conditions resolve at turn end, then decay 1; lasting wound effects and starred conditions follow their printed remedy.
 
 ## Social play
 

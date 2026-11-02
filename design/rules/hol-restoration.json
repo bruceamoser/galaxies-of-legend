@@ -1,0 +1,26 @@
+{
+  "source_repository": "/home/bmoser/repos/heroes-of-legend",
+  "source_commit": "25b80c9fe77d7baaec3f3a8a548c9663d0f39a30",
+  "restored_on": "2026-11-02",
+  "source_sha256": {
+    "rules/wounds.md": "58c42a717e00aa74310523cde3850a5af1c97ef58c8d3766933538964baf17c9",
+    "rules/recovery.md": "aa5529c2b52abfa739bc072f6eebbccc4fa1c795728c34aec0d018025d49d458",
+    "rules/conditions.md": "92949af1b32911ea025aa9d4506c006372449834c98d2451084fef2bb94b46d8",
+    "rules/stability.md": "0a7d00c2421d5161555c45061ef04e1fbff46ee23786f1ee5fb005ef575d616b",
+    "player-book/manuscript/08-recovery.md": "230629843f1775786552cb06e1e11fb1e49df2b1b2f8e5a13bc7c855381e42c4",
+    "player-book/manuscript/06-playing.md": "fcdc062507162c2b5cc6b41d001b372eb89ddbf514fa322e4d35de8aa0857c92",
+    "player-book/manuscript/07-adventure.md": "f69d0a0e2d1132d7478a3159287925c7e771138e4680923f39609ddf34eb8a31",
+    "card-conventions.md": "07f865f840bfbe6ff41aef2d548112396fec53d2a3011eb9d499ec8f76c83bf5"
+  },
+  "wound_entries": 280,
+  "families": [
+    "Physical",
+    "Elemental",
+    "Mental",
+    "Radiant",
+    "Life/Necrotic"
+  ],
+  "entry_changes": "None; all 280 wound rows preserved exactly. Facilitator terminology adapted DA to SA in prose.",
+  "GOL_proposals": "See system delta for descriptive damage aliases, medical-dose presentation and existing care-card reconciliation.",
+  "wound_rows_sha256": "1dadc064693530c012e3fbb3ef0e0452a305f2068fd5fc0ad0c410286f2e9736"
+}

@@ -94,7 +94,7 @@ The reference progression runs to **level 10**.
 - **Adept** abilities become available at level 3.
 - **Master** abilities become available at level 7.
 - Class signatures are chosen at levels 1, 3 and 7.
-- Gain **+1 Grit** at levels 3 and 7.
+- Gain **+1 Grit** at levels 3 and 7; this does not refill earlier expenditure. Ordinary rest never refreshes Grit.
 - HP does not rise automatically with level.
 
 A character who reaches level 10 has had many opportunities to broaden their training. The game does not assume every character buys every ability in their disciplines.

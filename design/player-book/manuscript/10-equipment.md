@@ -4,7 +4,7 @@ Equipment is what you carry, wear and point at a problem. It does not replace tr
 
 ## Buying gear
 
-Resolve all equipment granted by your homeworld, culture, background, class and abilities first. Then spend your starting coins. A grant supplies a missing ordinary item once; selling it does not reactivate the grant.
+Resolve all equipment granted by your ancestry, culture, background, class and abilities first. Then spend your starting coins. A grant supplies a missing ordinary item once; selling it does not reactivate the grant.
 
 Prices are listed in the market. Availability is set by the SA. A frontier port may not have a rail rifle, and a corporate arcology may refuse to sell you a vac suit without a licence.
 
@@ -17,11 +17,12 @@ Prices are listed in the market. Availability is set by the SA. A frontier port 
 
 ## Damage types
 
-Weapons and hazards use the seven damage types: **Kinetic**, **Thermal**, **Cryogenic**, **Electrical**, **Corrosive**, **Sonic** and **Radiation**. Armour and resistances apply to each component separately. A laser is a weapon category, not a damage type; a laser sidearm deals Thermal. An EMP is an effect, not a damage type.
+Use the seven inherited HOL damage families: Physical, Fire, Cold, Lightning, Mental, Radiant and Life/Necrotic. Kinetic and Sonic are Physical descriptions; Thermal is Fire, Cryogenic is Cold and Electrical is Lightning. GOL's Corrosive-to-Physical and Radiation-to-Radiant mappings are proposals listed in Chapter 7. These are not separate resistance pools. An EMP is an effect, not an automatically granted condition.
+
 
 ## Armour and DR
 
-Armour grants **DR**, which reduces incoming damage. DR from armour does not stack with itself; use the highest applicable source. A vac suit grants DR 1 against vacuum exposure and radiation, not against every attack. Light armour grants DR 1 against physical harm.
+Personal armour DR is **Physical resistance**. Use the highest applicable source of each resistance, cap 3; two matching sources do not add. It is not universal reduction against every damage family. A vac suit grants DR 1 against vacuum exposure and radiation, not against every attack. Light armour grants DR 1 against physical harm.
 
 ## Tools
 
@@ -30,3 +31,9 @@ A toolkit, medkit or sensor pack is required by some abilities. When a card says
 ## The market
 
 The market lists the initial equipment set. The SA may add items, adjust prices for scarcity, or refuse a purchase. A fair price is the listed price; a desperate price is whatever the seller thinks you can pay.
+
+## Healing supplies and hands
+
+Healing requires a free hand. A medkit has five conventional uses; each application of a GOL HP-restoring medical card consumes one. This is separate from the inherited 1/3/7 HP healing cost. Treatment cards use their full hour and matching capability; no medkit or bay grants them automatically.
+
+Basic, Greater and Superior Medical Doses retain HOL's fixed 6/10/16-HP consumable procedure and d4 inventory. The giver spends a Maneuver; another recipient spends a Reaction unless at 0 HP. Apply Life resistance, then check inventory after use. A 1 empties d4 after the healing has worked. No outcome roll, healer HP payment, wound removal or Grit refill is granted.

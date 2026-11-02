@@ -65,8 +65,8 @@ This is a **design review draft**, using the initial character data set for *Gal
 - twelve cultures and twelve backgrounds;
 - ten classes with signatures at levels 1, 3 and 7;
 - eighteen disciplines;
-- sixty-nine ability cards, including universal actions;
-- ten equipment entries and a market;
+- seventy-eight ability cards, including universal actions;
+- thirteen equipment entries and a market;
 - the core rules for play, harm, recovery, starships and FTL.
 
 It is deliberately smaller than the eventual game. The catalog is the source of truth; the book is built from it. When a rule is marked **playtest**, it is a direction that needs table evidence, not a settled law of the setting.

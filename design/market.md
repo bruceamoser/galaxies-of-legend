@@ -14,6 +14,9 @@ Prices are in coins. Availability is set by the SA; a frontier market may not ha
 | [Toolkit](equipment/toolkit.md) | Tool | 1 | 40 |
 | [Sensor Pack](equipment/sensor-pack.md) | Tool | 1 | 70 |
 | [Data Slate](equipment/data-slate.md) | Tool | 0 | 30 |
+| [Basic Medical Dose](equipment/basic-medical-dose.md) | Supply d4 / heals 6 | 1 | 20 |
+| [Greater Medical Dose](equipment/greater-medical-dose.md) | Supply d4 / heals 10 | 1 | 50 |
+| [Superior Medical Dose](equipment/superior-medical-dose.md) | Supply d4 / heals 16 | 1 | 120 |
 
 ## Shopping rules
 

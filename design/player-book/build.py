@@ -19,6 +19,8 @@ name = lambda p: Path(p).read_text().splitlines()[0].lstrip("# ").strip()
 rel = lambda p: str(Path(p).resolve().relative_to(ROOT))
 
 files = {}; links = []; excluded = set(); card_records = []; included = []
+for p in (DESIGN / "rules").glob("*.md"):
+    if p.name != "recovery.md": files[p.resolve()] = key(p)
 for folder in ["ancestries", "origins", "classes", "disciplines", "cards", "equipment"]:
     for p in (DESIGN / folder).glob("*.md"):
         files[p.resolve()] = key(p)
@@ -313,6 +315,27 @@ def ability_browser(paths, tier):
     return result
 
 
+
+def restored_rule(p, title):
+    record(p,"inherited-rule")
+    return "#pagebreak(weak:true)\n#entry(" + q(title) + "," + q(key(p)) + ")\n" + render(p.read_text(),p,base=1)
+
+def wound_reference():
+    p=DESIGN/"rules/wounds.md";record(p,"wound-reference")
+    sections=re.split(r"(?=^## (?:Physical|Elemental|Mental|Radiant|Life/Necrotic)\s*$)",p.read_text(),flags=re.M)
+    result="#pagebreak(weak:true)\n#entry(\"Complete wound tables\"," + q(key(p)) + ")\n" + render(sections[0],p,base=1)
+    for section in sections[1:]:
+        result+="#pagebreak(weak:true)\n"
+        # Each row is retained; only the table renderer changes for reading width and repeated captions.
+        chunks=re.split(r"(?=^### )",section,flags=re.M)
+        result+=render(chunks[0],p,base=1)
+        for chunk in chunks[1:]:
+            caption=chunk.splitlines()[0].lstrip("# ")
+            body=render(chunk,p,base=1)
+            body=body.replace("#rule-table(5,", "#wound-table(" + q(caption) + ",")
+            result+=body
+    return result
+
 parts = ['#import "../template.typ": *\n']
 parts.append(manuscript("01-welcome.md", "1", "Welcome to Galaxies of Legend"))
 parts.append(manuscript("02-creation.md", "2", "Create Your Explorer"))
@@ -348,6 +371,12 @@ parts.append("#pagebreak(weak:true)\n" + doc(DESIGN / "ability-coverage.md", "co
 
 parts.append(manuscript("06-playing.md", "6", "Playing the Game"))
 parts.append(manuscript("08-recovery.md", "7", "Harm and Recovery"))
+parts.append(restored_rule(DESIGN / "rules/damage.md", "Damage, resistance and forced injury"))
+parts.append(restored_rule(DESIGN / "rules/healing.md", "Complete healing economy"))
+parts.append(restored_rule(DESIGN / "rules/conditions.md", "Full condition reference"))
+parts.append(restored_rule(DESIGN / "rules/stability.md", "Stability and collisions"))
+parts.append(wound_reference())
+
 
 parts.append(manuscript("09-abilities.md", "8", "Abilities"))
 for tier in ["Universal", "1", "3", "7"]:
@@ -375,7 +404,7 @@ manifest = {"included": included, "cards": card_records, "internal_links": links
             "external_design_references_rendered_as_text": sorted(excluded),
             "expected": {"ability": len(card_records), "ancestry": len(list((DESIGN/"ancestries").glob("*.md"))), "trait": 0,
                          "culture": len(list((DESIGN/"origins").glob("culture-*.md"))), "background": len(list((DESIGN/"origins").glob("background-*.md"))), "class": len(CLASSES), "discipline": len(DISCIPLINES),
-                         "equipment": 10}}
+                         "equipment": len(list((DESIGN/"equipment").glob("*.md")))}}
 (GEN / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
 print("Included", len(included), "records;", len(card_records), "abilities;", len(links), "internal links.")
 

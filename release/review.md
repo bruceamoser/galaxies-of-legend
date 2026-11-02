@@ -27,3 +27,11 @@ Roster: 18 disciplines, 10 classes, 12 cultures, 12 backgrounds, 69 abilities. N
 Ship construction now uses five frames, weighted die allocation, required and optional modules, installed/current capability, and three exact-budget example builds. This supersedes the endurance-only draft. The ship sheet includes construction costs and capacities. The CLI checker has fourteen passing rejection and consistency tests. The catalog audit checks 1,440 provisional Human origin/class purses, range 55-68; it does not claim complete ancestry builds.
 
 All additions are playtest proposals. This is a local reading revision, not a published release or mission. Typst 0.15.1 compilation, all-page render review, PDF text/manifest checks and the ship checks were completed.
+
+## HOL harm restoration r3 - 2026-11-02
+
+Restores the complete shared damage, resistance, weakness, Grit, Dying, stabilization, death marks, Last Words, condition timing, healing economy and wound treatment foundation from HOL commit 25b80c9. All five wound tables retain their 280 source entries exactly, including treatment labels and Recovery Values. Six treatment capabilities, Stabilize, One More Dawn and fixed-value medical supply use are included; current medical cards and sheets are reconciled. Sci-fi damage aliases and mappings are explicit in the delta; Corrosive and Radiation assignments remain proposals.
+
+Current catalog: 78 abilities and 13 equipment entries, with the existing 18 disciplines, 10 classes and 12 cultures/backgrounds each. The first reading proof has 124 pages, with full Chapter 7 on pages 48-74. The focused 44-page excerpt adds the relevant care cards, supplies, quick references and corrected sheets. Typst 0.15.1 compilation passed. Twenty-two source/ship regression tests pass; PDF export confirms all 56 sorted codes in every wound family. Full-page render contact sheets and detailed wound/treatment/teaching pages were inspected.
+
+This corrects the earlier simplified draft; it does not certify game balance or publish a new release. Source commits and PDFs remain local.

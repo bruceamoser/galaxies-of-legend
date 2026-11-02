@@ -8,9 +8,11 @@
 
 **Target / range / shape:** One creature within reach that has just been reduced to 0 HP
 
-Bring the creature back from the edge.
+**Healing cost:** Pay 7 HP before rolling, bypassing resistance; you must remain above 0 HP. Requires a free hand. Apply Life resistance to HP restored, minimum 1 where HP is missing, capped by maximum HP. This emergency-care card may stabilize a Dying recipient as its outcomes state. It never removes a scar, restores Grit or reverses Last Words. Consume one medkit use per application.
 
-- **Weak:** the creature stabilises at 0 HP.
+Resolve the wound caused by entering Dying first. If it causes Last Words, this card cannot reverse it. Otherwise bring the living creature back from the edge.
+
+- **Weak:** the creature stabilizes at 0 HP and clears death marks.
 - **Standard:** the creature returns to 1 HP.
 - **Strong:** the creature returns to 3 HP and gains a Boon on its next death roll this scene.
 

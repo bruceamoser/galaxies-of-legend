@@ -40,7 +40,10 @@ A grant supplies one missing ordinary item on acquisition. It does not supply a 
 
 ## Damage and conditions
 
-Use the seven damage types: Kinetic, Thermal, Cryogenic, Electrical, Corrosive, Sonic and Radiation. A condition is separate from a type. A card that applies a condition states its rating and duration. A card that deals damage states its type; if it can deal more than one type, split the components before resistance.
+Use Physical, Fire, Cold, Lightning, Mental, Radiant and Life/Necrotic with the descriptive GOL aliases in [damage](rules/damage.md). Conditions follow the complete [condition reference](rules/conditions.md). A card applying a condition names its rating and duration; a permanent wound remedy is not temporary condition decay.
+
+Rolled HP healing follows [Moser's law and healing](rules/healing.md): 1/3/7 HP paid before the roll by Novice/Adept/Master, bypassing resistance and leaving the healer above 0, with a free hand. Life resistance reduces ordinary healing; minimum 1 if HP is missing, cap at missing HP. Fixed medical doses use their own inventory procedure, no healer cost or outcome roll. Treatment progress is not HP healing. A long action takes its printed full time; Main Action does not compress an hour into a turn.
+
 
 ## Signatures
 

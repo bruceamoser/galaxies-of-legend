@@ -11,3 +11,7 @@
 - Final interior illustration program and print proofing remain outstanding.
 
 The Legend attributes, character DP economy and creation-stage sequence are unchanged. All authored deltas record the proposed changes for review.
+
+## HOL foundation restored
+
+The full [damage](rules/damage.md), [recovery](rules/recovery.md), [healing](rules/healing.md), [conditions](rules/conditions.md) and [280-result wound reference](rules/wounds.md) replace the earlier simplified survival chapter. See the [restoration delta](system-deltas/2026-11-02-hol-harm-restoration.md) for sci-fi terminology mappings and medical presentation. Corrosive/Radiation mappings remain proposals; Grit refill and the compact d6 wound table are removed.
