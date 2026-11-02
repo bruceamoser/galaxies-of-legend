@@ -1,9 +1,9 @@
 #let forest = rgb("#0A0A0C")
 #let space = forest
-#let teal = rgb("#0e7a85")
+#let teal = rgb("#176f8c")
 #let gold = rgb("#d4af37")
 #let ivory = rgb("#eaf3f4")
-#let paper = rgb("#F4F4F6")
+#let paper = rgb("#ffffff")
 #let ink = rgb("#0A0A0C")
 #let crimson = rgb("#D92027")
 #let chapter-name = state("chapter-name", "Player’s Book")
@@ -12,31 +12,25 @@
   set text(font: "Roboto", size: 10.5pt, fill: ink, lang: "en", hyphenate: true)
   set par(leading: 0.42em, spacing: 0.65em, justify: false)
   set page(width: 612pt, height: 792pt, margin: (left: 42pt, right: 42pt, top: 52pt, bottom: 46pt), fill: paper,
-    background: context {
-      place(top+left, image("art/vector/page-frame.svg",width:612pt,height:792pt))
-      for item in json("generated/space-art.json").filter(it => it.page == here().page()) {
-        place(top+left, dx:item.x*1pt, dy:item.y*1pt,
-          image("art/interior/"+item.asset+".png",width:item.width*1pt,height:item.height*1pt,fit:"contain"))
-      }
-    },
+    background: none,
     header: context {
       grid(columns: (1fr, 1fr), text(font: "Oswald", size: 8pt, fill: forest)[Galaxies of Legend],
         align(right, text(size: 8pt, fill: forest, {
           let hs = query(heading.where(level: 1)).filter(h => h.location().page() <= here().page())
           if hs.len() > 0 { hs.last().body } else { [Player’s Book] }
         })))
-      v(3pt); image("art/vector/header-rail.svg",width:100%,height:12pt)
+      v(5pt); line(length:100%,stroke:.45pt+rgb("#8baab8"))
     },
     footer: context {
-      image("art/vector/footer-rail.svg",width:100%,height:12pt)
+      line(length:100%,stroke:.45pt+rgb("#8baab8"))
       v(3pt)
-      grid(columns: (1fr, 1fr), text(size: 8pt)[Player’s Book · Playtest Edition],
+      grid(columns: (1fr, 1fr), text(size: 8pt)[Player’s Book · Design Review],
         align(right, text(font: "Oswald", size: 9pt, counter(page).display())))
     })
   set heading(numbering: none)
   show heading.where(level: 1): it => block(above: 0pt, below: 13pt)[
     #text(font: "Oswald", size: 26pt, fill: teal, weight: "bold", it.body)
-    #v(5pt)#image("art/vector/tech-rule.svg",width:100%,height:12pt)
+    #v(7pt)#line(length:52pt,stroke:3pt+crimson)
   ]
   show heading.where(level: 2): it => block(above: 12pt, below: 6pt)[
     #text(font: "Oswald", size: 14pt, fill: teal, weight: "bold", it.body)
@@ -66,12 +60,12 @@
   #body
 ]
 #let art-files = json("generated/art-files.json")
-#let illustration(asset, width: 100%, height: 160pt, fit: "contain") = block(width: width, height: height, above: 8pt, below: 14pt)[
+#let illustration(asset, width: 100%, height: 160pt, fit: "contain") = block(width: width, height: if asset in art-files {height} else {0pt}, above: if asset in art-files {8pt} else {0pt}, below: if asset in art-files {14pt} else {0pt})[
   #layout(size => context { let pos=here().position(); [#metadata((asset:asset,page:pos.page,x:pos.x/1pt,y:pos.y/1pt,width:size.width/1pt,height:height/1pt)) <art-placement>] })
   #if asset in art-files {
     image("art/interior/" + asset + ".png", width: 100%, height: height, fit: fit, alt: asset.replace("-", " "))
   } else {
-    rect(width: 100%, height: height, fill: ivory, stroke: teal)[#align(center+horizon)[Artwork in production]]
+    none
   }
 ]
 // A fractional block gives the remaining page height without making a new page.
@@ -89,7 +83,7 @@
   layout(size => {
     let h = measure(block(width:size.width,whole)).height
     // Keep a short reference together. Long references retain repeated headers.
-    block(breakable:h > 620pt)[#image("art/vector/table-rail.svg",width:100%,height:5pt)#v(-2pt)#whole]
+    block(breakable:h > 620pt)[#whole]
   })
 }
 

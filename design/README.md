@@ -40,3 +40,7 @@ python3 design/player-book/build.py --compile
 ## Working rule
 
 A new game built on the Legend System replaces the setting and the lists of options. It does not redesign the character-building chassis. If a rule needs to leave the chassis, record a system delta in [open-decisions.md](open-decisions.md) before writing it into the catalog.
+
+## Ship-system reading review
+
+See the [expanded proposed rules](player-book/manuscript/11-starships.md) and [system delta](system-deltas/2026-11-02-ship-review.md). The ship rules and book presentation are under design review; catalog structural approval does not establish readiness to playtest ships.

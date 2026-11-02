@@ -31,7 +31,7 @@ There are no separate skill bonuses. If an ability says roll Knowledge, you roll
 
 ## The ship is a character
 
-The crew's ship is not a taxi. It has **Hull**, **DR (shields)**, **systems** and **Consumable Dice** that wear down under load. The crew works stations — Pilot, Navigator, Engineer, Gunner, Sensor Operator, Commander — and anyone qualified can take a station. A class is a character archetype, not a bridge seat. The ship is covered in Chapter 11.
+The crew's ship is not a taxi. It has **Hull**, **DR (shields)**, **systems** and **Consumable Dice** that wear down under load. The crew works stations — Pilot, Navigator, Engineer, Gunner, Sensor Operator, Commander — and anyone qualified can take a station. A class is a character archetype, not a bridge seat. The ship is covered in Chapter 10.
 
 ## The frontier
 
@@ -59,7 +59,7 @@ The scene moves because every result changes something the crew has to respond t
 
 ## What this edition contains
 
-This is the **initial playtest data set** for *Galaxies of Legend*. It contains:
+This is a **design review draft**, using the initial character data set for *Galaxies of Legend*. It contains:
 
 - four homeworlds and twenty homeworld traits;
 - four cultures and four backgrounds;

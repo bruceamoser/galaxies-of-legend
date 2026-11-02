@@ -11,3 +11,9 @@ Release limitations: interior placeholders; four deferred classes; no adversary 
 Before a public final edition: test complete character creation, combat, healing, power transfer and jump preparation; resolve fuel/time economy; develop threats and a starter scenario; check level 1/3/7 signatures and progression through level 10; approve art rights and final layout. Initial playtest publication does not imply any of these are complete.
 
 Build evidence: 58-page PDF compiled with the available Typst Python runtime 0.15.0. The repository specifies CLI 0.15.1; that exact runtime was not available in this environment. A rendered overview was reviewed for page flow. Brand typography and colors applied from the supplied guide. Final print proofing remains outstanding.
+
+## Reading review - 2026-11-02
+
+Bruce has not approved the ship system or overall book look for table playtesting. The new local reading review expands ship procedures, records proposals in a system delta, and adds a two-page ship record. The visual proof uses cinematic working-ship and crew art with quieter page furniture. All ship timing, damage, repair budgets and action procedures remain proposed. The character chassis and DP economy are unchanged.
+
+Built with Typst 0.15.1. Catalog audit: 48 cards, 4 homeworlds, 6 classes, all 384 coin combinations in range. Rendered pages inspected. This review does not constitute a new published release.

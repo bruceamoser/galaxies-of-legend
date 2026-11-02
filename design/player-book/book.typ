@@ -18,7 +18,7 @@
   #v(10pt)
   #text(font: "Oswald", size: 18pt, fill: teal)[Player’s Book]
   #v(10pt)
-  #text(size: 13pt)[Levels 1–10 · Playtest Edition]
+  #text(size: 13pt)[Levels 1–10 · Design Review]
   #v(18pt)
   #text(font: "Oswald", size: 13pt)[Game design by Bruce A. Moser]
 ]
@@ -28,14 +28,12 @@
   *Galaxies of Legend*: character creation, advancement, abilities, equipment,
   harm and recovery, starships, and FTL travel.
 
-  This is a digital playtest edition built from editable Markdown. The cover and
-  crest are original assets. Interior art is a placeholder in this first edition.
-  Structural checks do not certify balance.
+  This is a reading and visual design review, dated 2 November 2026. The ship chapter expands the proposed mechanics with examples and a two-page ship record. Ship procedures and values await designer review. Character catalog checks do not certify balance or readiness for table playtesting. Interior artwork remains in development.
 ]
 #v(14pt)
 #text(size: 9pt)[Manuscript and layout prepared with Codex under Bruce’s direction.
 Starter Kit v#release.version · #release.date.
-Initial playtest data set.]
+Ship systems review · 2026-11-02.]
 #pagebreak()
 #outline(title: [Contents], depth: 1)
 #pagebreak()
@@ -47,7 +45,7 @@ Initial playtest data set.]
   #v(14pt)
   #text(font: "Oswald", size: 20pt, fill: space)[Galaxies of Legend]
   #v(4pt)
-  #text(font: "Oswald", size: 11pt, fill: teal)[Player’s Book · Playtest Edition]
+  #text(font: "Oswald", size: 11pt, fill: teal)[Player’s Book · Design Review]
   #v(8pt)
   #text(size: 9pt)[Version #release.version · #release.date]
   #v(2pt)

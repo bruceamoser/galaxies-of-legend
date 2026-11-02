@@ -45,7 +45,7 @@ The PDF is written to `design/player-book/output/galaxies-of-legend-players-book
 
 ## Status
 
-The catalog is approved for initial playtesting. Structural checks do not certify balance. The cover and crest are real assets; interior art is a placeholder in this edition.
+The character catalog has passed structural checks. The ship system and book presentation are in design review as of 2026-11-02; this does not establish readiness for table playtesting. See [ship review delta](design/system-deltas/2026-11-02-ship-review.md). The cover and crest are real assets; interior art is a placeholder in this edition.
 
 Git history is the archive. Do not treat generated Typst or PDFs as editable sources.
 
@@ -54,4 +54,4 @@ Git history is the archive. Do not treat generated Typst or PDFs as editable sou
 - [Initial release review](release/review.md)
 - [Artwork production plan](release/artwork-plan.md)
 
-The current layout follows the brand guide: Oswald headings, Roboto body/data, Cinzel chapter titles, Stellar White pages and teal/gold accents.
+The reading-review layout uses white pages, Oswald headings, Roboto text, black and blue-teal structure with red accents. Gold is limited to rules callouts and the existing crest. Cinematic artwork establishes the tone; heavy decorative rails and missing-art boxes have been removed.

@@ -141,7 +141,23 @@ def reading(s, p):
 def manuscript(filename, n, title):
     p = BOOK / "manuscript" / filename; record(p, "chapter")
     v = "#chapter(" + q(n) + "," + q(title) + ")\n#metadata(" + q(key(p)) + ")<" + key(p) + ">\n"
-    v += reading(p.read_text(), p)
+    if filename == "11-starships.md":
+        sections = re.split(r"(?=^## )", p.read_text(), flags=re.M)
+        v += '#illustration("ship-review-cutter",height:205pt,fit:"cover")\n'
+        v += '#set par(leading:.48em,spacing:.7em)\n'
+        for index, section in enumerate(sections):
+            if index in (2, 4, 6, 8, 10, 11, 13, 14):
+                v += "#pagebreak(weak:true)\n"
+            if section.startswith("## FTL:"):
+                section = section.replace("### Track B: navigation", "<!-- page -->\n\n### Track B: navigation")
+                chunks = section.split("<!-- page -->")
+                v += render(chunks[0], p, base=1) + "#pagebreak(weak:true)\n" + render(chunks[1], p, base=1)
+            else:
+                v += render(section, p, base=1)
+    else:
+        if filename == "01-welcome.md":
+            v += '#illustration("frontier-crew-review",height:215pt,fit:"cover")\n'
+        v += reading(p.read_text(), p)
     return v
 
 
@@ -199,13 +215,16 @@ def class_page(p):
     hp = re.search(r"HP contribution \+(\d+)", raw).group(1)
     coins = re.search(r"\*\*Starting coin contribution:\*\* \+(\d+)", raw).group(1)
     starting = re.search(r"choose two distinct rank-1 disciplines from ([^.]+)", raw).group(1)
-    cost_table = "| Discipline | 1 | 2 | 3 |\n|---|---:|---:|---:|\n" + "\n".join(
-        "| [" + d.title() + "](../disciplines/" + d + ".md) | " + " | ".join(map(str, rank_costs(p)[d])) + " |"
-        for d in sorted(rank_costs(p))
-    )
+    costs = rank_costs(p)
+    band_names = {(1, 2, 4): "Home", (2, 4, 8): "Adjacent", (3, 6, 12): "Neutral", (4, 8, 16): "Opposed"}
+    cost_table = "| Price band / disciplines | DP: 1 / 2 / 3 |\n|---|---|\n"
+    for values, band_name in band_names.items():
+        disciplines = ", ".join(d.title() for d in sorted(costs) if costs[d] == values)
+        if disciplines:
+            cost_table += "| " + band_name + ": " + disciplines + " | " + " / ".join(map(str, values)) + " |\n"
     core = "*" + narrative + "*\n\n**Attributes:** " + attrs + ". **HP:** +" + hp + ". **Coins:** +" + coins + ".\n\n"
     core += "**Starting ranks:** Choose two distinct rank-1 disciplines from " + starting + ".\n\n"
-    core += "### Discipline costs · DP per rank\n" + cost_table
+    core = "#grid(columns:(1fr,1fr),gutter:18pt,[" + render(core, p, base=1) + "],[" + render("### Discipline costs · DP per rank\n" + cost_table, p, base=1) + "])"
     choices = []
     for lvl in (1, 3, 7):
         m = re.search(r"## Level " + str(lvl) + r"\n\n((?:- .*\n?)+)", raw)
@@ -213,7 +232,7 @@ def class_page(p):
     sigs = "#grid(columns:(1fr,1fr,1fr),gutter:12pt," + ",".join(
         "[" + render("## Level " + str(lvl) + "\n" + body, p, base=1) + "]" for lvl, body in choices
     ) + ")"
-    result = "#pagebreak(weak:true)\n#class-panel(" + q(name(p)) + "," + q(key(p)) + ")[\n#grid(columns:(1.05fr,1fr),gutter:16pt,[" + render(core, p, base=1) + "],[#illustration(" + q("class-" + p.stem) + ",height:420pt)])]\n"
+    result = "#pagebreak(weak:true)\n#class-panel(" + q(name(p)) + "," + q(key(p)) + ")[\n" + core + "]\n"
     result += "#v(8pt)\n#signature-menu[" + sigs + "]\n"
     return result
 
@@ -242,7 +261,7 @@ def coin_reference():
     def table(title):
         return render("### " + title.replace(" contribution", "") + "\n" + sections[title], p, base=1)
     intro = t.split("## Homeworld")[0]
-    result = "#pagebreak(weak: true)\n#entry(\"Starting coins\"," + q(key(p)) + ")\n" + render(intro, p) + "\n"
+    result = "#pagebreak(weak:true)\n#entry(\"Starting coins\"," + q(key(p)) + ")\n" + render(intro, p) + "\n"
     result += "#grid(columns:(1fr,1fr),gutter:12pt,["
     result += table("Homeworld contribution") + table("Class contribution")
     result += "],[" + table("Culture contribution") + table("Background contribution") + "])\n"
@@ -287,7 +306,7 @@ def ability_browser(paths, tier):
         s = p.read_text()
         field = lambda label: re.search(r"\*\*" + re.escape(label) + r":\*\*\s*(.*?)(?=\s*·\s*\*\*|\n|$)", s).group(1).strip()
         rows.append("([#xref(" + q(key(p)) + ")[#text(" + q(name(p)) + ")]], [#text(" + q(field("Requirements to learn")) + ")], [#text(" + q(field("Action")) + ")], [#text(" + q(summary(p)) + ")])")
-    result += "#ability-directory((" + ",".join(rows) + ",))\n#pagebreak(weak:true)\n"
+    result += "#ability-directory((" + ",".join(rows) + ",))\n#v(10pt)\n"
     result += flow([card(p) for p in paths])
     return result
 
@@ -298,7 +317,7 @@ parts.append(manuscript("02-creation.md", "2", "Create Your Explorer"))
 parts.append(hp_reference())
 parts.append(coin_reference())
 
-parts.append("#chapter(\"3\",\"Homeworld, Culture and Background\")\n")
+parts.append("#chapter(\"3\",\"Homeworld, Culture and Background\")\n#illustration(\"frontier-crew-review\",height:300pt,fit:\"cover\")\n")
 parts.append("#twocol[Choose the place that made you, the community that shaped you, and the work that taught you something before the first session. Your homeworld gives you a body and a history; culture and background give you paired training. None of these choices dictates your class or your personality.]\n")
 for h in [p for p in sorted((DESIGN / "homeworlds").glob("*.md")) if not p.name.startswith("trait-")]:
     parts.append("#pagebreak(weak:true)\n#grid(columns:(1fr,1fr),gutter:18pt,[" + doc(h, "homeworld", wide=True) + "],[#illustration(" + q("homeworld-" + h.stem) + ",height:245pt)])\n")
@@ -311,11 +330,11 @@ for typ, title in [("culture", "Cultures"), ("background", "Backgrounds")]:
     entries += [doc(p, typ, wide=True) for p in sorted((DESIGN / "origins").glob(typ + "-*.md"), key=name)]
     parts.append(flow(entries) + "#tail-art(" + q(typ + "s") + ")\n")
 
-parts.append("#chapter(\"4\",\"Classes\")\n")
+parts.append("#chapter(\"4\",\"Classes\")\n#illustration(\"frontier-crew-review\",height:300pt,fit:\"cover\")\n")
 parts.append("#twocol[Choose the identity you want to bring to the crew. Each class grants two starting discipline choices and a signature at levels 1, 3 and 7. Shared abilities remain open to anyone who qualifies. Signatures belong only to their class. Choose one free signature at each milestone. Meet both attribute minimums before choosing your class; choose one class and do not multiclass.]\n")
 for c in CLASSES:
     p = DESIGN / "classes" / (c[0] + ".md")
-    parts.append(class_page(p) + "#pagebreak(weak:true)\n")
+    parts.append(class_page(p) + "#v(10pt)\n")
     sigs = re.findall(r"\]\(\.\./cards/(signature-[^)]+\.md)\)", p.read_text())
     parts.append(flow([card(DESIGN / "cards" / s) for s in sigs]))
 
@@ -348,7 +367,7 @@ parts.append(flow(entries))
 
 parts.append(manuscript("11-starships.md", "10", "Starships and FTL"))
 parts.append(manuscript("14-reference.md", "11", "Table References"))
-parts.append('#include "../sheets.typ"\n')
+parts.append('#include "../sheets.typ"\n#include "../ship-sheets.typ"\n')
 
 (GEN / "body.typ").write_text("".join(parts))
 manifest = {"included": included, "cards": card_records, "internal_links": links,

@@ -78,5 +78,3 @@ Boon: add a die, keep highest three. Bane: add a die, keep lowest three. Cancel 
 - **System:** Legend System, first published in *Heroes of Legend*
 - **Book layout:** adapted from the Heroes of Legend Player's Book pipeline
 - **Cover art:** generated for Galaxies of Legend
-
-This is a digital playtest edition. Structural checks do not certify balance. Play it, break it, and write down what happened.
