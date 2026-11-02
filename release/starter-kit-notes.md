@@ -14,6 +14,10 @@ The base SA book establishes adjudication and preparation procedures, makes oppo
 
 Bruce's ancestry material; broader ability waves; final interior illustrations; ship acquisition and economic calibration; full environmental procedures; encounter calibration; a complete bestiary and the first starter mission. These remain open and are not concealed by the three-book packaging.
 
+## Painted ship records
+
+This revision adopts the approved painted raster direction for ship records. Five hulls provide 8/12/16/22/30 inset system panels matching existing module limits; the sixth page completes the 24-SP Scout Cutter. The interactive records are integrated into the manual and provided separately. Their 394 fields have matching logical values and widget appearances. SP arithmetic remains manual. Hull placement and depicted thrusters add no mechanics or free equipment. Heavy and Capital use larger 17-by-11-inch sheets to retain room for their additional panels.
+
 ## Validation scope
 
 Catalog/link checks, all existing HOL/ship regression tests, book-boundary checks, independent Typst compilation, all 280 wound-code presence checks, profile/sheet inclusion checks, rendered page review, archive integrity and SHA-256 verification. These checks establish content/packaging consistency, not game balance.

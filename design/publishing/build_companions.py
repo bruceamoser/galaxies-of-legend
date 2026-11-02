@@ -167,6 +167,8 @@ def build(kind):
     (gen/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     target=out/f'galaxies-of-legend-{kind}.pdf'
     subprocess.run([os.environ.get('TYPST') or shutil.which('typst'),'compile','--root',str(ROOT),'--font-path',str(PLAYER/'fonts'),str(book/'book.typ'),str(target)],check=True)
+    if kind=='starship-manual':
+        subprocess.run([os.environ.get('GOL_ART_PYTHON',sys.executable),str(book/'art/build-sheets.py'),str(target)],check=True)
     print(f'Built {target}')
 
 if __name__=='__main__':

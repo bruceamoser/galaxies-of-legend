@@ -11,6 +11,20 @@ BOOKS=[
 sha=lambda data:hashlib.sha256(data).hexdigest()
 
 def run(args):subprocess.run(args,cwd=ROOT,check=True)
+def verify_forms(reader,count):
+    fields=reader.get_fields();assert len(fields)==count
+    seen=set()
+    for page in reader.pages:
+        for ref in page.get('/Annots',[]):
+            item=ref.get_object()
+            if item.get('/Subtype')!='/Widget':continue
+            name=str(item['/T']);assert name not in seen;seen.add(name)
+            assert str(item.get('/V',''))==str(fields[name].get('/V',''))
+            assert item.get('/AP',{}).get('/N') is not None
+            x1,y1,x2,y2=map(float,item['/Rect'])
+            assert 0<=x1<x2<=float(page.mediabox.width) and 0<=y1<y2<=float(page.mediabox.height)
+    assert seen==set(fields)
+
 def verify_books():
     result=[];texts={}
     for ident,title,source,name in BOOKS:
@@ -25,6 +39,9 @@ def verify_books():
     assert 'SHIP RECORD / construction' not in player and 'SHIP OPERATIONS / preparation' not in player
     for term in ['WORKED BUILD / Scout Cutter','SP SPENT','SP REMAINING','Build Your Ship','Operate Your Ship','FTL Preparation and Travel','Scout Cutter','Free Trader','System Shuttle','SHIP RECORD / construction','SHIP OPERATIONS / preparation']:
         assert term in ship,('Missing from Starship Manual',term)
+    for term in ['PAINTED','SCOUT CUTTER / COMPLETED BUILD','30 module positions']:
+        assert term.lower() in ship.lower(),('Missing painted records',term)
+    verify_forms(PdfReader(ROOT/BOOKS[1][2]),394)
     for p in (ROOT/'design/sa-book/threats').glob('*.md'):
         title=p.read_text().splitlines()[0][2:];assert title in sa,('Missing threat',title)
     for title in ['Sector record','Scene preparation','Encounter roster','Session and design review']:assert title in sa
@@ -62,6 +79,13 @@ def package(books):
     (dest/'examples').mkdir(exist_ok=True)
     example=dest/'examples'/example_source.name
     shutil.copy2(example_source,example)
+    verify_forms(PdfReader(example),94)
+    (dest/'sheets').mkdir(exist_ok=True)
+    painted=dest/'sheets/Galaxies-of-Legend-Painted-Ship-Sheets.pdf'
+    shutil.copy2(ROOT/'output/pdf'/painted.name,painted)
+    painted_reader=PdfReader(painted)
+    assert len(painted_reader.pages)==6 and len(painted_reader.get_fields())==394
+    verify_forms(painted_reader,394)
     source_zip=dest/'Galaxies-of-Legend-Source.zip'
     with zipfile.ZipFile(source_zip,'w',zipfile.ZIP_DEFLATED) as archive:
         for relative in listing:archive.write(ROOT/relative,relative)
@@ -71,12 +95,13 @@ def package(books):
     dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()) if source_head else None
     manifest={'product':'Galaxies of Legend Starter Kit','version':version['version'],'date':version['date'],'status':version['status'],
               'review_revision':version.get('review_revision','initial'),'books':books,'source_commit':source_head,'source_has_uncommitted_changes':dirty,
-              'worked_example':{'file':str(example.relative_to(dest)),'pages':3,'sha256':sha(example.read_bytes())},
+              'worked_example':{'file':str(example.relative_to(dest)),'pages':3,'interactive_fields':94,'sha256':sha(example.read_bytes())},
+              'painted_ship_sheets':{'file':str(painted.relative_to(dest)),'pages':6,'interactive_fields':394,'sha256':sha(painted.read_bytes())},
               'source_archive':{'file':source_zip.name,'sha256':sha(source_zip.read_bytes()),'files':len(listing)},
-              'checks':['catalog and source links','31 source/ship/book-boundary regression tests','three independent Typst builds','all 280 wound codes present','correct book ownership','18x5 cost tables','8 threat profiles and 4 SA worksheets','ZIP integrity and SHA-256'],
+              'checks':['catalog and source links','31 source/ship/book-boundary regression tests','three independent Typst builds','all 280 wound codes present','correct book ownership','18x5 cost tables','8 threat profiles and 4 SA worksheets','six painted hull records and 394 interactive fields','ZIP integrity and SHA-256'],
               'limits':['ancestries incomplete','new ship/SA values untested','encounter CV uncalibrated','no starter mission','local design review; no public publication']}
     (dest/'MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
-    payload=[dest/'README.md',dest/'RELEASE-NOTES.md',dest/'MANIFEST.json',source_zip,example]+[dest/b['file'] for b in books]
+    payload=[dest/'README.md',dest/'RELEASE-NOTES.md',dest/'MANIFEST.json',source_zip,example,painted]+[dest/b['file'] for b in books]
     checksums=''.join(sha(p.read_bytes())+'  '+str(p.relative_to(dest))+'\n' for p in sorted(payload))
     (dest/'SHA256SUMS').write_text(checksums)
     kit=dest.parent/('Galaxies-of-Legend-Starter-Kit-v'+version['version']+'-review'+('-'+version['review_revision'] if version.get('review_revision') else '')+'.zip')
@@ -92,6 +117,7 @@ def package(books):
 def main():
     args=argparse.ArgumentParser(description=__doc__);args.add_argument('--books-only',action='store_true');args=args.parse_args()
     py=os.environ.get('GOL_BUILD_PYTHON',sys.executable)
+    os.environ.setdefault('GOL_ART_PYTHON',sys.executable)
     run([py,'design/index.py']);run([py,'design/audit.py']);run([py,'-m','unittest','discover','-s','design','-p','test_*.py'])
     run([py,'design/player-book/build.py','--compile'])
     run([py,'design/publishing/build_companions.py','starship-manual'])

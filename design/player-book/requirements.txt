@@ -1,3 +1,4 @@
 markdown-it-py==3.0.0
 # Review PDF packaging
 pypdf==6.10.0
+reportlab>=4.4,<5

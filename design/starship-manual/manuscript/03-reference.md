@@ -35,3 +35,9 @@ The Pilot commits when both tracks and required systems are ready. Arrive, clear
 Keep installed capability, underlying current wear and temporary adjustment separate. A boost does not erase wear. Repair does not invent a missing module. Full service restores the purchased rating. Write the donor, recipient, duration and any end-of-scene consequence for a transfer or temporary ability.
 
 Chapter 2 ends with a completed Scout Cutter record. Compare its Total SP, SP Spent, SP Remaining and per-system SP column with the spending ledger. The following blank ship records are printable. Use extra copies for a frame with more modules than fit on one sheet. A continuation does not increase the frame's module limit or Ship Point (SP) total.
+
+## Painted hull records
+
+The painted records at the back of this manual place each module position inside the ship artwork. Choose the sheet for your frame: Launch has 8 positions, Light 12, Medium 16, Heavy 22 and Capital 30. A sixth sheet completes the Scout Cutter. Required systems are marked with an asterisk; buy their dice with SP before adding optional systems. An empty panel grants no installed equipment. Locations are suggestions, and several painted thrusters can represent the same engine system.
+
+Write the installed die in DIE, current condition in NOW and purchase cost in SP. Total SP, SP Spent and SP Remaining stay separate. The PDF fields are interactive, but totals are manual. Use the companion ledger and operations sheets for capabilities, crew, weapon details and temporary faults. Heavy and Capital records use 17-by-11-inch pages so their additional panels remain readable; zoom when reading digitally or print at full size. The smaller records use US Letter portrait pages.
