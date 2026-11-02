@@ -2,13 +2,13 @@
 
 > **Playtest proposal - construction revision.** Bruce requested ship size classes and allocated system dice. This chapter replaces the earlier endurance-only ship proposal. All ship construction budgets, capacities, damage and operating procedures remain untested design material. The character chassis and DP economy are unchanged.
 
-The crew builds a ship by choosing its size and spending a finite **allocation budget** on installed system dice. Bigger dice are larger, more capable systems as well as more durable ones. A small hull cannot mount everything. A large hull can carry more and better modules, but has poorer Handling and needs more people, money and maintenance to use its potential.
+The crew builds a ship by choosing its size and spending its **Ship Points (SP)** to install system dice. Bigger dice are larger, more capable systems as well as more durable ones. A small hull cannot mount everything. A large hull can carry more and better modules, but has poorer Handling and needs more people, money and maintenance to use its potential.
 
 ## 1. Choose a frame
 
-A ship's **frame class** is its physical scale, not a character class or a station job. Frame size fixes Hull, Handling, available module positions and the allocation budget. These are construction limits, not money and not a pool spent every turn. Hull and Handling are not bought again as systems.
+A ship's **frame class** is its physical scale, not a character class or a station job. Frame size fixes Hull, Handling, available module positions and its total Ship Points (SP). These are construction limits, not money and not a pool spent every turn. Hull and Handling are not bought again as systems.
 
-| Frame | Allocation | Modules max | Die ceiling | Hull | Handling | Scale |
+| Frame | Total SP | Modules max | Die ceiling | Hull | Handling | Scale |
 |---|---:|---:|---|---:|---:|---:|
 | Launch / shuttle | 12 | 8 | d8 | 12 | +2 | 1 |
 | Light ship / cutter | 24 | 12 | d10 | 24 | +1 | 2 |
@@ -18,9 +18,9 @@ A ship's **frame class** is its physical scale, not a character class or a stati
 
 **Scale** multiplies only life-support capacity and cargo capacity. It is not a combat bonus. A capital ship does not multiply its weapon damage by sixteen. Heavy weapons, very large targets and mixed-scale combat require a later design pass; the current mount table is a review baseline.
 
-## 2. Spend the system-die budget
+## 2. Spend your Ship Points (SP)
 
-| Installed die | Allocation cost | Equipment quality | Load degradation |
+| Installed die | SP cost | Equipment quality | Load degradation |
 |---|---:|---|---|
 | d4 | 1 | one Bane | On a 1, step down |
 | d6 | 2 | no modifier | On a 1, step down |
@@ -28,13 +28,40 @@ A ship's **frame class** is its physical scale, not a character class or a stati
 | d10 | 4 | 2 Boons | On a 1, step down |
 | d12 | 5 | 3 Boons | On a 1, step down |
 
-Costs are **total costs**, not costs per upgrade: a d8 module costs 3 allocation; replacing its d6 rating costs one additional point. Buying a new d4 module costs 1. Each installed module also occupies one module position, including required systems. Spend at most the frame budget, stay within the die ceiling, and leave unused allocation recorded. Unspent points are empty design capacity, not free power or repair supplies.
+**Ship size gives you SP. Each die you assign to a system spends SP.** Start with the frame's Total SP, subtract each installed die's SP cost, and record what remains. You may finish with unspent SP, but you cannot spend more than the ship has.
+
+For example, a Light ship starts with **24 SP**. Installing a d6 engine spends **2 SP**, leaving **22 SP**. Installing d4 navigation spends **1 SP**, leaving **21 SP**. Do the same for every required and optional system. A die is bought separately for each module; buying one d6 does not supply d6 to every system.
+
+The proposed price ladder is **d4 = 1 SP, d6 = 2 SP, d8 = 3 SP, d10 = 4 SP, d12 = 5 SP**. The d4/d6 prices follow Bruce's direction; the higher-die prices and each frame's SP total remain proposals for review. They are not a settled balance curve.
+
+Costs are total installed costs: d8 costs 3 SP, not 1 + 2 + 3. Upgrading an installed d6 to d8 during construction spends only **1 additional SP**, the difference between 2 and 3. Each module also occupies one module position. SP, module positions and the die ceiling are separate limits; spare SP does not bypass either of the other limits.
+
+### Worked SP spending ledger: Scout Cutter
+
+Start with a Light frame and **24 SP available**. This is the same checked Scout Cutter shown in Chapter 5.
+
+| Install | Die | SP spent on this module | SP remaining |
+|---|---|---:|---:|
+| Sublight engines | d8 | 3 | 21 |
+| Navigation suite | d8 | 3 | 18 |
+| Sensors | d8 | 3 | 15 |
+| Life support | d6 | 2 | 13 |
+| Communications | d4 | 1 | 12 |
+| FTL drive | d8 | 3 | 9 |
+| Jump capacitors | d8 | 3 | 6 |
+| Weapon mount | d6 | 2 | 4 |
+| Shield generator | d6 | 2 | 2 |
+| Cargo bay | d6 | 2 | 0 |
+
+**Total spent: 24 SP. Remaining: 0 SP.** The first five required systems cost 12 SP, leaving 12 SP for the selected optional systems. Removing the d6 cargo bay during design frees its 2 SP and its module position; losing it to damage during play does not refund SP. Full construction is paid once, not again on every use.
+
+Unspent SP is unused construction capacity. SP is not coins, fuel, capacitor charge or an in-combat power pool. Wear changes the current die, not installed SP cost; an offline system still occupies its place and SP in the build.
 
 **Equipment quality** applies when that system is the primary equipment for a meaningful check. Add its Boons or Bane to the usual Legend pool, cancel modifiers and retain the core limit of three net extra dice. Never add a system die or its size to an attribute total. Use one primary equipment grade per check; do not add grades from several consoles. Abilities and distinct situational modifiers can still contribute within the core limit.
 
 ## 3. Install the required systems
 
-Every independent crewed ship needs exactly one of each: **sublight engines, navigation, sensors, life support and communications**. Each starts at least d4 and costs allocation. These are not free fittings. They may go offline during play, but an offline required module remains installed and does not refund points.
+Every independent crewed ship needs exactly one of each: **sublight engines, navigation, sensors, life support and communications**. Each starts at least d4 and costs SP. These are not free fittings. They may go offline during play, but an offline required module remains installed and does not refund points.
 
 | Required system | Capability at higher ratings |
 |---|---|
@@ -48,7 +75,7 @@ Every independent crewed ship needs exactly one of each: **sublight engines, nav
 
 ## 4. Choose optional modules
 
-| Optional system | What the allocation buys |
+| Optional system | What the SP buys |
 |---|---|
 | Cargo bay | Sealed freight handling and cargo units; multiple bays are allowed. |
 | Med bay | Treatment beds and appropriate facility support; does not grant medical abilities or automatic healing. |
@@ -58,9 +85,9 @@ Every independent crewed ship needs exactly one of each: **sublight engines, nav
 | Jump capacitors | Stores jump charge and sets charging speed; must be paired with an FTL drive in this draft. |
 | Shield generator | Supplies shield DR. An unshielded hull has DR 0. |
 | Workshop | Equipped project positions; does not supply endless parts or grant engineering cards. |
-| Hangar | Launch berths; medium frame or larger, minimum d6. Each docked launch has its own separate build budget. |
+| Hangar | Launch berths; medium frame or larger, minimum d6. Each docked launch has its own separate SP pool. |
 
-Only cargo bays, med bays, weapon mounts, workshops and hangars can be repeated. Each repeat costs its full allocation and a module position and is tracked separately. Do not split a required system into several cheap copies. Every weapon mount gets an identifier; roll and repair that mount, not an imaginary shared weapons pool.
+Only cargo bays, med bays, weapon mounts, workshops and hangars can be repeated. Each repeat costs its full SP cost and a module position and is tracked separately. Do not split a required system into several cheap copies. Every weapon mount gets an identifier; roll and repair that mount, not an imaginary shared weapons pool.
 
 The frame includes ordinary crew access, fittings and personal storage, not a commercial cargo bay, clinic, weapon or FTL drive. A targeting array requires at least one weapon mount. A hangar does not grant ships, pilots or extra turns. Dedicated armour plating, stealth systems, reactors and exotic modules are future coverage, not free narrative upgrades.
 
@@ -138,9 +165,9 @@ If the attack reduces Hull, roll one wound d6: 1-2 Hull only; 3 sensors; 4 engin
 
 ## 9. Transfer, repair and emergencies
 
-Basic power transfer moves one current die step from an online donor to an online receiver; a Strong Knowledge check may move two between that pair. Stop at donor offline or receiver d12. Weak also puts the donor offline at scene end. The receiver cannot be restarted by transfer. The transfer itself needs no extra load roll. Record actual die changes; construction allocation, installed size and module positions never change in combat.
+Basic power transfer moves one current die step from an online donor to an online receiver; a Strong Knowledge check may move two between that pair. Stop at donor offline or receiver d12. Weak also puts the donor offline at scene end. The receiver cannot be restarted by transfer. The transfer itself needs no extra load roll. Record actual die changes; construction SP, installed size and module positions never change in combat.
 
-A receiver improves performance only up to installed rating. Transferring to an installed d4 gun cannot turn it into a d6 gun. It can add endurance above installed rating. To gain permanently better damage, replace or upgrade its hardware using frame allocation and suitable yard work. A service visit cannot recover a transferred point and leave a recipient permanently above installed rating: full service resets each system to its purchased hardware rating.
+A receiver improves performance only up to installed rating. Transferring to an installed d4 gun cannot turn it into a d6 gun. It can add endurance above installed rating. To gain permanently better damage, replace or upgrade its hardware using available frame SP and suitable yard work. A service visit cannot recover a transferred point and leave a recipient permanently above installed rating: full service resets each system to its purchased hardware rating.
 
 Power Routing and Overcharge keep their printed temporary outcomes. Record underlying wear separately; removing the temporary modifier never heals wear. If the underlying die goes offline the boost ends. An effective capacitor capacity loss vents charge above the new limit with no fuel refund, including loss caused by a deliberate transfer. Sacrificing life support starts its reserve countdown. Engineering choices should have visible consequences.
 
@@ -174,9 +201,9 @@ Each module below is bought from the same table. These replace the old unbudgete
 
 ### Scout Cutter
 
-**Light ship / cutter / 24 of 24 allocation / 10 of 12 modules / Hull 24 / Handling +1.**
+**Light ship / cutter / 24 of 24 SP spent / 10 of 12 modules / Hull 24 / Handling +1.**
 
-| Module | Installed die | Cost |
+| Module | Installed die | SP cost |
 |---|---|---:|
 | Sublight engines (engines) | d8 | 3 |
 | Navigation suite (nav) | d8 | 3 |
@@ -191,9 +218,9 @@ Each module below is bought from the same table. These replace the old unbudgete
 
 ### Free Trader
 
-**Light ship / cutter / 24 of 24 allocation / 12 of 12 modules / Hull 24 / Handling +1.**
+**Light ship / cutter / 24 of 24 SP spent / 12 of 12 modules / Hull 24 / Handling +1.**
 
-| Module | Installed die | Cost |
+| Module | Installed die | SP cost |
 |---|---|---:|
 | Sublight engines (engines) | d6 | 2 |
 | Navigation suite (nav) | d6 | 2 |
@@ -210,9 +237,9 @@ Each module below is bought from the same table. These replace the old unbudgete
 
 ### System Shuttle
 
-**Launch / shuttle / 12 of 12 allocation / 8 of 8 modules / Hull 12 / Handling +2.**
+**Launch / shuttle / 12 of 12 SP spent / 8 of 8 modules / Hull 12 / Handling +2.**
 
-| Module | Installed die | Cost |
+| Module | Installed die | SP cost |
 |---|---|---:|
 | Sublight engines (engines) | d8 | 3 |
 | Navigation suite (nav) | d4 | 1 |
@@ -228,8 +255,8 @@ The **scout** spends heavily on survey and jump capability; its d6 cargo bay hol
 
 ## 12. Build worksheet and review questions
 
-Use the two-page ship record at the back. Record frame, budget and ceiling; fill every required row; list each optional module separately; add allocation costs; check module count; then copy installed dice to current dice. Derive cargo and occupant capacity, shield DR, weapon damage and jump limits. Record actual crew and supplies before departure.
+Use the two-page ship record at the back. Record frame, Total SP and ceiling; fill every required row; list each optional module separately; add the SP costs and subtract from Total SP; check module count; then copy installed dice to current dice. Derive cargo and occupant capacity, shield DR, weapon damage and jump limits. Record actual crew and supplies before departure.
 
-The source includes a working allocation checker: `python3 design/ship_builder.py` checks the three examples; passing it a JSON ship validates your own allocation. It rejects missing required systems, repeated unique systems, excess points, excess modules, die ceilings and invalid FTL or targeting combinations. The printed worksheet permits the same checks by hand.
+The source includes a working allocation checker: `python3 design/ship_builder.py` checks the three examples; passing it a JSON ship validates your own allocation. It rejects missing required systems, repeated unique systems, SP overspending, excess modules, die ceilings and invalid FTL or targeting combinations. The printed worksheet permits the same checks by hand.
 
-Questions for Bruce: do the five sizes and budgets leave meaningful sacrifices? Are quality Boons too strong when combined with Handling? Should current condition reduce active capability at every die step? Are cargo and medical facilities distinct enough to justify their allocation? Pricing, hull construction time, oversized weapons, ship advancement and mixed-scale combat remain future work. No new mission or table playtest is assumed.
+Questions for Bruce: do the five sizes and SP totals leave meaningful sacrifices? Are quality Boons too strong when combined with Handling? Should current condition reduce active capability at every die step? Are cargo and medical facilities distinct enough to justify their allocation? Pricing, hull construction time, oversized weapons, ship advancement and mixed-scale combat remain future work. No new mission or table playtest is assumed.

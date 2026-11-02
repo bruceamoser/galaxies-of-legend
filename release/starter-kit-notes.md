@@ -17,3 +17,7 @@ Bruce's ancestry material; broader ability waves; final interior illustrations; 
 ## Validation scope
 
 Catalog/link checks, all existing HOL/ship regression tests, book-boundary checks, independent Typst compilation, all 280 wound-code presence checks, profile/sheet inclusion checks, rendered page review, archive integrity and SHA-256 verification. These checks establish content/packaging consistency, not game balance.
+
+## Ship Points clarification and worked sheet
+
+Ship size supplies Ship Points (SP), and every installed module die spends them. The existing prices are now explicit SP: d4 1, d6 2, d8 3, d10 4 and d12 5. The higher-die prices and frame totals remain proposals. No construction price or performance number changed. A running 24-SP Scout Cutter ledger and completed matching sheet now accompany the blank construction form. The CLI reports total, spent and remaining SP with a per-module ledger.

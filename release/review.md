@@ -43,3 +43,9 @@ Ship construction, all operating procedures and the two ship records move to the
 The base Sector Architect's Book has nine chapters, eight explicit untested personal-scale threat profiles and four worksheets. It covers rulings, sector/faction preparation, situations, encounters, hazards, rewards and campaign consequences without inventing a calibrated GOL encounter budget. No starter mission is added.
 
 Independent Typst builds produce the Player's Book (109 pages), Starship Manual (22 pages) and Sector Architect's Book (23 pages). Twenty-eight source/ship/book-boundary checks pass. All-page renders and detailed profile, reference and worksheet pages were reviewed; the isolated hazard overflow was removed. Packaging validates all five full wound families, both 18-by-5 discipline tables, moved ship records, profiles, SA worksheets and matching archive hashes. The local v0.1.0 design-review package includes all three PDFs, notes, source snapshot and manifest/checksums. Ancestries and new ship/SA mechanics remain open review material.
+
+## SP teaching revision - sp-worked-1
+
+Clarifies Ship Points as the size-based construction pool: each installed die spends its listed SP. Higher-die prices and frame totals remain proposals; no pricing or operating numbers change. The validator now reports explicit total/spent/remaining SP and a running ledger. A completed Scout Cutter sheet appears on Starship Manual page 10 beside the Chapter 2 construction teaching; blank records remain at the back. A three-page worked-build handout combines the SP ledger, completed form and matching blank construction sheet.
+
+The coordinated kit remains v0.1.0 design-review, revision sp-worked-1: Player's Book 109 pages, Starship Manual 23 pages and SA book 23 pages. Thirty-one regression checks pass. The worked sheet and updated SP teaching/form pages were rendered and inspected.

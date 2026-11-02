@@ -11,17 +11,32 @@ class ShipBuilderTests(unittest.TestCase):
         result=validate(ship)
         self.assertFalse(result['valid'])
         self.assertTrue(any(fragment in error for error in result['errors']),result)
+    def test_sp_ledger_spends_the_frame_pool(self):
+        ship=self.ship();result=validate(ship)
+        remaining=result['sp_total']
+        for module,entry in zip(ship['modules'],result['sp_ledger']):
+            self.assertEqual(entry['sp_cost'],DATA['die_sp_cost'][module['die']])
+            remaining-=entry['sp_cost'];self.assertEqual(entry['sp_remaining'],remaining)
+        self.assertEqual(remaining,result['sp_remaining'])
+        self.assertEqual(result['sp_total'],result['sp_spent']+result['sp_remaining'])
+    def test_unspent_sp_stays_in_the_pool(self):
+        ship=self.ship();ship['modules']=[m for m in ship['modules'] if m['type']=='engines' or m['type'] in DATA['required']]
+        result=validate(ship);self.assertTrue(result['valid'])
+        self.assertEqual(result['sp_remaining'],12)
+    def test_requested_d4_d6_prices(self):
+        self.assertEqual(DATA['die_sp_cost']['d4'],1)
+        self.assertEqual(DATA['die_sp_cost']['d6'],2)
     def test_examples_use_exact_budgets(self):
         for ship in EXAMPLES:
             result=validate(ship)
             self.assertTrue(result['valid'],result)
-            self.assertEqual(result['spent'],result['budget'])
+            self.assertEqual(result['sp_spent'],result['sp_total'])
     def test_required_system_not_free_or_omittable(self):
         ship=self.ship();ship['modules']=ship['modules'][1:]
         self.reject(ship,'Required system engines')
     def test_budget_overrun(self):
         ship=self.ship();ship['modules'].append({'id':'extra-hold','type':'cargo','die':'d10'})
-        self.reject(ship,'Allocation budget exceeded')
+        self.reject(ship,'Ship Points (SP) exceeded')
     def test_unique_system_cannot_be_duplicated(self):
         ship=self.ship();ship['modules'].append({'id':'second-nav','type':'navigation','die':'d4'})
         self.reject(ship,'not repeatable')
@@ -56,6 +71,6 @@ class ShipBuilderTests(unittest.TestCase):
         self.assertEqual(DATA['performance']['sensor_reach']['d6'],'Far')
         self.assertGreater(DATA['grades']['d6'],DATA['grades']['d4'])
     def test_upgrade_cost_is_difference(self):
-        self.assertEqual(DATA['die_cost']['d8']-DATA['die_cost']['d6'],1)
+        self.assertEqual(DATA['die_sp_cost']['d8']-DATA['die_sp_cost']['d6'],1)
 
 if __name__=='__main__':unittest.main()

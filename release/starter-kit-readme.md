@@ -21,3 +21,7 @@ The source archive contains Markdown, Typst, fonts, existing artwork, constructi
 To rebuild from the source archive, use Python 3, install `design/player-book/requirements.txt`, provide Typst 0.15.1, and run `python3 release/build-starter-kit.py --books-only`. Run without `--books-only` to create a fresh local package in `output/starter-kit/v0.1.0-review/`. The fonts are bundled. Rendering for visual review uses Poppler separately.
 
 No GitHub publication or public release is implied by this local review package.
+
+## This review revision: sp-worked-1
+
+The Starship Manual now teaches Ship Points explicitly and includes a completed Scout Cutter sheet. Its first five systems spend 12 of the frame's 24 SP; selected optional systems spend the remaining 12 SP. A blank construction record remains available. Higher-die prices and frame SP totals remain proposals.

@@ -16,9 +16,9 @@ A character's learned ship ability stays in the Player's Book, Chapters 4 and 8.
 
 ## Read this manual in order
 
-Chapter 2 builds a ship from a frame and finite allocation. Chapter 3 explains what changes during use and how the crew operates it. Chapter 4 runs the two-track jump procedure. Chapter 5 shows three checked builds. Chapter 6 supplies a quick reference, the character-ability reading guide and the ship records.
+Chapter 2 builds a ship by spending its size-based Ship Points (SP), then shows the completed Scout Cutter sheet. Chapter 3 explains what changes during use and how the crew operates it. Chapter 4 runs the two-track jump procedure. Chapter 5 shows three checked builds. Chapter 6 supplies a quick reference, the character-ability reading guide and the ship records.
 
-Bring the Player's Book, one ship record, the crew's character sheets, three d6 for action checks and the system dice needed by the selected modules. Record actual fuel, parts, cargo and crew before play. The frame's allocation budget does not buy those supplies or hire operators.
+Bring the Player's Book, one ship record, the crew's character sheets, three d6 for action checks and the system dice needed by the selected modules. Record actual fuel, parts, cargo and crew before play. The frame's Ship Point (SP) total does not buy those supplies or hire operators.
 
 ## Status of this edition
 

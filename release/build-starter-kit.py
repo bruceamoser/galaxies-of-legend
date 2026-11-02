@@ -23,7 +23,7 @@ def verify_books():
     assert 'Using the Starship Manual' in player
     assert '1. Choose a frame' not in player
     assert 'SHIP RECORD / construction' not in player and 'SHIP OPERATIONS / preparation' not in player
-    for term in ['Build Your Ship','Operate Your Ship','FTL Preparation and Travel','Scout Cutter','Free Trader','System Shuttle','SHIP RECORD / construction','SHIP OPERATIONS / preparation']:
+    for term in ['WORKED BUILD / Scout Cutter','SP SPENT','SP REMAINING','Build Your Ship','Operate Your Ship','FTL Preparation and Travel','Scout Cutter','Free Trader','System Shuttle','SHIP RECORD / construction','SHIP OPERATIONS / preparation']:
         assert term in ship,('Missing from Starship Manual',term)
     for p in (ROOT/'design/sa-book/threats').glob('*.md'):
         title=p.read_text().splitlines()[0][2:];assert title in sa,('Missing threat',title)
@@ -58,6 +58,10 @@ def package(books):
     else:
         excluded={'.git','.venv','__pycache__','generated','output','tmp','dist','tools'}
         listing=sorted(str(p.relative_to(ROOT)) for p in ROOT.rglob('*') if p.is_file() and not any(part in excluded for part in p.relative_to(ROOT).parts))
+    example_source=ROOT/'output/pdf/Galaxies-of-Legend-Scout-Cutter-SP-Worked-Build.pdf'
+    (dest/'examples').mkdir(exist_ok=True)
+    example=dest/'examples'/example_source.name
+    shutil.copy2(example_source,example)
     source_zip=dest/'Galaxies-of-Legend-Source.zip'
     with zipfile.ZipFile(source_zip,'w',zipfile.ZIP_DEFLATED) as archive:
         for relative in listing:archive.write(ROOT/relative,relative)
@@ -66,15 +70,16 @@ def package(books):
     source_head=head.stdout.strip() if head.returncode==0 else None
     dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()) if source_head else None
     manifest={'product':'Galaxies of Legend Starter Kit','version':version['version'],'date':version['date'],'status':version['status'],
-              'books':books,'source_commit':source_head,'source_has_uncommitted_changes':dirty,
+              'review_revision':version.get('review_revision','initial'),'books':books,'source_commit':source_head,'source_has_uncommitted_changes':dirty,
+              'worked_example':{'file':str(example.relative_to(dest)),'pages':3,'sha256':sha(example.read_bytes())},
               'source_archive':{'file':source_zip.name,'sha256':sha(source_zip.read_bytes()),'files':len(listing)},
-              'checks':['catalog and source links','28 source/ship/book-boundary regression tests','three independent Typst builds','all 280 wound codes present','correct book ownership','18x5 cost tables','8 threat profiles and 4 SA worksheets','ZIP integrity and SHA-256'],
+              'checks':['catalog and source links','31 source/ship/book-boundary regression tests','three independent Typst builds','all 280 wound codes present','correct book ownership','18x5 cost tables','8 threat profiles and 4 SA worksheets','ZIP integrity and SHA-256'],
               'limits':['ancestries incomplete','new ship/SA values untested','encounter CV uncalibrated','no starter mission','local design review; no public publication']}
     (dest/'MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
-    payload=[dest/'README.md',dest/'RELEASE-NOTES.md',dest/'MANIFEST.json',source_zip]+[dest/b['file'] for b in books]
+    payload=[dest/'README.md',dest/'RELEASE-NOTES.md',dest/'MANIFEST.json',source_zip,example]+[dest/b['file'] for b in books]
     checksums=''.join(sha(p.read_bytes())+'  '+str(p.relative_to(dest))+'\n' for p in sorted(payload))
     (dest/'SHA256SUMS').write_text(checksums)
-    kit=dest.parent/('Galaxies-of-Legend-Starter-Kit-v'+version['version']+'-review.zip')
+    kit=dest.parent/('Galaxies-of-Legend-Starter-Kit-v'+version['version']+'-review'+('-'+version['review_revision'] if version.get('review_revision') else '')+'.zip')
     with zipfile.ZipFile(kit,'w',zipfile.ZIP_DEFLATED) as archive:
         for p in payload+[dest/'SHA256SUMS']:archive.write(p,p.relative_to(dest))
     with zipfile.ZipFile(kit) as archive:
@@ -91,6 +96,6 @@ def main():
     run([py,'design/player-book/build.py','--compile'])
     run([py,'design/publishing/build_companions.py','starship-manual'])
     run([py,'design/publishing/build_companions.py','sa-book'])
-    books=verify_books();print('Three-book content checks passed: '+', '.join(b['title']+' '+str(b['pages'])+' pages' for b in books))
+    books=verify_books();run([sys.executable,'release/export-worked-ship.py']);print('Three-book content checks passed: '+', '.join(b['title']+' '+str(b['pages'])+' pages' for b in books))
     if not args.books_only:package(books)
 if __name__=='__main__':main()

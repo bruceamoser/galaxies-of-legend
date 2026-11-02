@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate proposed ship allocations. No dependencies beyond Python 3."""
+"""Spend Ship Points (SP) on installed system dice and validate the build. No dependencies beyond Python 3."""
 import argparse, json
 from collections import Counter
 from pathlib import Path
@@ -13,7 +13,7 @@ def validate(ship):
     frame=DATA['frames'][ship['frame']]; modules=ship.get('modules',[])
     if not isinstance(modules,list):
         return {'name':ship.get('name','Unnamed'),'valid':False,'errors':['Modules must be a list']}
-    counts=Counter(); ids=set(); spent=0
+    counts=Counter(); ids=set(); spent=0; ledger=[]
     for m in modules:
         if not isinstance(m,dict):
             errors.append('Each module must be an object');continue
@@ -22,9 +22,11 @@ def validate(ship):
         if isinstance(ident,str):ids.add(ident)
         if kind not in DATA['systems']:errors.append(f'{ident}: unknown system {kind}');continue
         counts[kind]+=1
-        if die not in DATA['die_cost']:errors.append(f'{ident}: invalid die {die}');continue
-        spent+=DATA['die_cost'][die]
-        if DATA['die_cost'][die]>DATA['die_cost'][frame['max_die']]:errors.append(f'{ident}: exceeds frame die ceiling')
+        if die not in DATA['die_sp_cost']:errors.append(f'{ident}: invalid die {die}');continue
+        cost=DATA['die_sp_cost'][die]
+        spent+=cost
+        ledger.append({'module':ident,'system':kind,'die':die,'sp_cost':cost,'sp_remaining':frame['sp']-spent})
+        if DATA['die_sp_cost'][die]>DATA['die_sp_cost'][frame['max_die']]:errors.append(f'{ident}: exceeds frame die ceiling')
         if kind=='hangar' and DATA['performance']['hangar_launches'][die]==0:errors.append(f'{ident}: hangar requires at least d6')
         if kind=='hangar' and frame['scale']<4:errors.append(f'{ident}: hangar requires medium frame or larger')
     for kind in DATA['required']:
@@ -34,8 +36,8 @@ def validate(ship):
     if bool(counts['ftl'])!=bool(counts['capacitors']):errors.append('FTL drive and jump capacitors must be installed together')
     if counts['targeting'] and not counts['weapons']:errors.append('Targeting requires a weapon mount')
     if len(modules)>frame['max_modules']:errors.append('Module limit exceeded')
-    if spent>frame['budget']:errors.append('Allocation budget exceeded')
-    return {'name':ship.get('name','Unnamed'),'frame':ship['frame'],'valid':not errors,'spent':spent,'budget':frame['budget'],'unspent':frame['budget']-spent,'modules':len(modules),'hull':frame['hull'],'handling':frame['handling'],'errors':errors}
+    if spent>frame['sp']:errors.append('Ship Points (SP) exceeded')
+    return {'name':ship.get('name','Unnamed'),'frame':ship['frame'],'valid':not errors,'sp_total':frame['sp'],'sp_spent':spent,'sp_remaining':frame['sp']-spent,'sp_ledger':ledger,'modules':len(modules),'hull':frame['hull'],'handling':frame['handling'],'errors':errors}
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)

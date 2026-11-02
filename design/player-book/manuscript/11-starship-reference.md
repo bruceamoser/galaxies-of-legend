@@ -8,7 +8,7 @@ The crew's ship has its own book: the **Galaxies of Legend Starship Manual**. Th
 |---|---|
 | How do I make and advance a character? | Player's Book, Chapters 2-5. |
 | Which character ability do I use aboard ship? | Player's Book, Chapters 4 and 8. Its action, attribute, prerequisites and outcomes remain authoritative. |
-| How do we choose a frame and allocate module dice? | Starship Manual, Chapter 2: Build Your Ship. |
+| How do we choose a frame and spend SP on module dice? | Starship Manual, Chapter 2: Build Your Ship. |
 | How do system grades, stations, shields and ship damage work? | Starship Manual, Chapter 3: Operate Your Ship. |
 | How do we charge, plot and commit an FTL jump? | Starship Manual, Chapter 4: FTL Preparation and Travel. |
 | Where are the budgeted ship examples? | Starship Manual, Chapter 5: Example Builds. |

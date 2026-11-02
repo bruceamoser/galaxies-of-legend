@@ -12,3 +12,7 @@ Owns construction, system capability and wear, station actions, ship combat, tra
 Build the Player's Book first for shared assets, then `python3 design/publishing/build_companions.py starship-manual`. The PDF is `output/galaxies-of-legend-starship-manual.pdf`. `generated/` and `output/` are disposable. Shared typography and Markdown rendering live in the Player's Book pipeline; edit Markdown, sheets or the publisher instead of generated body files.
 
 The Player's Book owns learned abilities and the full 280-entry personal wound foundation. This manual references class signatures in Player's Book Chapter 4 and shared abilities in Chapter 8. Sector preparation and opposition live in the SA book.
+
+## Worked SP build
+
+Chapter 2 explains Total SP, SP Spent and SP Remaining, then shows a completed Scout Cutter construction sheet. Its 24 starting SP pay for 12 SP of required systems and 12 SP of optional modules. Run `python3 release/export-worked-ship.py` after building to extract the three-page ledger / completed sheet / blank sheet handout. The CLI uses explicit `sp_total`, `sp_spent`, `sp_remaining` and `sp_ledger` fields.

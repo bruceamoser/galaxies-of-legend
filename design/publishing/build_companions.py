@@ -56,6 +56,47 @@ def source(p,kind='chapter'):
     g.files[p.resolve()]=g.key(p);g.record(p,kind)
     return f'#metadata({g.q(g.key(p))})<{g.key(p)}>\n'
 
+
+def worked_scout_sheet(book):
+    data=json.loads((ROOT/'design/ships/construction.json').read_text())
+    ship=json.loads((ROOT/'design/ships/examples.json').read_text())[0]
+    frame=data['frames'][ship['frame']]
+    spent=sum(data['die_sp_cost'][m['die']] for m in ship['modules'])
+    abilities={'engines':'1 Boon: powered manoeuvres','navigation':'1 Boon: plotting','sensors':'Extreme reach; 1 Boon','life_support':'8 occupants (4 x Scale 2)','communications':'1 Bane: pressured radio','ftl':'3 route units','capacitors':'9 segments; 6 min/segment','weapons':'Thermal 3 / 5 / 7','defences':'Shield DR 2','cargo':'8 cargo units (4 x Scale 2)'}
+    def cell(value):return '[#text('+g.q(str(value))+')]'
+    rows=[]
+    for m in ship['modules']:
+        title=data['systems'][m['type']]['name']
+        if m['type'] in data['required']:title='* '+title
+        rows.extend(map(cell,(title,m['die'],data['die_sp_cost'][m['die']],m['die'],abilities[m['type']])))
+    rows += ['[]']*(5*(16-len(ship['modules'])))
+    body='''#import "../../player-book/template.typ": *
+#import "../ship-sheets.typ": sheet,title,band,table-blank
+#let value(label,body,height:35pt) = block(width:100%,height:height,inset:5pt,stroke:.5pt+teal,breakable:false)[
+ #text(size:7.5pt,weight:"bold",fill:teal,label)#v(2pt)#text(size:11pt,weight:"bold",body)
+]
+#sheet([
+ #title("WORKED BUILD / Scout Cutter")
+ #v(7pt)#grid(columns:(2fr,1fr,1fr),gutter:6pt,value("SHIP NAME / REGISTRY","Scout Cutter",height:31pt),value("FRAME CLASS","Light",height:31pt),value("SCALE","2",height:31pt))
+ #v(6pt)#grid(columns:(1fr,1fr,1fr,1.2fr,1fr),gutter:6pt,value("TOTAL SP","SP_TOTAL"),value("SP SPENT","SP_SPENT"),value("SP REMAINING","SP_LEFT"),value("MODULES USED / MAX","10 / 12"),value("DIE CEILING","d10"))
+ #v(6pt)#grid(columns:(1fr,1fr,1fr,1fr),gutter:6pt,value("HULL: CURRENT / MAX","24 / 24"),value("EFFECTIVE SHIELD DR","2"),value("EFFECTIVE JUMP RANGE","3"),value("HANDLING","+1"))
+ #band("SP SPENDING & SYSTEM CONDITION",subtitle:"Required rows are marked *. Every installed die is already paid for. Current dice start at their installed ratings.")
+ #set text(size:8pt)
+ #table(columns:(130pt,48pt,34pt,50pt,1fr),rows:(auto,)+(18pt,)*16,inset:4pt,stroke:.4pt+rgb("#9aaeb5"),
+ table.header(..([MODULE / ID],[RATED],[SP],[CURRENT],[CAPABILITY / FAULT / TEMP]).map(c=>table.cell(fill:ivory,strong(c)))),
+ ROWS)
+ #band("WEAPON MOUNTS",subtitle:"This pulse mount costs 2 SP. It is one installed weapon, not a free extra system.")
+ #table(columns:(1.4fr,.8fr,1.2fr,1fr),rows:(auto,20pt,20pt),inset:4pt,stroke:.4pt+rgb("#9aaeb5"),
+ table.header(..([MOUNT / TYPE],[RANGE],[WEAK / STD / STRONG],[OPERATOR]).map(c=>table.cell(fill:ivory,strong(c)))),
+ [Pulse / Thermal],[Close-Near],[3 / 5 / 7],[Assign crew],[],[],[],[])
+ #band("CREW / STATIONS")
+ #grid(columns:(1fr,1fr,1fr),gutter:6pt,value("PILOT / NAVIGATOR","Assign crew",height:32pt),value("GUNNERS / SENSORS","Assign crew",height:32pt),value("ENGINEER / COMMANDER","Assign crew",height:32pt))
+ #v(7pt)#text(size:8pt)[24 starting SP - 12 SP required systems - 12 SP optional systems = 0 SP remaining. Empty rows grant no extra module positions. Fuel, parts and crew are not included in SP. Wear changes current condition without refunding spent SP.]
+])
+'''
+    body=body.replace('SP_TOTAL',str(frame['sp'])).replace('SP_SPENT',str(spent)).replace('SP_LEFT',str(frame['sp']-spent)).replace(' ROWS)', ' '+','.join(rows)+')')
+    (book/'generated/worked-scout.typ').write_text(body)
+
 def starship(book):
     intro=book/'manuscript/01-welcome.md';rules=book/'manuscript/02-rules.md';ref=book/'manuscript/03-reference.md'
     parts=['#import "../../player-book/template.typ": *\n']
@@ -64,6 +105,7 @@ def starship(book):
     parts += [source(rules,'ship-rule'),g.render(sections[0],rules,base=1)]
     groups=[('2','Build Your Ship',1,6),('3','Operate Your Ship',6,10),('4','FTL Preparation and Travel',10,11),('5','Example Builds',11,12)]
     for n,title,start,end in groups:
+        if n=='3': parts.append('#include "worked-scout.typ"\n')
         parts.append(f'#chapter({g.q(n)},{g.q(title)})\n')
         for index,section in enumerate(sections[start:end]):
             if index:parts.append('#pagebreak(weak:true)\n')
@@ -115,6 +157,7 @@ def sa(book):
 def build(kind):
     book=ROOT/'design'/kind;gen=book/'generated';gen.mkdir(exist_ok=True);out=book/'output';out.mkdir(exist_ok=True)
     # Each companion runs in a fresh process, so manifests record only its own inputs.
+    if kind=='starship-manual': worked_scout_sheet(book)
     body=starship(book) if kind=='starship-manual' else sa(book)
     (gen/'body.typ').write_text(body)
     sheets='ship-sheets.typ' if kind=='starship-manual' else 'sheets.typ'

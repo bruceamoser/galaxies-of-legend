@@ -12,7 +12,7 @@ Agree on milestones in terms of meaningful accomplishments and campaign developm
 
 Before acceptance, distinguish pay from expenses, access from ownership and a loan from a gift. Name who provides fuel, berths, replacement parts and medical supplies. When a price is not yet part of the catalog, record the local quote as a provisional campaign ruling rather than silently establishing a universal price.
 
-The current market includes medical supplies at proposed 20/50/120-coin prices and the stated starting equipment. A ship's allocation points do not convert into coins. This edition has no approved ship purchase schedule, construction labour cost or universal salvage percentage. Do not disguise those missing economic decisions as a completed trade system.
+The current market includes medical supplies at proposed 20/50/120-coin prices and the stated starting equipment. A ship's Ship Points (SP) do not convert into coins. This edition has no approved ship purchase schedule, construction labour cost or universal salvage percentage. Do not disguise those missing economic decisions as a completed trade system.
 
 ## Salvage and special equipment
 

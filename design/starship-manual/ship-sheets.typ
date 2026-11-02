@@ -26,12 +26,12 @@
 #sheet([
  #title("SHIP RECORD / construction & condition")
  #v(7pt)#grid(columns:(2fr,1fr,1fr),gutter:6pt,field("SHIP NAME / REGISTRY",height:31pt),field("FRAME CLASS",height:31pt),field("SCALE",height:31pt))
- #v(6pt)#grid(columns:(1fr,1fr,1fr,1fr),gutter:6pt,field("BUDGET: USED / TOTAL"),field("MODULES: USED / MAX"),field("DIE CEILING"),field("HANDLING"))
- #v(6pt)#grid(columns:(1fr,1fr,1fr),gutter:6pt,field("HULL: CURRENT / MAX"),field("EFFECTIVE SHIELD DR"),field("EFFECTIVE JUMP RANGE"))
- #band("MODULE ALLOCATION & CONDITION",subtitle:"Required rows are marked *. Each installed die costs d4:1 / d6:2 / d8:3 / d10:4 / d12:5. Copy for continuation.")
+ #v(6pt)#grid(columns:(1fr,1fr,1fr,1.2fr,1fr),gutter:6pt,field("TOTAL SP"),field("SP SPENT"),field("SP REMAINING"),field("MODULES: USED / MAX"),field("DIE CEILING"))
+ #v(6pt)#grid(columns:(1fr,1fr,1fr,1fr),gutter:6pt,field("HULL: CURRENT / MAX"),field("EFFECTIVE SHIELD DR"),field("EFFECTIVE JUMP RANGE"),field("HANDLING"))
+ #band("SP SPENDING & SYSTEM CONDITION",subtitle:"Required rows are marked *. SP per installed die: d4:1 / d6:2 / d8:3 / d10:4 / d12:5. Copy for continuation.")
  #set text(size:8pt)
  #table(columns:(130pt,48pt,34pt,50pt,1fr),rows:(auto,)+(18pt,)*16,inset:4pt,stroke:.4pt+rgb("#9aaeb5"),
-  table.header(..([MODULE / ID],[RATED],[COST],[CURRENT],[CAPABILITY / FAULT / TEMP]).map(c=>table.cell(fill:ivory,strong(c)))),
+  table.header(..([MODULE / ID],[RATED],[SP],[CURRENT],[CAPABILITY / FAULT / TEMP]).map(c=>table.cell(fill:ivory,strong(c)))),
   ..("* Sublight engines","* Navigation","* Sensors","* Life support","* Communications","","","","","","","","","","","").map(s=>([ #s ],[],[],[],[])).flatten())
  #band("WEAPON MOUNTS",subtitle:"One shot per mount per round. Effective die sets damage; targeting may replace equipment quality.")
  #table-blank(([MOUNT / TYPE],[RANGE],[WEAK / STD / STRONG],[OPERATOR]),(1.4fr,.8fr,1.2fr,1fr),2,row-height:20pt)
