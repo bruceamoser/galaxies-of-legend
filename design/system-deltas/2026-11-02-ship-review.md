@@ -2,7 +2,7 @@
 
 **Status: proposed / playtest; awaiting Bruce's design review.** No character attributes, chassis, grants, DP prices, prerequisites or ability card texts change.
 
-Canonical teaching rules: `../player-book/manuscript/11-starships.md`. The Player's Book consumes that source directly. This delta records additions and differences from the previous merged draft.
+Canonical teaching rules: `../starship-manual/manuscript/02-rules.md`. The Player's Book consumes that source directly. This delta records additions and differences from the previous merged draft.
 
 | Rule changed | Proposed replacement | Reason | Balance impact |
 |---|---|---|---|

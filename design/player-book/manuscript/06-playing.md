@@ -44,9 +44,9 @@ Difficult terrain costs 2 squares of movement for 1 square entered. Standing fro
 
 ## Attacks and defence
 
-A player attack is one roll against the target's defence. The SA sets the defence from the target's attributes and situation, or uses the target's printed defence. A player area attack uses one roll with the worst applicable Boon/Bane situation among the targets; each target is affected by the result.
+A player attack uses one attacker roll and its printed Weak, Standard or Strong outcome. Do not add a target defence number or a second opposed roll. For a player area attack, use the worst applicable net Boon/Bane situation among its targets and apply their resistances individually.
 
-When an NPC attacks, each affected player makes a defence roll if the ability calls for one. The NPC's printed attribute is the attacker's approach, not the attribute the player rolls.
+When an NPC attacks, the affected player makes the appropriate defence roll: Weak defence takes Strong attack effects, Standard takes Standard and Strong takes Weak. Defence itself spends no Reaction. Use printed attributes where supplied; the acting NPC rolls its printed attribute for consequential healing or other tasks. For NPC versus NPC, roll the defender's printed defence attribute and use the same outcome inversion.
 
 ## Damage and conditions
 
@@ -62,10 +62,12 @@ Social abilities create leverage, information or progress. They do not take cont
 
 Exploration uses the same roll and the same three bands. A scan, a survey, a repair or a route-plot is a progress task: the SA sets the progress needed (usually 3), and each result adds 1, 2 or 3. Progress persists unless the situation changes.
 
-## Ship stations
+## Aboard a ship
 
 When the crew is aboard a ship, a character may take a **station**: Pilot, Navigator, Engineer, Gunner, Sensor Operator or Commander. A station is a job in the scene, not a class. Anyone qualified can take it. Class abilities make a character especially good at a station without making it exclusive.
 
 ## The SA's job
 
 The Sector Architect describes the galaxy, portrays its people, presents danger and adjudicates uncertainty. The SA should say **what is at stake** before calling for a roll, and should let a good plan work without dice when the outcome is not in doubt.
+
+Ship construction, system grades, station actions, Hull, shield DR, ship combat and FTL are defined in the **Starship Manual**, Chapters 2-4. Character ship abilities remain here in Chapters 4 and 8; their station context does not create an extra turn.

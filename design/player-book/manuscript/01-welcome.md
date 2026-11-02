@@ -31,7 +31,7 @@ There are no separate skill bonuses. If an ability says roll Knowledge, you roll
 
 ## The ship is a character
 
-The crew's ship is not a taxi. It has **Hull**, **DR (shields)**, **systems** and **Consumable Dice** that wear down under load. The crew works stations — Pilot, Navigator, Engineer, Gunner, Sensor Operator, Commander — and anyone qualified can take a station. A class is a character archetype, not a bridge seat. The ship is covered in Chapter 10.
+The crew's ship is not a taxi. It has **Hull**, **DR (shields)**, **systems** and **Consumable Dice** that wear down under load. The crew works stations — Pilot, Navigator, Engineer, Gunner, Sensor Operator, Commander — and anyone qualified can take a station. A class is a character archetype, not a bridge seat. Ship construction and operation are in the separate Starship Manual. Chapter 10 explains how the books work together.
 
 ## The frontier
 
@@ -67,7 +67,8 @@ This is a **design review draft**, using the initial character data set for *Gal
 - eighteen disciplines;
 - seventy-eight ability cards, including universal actions;
 - thirteen equipment entries and a market;
-- the core rules for play, harm, recovery, starships and FTL.
+- the full character rules for play, damage, Grit, wounds, healing and recovery;
+- a guide to the separate Starship Manual and Sector Architect’s Book.
 
 It is deliberately smaller than the eventual game. The catalog is the source of truth; the book is built from it. When a rule is marked **playtest**, it is a direction that needs table evidence, not a settled law of the setting.
 

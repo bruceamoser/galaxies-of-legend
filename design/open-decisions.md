@@ -5,7 +5,7 @@
 - Eighteen disciplines; ten classes; twelve cultures and twelve backgrounds. New rules and expanded affinities are playtest proposals.
 - Four ancestry placeholders await Bruce's material. The provisional Human arithmetic scaffold grants no traits. Legacy homeworlds are not ancestries.
 - [Ability coverage](ability-coverage.md) schedules later waves; current breadth is not a complete catalog.
-- [Ship construction](ships/construction.json) and the [ship chapter](player-book/manuscript/11-starships.md) define frame budgets and meaningful installed dice. The earlier endurance-only proposal is superseded.
+- [Ship construction](ships/construction.json) and the [ship chapter](starship-manual/manuscript/02-rules.md) define frame budgets and meaningful installed dice. The earlier endurance-only proposal is superseded.
 - Ship purchase prices, labour times, crew costs, oversized weapons, mixed-scale combat, boarding and advancement remain open.
 - Fuel, spare parts and service pricing remain open. Frame points and module capacity are not money.
 - Final interior illustration program and print proofing remain outstanding.

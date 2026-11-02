@@ -7,8 +7,8 @@
 #let ink = rgb("#0A0A0C")
 #let crimson = rgb("#D92027")
 #let chapter-name = state("chapter-name", "Player’s Book")
-#let setup(body) = {
-  set document(title: "Galaxies of Legend — Player’s Book", author: "Bruce A. Moser")
+#let setup(book-title: "Player’s Book", body) = {
+  set document(title: "Galaxies of Legend — " + book-title, author: "Bruce A. Moser")
   set text(font: "Roboto", size: 10.5pt, fill: ink, lang: "en", hyphenate: true)
   set par(leading: 0.42em, spacing: 0.65em, justify: false)
   set page(width: 612pt, height: 792pt, margin: (left: 42pt, right: 42pt, top: 52pt, bottom: 46pt), fill: paper,
@@ -17,14 +17,14 @@
       grid(columns: (1fr, 1fr), text(font: "Oswald", size: 8pt, fill: forest)[Galaxies of Legend],
         align(right, text(size: 8pt, fill: forest, {
           let hs = query(heading.where(level: 1)).filter(h => h.location().page() <= here().page())
-          if hs.len() > 0 { hs.last().body } else { [Player’s Book] }
+          if hs.len() > 0 { hs.last().body } else { book-title }
         })))
       v(5pt); line(length:100%,stroke:.45pt+rgb("#8baab8"))
     },
     footer: context {
       line(length:100%,stroke:.45pt+rgb("#8baab8"))
       v(3pt)
-      grid(columns: (1fr, 1fr), text(size: 8pt)[Player’s Book · Design Review],
+      grid(columns: (1fr, 1fr), text(size: 8pt)[#book-title · Starter Kit Review],
         align(right, text(font: "Oswald", size: 9pt, counter(page).display())))
     })
   set heading(numbering: none)

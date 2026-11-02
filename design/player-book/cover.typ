@@ -20,7 +20,7 @@
   #v(6pt)
   #line(length: 112pt, stroke: .6pt + gold)
   #v(6pt)
-  #text(font: "Roboto", size: 11pt, fill: ivory)[Levels 1–10 · Design Review]
+  #text(font: "Roboto", size: 11pt, fill: ivory)[Levels 1–10 · Starter Kit Review]
 ])
 #place(bottom + center, dy: -14pt, block(fill: black.transparentize(25%), inset: (x: 12pt, y: 5pt))[
   #text(font: "Oswald", size: 9pt, fill: ivory, tracking: .12em)[BRUCE A. MOSER]

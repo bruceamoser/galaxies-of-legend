@@ -18,3 +18,8 @@ Thumbs.db
 # Local review deliverables and render checks
 /output/
 /tmp/
+
+/design/starship-manual/generated/
+/design/starship-manual/output/
+/design/sa-book/generated/
+/design/sa-book/output/

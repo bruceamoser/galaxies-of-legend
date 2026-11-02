@@ -35,3 +35,11 @@ Restores the complete shared damage, resistance, weakness, Grit, Dying, stabiliz
 Current catalog: 78 abilities and 13 equipment entries, with the existing 18 disciplines, 10 classes and 12 cultures/backgrounds each. The first reading proof has 124 pages, with full Chapter 7 on pages 48-74. The focused 44-page excerpt adds the relevant care cards, supplies, quick references and corrected sheets. Typst 0.15.1 compilation passed. Twenty-two source/ship regression tests pass; PDF export confirms all 56 sorted codes in every wound family. Full-page render contact sheets and detailed wound/treatment/teaching pages were inspected.
 
 This corrects the earlier simplified draft; it does not certify game balance or publish a new release. Source commits and PDFs remain local.
+
+## First three-book Starter Kit review - 2026-11-02
+
+Ship construction, all operating procedures and the two ship records move to the dedicated Starship Manual. The Player's Book retains all 78 abilities, the complete HOL survival system and all 280 wound results, with Chapter 10 reduced to a companion guide. Cross-book pointers distinguish class signatures in Chapter 4 from shared abilities in Chapter 8.
+
+The base Sector Architect's Book has nine chapters, eight explicit untested personal-scale threat profiles and four worksheets. It covers rulings, sector/faction preparation, situations, encounters, hazards, rewards and campaign consequences without inventing a calibrated GOL encounter budget. No starter mission is added.
+
+Independent Typst builds produce the Player's Book (109 pages), Starship Manual (22 pages) and Sector Architect's Book (23 pages). Twenty-eight source/ship/book-boundary checks pass. All-page renders and detailed profile, reference and worksheet pages were reviewed; the isolated hazard overflow was removed. Packaging validates all five full wound families, both 18-by-5 discipline tables, moved ship records, profiles, SA worksheets and matching archive hashes. The local v0.1.0 design-review package includes all three PDFs, notes, source snapshot and manifest/checksums. Ancestries and new ship/SA mechanics remain open review material.

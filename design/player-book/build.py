@@ -143,23 +143,9 @@ def reading(s, p):
 def manuscript(filename, n, title):
     p = BOOK / "manuscript" / filename; record(p, "chapter")
     v = "#chapter(" + q(n) + "," + q(title) + ")\n#metadata(" + q(key(p)) + ")<" + key(p) + ">\n"
-    if filename == "11-starships.md":
-        v += '#illustration("ship-review-cutter",height:205pt,fit:"cover")\n'
-        v += '#set par(leading:.48em,spacing:.7em)\n'
-        sections = re.split(r"(?=^## )", p.read_text(), flags=re.M)
-        for index, section in enumerate(sections):
-            if index: v += "#pagebreak(weak:true)\n"
-            if section.startswith("## 11."):
-                profiles = re.split(r"(?=^### )",section,flags=re.M)
-                v += render(profiles[0],p,base=1)
-                for profile in profiles[1:]:
-                    v += "#block(breakable:false)[" + render(profile,p,base=1) + "]\n"
-            else:
-                v += render(section,p,base=1)
-    else:
-        if filename == "01-welcome.md":
-            v += '#illustration("frontier-crew-review",height:215pt,fit:"cover")\n'
-        v += reading(p.read_text(), p)
+    if filename == "01-welcome.md":
+        v += '#illustration("frontier-crew-review",height:215pt,fit:"cover")\n'
+    v += reading(p.read_text(), p)
     return v
 
 
@@ -336,79 +322,83 @@ def wound_reference():
             result+=body
     return result
 
-parts = ['#import "../template.typ": *\n']
-parts.append(manuscript("01-welcome.md", "1", "Welcome to Galaxies of Legend"))
-parts.append(manuscript("02-creation.md", "2", "Create Your Explorer"))
-parts.append(hp_reference())
-parts.append(coin_reference())
+def build_player():
+    parts = ['#import "../template.typ": *\n']
+    parts.append(manuscript("01-welcome.md", "1", "Welcome to Galaxies of Legend"))
+    parts.append(manuscript("02-creation.md", "2", "Create Your Explorer"))
+    parts.append(hp_reference())
+    parts.append(coin_reference())
 
-parts.append("#chapter(\"3\",\"Ancestry, Culture and Background\")\n")
-parts.append("Ancestry is physiology, culture is community, background is experience. Ancestries below are placeholders awaiting Bruce's material. No alien biology or benefits have been invented.\n\n")
-parts.append(flow([doc(p,"ancestry",wide=True) for p in sorted((DESIGN/"ancestries").glob("*.md"))]))
-for typ, title in [("culture", "Cultures"), ("background", "Backgrounds")]:
-    parts.append("#pagebreak(weak:true)\n#heading(level:2," + q(title) + ")\n")
-    intro = BOOK / "manuscript" / ("intro-" + typ + ".md"); record(intro, "section")
+    parts.append("#chapter(\"3\",\"Ancestry, Culture and Background\")\n")
+    parts.append("Ancestry is physiology, culture is community, background is experience. Ancestries below are placeholders awaiting Bruce's material. No alien biology or benefits have been invented.\n\n")
+    parts.append(flow([doc(p,"ancestry",wide=True) for p in sorted((DESIGN/"ancestries").glob("*.md"))]))
+    for typ, title in [("culture", "Cultures"), ("background", "Backgrounds")]:
+        parts.append("#pagebreak(weak:true)\n#heading(level:2," + q(title) + ")\n")
+        intro = BOOK / "manuscript" / ("intro-" + typ + ".md"); record(intro, "section")
+        entries = ["#metadata(" + q(key(intro)) + ")<" + key(intro) + ">\n" + render(intro.read_text(), intro)]
+        entries += [doc(p, typ, wide=True) for p in sorted((DESIGN / "origins").glob(typ + "-*.md"), key=name)]
+        parts.append(flow(entries) + "#tail-art(" + q(typ + "s") + ")\n")
+
+    parts.append("#chapter(\"4\",\"Classes\")\n#illustration(\"frontier-crew-review\",height:300pt,fit:\"cover\")\n")
+    parts.append("#twocol[Choose the identity you want to bring to the crew. Each class grants two starting discipline choices and a signature at levels 1, 3 and 7. Shared abilities remain open to anyone who qualifies. Signatures belong only to their class. Choose one free signature at each milestone. Meet both attribute minimums before choosing your class; choose one class and do not multiclass.]\n")
+    for c in CLASSES:
+        p = DESIGN / "classes" / (c[0] + ".md")
+        parts.append(class_page(p) + "#v(10pt)\n")
+        sigs = re.findall(r"\]\(\.\./cards/(signature-[^)]+\.md)\)", p.read_text())
+        parts.append(flow([card(DESIGN / "cards" / s) for s in sigs]))
+
+    parts.append(manuscript("05-disciplines.md", "5", "Disciplines"))
+    parts.append(discipline_matrix())
+    discipline_files = sorted((DESIGN / "disciplines").glob("*.md"), key=name)
+    for offset in range(0,len(discipline_files),4):
+        group = discipline_files[offset:offset + 4]
+        parts.append("#pagebreak(weak:true)\n#grid(columns:(1fr,1fr),gutter:18pt,[" + "".join(doc(p, "discipline", wide=True) for p in group[:2]) + "],[" + "".join(doc(p, "discipline", wide=True) for p in group[2:]) + "])\n")
+
+    parts.append("#pagebreak(weak:true)\n" + doc(DESIGN / "ability-coverage.md", "coverage-plan", wide=True))
+
+    parts.append(manuscript("06-playing.md", "6", "Playing the Game"))
+    parts.append(manuscript("08-recovery.md", "7", "Harm and Recovery"))
+    parts.append(restored_rule(DESIGN / "rules/damage.md", "Damage, resistance and forced injury"))
+    parts.append(restored_rule(DESIGN / "rules/healing.md", "Complete healing economy"))
+    parts.append(restored_rule(DESIGN / "rules/conditions.md", "Full condition reference"))
+    parts.append(restored_rule(DESIGN / "rules/stability.md", "Stability and collisions"))
+    parts.append(wound_reference())
+
+
+    parts.append(manuscript("09-abilities.md", "8", "Abilities"))
+    for tier in ["Universal", "1", "3", "7"]:
+        paths = []
+        for p in sorted((DESIGN / "cards").glob("*.md"), key=name):
+            if p.name.startswith("signature-"): continue
+            m = re.search(r"\*\*Tier / minimum level:\*\*\s*(\w+)", p.read_text())
+            if m and m.group(1) == tier: paths.append(p)
+        parts.append(ability_browser(paths, tier))
+
+    parts.append(manuscript("10-equipment.md", "9", "Equipment and the Market"))
+    parts.append(doc(DESIGN / "market.md", "market-reference", wide=True))
+    parts.append("#pagebreak(weak:true)\n#heading(level:2)[Equipment entries]\n")
+    intro = BOOK / "manuscript" / "intro-equipment.md"; record(intro, "section")
     entries = ["#metadata(" + q(key(intro)) + ")<" + key(intro) + ">\n" + render(intro.read_text(), intro)]
-    entries += [doc(p, typ, wide=True) for p in sorted((DESIGN / "origins").glob(typ + "-*.md"), key=name)]
-    parts.append(flow(entries) + "#tail-art(" + q(typ + "s") + ")\n")
+    entries += [doc(p, "equipment", wide=True) for p in sorted((DESIGN / "equipment").glob("*.md"), key=name)]
+    parts.append(flow(entries))
 
-parts.append("#chapter(\"4\",\"Classes\")\n#illustration(\"frontier-crew-review\",height:300pt,fit:\"cover\")\n")
-parts.append("#twocol[Choose the identity you want to bring to the crew. Each class grants two starting discipline choices and a signature at levels 1, 3 and 7. Shared abilities remain open to anyone who qualifies. Signatures belong only to their class. Choose one free signature at each milestone. Meet both attribute minimums before choosing your class; choose one class and do not multiclass.]\n")
-for c in CLASSES:
-    p = DESIGN / "classes" / (c[0] + ".md")
-    parts.append(class_page(p) + "#v(10pt)\n")
-    sigs = re.findall(r"\]\(\.\./cards/(signature-[^)]+\.md)\)", p.read_text())
-    parts.append(flow([card(DESIGN / "cards" / s) for s in sigs]))
+    parts.append(manuscript("11-starship-reference.md", "10", "Using the Starship Manual"))
+    parts.append(manuscript("14-reference.md", "11", "Table References"))
+    parts.append('#include "../sheets.typ"\n')
 
-parts.append(manuscript("05-disciplines.md", "5", "Disciplines"))
-parts.append(discipline_matrix())
-discipline_files = sorted((DESIGN / "disciplines").glob("*.md"), key=name)
-for offset in range(0,len(discipline_files),4):
-    group = discipline_files[offset:offset + 4]
-    parts.append("#pagebreak(weak:true)\n#grid(columns:(1fr,1fr),gutter:18pt,[" + "".join(doc(p, "discipline", wide=True) for p in group[:2]) + "],[" + "".join(doc(p, "discipline", wide=True) for p in group[2:]) + "])\n")
+    (GEN / "body.typ").write_text("".join(parts))
+    manifest = {"included": included, "cards": card_records, "internal_links": links,
+                "external_design_references_rendered_as_text": sorted(excluded),
+                "expected": {"ability": len(card_records), "ancestry": len(list((DESIGN/"ancestries").glob("*.md"))), "trait": 0,
+                             "culture": len(list((DESIGN/"origins").glob("culture-*.md"))), "background": len(list((DESIGN/"origins").glob("background-*.md"))), "class": len(CLASSES), "discipline": len(DISCIPLINES),
+                             "equipment": len(list((DESIGN/"equipment").glob("*.md")))}}
+    (GEN / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
+    print("Included", len(included), "records;", len(card_records), "abilities;", len(links), "internal links.")
+    return manifest
 
-parts.append("#pagebreak(weak:true)\n" + doc(DESIGN / "ability-coverage.md", "coverage-plan", wide=True))
-
-parts.append(manuscript("06-playing.md", "6", "Playing the Game"))
-parts.append(manuscript("08-recovery.md", "7", "Harm and Recovery"))
-parts.append(restored_rule(DESIGN / "rules/damage.md", "Damage, resistance and forced injury"))
-parts.append(restored_rule(DESIGN / "rules/healing.md", "Complete healing economy"))
-parts.append(restored_rule(DESIGN / "rules/conditions.md", "Full condition reference"))
-parts.append(restored_rule(DESIGN / "rules/stability.md", "Stability and collisions"))
-parts.append(wound_reference())
-
-
-parts.append(manuscript("09-abilities.md", "8", "Abilities"))
-for tier in ["Universal", "1", "3", "7"]:
-    paths = []
-    for p in sorted((DESIGN / "cards").glob("*.md"), key=name):
-        if p.name.startswith("signature-"): continue
-        m = re.search(r"\*\*Tier / minimum level:\*\*\s*(\w+)", p.read_text())
-        if m and m.group(1) == tier: paths.append(p)
-    parts.append(ability_browser(paths, tier))
-
-parts.append(manuscript("10-equipment.md", "9", "Equipment and the Market"))
-parts.append(doc(DESIGN / "market.md", "market-reference", wide=True))
-parts.append("#pagebreak(weak:true)\n#heading(level:2)[Equipment entries]\n")
-intro = BOOK / "manuscript" / "intro-equipment.md"; record(intro, "section")
-entries = ["#metadata(" + q(key(intro)) + ")<" + key(intro) + ">\n" + render(intro.read_text(), intro)]
-entries += [doc(p, "equipment", wide=True) for p in sorted((DESIGN / "equipment").glob("*.md"), key=name)]
-parts.append(flow(entries))
-
-parts.append(manuscript("11-starships.md", "10", "Starships and FTL"))
-parts.append(manuscript("14-reference.md", "11", "Table References"))
-parts.append('#include "../sheets.typ"\n#include "../ship-sheets.typ"\n')
-
-(GEN / "body.typ").write_text("".join(parts))
-manifest = {"included": included, "cards": card_records, "internal_links": links,
-            "external_design_references_rendered_as_text": sorted(excluded),
-            "expected": {"ability": len(card_records), "ancestry": len(list((DESIGN/"ancestries").glob("*.md"))), "trait": 0,
-                         "culture": len(list((DESIGN/"origins").glob("culture-*.md"))), "background": len(list((DESIGN/"origins").glob("background-*.md"))), "class": len(CLASSES), "discipline": len(DISCIPLINES),
-                         "equipment": len(list((DESIGN/"equipment").glob("*.md")))}}
-(GEN / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
-print("Included", len(included), "records;", len(card_records), "abilities;", len(links), "internal links.")
-
-if "--compile" in os.sys.argv:
-    typst = os.environ.get("TYPST") or shutil.which("typst") or "/tmp/hol-typst/typst-x86_64-unknown-linux-musl/typst"
-    from export import export
-    export(typst, ROOT, BOOK)
+if __name__ == "__main__":
+    build_player()
+    if "--compile" in os.sys.argv:
+        typst = os.environ.get("TYPST") or shutil.which("typst") or "/tmp/hol-typst/typst-x86_64-unknown-linux-musl/typst"
+        from export import export
+        export(typst, ROOT, BOOK)

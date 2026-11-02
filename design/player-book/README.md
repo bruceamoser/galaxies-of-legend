@@ -31,8 +31,8 @@ The current expanded reading review contains 18 disciplines, 10 classes, 12 cult
 
 See [design/README.md](../README.md) for the source map and [open-decisions.md](../open-decisions.md) for deferred content.
 
-## Current reading review
+## Current three-book Starter Kit
 
-The 2026-11-02 proof expands Chapter 10 with proposed ship procedures and worked examples, and adds ship records to the back. It uses a cleaner cinematic visual direction. All ship additions await Bruce's review; the character chassis is unchanged.
+The Player's Book contains the complete character and HOL personal-harm foundation, all 280 wound entries, and the four character sheets. Chapter 10 is a short reference to the separate Starship Manual. Ship construction and the two ship sheets are excluded from this volume.
 
-After compiling, run `python3 release/export-review.py` (requires `pypdf`) to copy the full reading PDF and extract the ship chapter and ship sheets into `output/pdf/`.
+The companion Starship Manual owns ship rules and records. The Sector Architect's Book contains base adjudication, preparation, threat seeds and worksheets. `python3 release/build-starter-kit.py` builds, checks and packages the coordinated review edition. Earlier single-book export scripts are historical helpers and are not the current release path.

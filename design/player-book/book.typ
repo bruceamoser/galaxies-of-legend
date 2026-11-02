@@ -18,22 +18,23 @@
   #v(10pt)
   #text(font: "Oswald", size: 18pt, fill: teal)[Player’s Book]
   #v(10pt)
-  #text(size: 13pt)[Levels 1–10 · Design Review]
+  #text(size: 13pt)[Levels 1–10 · Starter Kit Review]
   #v(18pt)
   #text(font: "Oswald", size: 13pt)[Game design by Bruce A. Moser]
 ]
 #v(22pt)
 #block(width: 100%, inset: 12pt, fill: ivory)[
-  This book contains the player rules and the initial character catalog for
-  *Galaxies of Legend*: character creation, advancement, abilities, equipment,
-  harm and recovery, starships, and FTL travel.
+  This book contains character creation, advancement, abilities, equipment and the complete Legend rules for personal damage, Grit, wounds, conditions, healing and recovery.
 
-  This is a reading and visual design review, dated 2 November 2026. The ship chapter expands the proposed mechanics with examples and a two-page ship record. The expanded roster, class affinities and ship construction rules are untested proposals. Ancestries remain placeholders awaiting Bruce's material. Structural checks do not certify balance or readiness for table playtesting. Interior artwork remains in development.
+  The *Starship Manual* contains ship construction and operation, crew stations, ship combat, FTL and ship sheets. The *Sector Architect’s Book* supports adjudication, preparation, encounters, hazards, threats and campaigns. Chapter 10 provides the companion-book reading guide.
+
+  This is the first three-book Starter Kit review edition. Ancestries remain placeholders awaiting Bruce’s material. Expanded character options, ship construction and SA seed values remain untested proposals. This package is for reading and design review; it is not a final approved edition.
+
 ]
 #v(14pt)
 #text(size: 9pt)[Manuscript and layout prepared with Codex under Bruce’s direction.
 Starter Kit v#release.version · #release.date.
-Ship systems review · 2026-11-02.]
+Three-book Starter Kit · Design review.]
 #pagebreak()
 #outline(title: [Contents], depth: 1)
 #pagebreak()

@@ -1,4 +1,4 @@
-#import "template.typ": *
+#import "../player-book/template.typ": *
 #let band(title, subtitle: none) = block(width:100%,fill:space,inset:(x:9pt,y:6pt),above:8pt,below:6pt)[
  #text(font:"Oswald",size:12pt,fill:white,title)
  #if subtitle != none {linebreak();text(size:8pt,fill:rgb("#b8d8e2"),subtitle)}
