@@ -280,7 +280,8 @@ def sa(book):
                 )
             for family, cards in profiles.items():
                 parts.append("#pagebreak(weak:true)\n#heading(level:2," + g.q(family) + ")\n")
-                parts.append(g.flow(cards))
+                # Full-width profiles keep the inlined ability text with the stat block.
+                parts.extend(cards)
             parts.append(adversary_library(abilities))
     parts.append(companion_appendix(book))
     return ''.join(parts)
