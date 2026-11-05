@@ -6,7 +6,7 @@
 
 **Category:** Tool · **Damage type:** None · **Bulk:** 1 · **Hands:** 1 · **Cost:** 70 coins
 
-Required for Science cards that call for a sensor pack. Grants a Boon to Science checks to scan a ship, structure or area.
+Reads heat, movement and active transmissions when its signal can reach them. Covers its current room or one nearby outdoor area within 20 squares. Grants 1 Boon on Reason checks to scan within that coverage. See [Perception and contacts](../rules/perception.md).
 
 **ID:** sensor-pack
 

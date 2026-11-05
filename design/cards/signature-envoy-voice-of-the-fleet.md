@@ -6,15 +6,15 @@
 
 **Action:** Main Action · **Attribute:** Guile
 
-**Target / range / shape:** All allies who can hear you
+**Target / range / shape:** Up to four willing allies within 8 squares who can understand you
 
-Issue a command or declaration.
+Call a change of position. Each affected ally may move toward the same announced objective along a legal route. Ordinary movement reactions apply.
 
-- **Weak:** one ally gains a Boon on their next check.
-- **Standard:** all allies gain a Boon on their next check.
-- **Strong:** all allies gain a Boon and may immediately move 1 square without provoking.
+- **Weak:** One ally may move 1 square.
+- **Standard:** Up to three allies may each move 2 squares.
+- **Strong:** Up to four allies may each move up to 2 squares.
 
-**Duration:** Until the end of the current scene.
+**Duration:** As stated in the effect.
 
 **Equipment / acquisition:** None
 

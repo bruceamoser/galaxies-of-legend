@@ -46,13 +46,16 @@ def verify_books():
         title=p.read_text().splitlines()[0][2:];assert title in sa,('Missing threat',title)
     for title in ['Sector record','Scene preparation','Encounter roster','Session and design review']:assert title in sa
     expected={''.join(map(str,t)) for t in itertools.combinations_with_replacement(range(1,7),3)}
-    families=['Physical','Elemental','Mental','Radiant','Life/Necrotic'];starts=[]
-    for family in families:
-        starts.append(next(i for i,t in enumerate(texts['player']) if re.search(r'(?m)^'+re.escape(family)+r'\s*$',t)))
-    harm_end=next(i for i,t in enumerate(texts['player']) if 'CHAPTER 8' in t)
-    for family,a,b in zip(families,starts,starts[1:]+[harm_end]):
-        found=set(re.findall(r'(?m)^([1-6]{3})\b','\n'.join(texts['player'][a:b])))
-        assert found==expected,('Incomplete wound family',family,expected-found)
+    families = ['Physical', 'Elemental', 'Mental', 'Radiant', 'Life/Necrotic']
+    wound_start = player.index('Complete wound tables')
+    wound_end = player.index('CHAPTER 8', wound_start)
+    wound_text = player[wound_start:wound_end]
+    starts = [re.search(r'(?m)^' + re.escape(family) + r'[ \t]*$', wound_text).start()
+              for family in families]
+    assert starts == sorted(starts), 'Unexpected wound family order'
+    for family, start, end in zip(families, starts, starts[1:] + [len(wound_text)]):
+        codes = re.findall(r'(?m)^([1-6]{3})\b', wound_text[start:end])
+        assert set(codes) == expected, ('Incomplete wound family', family)
     for i,t in enumerate(texts['player']):
         if 'Discipline costs by class -' in t:
             rows=[line for line in t.splitlines() if re.search(r'\d/\d/\d',line)]

@@ -54,11 +54,38 @@ def check_cards():
     return cards
 
 
+def check_discipline_coverage(cards):
+    disciplines = {p.stem.title() for p in (R / "disciplines").glob("*.md")}
+    counts = {(discipline, rank): 0 for discipline in disciplines for rank in (1, 2, 3)}
+    for card in cards:
+        copy = card.read_text()
+        requirement = field(copy, "Requirements to learn")
+        match = re.fullmatch(r"([A-Za-z]+) ([123])", requirement)
+        if not match:
+            continue
+        discipline, rank_text = match.groups()
+        rank = int(rank_text)
+        if discipline not in disciplines:
+            errors.append(f"{card.name}: unknown discipline {discipline}")
+            continue
+        if field(copy, "Tier / minimum level") == {1: "1", 2: "3", 3: "7"}[rank]:
+            counts[discipline, rank] += 1
+    for (discipline, rank), count in sorted(counts.items()):
+        if count < 2:
+            errors.append(f"{discipline} {rank}: expected at least two matching-tier shared choices, found {count}")
+    print(f"Discipline ranks with at least two shared choices: {sum(count >= 2 for count in counts.values())}/{len(counts)}")
+    return counts
+
+
 def check_ancestries():
     entries = sorted((R / "ancestries").glob("*.md"))
     for p in entries:
-        if "**Status:** Placeholder" not in p.read_text():
-            errors.append(f"{p.name}: replace placeholder audit with full trait audit when ancestry is authored")
+        content = p.read_text()
+        traits = re.findall(r"(?m)^([1-5])\. \*\*[^*]+\*\* .+", content)
+        if traits != list("12345"):
+            errors.append(f"{p.name}: expected five numbered traits")
+        if not re.search(r"HP \+\d+, base Speed \d+, \+\d+ coins", content):
+            errors.append(f"{p.name}: missing starting values")
     return entries
 
 
@@ -67,8 +94,16 @@ def check_classes():
     for p in classes:
         s = p.read_text()
         sigs = re.findall(r"\]\(\.\./cards/(signature-[^)]+\.md)\)", s)
-        if len(sigs) != 3:
-            errors.append(f"{p.name}: {len(sigs)} signature links, expected 3")
+        options = 3
+        for level in (1, 3, 7):
+            section = re.search(rf"(?ms)^## Level {level}\s*\n(.*?)(?=^## |\Z)", s)
+            links = re.findall(r"\]\(\.\./cards/(signature-[^)]+\.md)\)", section[1]) if section else []
+            if len(links) != options or len(set(links)) != options:
+                errors.append(f"{p.name}: expected {options} distinct level-{level} signatures")
+            for link in links:
+                card = R / "cards" / link
+                if card.exists() and field(card.read_text(), "Tier / minimum level") != str(level):
+                    errors.append(f"{p.name}: {link} is in the wrong milestone")
         if not re.search(r"minimum 0 in [^;]+;", s):
             errors.append(f"{p.name}: missing attribute minimums")
         if not re.search(r"HP contribution \+\d+", s):
@@ -93,7 +128,7 @@ def check_coins(homes, classes):
     def coin(p, label):
         m = re.search(r"\+?(\d+) coins", p.read_text())
         return int(m.group(1)) if m else None
-    hcoins = {"human-review-scaffold": 0}  # Only the explicit provisional Human arithmetic; aliens are unset.
+    hcoins = {p.stem: coin(p, "ancestry") for p in homes}
     ccoins = {p.stem: coin(p, "culture") for p in (R / "origins").glob("culture-*.md")}
     bcoins = {p.stem: coin(p, "background") for p in (R / "origins").glob("background-*.md")}
     clcoins = {p.stem: coin(p, "class") for p in classes}
@@ -110,6 +145,7 @@ def check_coins(homes, classes):
 def main():
     check_links()
     cards = check_cards()
+    check_discipline_coverage(cards)
     for p in (R/'origins').glob('*.md'):
         text=p.read_text()
         grants=re.findall(r'\*\*([A-Za-z]+) 1\*\* and \[([^]]+)\]\(\.\./cards/([^)]+)\)',text)
@@ -124,7 +160,7 @@ def main():
     classes = check_classes()
     lo, hi, n = check_coins(homes, classes)
     print(f"Cards: {len(cards)}")
-    print(f"Ancestry placeholders: {len(homes)}; complete ancestries: 0; legacy homeworlds excluded")
+    print(f"Playtest ancestries: {len(homes)}; legacy homeworlds excluded")
     print(f"Cultures: {len(list((R / 'origins').glob('culture-*.md')))}; backgrounds: {len(list((R / 'origins').glob('background-*.md')))} ")
     print(f"Classes: {len(classes)}; disciplines: {len(list((R / 'disciplines').glob('*.md')))}; equipment: {len(list((R / 'equipment').glob('*.md')))}")
     print(f"Coin combinations: {n}; range {lo}–{hi}")

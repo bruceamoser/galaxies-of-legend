@@ -27,7 +27,7 @@ If `TYPST` is unset, the script uses Typst on PATH. Fonts are loaded from the re
 
 ## Current baseline
 
-The current expanded reading review contains 18 disciplines, 10 classes, 12 cultures, 12 backgrounds, 78 ability cards and 13 equipment entries. Four ancestry placeholders await Bruce's material. The 24 legacy homeworld records are not character ancestry options. All additions and ship construction values are untested proposals.
+The current expanded reading review contains 18 disciplines, 10 classes, 12 cultures, 12 backgrounds, 78 ability cards and 13 equipment entries. Ten playtest ancestries appear in Chapter 3. Appendix A provides associated star systems and species baselines. All additions and ship construction values are untested proposals.
 
 See [design/README.md](../README.md) for the source map and [open-decisions.md](../open-decisions.md) for deferred content.
 

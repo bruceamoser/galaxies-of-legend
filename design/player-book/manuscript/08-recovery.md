@@ -1,12 +1,8 @@
 # Harm and Recovery
 
-This chapter restores the full Legend survival foundation. The complete five-family wound reference follows the procedure, not the earlier six-result placeholder. HP recovery, Grit, scars and treatment are separate tracks.
+Back aboard the cutter, a medic sets out a tray while someone brings the injured explorer a cup of water. The danger has passed. The explorer can breathe and recover their HP, but the medic still has a wound to treat, and the crew has to decide where they can spare an hour.
 
-
-You can catch your breath after a battle. You cannot always leave the battle behind.
-HP measures your immediate capacity to keep going. Grit gives you a limited reserve
-when you fall. Wounds record the lasting cost, even when their active penalties
-have been treated.
+Keep three records as you play. Current HP tells you how much punishment you can take right now. Unspent Grit tells you how many times you can choose to get back up when you fall. Your wounds track lasting injuries and the scars they leave. When one of those records changes, check the rule before changing either of the others.
 
 ## HP, healing and a safe breath
 
@@ -49,9 +45,9 @@ If the listed body part is absent or the injury cannot apply, move to the next
 listed result until one does, such as 116 to 122. Do not reroll for a more convenient
 injury. The tables end at 666.
 
-## Grit is a reserve, not a rest resource
+## Grit
 
-Start with 2 Grit. At levels 3 and 7 gain one additional Grit; these grants do not refund earlier expenditure. One More Dawn grants one further Grit once on acquisition at its printed level. Record unspent Grit separately from the total ever granted. Ordinary rest, a safe breath, medkits and routine wound treatment never replenish spent Grit. No generic Grit-for-Boon or Grit-for-damage-reduction action is part of the inherited rules.
+Start with 2 Grit. At levels 3 and 7 gain one additional Grit; these grants do not refund earlier expenditure. One More Dawn grants one further Grit once on acquisition at its printed level. Record unspent Grit separately from the total ever granted. Ordinary rest, a safe breath, medkits and routine wound treatment never replenish spent Grit. Spend Grit when the Dying procedure or a specific ability calls for it.
 
 ## Your Dying turn
 
@@ -193,6 +189,6 @@ use the greater action restriction, not their sum.
 
 ## Damage, healing and lookup references
 
-The complete [damage and resistance procedure](../../rules/damage.md), [healing economy](../../rules/healing.md), [condition reference](../../rules/conditions.md) and [wound tables](../../rules/wounds.md) are included in this chapter. The six treatment abilities appear in the ability catalog. A med bay can support a treatment but never substitutes for the matching capability, the full hour, the one-attempt-per-wound-per-day rule or RV.
+Use the [damage rules](../../rules/damage.md) when you take a hit, the [healing rules](../../rules/healing.md) when you receive care and the [condition reference](../../rules/conditions.md) for effects that persist. Read the [wound tables](../../rules/wounds.md) when a rule calls for a wound. The six treatment abilities appear in the ability catalog. A med bay can support a treatment but never substitutes for the matching capability, the full hour, the one-attempt-per-wound-per-day rule or RV.
 
 **Radiation extension, still proposed:** the earlier GOL exposure track is not a HOL core rule. If that optional hazard is used, record one exposure after a contaminated scene; three exposure imposes a Bane on Fortitude checks, and six causes one additional Radiant-table wound using the normal scar-weighted roll. This is an explicit exposure-triggered exception, not another Dying entry or a death mark. The six-exposure threshold triggers once until treatment reduces exposure below six. A medkit alone does not define its cure; a full decontamination/treatment procedure remains unapproved. No new exposure track is required to use the restored HOL damage rules.

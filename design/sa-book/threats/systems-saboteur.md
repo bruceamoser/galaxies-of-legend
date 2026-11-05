@@ -2,6 +2,8 @@
 
 **Status:** Playtest proposal - personal-scale threat seed; untested and no calibrated CV.
 
+**Family:** Crews
+
 **Role:** A technician interfering with a specific accessible device.
 
 **HP:** 10 · **Speed:** 6 squares · **Stability:** 0 · **Physical resistance:** 0
@@ -27,6 +29,12 @@
 - **Weak:** 1 progress; leave a visible trace.
 - **Standard:** 2 progress.
 - **Strong:** 3 progress.
+
+## Shared adversary abilities
+
+- [Disconnect the Bypass](../adversary-abilities/disconnect-the-bypass.md)
+- [Douse the Lure](../adversary-abilities/douse-the-lure.md)
+- [Anchor the Tool](../adversary-abilities/anchor-the-tool.md)
 
 ## Equipment and limits
 

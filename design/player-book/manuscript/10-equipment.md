@@ -1,6 +1,10 @@
 # Equipment and the Market
 
-Equipment is what you carry, wear and point at a problem. It does not replace training. A toolkit makes an Engineering check easier; it does not make you an engineer. A weapon gives you a damage type and a way to attack; the ability you use determines what the attack does.
+Equipment gives you the means to act. A toolkit lets you open a damaged panel and work on what is inside. A weapon supplies its damage type. Use the chosen ability for its attack, damage and other effects.
+
+Before a job, picture the first place you will have to work. On an inhabited ring, you may have access to power and a dockside clinic. In an abandoned transfer tube, the crew has what it carried through the hatch. A sensor pack can help find a damaged conduit. A toolkit gives the explorer a way to open it. The two choices answer different problems, and someone has to carry each case.
+
+Talk through the load as a crew. When everyone buys the same gear, you may have three ways to open a panel and nobody carrying the supplies needed on the other side. Look at the abilities you have already learned and put their required equipment on the list before spending coins on extras.
 
 ## Buying gear
 
@@ -17,7 +21,7 @@ Prices are listed in the market. Availability is set by the SA. A frontier port 
 
 ## Damage types
 
-Use the seven inherited HOL damage families: Physical, Fire, Cold, Lightning, Mental, Radiant and Life/Necrotic. Kinetic and Sonic are Physical descriptions; Thermal is Fire, Cryogenic is Cold and Electrical is Lightning. GOL's Corrosive-to-Physical and Radiation-to-Radiant mappings are proposals listed in Chapter 7. These are not separate resistance pools. An EMP is an effect, not an automatically granted condition.
+Use the seven damage families. They are Physical, Fire, Cold, Lightning, Mental, Radiant and Life/Necrotic. Kinetic and Sonic are Physical descriptions; Thermal is Fire, Cryogenic is Cold and Electrical is Lightning. GOL's Corrosive-to-Physical and Radiation-to-Radiant mappings are proposals listed in Chapter 7. Apply resistance from the matching family. An EMP applies the effects its source lists.
 
 
 ## Armour and DR
@@ -34,6 +38,12 @@ The market lists the initial equipment set. The SA may add items, adjust prices 
 
 ## Healing supplies and hands
 
-Healing requires a free hand. A medkit has five conventional uses; each application of a GOL HP-restoring medical card consumes one. This is separate from the inherited 1/3/7 HP healing cost. Treatment cards use their full hour and matching capability; no medkit or bay grants them automatically.
+Healing requires a free hand. A medkit has five conventional uses; each application of a GOL HP-restoring medical card consumes one. Pay the printed 1, 3 or 7 HP healing cost separately. Treatment cards use their full hour and matching capability; no medkit or bay grants them automatically.
 
-Basic, Greater and Superior Medical Doses retain HOL's fixed 6/10/16-HP consumable procedure and d4 inventory. The giver spends a Maneuver; another recipient spends a Reaction unless at 0 HP. Apply Life resistance, then check inventory after use. A 1 empties d4 after the healing has worked. No outcome roll, healer HP payment, wound removal or Grit refill is granted.
+Basic, Greater and Superior Medical Doses restore 6, 10 or 16 HP respectively and use a d4 inventory die. The giver spends a Maneuver; another recipient spends a Reaction unless at 0 HP. Apply Life resistance, then check inventory after use. A 1 empties d4 after the healing has worked. No outcome roll, healer HP payment, wound removal or Grit refill is granted.
+
+## Match equipment to your abilities
+
+Check the gear line on each learned card. [Field Repair](../../cards/field-repair.md) needs a [toolkit](../../equipment/toolkit.md). [Patch Wounds](../../cards/patch-wounds.md) needs a [medkit](../../equipment/medkit.md). [Sensor Sweep](../../cards/sensor-sweep.md) can use a [sensor pack](../../equipment/sensor-pack.md) or working ship sensors. The crew can share equipment where the card allows. Learning the ability supplies an item only if the card explicitly grants it.
+
+Some items also require training before you can buy or use them. [Light Armour](../../equipment/light-armor.md) requires [Wear Light Armour](../../cards/wear-light-armor.md). [Heavy Armour](../../equipment/heavy-armor.md) requires [Wear Heavy Armour](../../cards/wear-heavy-armor.md). The training itself grants no gear.

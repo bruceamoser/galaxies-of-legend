@@ -1,77 +1,37 @@
 # Welcome to Galaxies of Legend
 
-A battered scout cutter hangs in the dark above a world nobody has named twice. The captain has a buyer on the surface, the engineer has a failing port thruster, and the sensor operator has just seen something move in the wreckage of a ship that should have been dead for a century. Nobody has rolled initiative. The crew is already arguing about what to do.
+The signal from the old relay carries a voice where there should be only static. A harbor authority wants it logged and left alone. The relay keeper's daughter wants a lift out there. Your cutter has room for her and enough fuel to make the trip, if you leave before the next departure window closes. What do you ask her before you agree?
 
-That is *Galaxies of Legend*: a science-fiction roleplaying game about a small crew, a lived-in ship, and a frontier where the maps still have edges. You play people who are competent, tired, curious and occasionally very brave. The game is built on the **Legend System** — the same six attributes, the same 3d6 roll and the same three result bands as *Heroes of Legend* — but the setting, the character options and the problems are science fiction.
+In *Galaxies of Legend*, you play explorers who share a ship and take work on the frontier. One player is the Sector Architect, or SA. They describe the places you visit and portray the people you meet. Bring a character sheet and several six-sided dice. Three dice cover an ordinary check.
 
-## What you need
+When you have a plan, say what you want and how you intend to do it. The SA tells you what happens or calls for a check when the outcome is uncertain and matters.
 
-- Three six-sided dice per player, or one shared set.
-- A character sheet for each player.
-- This book, or the cards for the abilities your character owns.
-- A Sector Architect (SA) to describe the galaxy, portray its people and adjudicate uncertainty.
+## The roll you will use most
 
-## The core loop
+Roll **3d6 + one attribute**. Read the total on the table below. A printed ability supplies its exact outcomes. For an improvised attempt, agree what the result means in the situation.
 
-The SA describes a situation. The players say what their characters do. If the action is uncertain **and** the consequence matters, roll **3d6 + one attribute**:
+| Total | Result | What to look for |
+|---:|---|---|
+| 8 or less | Weak | Limited progress, a cost or a complication |
+| 9–14 | Standard | The expected result |
+| 15 or more | Strong | A better result or an added advantage |
 
-| Total | Result |
-|---:|---|
-| **8 or less** | **Weak** — the action costs something, changes the situation, or only partly succeeds. |
-| **9–14** | **Standard** — you do what you set out to do. |
-| **15 or more** | **Strong** — you do it and gain a clear advantage. |
+[Playing the Game](06-playing.md) shows how Boons and Banes change the dice, and how to take turns when everyone needs to act at once.
 
-A roll is not a permission check. It is a moment where the outcome is genuinely in doubt. If a trained character would obviously succeed, they do. If the action is impossible, no roll makes it possible.
+## A moment of play
 
-## What characters do
-
-A crew solves problems with **attributes, disciplines and abilities**. Attributes are broad capability. Disciplines are fields of training; their ranks unlock abilities. Abilities are concrete procedures: a shot, a repair, a scan, a lie, a negotiation, a jump calculation. The card or entry tells you the action, the attribute, the target, the three outcomes and the limits.
-
-There are no separate skill bonuses. If an ability says roll Knowledge, you roll Knowledge. If an action has no listed ability, the SA chooses the attribute that best fits the approach.
-
-## The ship is a character
-
-The crew's ship is not a taxi. It has **Hull**, **DR (shields)**, **systems** and **Consumable Dice** that wear down under load. The crew works stations — Pilot, Navigator, Engineer, Gunner, Sensor Operator, Commander — and anyone qualified can take a station. A class is a character archetype, not a bridge seat. Ship construction and operation are in the separate Starship Manual. Chapter 10 explains how the books work together.
-
-## The frontier
-
-The game assumes a **frontier**, not a fully mapped civilisation. Starports are small, supply lines are long, and the difference between a colony and a wreck is often one bad season. Ancient structures, alien biology and unexplained signals are real. The tone is mythic rather than grim: the dark is large, but the crew has a lamp.
-
-## An example of play
-
-The crew is trying to leave a station before a corporate security team arrives.
-
-> **SA:** The cargo bay doors are closing. You have about thirty seconds. What do you do?
+> **SA.** The release is within reach. If you let go of the tether, the shuttle will drift away.
 >
-> **Mara (playing a Spacer):** I'm at the engine panel. I want to route power from the lights to the cargo winch and pull the crate aboard.
+> **Iona.** Mara, secure the line. I'll try the release with my toolkit.
 >
-> **SA:** That's Engineering. Roll Knowledge.
+> **SA.** Roll Knowledge. On Standard, you open it. On Weak, you find the jam and need another way in.
 >
-> **Mara:** 11. Standard.
+> **Iona.** Thirteen. Standard.
 >
-> **SA:** The winch jerks the crate off the deck and swings it into the bay. You have the cargo, but the lights are dead and the security team has just entered the corridor behind you.
->
-> **Oren (playing a Soldier):** I'll hold the corridor. Can I use Overwatch?
->
-> **SA:** You can. They're moving into your line of fire. Roll Agility.
+> **SA.** The hatch opens. The voice is coming from deeper inside.
 
-The scene moves because every result changes something the crew has to respond to. That is the game.
+## Where to begin
 
-## What this edition contains
+[Create Your Explorer](02-creation.md) takes you through your first character and shows what to record. Read the ancestry, culture and class entries as those choices come up. Keep the cards you select beside your sheet.
 
-This is a **design review draft**, using the initial character data set for *Galaxies of Legend*. It contains:
-
-- four ancestry placeholders, awaiting Bruce's material;
-- twelve cultures and twelve backgrounds;
-- ten classes with signatures at levels 1, 3 and 7;
-- eighteen disciplines;
-- seventy-eight ability cards, including universal actions;
-- thirteen equipment entries and a market;
-- the full character rules for play, damage, Grit, wounds, healing and recovery;
-- a guide to the separate Starship Manual and Sector Architect’s Book.
-
-It is deliberately smaller than the eventual game. The catalog is the source of truth; the book is built from it. When a rule is marked **playtest**, it is a direction that needs table evidence, not a settled law of the setting.
-
-## The one rule to remember
-
-When in doubt, ask: **what is at stake, and what would make the answer interesting?** If nothing is at stake, say yes. If the answer is obvious, say what happens. If it is uncertain and costly, roll the dice and let the result change the situation.
+The *Sector Architect's Book* helps the SA prepare the next job. The *Starship Manual* shows how to build and operate your ship. [The companion-book guide](11-starship-reference.md) points to the right procedure during play.

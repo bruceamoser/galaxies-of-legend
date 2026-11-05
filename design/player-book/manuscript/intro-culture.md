@@ -1,3 +1,3 @@
-Culture is the community that taught you how to be a person: its manners, its obligations, its stories and its idea of a good life. It is not a job and it does not dictate your class.
+Choose a community that helped shape your explorer. A Free Station and a Corporate Arcology can both raise a skilled technician, but they give that person different ideas about who can ask for help and who gets a say in how the work is done.
 
-Every culture grants one paired option: a rank-1 discipline and the ability that belongs with it. Take the pair whole.
+Record the culture's discipline and ability as a pair. Use the entry's question to decide which custom your explorer still follows.

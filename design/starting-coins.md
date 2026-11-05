@@ -4,13 +4,13 @@
 
 **Starting coins = 40 + ancestry + culture + background + class.**
 
-Only the provisional Human arithmetic scaffold currently supplies +0 ancestry coins. Alien contributions are unset. These totals therefore check the expanded class/culture/background combinations with that scaffold, not completed ancestry builds. Resolve granted equipment before shopping; no reimbursement for duplicates.
+All ten playtest ancestries contribute +0 coins. Resolve granted equipment before shopping; no reimbursement for duplicates.
 
 ## Ancestry contribution
 
 | Choice | Coins |
 |---|---:|
-| [Human arithmetic scaffold](ancestries/human.md) | +0 |
+| All ten playtest ancestries | +0 |
 
 ## Culture contribution
 
@@ -28,6 +28,12 @@ Only the provisional Human arithmetic scaffold currently supplies +0 ancestry co
 | [Security Canton](origins/culture-security-canton.md) | +7 |
 | [Service Cooperative](origins/culture-service-cooperative.md) | +6 |
 | [Trade Diaspora](origins/culture-trade-diaspora.md) | +9 |
+| [Floodwall Commons](origins/culture-floodwall-commons.md) | +5 |
+| [Quarantine Ring](origins/culture-quarantine-ring.md) | +6 |
+| [Signal Monasteries](origins/culture-signal-monasteries.md) | +7 |
+| [Treaty Stations](origins/culture-treaty-stations.md) | +8 |
+| [Breaker Yards](origins/culture-breaker-yards.md) | +6 |
+| [Roadside Exchanges](origins/culture-roadside-exchanges.md) | +8 |
 
 ## Background contribution
 
@@ -45,6 +51,10 @@ Only the provisional Human arithmetic scaffold currently supplies +0 ancestry co
 | [Scout](origins/background-scout.md) | +7 |
 | [Ship Mechanic](origins/background-ship-mechanic.md) | +7 |
 | [Squad Coordinator](origins/background-squad-coordinator.md) | +7 |
+| [Relief Dispatcher](origins/background-relief-dispatcher.md) | +7 |
+| [Weather Surveyor](origins/background-weather-surveyor.md) | +7 |
+| [Protocol Clerk](origins/background-protocol-clerk.md) | +7 |
+| [Scrap Appraiser](origins/background-scrap-appraiser.md) | +8 |
 
 ## Class contribution
 
@@ -63,4 +73,4 @@ Only the provisional Human arithmetic scaffold currently supplies +0 ancestry co
 
 ## Checks
 
-All scaffold combinations are audited automatically. Ancestry traits, completed alien packages and final starting purses await Bruce's material.
+All ancestry, culture, background and class combinations are audited automatically.

@@ -52,3 +52,9 @@ A signature should be recognizably better than a shared card of the same tier in
 ## IDs
 
 Every record ends with a stable `**ID:**` line. IDs do not change when a name changes. The build and audit use them for navigation and duplicate checks.
+
+## Write an ability a player can use
+
+A roll produces progress toward a stated goal, a condition, damage, physical movement or another concrete result, or healing. Before writing outcomes, name what success changes and what the character needs to attempt it. A rolled result should do that work directly. Use an eligible no-roll Maneuver, Reaction, or Passive for a Boon to a named attribute and a recognizable activity. Print the trigger, recipient and expiry.
+
+Prefer a recurring game situation such as investigating a scene, defending a position or diagnosing equipment. Use a narrow trigger only when it buys a distinctive effect worth preparing for. A routine observation, label or handoff is often something any explorer can already do. Do not charge DP just to permit it. Reuse existing conditions, progress, movement, resistance and healing before introducing a new rule.

@@ -8,6 +8,8 @@
 
 Grants DR 1. Does not stack with a vac suit. You may wear it under ordinary clothes.
 
+**Required ability:** [Wear Light Armour](../cards/wear-light-armor.md). Learn it before buying or using this armour.
+
 **ID:** light-armor
 
 [Equipment index](../equipment.md)

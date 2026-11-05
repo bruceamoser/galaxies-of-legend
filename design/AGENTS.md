@@ -11,7 +11,7 @@ The Markdown in this directory is the approved source for *Galaxies of Legend*. 
 
 ## Structure
 
-- Ancestry: HP, base Speed, coin contribution, five traits, choose two. Current placeholders await Bruce's material; do not invent alien benefits. Legacy homeworlds are reference only.
+- Ancestry: HP, base Speed, coin contribution, five traits, choose two. The Working Ten are the candidate roster. Appendix A holds descriptive species and star system baselines. Legacy homeworlds are reference only.
 - Culture and background: one paired rank-1 discipline and ability. Do not mix pairs.
 - Class: two attribute minimums, HP, coins, two starting rank-1 disciplines, rank prices, signatures at 1/3/7.
 - Discipline: ranks 1–3 are prerequisites. They grant no passive bonus by default.

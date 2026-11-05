@@ -8,17 +8,17 @@
 
 **Action:** Maneuver · **Attribute:** Agility
 
-**Target / range / shape:** Self, before entering one watched doorway or access point
+**Target / range / shape:** Self, with a route to concealment within 2 squares
 
-Approach quietly; this does not open a lock or erase a recorded identity.
+Cross an opening without a noisy approach. This cannot defeat a lock or erase a record.
 
-- **Weak:** gain a Boon on your next entry-related Subterfuge check, but leave a trace.
-- **Standard:** gain a Boon on your next entry-related Subterfuge check.
-- **Strong:** gain the Boon and identify one visible surveillance device.
+- **Weak:** Move 1 square if clear; observers can see you.
+- **Standard:** Move up to 2 squares. Become Hidden if you reach plausible concealment.
+- **Strong:** Move up to 2 squares and become Hidden if you reach concealment. You may shut one unlocked door within reach as you pass.
 
-**Duration:** Until the end of your next turn.
+**Duration:** As stated in the effect.
 
-**Equipment / acquisition:** Requires a plausible concealed approach
+**Equipment / acquisition:** Requires a route to concealment
 
 ---
 

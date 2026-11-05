@@ -1,47 +1,30 @@
 # Abilities
 
-An ability is a self-contained procedure. It tells you what action it takes, which attribute you roll, who or what it affects, what each result does, and what limits apply. If a card and the general rules disagree, the card's specific rule wins.
+Abilities tell you how to put your training to work. A Spacer can plot a course through debris. A Medic can treat injuries in a crowded passage. Anyone can describe an attempt to do either. When you use an ability, its card tells the group exactly what the attempt costs and what each result accomplishes.
 
-## Tiers and cost
+## Learn an ability
+
+Find the ability in the directory and read its requirements. A card that requires Gunnery 2 calls for both Gunnery ranks before you can buy it. Pay the listed DP cost when your character meets the requirements.
 
 | Tier | DP cost | Minimum level |
 |---|---:|---:|
-| **Novice** | 2 DP | 1 (also available during level-0 creation) |
-| **Adept** | 4 DP | 3 |
-| **Master** | 8 DP | 7 |
+| Novice | 2 DP | 1, also available in the level-0 purchase pool |
+| Adept | 4 DP | 3 |
+| Master | 8 DP | 7 |
 
-A small number of shared exceptions cost **1 DP**. Each is printed on its card. There is no general 1-DP tier.
+Everyone knows the **Basic Actions**, which cost no DP. **Universal Abilities** are learned abilities that require no discipline rank. You still need to meet the listed level and pay the printed cost. Several cost 1 DP, including [Quick Study](../../cards/quick-study.md), [Quick Look](../../cards/quick-look.md), and [Brace Yourself](../../cards/brace-yourself.md). Each costs its printed DP and counts as a learned ability.
 
-Class signatures use their class and milestone requirements. A signature requires only your class and the listed level; it does not require an earlier signature or a discipline rank.
+Card badges show **A** for Main Action, **M** for Maneuver, **R** for Reaction and **P** for Passive. A discipline icon and rank indicate the card’s training requirement. Each class provides a signature at levels 1, 3 and 7. Read the class entry and use the signature's own level requirement. Each signature is a separate choice.
 
-## Requirements
+## Use an ability
 
-A requirement is something you must **own before purchase**. It is not a check you make when you use the ability. If a card says **Gunnery 2**, you must have bought Gunnery rank 1 and rank 2 before you spend DP on the card.
+1. **Declare the card.** Tell the SA which ability you are using and who or what you intend to affect.
+2. **Check the requirements for use.** Confirm the action, range, equipment and time. If a card grants an item on acquisition, record it once.
+3. **Pay the cost and resolve the card.** Use the printed attribute when the card calls for a roll. Apply the one outcome you rolled. Follow a card's specific rule when it differs from a general rule.
+4. **Record continuing effects.** Note when a benefit expires and track conditions using Chapter 7. Instant damage applies once.
 
-Equipment requirements are different: the item must be in hand or available when you use the ability. If the card grants an item on acquisition, record it once. Selling the item does not give you another copy of the grant.
+> **Example · Keep It Running.** Iona needs ten minutes and a toolkit or suitable parts. She confirms the crew can stay at the panel for that long, then rolls Knowledge. On Standard, she restores one step for the scene. She tells the pilot when the repair will expire so the crew can plan the return trip.
 
-## Reading a card
+## Choose abilities for your crew
 
-Every card uses the same fields:
-
-- **Action:** Main Action, Maneuver, Reaction, Passive or a stated time.
-- **Attribute:** the one attribute you roll, or "None (no roll)."
-- **Target / range / shape:** who or what is affected.
-- **Effect:** the procedure and its three outcomes.
-- **Duration:** when the effect ends.
-- **Equipment / acquisition:** what the ability requires or grants.
-- **Tier / DP / Requirements:** when and how you can buy it.
-
-A card with no roll still uses its action and costs. A card that grants a Boon does not also grant a free attack unless it says so. A card whose duration is Instant deals its damage once; a condition it applies follows its own duration.
-
-## Universal actions
-
-Every character can attempt **Basic Melee** and **Basic Ranged**. These are not purchased abilities. They are the floor of combat competence, not the ceiling. A trained character buys cards that make their attacks more reliable, more damaging or more useful.
-
-## Signatures
-
-A class signature is a recognizable expression of that class. It is slightly stronger than a shared card of the same tier, or it changes the action economy in a way the shared catalog does not. A signature is not a chain: each milestone's choice is independent, and you do not need the earlier signature to take the later one.
-
-## Building a useful set
-
-You do not need every ability in your disciplines. A good set covers one reliable attack or active defence, one way to help another character, one way to solve a non-combat problem, and one thing that lets you recover, escape or change position.
+Start with a job you expect to take. For a salvage crew, look for a way to reach a wreck, identify what is worth taking, and help someone who gets hurt along the way. Compare the actions your group can take before spending all your points in one field. [Basic Melee](../../cards/basic-melee.md), [Basic Ranged](../../cards/basic-ranged.md), [Basic Unarmed](../../cards/basic-unarmed.md), and [Basic Throw](../../cards/basic-throw.md) are available to every character. Basic Actions also cover ordinary actions such as stabilizing a companion and administering a medical dose.

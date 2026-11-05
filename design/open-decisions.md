@@ -3,7 +3,7 @@
 **Current state: expanded design review, not approved for a mission or table playtest.**
 
 - Eighteen disciplines; ten classes; twelve cultures and twelve backgrounds. New rules and expanded affinities are playtest proposals.
-- Four ancestry placeholders await Bruce's material. The provisional Human arithmetic scaffold grants no traits. Legacy homeworlds are not ancestries.
+- The Working Ten are adopted for the candidate manuscript. Review trait frequency, strongest pairs and the provisional species baselines after playtest.
 - [Ability coverage](ability-coverage.md) schedules later waves; current breadth is not a complete catalog.
 - [Ship construction](ships/construction.json) and the [ship chapter](starship-manual/manuscript/02-rules.md) define frame budgets and meaningful installed dice. The earlier endurance-only proposal is superseded.
 - Ship purchase prices, labour times, crew costs, oversized weapons, mixed-scale combat, boarding and advancement remain open.

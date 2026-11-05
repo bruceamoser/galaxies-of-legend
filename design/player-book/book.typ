@@ -28,11 +28,11 @@
 
   The *Starship Manual* contains ship construction and operation, crew stations, ship combat, FTL and ship sheets. The *Sector Architect’s Book* supports adjudication, preparation, encounters, hazards, threats and campaigns. Chapter 10 provides the companion-book reading guide.
 
-  This is the first three-book Starter Kit review edition. Ancestries remain placeholders awaiting Bruce’s material. Expanded character options, ship construction and SA seed values remain untested proposals. This package is for reading and design review; it is not a final approved edition.
+  This is the first three-book Starter Kit review edition. The Working Ten ancestry profiles, ship construction and SA values are provisional. This edition is for reading and design review.
 
 ]
 #v(14pt)
-#text(size: 9pt)[Manuscript and layout prepared with Codex under Bruce’s direction.
+#text(size: 9pt)[Legend System rules and original game design by Bruce A. Moser. Manuscript and layout prepared with Codex under Bruce’s direction. Interior artwork generated with AI assistance.
 Starter Kit v#release.version · #release.date.
 Three-book Starter Kit · Design review.]
 #pagebreak()

@@ -10,7 +10,7 @@
 
 **Target / range / shape:** One owned utility robot within 8 squares and one reachable non-combat task
 
-Direct the robot to carry a small object, press a control or inspect a panel. It takes no independent turn and cannot use your abilities or attack.
+Direct the robot to carry a small object, press a control or inspect a panel. It takes no independent turn and cannot use your abilities or attack. If it uses a personal companion profile, this counts as its one command package for the round and requires its normal controller link.
 
 - **Weak:** complete a routine task, but the robot remains exposed at the work site.
 - **Standard:** complete a routine task and return the robot to you.

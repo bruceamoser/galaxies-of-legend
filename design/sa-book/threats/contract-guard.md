@@ -2,6 +2,8 @@
 
 **Status:** Playtest proposal - personal-scale threat seed; untested and no calibrated CV.
 
+**Family:** Crews
+
 **Role:** A trained guard protecting a named person or asset.
 
 **HP:** 16 · **Speed:** 6 squares · **Stability:** 0 · **Physical resistance:** 1
@@ -27,6 +29,12 @@
 - **Weak:** 2 Kinetic damage.
 - **Standard:** 3 Kinetic damage.
 - **Strong:** 4 Kinetic damage.
+
+## Shared adversary abilities
+
+- [Interpose Plate](../adversary-abilities/interpose-plate.md)
+- [Call the Safe Side](../adversary-abilities/call-the-safe-side.md)
+- [Push the Gate](../adversary-abilities/push-the-gate.md)
 
 ## Equipment and limits
 

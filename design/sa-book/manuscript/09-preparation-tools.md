@@ -1,6 +1,6 @@
 # Preparation and review tools
 
-The following prompts help develop material without claiming a ready-to-play starter mission. Choose the ones that fit the crew's interests and connect them to the sector's established people and resources.
+Choose a pressure that puts something the crew cares about in motion. Attach it to a location they know and two people who can take action. Use the worksheets to turn that outline into the notes you need at the table.
 
 ## Six situation frames
 
@@ -21,9 +21,9 @@ Can the players see what is at stake? Are obvious facts available without a gate
 
 Before any test, record the actual party, equipment, Grit and wounds. During it, note uncertainty and consequences without changing the foundation mid-roll. Afterward, separate a presentation problem from a numerical balance problem. A misread condition needs a clearer reference; an overpowered combination needs evidence about its actual results.
 
-## What this base book does not finish
+## Record a ruling
 
-The ancestry catalog, broad ability waves, calibrated encounter values, complete creature catalog, final ship economy and first starter mission remain future work. This three-book package establishes where that work belongs. It does not certify that the open proposals are ready for a campaign or that the review candidate is a final public edition.
+Choose the smallest ruling that fits the established rules and explain it to the table. Record the trigger, ruling, affected rule and observed result. A scene ruling applies to the situation at hand. A lasting change belongs in a system delta so everyone can see when it takes effect.
 
 ## Worksheets
 

@@ -10,13 +10,13 @@
 
 **Target / range / shape:** One terminal you can access; ten minutes
 
-Create a private working session inside an already accessible system. This does not grant a higher access privilege.
+Build a private working session without increasing access privileges. At 3 progress establish the session with the monitoring limits the system allows. If the system cannot isolate it, identify that limit before rolling.
 
-- **Weak:** gain a Boon on one Computing check here; the session is logged.
-- **Standard:** gain a Boon on your next two Computing checks here.
-- **Strong:** gain those two Boons and detect one attempt to monitor this session.
+- **Weak:** 1 progress; leave a local setup log.
+- **Standard:** 2 progress.
+- **Strong:** 3 progress.
 
-**Duration:** One scene or until access is revoked.
+**Duration:** Progress lasts until the task resolves or the situation invalidates it.
 
 **Equipment / acquisition:** Requires a terminal and existing system access
 

@@ -2,6 +2,8 @@
 
 **Status:** Playtest proposal - personal-scale threat seed; untested and no calibrated CV.
 
+**Family:** Security and synthetics
+
 **Role:** A fixed autonomous defence with a known firing arc and a power connection.
 
 **HP:** 10 · **Speed:** 0 squares · **Stability:** 1 · **Physical resistance:** 1
@@ -17,6 +19,12 @@
 - **Weak:** 2 Thermal damage.
 - **Standard:** 3 Thermal damage.
 - **Strong:** 5 Thermal damage.
+
+## Shared adversary abilities
+
+- [Switch to Local Sight](../adversary-abilities/switch-to-local-sight.md)
+- [Mark the Line of Fire](../adversary-abilities/mark-the-line-of-fire.md)
+- [Flash the Boundary](../adversary-abilities/flash-the-boundary.md)
 
 ## Equipment and limits
 

@@ -25,18 +25,23 @@ def main():
 
     txt = "# Abilities\n\nStart with the character you imagine, or browse by tier.\nEach card is an editable Markdown record. Class signatures remain exclusive;\nshared abilities are open to anyone who meets the printed requirements.\n\n"
     for label, test in [
-        ("Universal actions", lambda s: field(s, "Tier / minimum level") == "Universal"),
-        ("Shared abilities", lambda s: field(s, "Tier / minimum level") != "Universal" and field(s, "Type") != "Signature"),
+        ("Basic Actions", lambda s: field(s, "Tier / minimum level") == "Universal"),
+        ("Universal Abilities", lambda s: field(s, "Tier / minimum level") != "Universal"
+         and field(s, "Type") != "Signature" and field(s, "Requirements to learn") == "None"),
+        ("Discipline abilities", lambda s: field(s, "Tier / minimum level") != "Universal"
+         and field(s, "Type") != "Signature" and field(s, "Requirements to learn") != "None"),
         ("Class signatures", lambda s: field(s, "Type") == "Signature"),
     ]:
         txt += "## " + label + "\n\n"
         for p, s in cards:
             if test(s):
-                txt += f"- {link(p)} — {field(s, 'Action')}; level {field(s, 'Tier / minimum level')}; {field(s, 'Requirements to learn')}.\n"
+                tier = field(s, "Tier / minimum level")
+                cost = "already known; no DP" if tier == "Universal" else f"level {tier}; {field(s, 'DP')} DP; {field(s, 'Requirements to learn')}"
+                txt += f"- {link(p)} — {field(s, 'Action')}; {cost}.\n"
         txt += "\n"
     (R / "catalog.md").write_text(txt.rstrip() + "\n")
 
-    txt = "# Ancestries\n\nPlaceholder records await Bruce's ancestry material. Homeworld is no longer the biological origin slot. See [legacy environmental drafts](homeworlds/README.md).\n\n"
+    txt = "# Ancestries\n\nTen playtest ancestries. Choose two of five traits. See the [origin atlas](player-book/manuscript/appendix-origins.md) for species and star systems.\n\n"
     for p in sorted((R / "ancestries").glob("*.md")):
         txt += f"- {link(p)}\n"
     (R / "ancestry.md").write_text(txt.rstrip() + "\n")

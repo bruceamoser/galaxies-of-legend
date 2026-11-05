@@ -1,6 +1,6 @@
 # Reference and ship records
 
-Use this reference after reading Chapters 2-4. If a summary is insufficient, return to the named full procedure rather than inventing a shorter substitute.
+Keep this reference next to the ship record during play. The construction checks help you finish a build, and the event table gives the order to follow under pressure. Chapters 2–4 give the full procedures.
 
 ## Construction checks
 

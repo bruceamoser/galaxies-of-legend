@@ -26,7 +26,7 @@ for folder in ["ancestries", "origins", "classes", "disciplines", "cards", "equi
         files[p.resolve()] = key(p)
 for p in (BOOK / "manuscript").glob("*.md"):
     files[p.resolve()] = key(p)
-for f in ["market.md", "starting-coins.md", "card-conventions.md", "ability-coverage.md"]:
+for f in ["market.md", "starting-coins.md", "card-conventions.md"]:
     p = DESIGN / f
     if p.exists():
         files[p.resolve()] = key(p)
@@ -90,7 +90,18 @@ def inline(tokens, p):
     return "".join(out)
 
 
-def render(s, p, base=2, skip_title=True):
+PLAYER_TABLE_WIDTHS = {
+    "Attribute": "(74pt,1fr)", "Value": "(83pt,1fr)", "Step": "(93pt,1fr)",
+    "Choice": "(1fr,42pt)", "Price band / disciplines": "(1fr,59pt)",
+    "Price band": "(1fr,44pt,44pt,44pt)", "Death-roll result": "(80pt,1fr)",
+    "What you record": "(1fr,1.15fr,1.45fr)", "Condition": "(90pt,1.1fr,1.25fr)",
+    "Question": "(1fr,1.2fr)", "Situation": "(100pt,1fr)",
+    "Action": "(65pt,1fr)", "Term": "(65pt,1fr)", "Item": "(1.5fr,1fr,42pt,55pt)",
+    "Level": "(45pt,1fr,1.15fr)",
+}
+
+
+def render(s, p, base=2, skip_title=True, table_widths=None):
     ts = md.parse(s); out = []; i = 0
     while i < len(ts):
         t = ts[i]
@@ -112,16 +123,33 @@ def render(s, p, base=2, skip_title=True):
         elif t.type == "hr": out.append("#v(3pt)#line(length: 100%, stroke: .4pt + teal)#v(3pt)\n")
         elif t.type in ("fence", "code_block"): out.append("#raw(" + q(t.content) + ", block: true)\n")
         elif t.type == "table_open":
-            rows = []; row = []; i += 1
+            rows = []; row = []; headers = []; i += 1
             while ts[i].type != "table_close":
                 x = ts[i]
                 if x.type == "tr_open": row = []
-                elif x.type == "inline": row.append("[" + inline(x.children, p) + "]")
+                elif x.type == "inline":
+                    if not rows:
+                        headers.append(x.content.replace("**", ""))
+                    row.append("[" + inline(x.children, p) + "]")
                 elif x.type == "tr_close": rows.append(row)
                 i += 1
             n = len(rows[0]); head = "(" + ",".join(rows[0]) + ",)"
             rr = "(" + ",".join("(" + ",".join(r) + ",)" for r in rows[1:]) + ",)"
-            out.append("#rule-table(" + str(n) + "," + head + "," + rr + ")\n\n")
+            options = ""
+            widths = table_widths
+            if widths is None and (p.is_relative_to(BOOK) or p.name in {
+                "starting-coins.md", "market.md", "conditions.md"
+            } or p.parent == DESIGN / "classes"):
+                widths = PLAYER_TABLE_WIDTHS
+            if widths and headers[0] in widths:
+                options = ",widths:" + widths[headers[0]] + ",pad:4pt"
+            if p.name != "wounds.md":
+                numeric = [str(j) for j, value in enumerate(headers)
+                           if value in {"HP", "Coins", "Bulk", "Cost", "Level", "Total"}
+                           or value.startswith("Rank ")]
+                if numeric:
+                    options += ",numeric:(" + ",".join(numeric) + ",)"
+            out.append("#rule-table(" + str(n) + "," + head + "," + rr + options + ")\n\n")
         i += 1
     return "".join(out)
 
@@ -144,8 +172,57 @@ def manuscript(filename, n, title):
     p = BOOK / "manuscript" / filename; record(p, "chapter")
     v = "#chapter(" + q(n) + "," + q(title) + ")\n#metadata(" + q(key(p)) + ")<" + key(p) + ">\n"
     if filename == "01-welcome.md":
-        v += '#illustration("frontier-crew-review",height:215pt,fit:"cover")\n'
-    v += reading(p.read_text(), p)
+        v += '#illustration("crew-on-watch",height:178pt)\n'
+    banners = {
+        "06-playing.md": ("crew-at-work", 195),
+        "08-recovery.md": ("sickbay-watch", 155),
+        "10-equipment.md": ("station-market", 155),
+    }
+    if filename in banners:
+        asset, height = banners[filename]
+        fit = "contain" if asset == "crew-at-work" else "cover"
+        v += f'#illustration({q(asset)},height:{height}pt,fit:{q(fit)})\n'
+    if filename == "14-reference.md":
+        _, *sections = re.split(r"(?m)(?=^## )", p.read_text())
+        quick = [render(section, p, base=1) for section in sections[:3]]
+        v += f"#grid(columns:(.8fr,1.4fr,.9fr),gutter:12pt,[{quick[0]}],[{quick[1]}],[{quick[2]}])\n"
+        v += render("".join(sections[3:5]), p, base=1)
+        v += '#pagebreak(weak:true)\n'
+        v += render("".join(sections[5:]), p, base=1)
+    elif filename == "appendix-origins.md":
+        intro, *systems = re.split(r"(?m)(?=^## )", p.read_text())
+        first_left = render(intro + "".join(systems[:2]), p, base=1)
+        first_right = render("".join(systems[2:5]), p, base=1)
+        next_left = render("".join(systems[5:8]), p, base=1)
+        next_right = render("".join(systems[8:]), p, base=1)
+        v += f"#grid(columns:(1fr,1fr),gutter:20pt,[{first_left}],[{first_right}])\n"
+        v += '#pagebreak(weak:true)\n'
+        v += f'#grid(columns:(1fr,1fr),gutter:20pt,[{next_left}],[{next_right}#illustration("jump-watch",height:190pt,fit:"cover")])\n'
+    elif filename == "02-creation.md":
+        guide, example = p.read_text().split("## Worked character", 1)
+        first, finish = guide.split("## 7. Resolve", 1)
+        checklist, advancement = finish.split("## Advancement", 1)
+        v += reading(first, p)
+        v += "#pagebreak(weak:true)\n"
+        left = render("## 7. Resolve" + checklist, p, base=1)
+        right = render("## Advancement" + advancement, p, base=1)
+        v += f"#grid(columns:(1fr,1fr),gutter:20pt,[{left}],[{right}])\n"
+        v += '#tail-art("origin-port",limit:235pt)\n#pagebreak(weak:true)\n'
+        v += "#block(breakable:false)[" + render("## Worked character" + example, p, base=1) + "]\n"
+    elif filename == "05-disciplines.md":
+        ranks, examples = p.read_text().split("## Choose what you want to do", 1)
+        left = render(ranks, p, base=1)
+        right = render("## Choose what you want to do" + examples, p, base=1)
+        v += f"#grid(columns:(1fr,1fr),gutter:20pt,[{left}],[{right}])\n"
+        v += '#tail-art("ability-coordination",limit:270pt)\n'
+    elif filename in {"intro-ancestry.md", "intro-classes.md"}:
+        paragraphs = p.read_text().strip().split("\n\n")[1:]
+        split = 1 if filename == "intro-ancestry.md" else 2
+        left = render("\n\n".join(paragraphs[:split]), p)
+        right = render("\n\n".join(paragraphs[split:]), p)
+        v += f"#grid(columns:(1fr,1fr),gutter:20pt,[{left}],[{right}])\n"
+    else:
+        v += reading(p.read_text(), p)
     return v
 
 
@@ -153,13 +230,17 @@ def doc(p, kind="entry", wide=False):
     record(p, kind); s = clean(p)
     if kind in ("ancestry", "trait", "culture", "background", "discipline", "equipment"):
         icons = "[ #discipline-mark(" + q(p.stem) + ",\"\",size:28pt) ]" if kind == "discipline" else "[]"
+        if kind == "discipline":
+            examples = DISCIPLINE_EXAMPLES[p.stem]
+            names = [f"[{name(DESIGN / 'cards' / (slug + '.md'))}](../cards/{slug}.md)" for slug in examples]
+            s += "\n**Example abilities:** " + ", ".join(names) + ".\n"
         text = "#catalog-card(" + q(name(p)) + "," + q(key(p)) + ",icons: " + icons + ")[" + render(s, p) + "]\n"
     else:
         text = "#entry(" + q(name(p)) + "," + q(key(p)) + ")\n" + render(s, p)
     return text if wide else "#twocol[\n" + text + "]\n"
 
 
-def card(p):
+def card(p, *, compact=False):
     record(p, "ability"); s = clean(p)
     def field(label, default=""):
         m = re.search(r"\*\*" + re.escape(label) + r":\*\*\s*(.*?)(?=\s*·\s*\*\*|\n|$)", s)
@@ -181,11 +262,11 @@ def card(p):
     match = re.search(r"(?m)^- \*\*Weak:\*\* (.+)\n- \*\*Standard:\*\* (.+)\n- \*\*Strong:\*\* (.+)",s)
     if match:
         body = render(s[:match.start()],p)
-        body += "#outcome-rows((" + ",".join("[" + render("**" + label + ":** " + value,p) + "]" for label,value in zip(("Weak","Standard","Strong"),match.groups())) + ",))\n"
+        body += "#outcome-rows((" + ",".join("[" + render("**" + label + ":** " + value,p) + "]" for label,value in zip(("Weak","Standard","Strong"),match.groups())) + ",), compact:" + str(compact).lower() + ")\n"
         body += render(s[match.end():],p)
     else:
         body = render(s,p)
-    return "#card(icons: [" + icons + "]," + ",".join(map(q, [name(p), "U" if tier == "Universal" else tier, req, action, attr, tags, "Universal" if tier == "Universal" else price + " DP", key(p)])) + ")[\n" + body + "]\n"
+    return "#card(compact: " + str(compact).lower() + ", icons: [" + icons + "]," + ",".join(map(q, [name(p), "B" if tier == "Universal" else tier, req, action, attr, tags, "Basic action" if tier == "Universal" else price + " DP", key(p)])) + ")[\n" + body + "]\n"
 
 
 
@@ -219,28 +300,21 @@ def class_page(p):
             cost_table += "| " + band_name + ": " + disciplines + " | " + " / ".join(map(str, values)) + " |\n"
     core = "*" + narrative + "*\n\n**Attributes:** " + attrs + ". **HP:** +" + hp + ". **Coins:** +" + coins + ".\n\n"
     core += "**Starting ranks:** Choose two distinct rank-1 disciplines from " + starting + ".\n\n"
+    role = re.search(r"(?m)^\*\*In the crew\.\*\* (.+)$", raw).group(1)
+    core += role + "\n"
     core = "#grid(columns:(1fr,1fr),gutter:18pt,[" + render(core, p, base=1) + "],[" + render("### Discipline costs · DP per rank\n" + cost_table, p, base=1) + "])"
-    choices = []
-    for lvl in (1, 3, 7):
-        m = re.search(r"## Level " + str(lvl) + r"\n\n((?:- .*\n?)+)", raw)
-        choices.append((lvl, m.group(1) if m else ""))
-    sigs = "#grid(columns:(1fr,1fr,1fr),gutter:12pt," + ",".join(
-        "[" + render("## Level " + str(lvl) + "\n" + body, p, base=1) + "]" for lvl, body in choices
-    ) + ")"
-    result = "#pagebreak(weak:true)\n#class-panel(" + q(name(p)) + "," + q(key(p)) + ")[\n" + core + "]\n"
-    result += "#v(8pt)\n#signature-menu[" + sigs + "]\n"
-    return result
+    return "#pagebreak(weak:true)\n#class-panel(" + q(name(p)) + "," + q(key(p)) + ")[" + core + "]\n"
 
 
 def hp_reference():
     p = BOOK / "manuscript/02-creation.md"
-    home = ["| Human arithmetic scaffold only | +2 |", "| Alien placeholders | Unset |"]
+    home = ["| All ten playtest ancestries | +2 |"]
     cls = []
     for slug, _ in CLASSES:
         f = DESIGN / "classes" / (slug + ".md")
         hp = re.search(r"HP contribution \+(\d+)", f.read_text()).group(1)
         cls.append("| " + name(f) + " | +" + hp + " |")
-    intro = "#heading(level:2)[Starting HP]\n#label(\"starting-hp\")\nAncestry values are placeholders. Human +2 is an arithmetic scaffold only; alien HP is unset. Calculate the rest from class and Fortitude; no missing ancestry traits are granted.\n\n#note[#align(center)[#text(size:15pt,weight:\"bold\")[12 + ancestry + class + Fortitude + explicit benefits]]]\n"
+    intro = "#heading(level:2)[Starting HP]\n#label(\"starting-hp\")\nAll ten playtest ancestries contribute +2 HP. Add the class contribution, Fortitude and any explicit benefits.\n\n#note[#align(center)[#text(size:15pt,weight:\"bold\")[12 + ancestry + class + Fortitude + explicit benefits]]]\n"
     table = lambda title, rows: render("## " + title + "\n| Choice | HP |\n|---|---:|\n" + "\n".join(rows), p, base=1)
     intro += "#grid(columns:(1fr,1fr),gutter:18pt,[" + table("Ancestry", home) + "#heading(level:3)[Fortitude and benefits]\nAdd your Fortitude, including a negative value. Then add only benefits you actually chose. HP does not increase automatically with level. Record current HP separately from your maximum.],[" + table("Class", cls) + "])\n"
     return intro
@@ -251,10 +325,12 @@ def coin_reference():
     sections = dict((m.group(1), m.group(2)) for m in re.finditer(r"## ([^\n]+)\n(.*?)(?=\n## |\Z)", t, re.S))
     def table(title):
         return render("### " + title.replace(" contribution", "") + "\n" + sections[title], p, base=1)
-    intro = t.split("## Ancestry")[0]
+    intro = ("Add the contributions from ancestry, culture, background and class to 40 coins. "
+             "Record any equipment granted by your abilities before you shop.\n")
     result = "#pagebreak(weak:true)\n#entry(\"Starting coins\"," + q(key(p)) + ")\n" + render(intro, p) + "\n"
     result += "#grid(columns:(1fr,1fr),gutter:12pt,["
     result += table("Ancestry contribution") + table("Class contribution")
+    result += '#illustration("station-market",height:145pt,fit:"cover")\n'
     result += "],[" + table("Culture contribution") + table("Background contribution") + "])\n"
     return result
 
@@ -279,39 +355,77 @@ CLASSES = [(p.stem,name(p)) for p in sorted((DESIGN/"classes").glob("*.md"))]
 
 DISCIPLINES = sorted(p.stem for p in (DESIGN / "disciplines").glob("*.md"))
 
-
-def summary(p):
-    m = re.search(r"^\*([^*]+)\*$", p.read_text(), re.M)
-    if not m: return ""
-    s = m.group(1)
-    return s.split(". ")[0].rstrip(".") + "."
+DISCIPLINE_EXAMPLES = {
+    "armor": ("wear-light-armor", "read-the-impact"),
+    "arms": ("reverse-grip", "measure-the-reach"),
+    "athletics": ("catch-the-ledge", "rig-the-haul"),
+    "command": ("clear-orders", "set-the-rendezvous"),
+    "computing": ("read-the-warning", "recover-an-autosave"),
+    "engineering": ("field-repair", "bridge-the-service-gap"),
+    "gunnery": ("overwatch", "check-the-backstop"),
+    "influence": ("make-the-introduction", "find-the-shared-interest"),
+    "investigation": ("bag-the-fragment", "reconstruct-the-route"),
+    "medicine": ("patch-wounds", "assess-for-transport"),
+    "navigation": ("mark-the-return", "cross-check-the-landmark"),
+    "piloting": ("read-the-controls", "rehearse-the-abort"),
+    "robotics": ("check-the-gripper", "audit-the-routine"),
+    "science": ("sensor-sweep", "test-the-boundary"),
+    "subterfuge": ("shadow-step", "watch-the-shift-change"),
+    "survival": ("make-camp", "read-the-weather-break"),
+    "trade": ("find-a-market", "cost-the-detour"),
+    "xenology": ("establish-protocol", "compare-the-greeting"),
+}
 
 
 def ability_browser(paths, tier):
-    title = {"Universal": "Universal actions", "1": "Novice abilities", "3": "Adept abilities", "7": "Master abilities"}[tier]
+    title = {"Universal": "Basic Actions", "open": "Universal Abilities", "1": "Novice abilities", "3": "Adept abilities", "7": "Master abilities"}[tier]
     result = "#pagebreak(weak:true)\n#heading(level:2," + q(title) + ")\n"
-    result += "Find a useful option here, then follow its name to the complete card. Summaries help you choose; the card supplies the exact targets, costs and outcomes.\n\n"
+    result += "Select an ability name to read its full rules. "
+    result += ("Everyone knows these actions. They cost no DP.\n\n" if tier == "Universal"
+               else "Learn these abilities at their printed level and DP cost. They require no discipline rank.\n\n" if tier == "open"
+               else "Check the requirements and printed DP price before learning.\n\n")
     rows = []
     for p in paths:
         s = p.read_text()
         field = lambda label: re.search(r"\*\*" + re.escape(label) + r":\*\*\s*(.*?)(?=\s*·\s*\*\*|\n|$)", s).group(1).strip()
-        rows.append("([#xref(" + q(key(p)) + ")[#text(" + q(name(p)) + ")]], [#text(" + q(field("Requirements to learn")) + ")], [#text(" + q(field("Action")) + ")], [#text(" + q(summary(p)) + ")])")
+        rows.append("([#xref(" + q(key(p)) + ")[#text(" + q(name(p)) + ")]], [#text(" + q(field("Requirements to learn")) + ")], [#text(" + q(field("Action")) + ") #action-mark(" + q(field("Action")) + ")], [#text(" + q(field("Target / range / shape")) + ")])")
     result += "#ability-directory((" + ",".join(rows) + ",))\n#v(10pt)\n"
-    result += flow([card(p) for p in paths])
+    cards = [card(p, compact=True) for p in paths]
+    result += "#ability-pages((" + ",".join("[" + item + "]" for item in cards) + ",))\n"
+    art = {"1": "ability-breach", "3": "ability-coordination", "7": "ability-rescue"}
+    if tier in art:
+        result += f'#tail-art({q(art[tier])},limit:200pt)\n'
     return result
 
 
 
-def restored_rule(p, title):
+def restored_rule(p, title, *, new_page=True):
     record(p,"inherited-rule")
-    return "#pagebreak(weak:true)\n#entry(" + q(title) + "," + q(key(p)) + ")\n" + render(p.read_text(),p,base=1)
+    copy = p.read_text()
+    if p.name == "conditions.md":
+        copy = re.sub(r"(?s)Agreed condition rules,.*?(?=## Ratings)", "", copy)
+    elif p.name == "damage.md":
+        copy = copy.replace("GOL terms and the inherited damage families", "Damage types and equipment labels")
+        copy = copy.replace("The seven HOL families remain", "The seven damage families are")
+        copy = copy.replace("Existing GOL weapon cards can keep those descriptive labels.", "")
+        copy = copy.replace("**GOL mapping proposals, not claims about HOL:**", "**Playtest damage labels.**")
+        copy = copy.replace(" These two assignments require Bruce's review. The full Mental, Radiant and Life/Necrotic rules remain present even where the current weapon catalog has little coverage.", "")
+        copy = copy.replace("GOL extension conditions", "Equipment faults")
+        copy = copy.replace("Earlier GOL uses of Frozen mean the HOL Freezing condition; Stunned means Dazed.", "Read Frozen as Freezing and Stunned as Dazed.")
+    elif p.name == "healing.md":
+        copy = copy.replace("Applying the foundation in GOL", "Medical care")
+        copy = copy.replace("The inherited cost is", "The healer pays")
+        copy = copy.replace(" GOL's medical presentation does not waive that shared economy.", "")
+        copy = copy.replace("A fixed-dose medical supply uses HOL's potion procedure:", "To administer a medical dose, use the following procedure.")
+        copy = copy.replace(" This is a science-fiction presentation of the inherited consumable, not an additional stronger healing system.", "")
+        copy = copy.replace("follows HOL's transfer rule:", "follows this rule.")
+    return ("#pagebreak(weak:true)\n" if new_page else "") + "#entry(" + q(title) + "," + q(key(p)) + ")\n" + (reading(copy, p) if p.name == "damage.md" else render(copy,p,base=1))
 
 def wound_reference():
     p=DESIGN/"rules/wounds.md";record(p,"wound-reference")
     sections=re.split(r"(?=^## (?:Physical|Elemental|Mental|Radiant|Life/Necrotic)\s*$)",p.read_text(),flags=re.M)
-    result="#pagebreak(weak:true)\n#entry(\"Complete wound tables\"," + q(key(p)) + ")\n" + render(sections[0],p,base=1)
+    result="#pagebreak(weak:true)\n#entry(\"Complete wound tables\"," + q(key(p)) + ")\n" + render(re.sub(r"(?s)Designer-reviewed working entries.*?(?=## Procedure)", "", re.sub(r"(?m)^(?:\*\*)?Open test concerns:[^\n]*(?:\n(?!\n)[^\n]*)*", "", sections[0])),p,base=1)
     for section in sections[1:]:
-        result+="#pagebreak(weak:true)\n"
         # Each row is retained; only the table renderer changes for reading width and repeated captions.
         chunks=re.split(r"(?=^### )",section,flags=re.M)
         result+=render(chunks[0],p,base=1)
@@ -322,30 +436,87 @@ def wound_reference():
             result+=body
     return result
 
+def ancestry_profile(p):
+    record(p, "ancestry")
+    intro, rules = clean(p).split("---", 1)
+    intro, example = intro.split("**At the table.**", 1)
+    intro, paths = intro.split("**Common paths.**", 1)
+    intro, lore = intro.split("## Appearance", 1)
+    lore = "## Appearance" + lore
+    intro += "\n\n[Explore the associated system in Appendix A.](../player-book/manuscript/appendix-origins.md)"
+    traits = re.findall(r"(?m)^\d+\. \*\*([^*]+)\*\* (.+)$", rules)
+    assert len(traits) == 5, p
+    panels = ", ".join("(" + q(title.rstrip(".")) + ", [" + render(copy, p) + "])" for title, copy in traits)
+    appearance, society = lore.split("## Society and relations", 1)
+    return (f"#ancestry-profile({q(name(p))}, {q(key(p))}, {q('lineage-' + p.stem)}, "
+            f"({panels},), [{render(intro, p)}])\n"
+            f"#ancestry-society({q(name(p))}, {q('place-' + p.stem)}, [{render(appearance,p,base=1)}], "
+            f"[{render('## Society and relations' + society,p,base=1)}], "
+            f"[{render(paths.strip(),p)}], [{render(example.strip(),p)}])\n")
+
+
+
 def build_player():
     parts = ['#import "../template.typ": *\n']
     parts.append(manuscript("01-welcome.md", "1", "Welcome to Galaxies of Legend"))
     parts.append(manuscript("02-creation.md", "2", "Create Your Explorer"))
     parts.append(hp_reference())
+    parts.append('#tail-art("crew-at-work",limit:155pt)\n')
     parts.append(coin_reference())
 
-    parts.append("#chapter(\"3\",\"Ancestry, Culture and Background\")\n")
-    parts.append("Ancestry is physiology, culture is community, background is experience. Ancestries below are placeholders awaiting Bruce's material. No alien biology or benefits have been invented.\n\n")
-    parts.append(flow([doc(p,"ancestry",wide=True) for p in sorted((DESIGN/"ancestries").glob("*.md"))]))
+    parts.append(manuscript("intro-ancestry.md", "3", "Ancestry, Culture and Background"))
+    parts.append('#tail-art("crew-lineages",limit:315pt)\n')
+    ancestries = sorted((DESIGN / "ancestries").glob("*.md"), key=lambda p: (p.stem != "human", p.stem))
+    lineage_heights = {
+        "human": 1.75, "ambril": 1.65, "inkleaf": 1.25, "lethren": 1.85,
+        "nacreth": 1.50, "orivane": 2.05, "pellori": 1.60, "silev": 1.55,
+        "tessari": 1.55, "weldkin": 1.90,
+    }
+    lineup = ", ".join(
+        f"({q(name(p))}, {q(key(p))}, {q('lineage-' + p.stem)}, {lineage_heights[p.stem]})"
+        for p in ancestries
+    )
+    parts.append(f"#ancestry-lineup(({lineup},))\n")
+    parts.extend(ancestry_profile(p) for p in ancestries)
     for typ, title in [("culture", "Cultures"), ("background", "Backgrounds")]:
         parts.append("#pagebreak(weak:true)\n#heading(level:2," + q(title) + ")\n")
         intro = BOOK / "manuscript" / ("intro-" + typ + ".md"); record(intro, "section")
         entries = ["#metadata(" + q(key(intro)) + ")<" + key(intro) + ">\n" + render(intro.read_text(), intro)]
         entries += [doc(p, typ, wide=True) for p in sorted((DESIGN / "origins").glob(typ + "-*.md"), key=name)]
-        parts.append(flow(entries) + "#tail-art(" + q(typ + "s") + ")\n")
+        intro_text, *cards = entries
+        parts.append(intro_text)
+        parts.append("#grid(columns:(1fr,1fr),column-gutter:18pt,row-gutter:8pt,"
+                     + ",".join("[" + item + "]" for item in cards) + ")\n")
+        parts.append('#tail-art("' + ("place-nacreth" if typ == "culture" else "place-weldkin") + '",limit:220pt)\n')
 
-    parts.append("#chapter(\"4\",\"Classes\")\n#illustration(\"frontier-crew-review\",height:300pt,fit:\"cover\")\n")
-    parts.append("#twocol[Choose the identity you want to bring to the crew. Each class grants two starting discipline choices and a signature at levels 1, 3 and 7. Shared abilities remain open to anyone who qualifies. Signatures belong only to their class. Choose one free signature at each milestone. Meet both attribute minimums before choosing your class; choose one class and do not multiclass.]\n")
+    parts.append(manuscript("intro-classes.md", "4", "Classes"))
+    parts.append('#tail-art("frontier-crew-review")\n')
     for c in CLASSES:
         p = DESIGN / "classes" / (c[0] + ".md")
         parts.append(class_page(p) + "#v(10pt)\n")
         sigs = re.findall(r"\]\(\.\./cards/(signature-[^)]+\.md)\)", p.read_text())
-        parts.append(flow([card(DESIGN / "cards" / s) for s in sigs]))
+        if p.stem == "medic":
+            briefing = BOOK / "manuscript" / "medic-briefing.md"
+            record(briefing, "section")
+            parts.append("#heading(level:2)[Field example · Medic]\n")
+            _, triage, signatures = re.split(r"(?m)(?=^## )", briefing.read_text())
+            left = render(triage, briefing)
+            right = render(signatures, briefing)
+            parts.append(f"#grid(columns:(1fr,1fr),gutter:20pt,[{left}],[{right}])\n")
+            parts.append('#tail-art("sickbay-watch",limit:260pt)\n')
+            parts.append("#pagebreak(weak:true)\n#heading(level:2)[Medic signatures]\n")
+        menus = [sigs]
+        if len(sigs) > 3:
+            menus = [sigs[offset:offset + 3] for offset in range(0, len(sigs), 3)]
+            parts.append("Choose one signature at each milestone. Additional signatures cost 2, 4 or 8 DP according to their level.\n")
+        for level, menu in zip((1, 3, 7), menus):
+            if len(menus) > 1:
+                if level != 1 or p.stem == "medic":
+                    parts.append("#pagebreak(weak:true)\n")
+                parts.append(f"#heading(level:2)[{name(p)} signatures · Level {level}]\n")
+            cards = [card(DESIGN / "cards" / slug, compact=True) for slug in menu]
+            parts.append("#grid(columns:(1fr,1fr,1fr),gutter:10pt,"
+                         + ",".join("[" + item + "]" for item in cards) + ")\n")
 
     parts.append(manuscript("05-disciplines.md", "5", "Disciplines"))
     parts.append(discipline_matrix())
@@ -354,36 +525,80 @@ def build_player():
         group = discipline_files[offset:offset + 4]
         parts.append("#pagebreak(weak:true)\n#grid(columns:(1fr,1fr),gutter:18pt,[" + "".join(doc(p, "discipline", wide=True) for p in group[:2]) + "],[" + "".join(doc(p, "discipline", wide=True) for p in group[2:]) + "])\n")
 
-    parts.append("#pagebreak(weak:true)\n" + doc(DESIGN / "ability-coverage.md", "coverage-plan", wide=True))
-
     parts.append(manuscript("06-playing.md", "6", "Playing the Game"))
+    for filename in ("perception.md", "cover.md", "environment.md"):
+        rule = DESIGN / "rules" / filename
+        record(rule, "scene-procedure")
+        parts.append("#pagebreak(weak:true)\n#entry(" + q(name(rule)) + "," + q(key(rule)) + ")\n")
+        parts.append(reading(rule.read_text(), rule))
+    language_rule = DESIGN / "rules/languages.md"
+    record(language_rule, "scene-procedure")
+    parts.append("#pagebreak(weak:true)\n#entry(" + q(name(language_rule)) + "," + q(key(language_rule)) + ")\n")
+    opening, local, trade, translation, learning = re.split(
+        r"(?m)(?=^## (?:Ordinary languages of the ten systems|Languages across systems|Translation and first contact|Learn in play)$)",
+        language_rule.read_text(),
+    )
+    parts.append(reading(opening, language_rule))
+    parts.append(render(local, language_rule, base=1, table_widths={
+        "Language": "(110pt,125pt,1fr)",
+    }))
+    parts.append(render(trade, language_rule, base=1, table_widths={
+        "Language": "(125pt,1fr)",
+    }))
+    parts.append(reading(translation + "\n" + learning, language_rule))
     parts.append(manuscript("08-recovery.md", "7", "Harm and Recovery"))
     parts.append(restored_rule(DESIGN / "rules/damage.md", "Damage, resistance and forced injury"))
-    parts.append(restored_rule(DESIGN / "rules/healing.md", "Complete healing economy"))
+    parts.append(restored_rule(DESIGN / "rules/healing.md", "Complete healing economy", new_page=False))
     parts.append(restored_rule(DESIGN / "rules/conditions.md", "Full condition reference"))
-    parts.append(restored_rule(DESIGN / "rules/stability.md", "Stability and collisions"))
+    parts.append(restored_rule(DESIGN / "rules/stability.md", "Stability and collisions", new_page=False))
     parts.append(wound_reference())
 
 
     parts.append(manuscript("09-abilities.md", "8", "Abilities"))
-    for tier in ["Universal", "1", "3", "7"]:
+    for tier in ["Universal", "open", "1", "3", "7"]:
         paths = []
         for p in sorted((DESIGN / "cards").glob("*.md"), key=name):
             if p.name.startswith("signature-"): continue
             m = re.search(r"\*\*Tier / minimum level:\*\*\s*(\w+)", p.read_text())
-            if m and m.group(1) == tier: paths.append(p)
+            if m:
+                unrestricted = m.group(1) != "Universal" and "**Requirements to learn:** None" in p.read_text()
+                group = "open" if unrestricted else m.group(1)
+                if group == tier:
+                    paths.append(p)
         parts.append(ability_browser(paths, tier))
 
     parts.append(manuscript("10-equipment.md", "9", "Equipment and the Market"))
     parts.append(doc(DESIGN / "market.md", "market-reference", wide=True))
     parts.append("#pagebreak(weak:true)\n#heading(level:2)[Equipment entries]\n")
     intro = BOOK / "manuscript" / "intro-equipment.md"; record(intro, "section")
-    entries = ["#metadata(" + q(key(intro)) + ")<" + key(intro) + ">\n" + render(intro.read_text(), intro)]
-    entries += [doc(p, "equipment", wide=True) for p in sorted((DESIGN / "equipment").glob("*.md"), key=name)]
-    parts.append(flow(entries))
+    parts.append("#metadata(" + q(key(intro)) + ")<" + key(intro) + ">\n" + render(intro.read_text(), intro))
+    equipment = sorted((DESIGN / "equipment").glob("*.md"), key=name)
+    groups = (
+        ("Weapons", {"Weapon"}),
+        ("Protection and mobility", {"Protection", "Mobility"}),
+        ("Tools, sensors and communications", {"Tool", "Sensor", "Communications"}),
+        ("Supplies", {"Supply"}),
+    )
+    for title, categories in groups:
+        cards = []
+        for item in equipment:
+            category = re.search(r"\*\*Category:\*\* ([^·\n]+)", item.read_text())[1].strip()
+            if category in categories:
+                cards.append(doc(item, "equipment", wide=True))
+        parts.append("#heading(level:2," + q(title) + ")\n")
+        parts.append("#grid(columns:(1fr,1fr),column-gutter:18pt,row-gutter:8pt,"
+                     + ",".join("[" + item + "]" for item in cards) + ")\n")
+
+
+    companions = DESIGN / "rules/companions.md"
+    record(companions, "companion-rules")
+    parts.append("#pagebreak(weak:true)\n#entry(" + q(name(companions)) + "," + q(key(companions)) + ")\n")
+    parts.append(reading(companions.read_text(), companions))
 
     parts.append(manuscript("11-starship-reference.md", "10", "Using the Starship Manual"))
+    parts.append('#tail-art("jump-watch",limit:215pt)\n')
     parts.append(manuscript("14-reference.md", "11", "Table References"))
+    parts.append(manuscript("appendix-origins.md", "A", "Star Systems and Species"))
     parts.append('#include "../sheets.typ"\n')
 
     (GEN / "body.typ").write_text("".join(parts))

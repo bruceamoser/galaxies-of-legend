@@ -20,6 +20,8 @@ Tell the players where they are, what they can perceive and what is happening no
 
 When a proposed method is incomplete, explain the missing requirement: power, access, tools, a willing witness or a physical route. That is more useful than asking for a harder roll that might appear to bypass the requirement on Strong.
 
+> **Example · The closed relay.** The keeper needs a replacement board installed before the next scheduled transmission. Port control wants a signed safety clearance. The crew can interview the mechanic, inspect the old maintenance record or visit the relay and see the fault. If they wait, port control closes the window. Keep the relay, the board and the people in play even if the crew chooses to deal with them in a different order.
+
 ## Complications with concrete consequences
 
 | Pressure | Example complication | Preserve |
@@ -38,7 +40,3 @@ Do not charge an undefined future penalty or change which result band the dice a
 Use ordinary time while no immediate threat requires turns. Enter combat timing when actions and reactions must be ordered. Resolve Dying before ending turn timing; no scene transition grants a free safe breath to avoid a death roll.
 
 Personal combat aboard a ship stays personal combat. A malfunctioning console is not an automatic Hull hit; a Hull hit is not automatically a wound to everybody inside. If one event creates both structural and personal consequences, declare both and use each scale's procedure.
-
-## Record a ruling without making a new subsystem
-
-For an unprinted interaction, choose the smallest ruling consistent with the foundation, explain it and note it for later review. Distinguish that scene ruling from a permanent ability or equipment benefit. New lasting mechanics belong in an explicit system delta, not in a forgotten session note.

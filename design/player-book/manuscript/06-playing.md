@@ -1,5 +1,9 @@
 # Playing the Game
 
+The transfer corridor has tilted far enough that the handrail is now above your head. Beyond it a technician is trying to keep a pressure door from closing on their leg. The Sector Architect describes the angle of the deck, the reach of the rail and what happens if the door closes. Then the crew decides what to try.
+
+Start with what you want to happen and how you intend to make it happen. A crewmate might reach the rail and pull the technician free. Someone else might open the motor housing and stop the door from moving. Both are trying to save the same person, but their approaches put different things at risk and may call for different attributes. If the motor has an accessible emergency cutout and you can reach it in time, the SA can simply tell you what happens when you use it.
+
 ## The core roll
 
 When an action is uncertain and the consequence matters, roll **3d6 + one attribute**.
@@ -10,13 +14,17 @@ When an action is uncertain and the consequence matters, roll **3d6 + one attrib
 | **9–14** | **Standard** |
 | **15 or more** | **Strong** |
 
-No roll is needed when the action is routine, impossible, or has no meaningful cost. The fiction resolves those cases. A Weak result changes the degree, cost or consequence of the action; it does not automatically mean the character did nothing.
+No roll is needed when the action is routine, impossible, or has no meaningful cost. The SA describes what happens. On Weak, use the card’s Weak outcome or the consequence agreed before the roll.
 
 ## Boons and Banes
 
 A **Boon** adds a die; keep the highest three. A **Bane** adds a die; keep the lowest three. They cancel one for one. After cancelling, no more than three net extra dice are rolled.
 
 If the retained dice show three natural **1s**, add a complication to a Weak result. Three natural **6s** add a benefit to a Strong result. Read the retained dice before adding the attribute.
+
+> **Example: Reaching the rail.** Iona has Agility +2. The moving deck imposes one Bane, and the safety line her crewmate secured gives one Boon. They cancel. Iona rolls 3, 4 and 5, then adds 2 for a total of 14, a Standard result. Before the roll the SA had explained that on Standard she would reach the rail and secure herself. She is now in position to help the technician.
+
+Name the circumstance that grants each Boon or Bane before rolling. An ability or equipment entry may also supply a modifier.
 
 ## Your turn
 
@@ -27,7 +35,7 @@ A character has:
 - movement up to **Speed**;
 - one **Reaction** on its stated trigger.
 
-Characters alternate turns by side. The order within a side is chosen as play proceeds. An ability states which part of the budget it uses. A defense roll does not by itself spend a Reaction.
+Characters alternate turns by side. The order within a side is chosen as play proceeds. An ability states which part of the budget it uses. A defense roll does not by itself spend a Reaction. See [Convert an Action](../../cards/convert-an-action.md), [Aid](../../cards/aid.md), [Take Cover](../../cards/take-cover.md), and [Interact](../../cards/interact.md) for common uses of your action budget.
 
 ## Movement and range
 
@@ -52,15 +60,17 @@ When an NPC attacks, the affected player makes the appropriate defence roll: Wea
 
 Use the complete damage, resistance, weakness, Grit, Dying, wound, healing and condition procedures in Chapter 7. Damage comes from the chosen card outcome, never an added attribute or a weapon damage roll. Armour DR is Physical resistance. Use the highest matching resistance per type, cap 3; apply matching weakness before resistance. Personal damage has a minimum of 1 total per damaging event, not per component.
 
-The HOL families are Physical, Fire, Cold, Lightning, Mental, Radiant and Life/Necrotic. Kinetic/Sonic, Thermal, Cryogenic and Electrical are GOL descriptive aliases. Corrosive-to-Physical and Radiation-to-Radiant are explicit proposed mappings. A condition is separate from a damage type. Temporary numbered conditions resolve at turn end, then decay 1; lasting wound effects and starred conditions follow their printed remedy.
+The damage families are Physical, Fire, Cold, Lightning, Mental, Radiant and Life/Necrotic. Use Physical for Kinetic and Sonic, Fire for Thermal, Cold for Cryogenic, and Lightning for Electrical. This review treats Corrosive as Physical and Radiation as Radiant. A condition is separate from a damage type. Temporary numbered conditions resolve at turn end, then decay 1; lasting wound effects and starred conditions follow their printed remedy.
 
 ## Social play
 
-Social abilities create leverage, information or progress. They do not take control of another character. The SA sets what a reasonable person would concede and what would require a real cost. A single roll does not replace a conversation when the players' choices and the NPC's interests matter.
+Tell the SA what you ask for and what you are willing to offer. The SA considers what the other person wants and what they can agree to. A social ability can uncover information, create leverage or advance an agreement. The other person still makes their own choices.
 
 ## Exploration and technical play
 
 Exploration uses the same roll and the same three bands. A scan, a survey, a repair or a route-plot is a progress task: the SA sets the progress needed (usually 3), and each result adds 1, 2 or 3. Progress persists unless the situation changes.
+
+> **Example: Finding the bad relay.** The SA sets a target of 3 progress to trace a fault through a junction cabinet. A first Weak result adds 1 progress. The explorer narrows the fault to a pair of relay housings. A second Standard result adds 2, reaching 3. Now the crew knows which relay failed and can decide whether to replace it, reroute around it, or leave it offline. The task was diagnosis, so completing it establishes what is broken.
 
 ## Aboard a ship
 

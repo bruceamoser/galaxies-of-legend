@@ -8,7 +8,7 @@ The Player's Book retains the full restored HOL foundation: damage/resistance/we
 
 The Starship Manual owns the moved construction/operating manuscript and ship sheets. Its frame budgets, die costs, capability tables, ship damage, repair and FTL procedures are unchanged by the book split. The manual adds a reading guide, full-card pointers and a quick reference.
 
-The base SA book establishes adjudication and preparation procedures, makes opposition and hazard examples explicit, and supplies reusable sector/scene/encounter/review records. Its eight threat profiles and numerical hazards remain untested proposals with no calibrated GOL CV.
+The base SA book establishes adjudication and preparation procedures, makes opposition and hazard examples explicit, and supplies reusable sector/scene/encounter/review records. Its 67 adversary profiles and numerical hazards remain untested proposals with no calibrated GOL CV.
 
 ## Pending design work
 

@@ -8,15 +8,15 @@
 
 **Action:** Main Action · **Attribute:** Knowledge
 
-**Target / range / shape:** One accessible non-hostile device or robot within reach
+**Target / range / shape:** One accessible device, system interface, or non-hostile robot within reach
 
-Identify the fault before repairing it. Diagnosis does not restore HP or a system die.
+Diagnose one stated fault. At 3 progress locate the cause and name a safe access point or confirm what further evidence is missing. Diagnosis restores no HP or system die.
 
-- **Weak:** identify one fault, but draw power or expose a service panel.
-- **Standard:** identify one fault and give its next repair check a Boon.
-- **Strong:** identify one fault and give its next two repair checks a Boon each.
+- **Weak:** 1 progress.
+- **Standard:** 2 progress.
+- **Strong:** 3 progress.
 
-**Duration:** Until the fault is repaired or the scene ends.
+**Duration:** Progress lasts until the task resolves or the situation invalidates it.
 
 **Equipment / acquisition:** Requires a toolkit and access to the device
 

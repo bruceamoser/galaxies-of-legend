@@ -14,6 +14,8 @@ Before acceptance, distinguish pay from expenses, access from ownership and a lo
 
 The current market includes medical supplies at proposed 20/50/120-coin prices and the stated starting equipment. A ship's Ship Points (SP) do not convert into coins. This edition has no approved ship purchase schedule, construction labour cost or universal salvage percentage. Do not disguise those missing economic decisions as a completed trade system.
 
+> **Example · A berth or a bonus.** The cooperative can pay for the relay repair in coins or reserve a berth for the cutter during a busy week. Tell the crew what the berth covers before they choose. If the board fails during the trip, the group already knows who agreed to pay for a replacement.
+
 ## Salvage and special equipment
 
 Decide what survives the event and what the crew can reach, move and legally sell. A defeated drone does not automatically grant its attack as a learned ability or a fully portable ship module. Ordinary equipment can use the market's resale rule where a buyer exists; unusual hardware needs an explicit condition and quote.
@@ -30,6 +32,4 @@ A simple four-box faction clock can track a declared project: gathering support,
 
 Resolve the complete Dying and Last Words procedures before ending a scene. A campaign reward or a routine rest cannot reverse a final death. Any exceptional reversal must be explicitly authored; no such universal reversal is supplied by this base book.
 
-A replacement character uses the Player's Book creation sequence and the campaign's agreed level. Current ancestry slots remain incomplete; do not fill a missing biological package with ad hoc benefits. Preserve the departed character's choices in the setting through relationships and consequences rather than automatically transferring every resource and obligation to the new sheet.
-
-Keep a review log for unclear interactions and proposed changes. Record the trigger, ruling, affected rule and observed result. A clean separation between established foundation and open proposal makes the next design revision easier to trust.
+Build a replacement explorer using the Player's Book and the campaign's agreed level. Decide how they know the crew and why they are signing on now. Keep the departed character's relationships and choices visible in the places the crew visits.

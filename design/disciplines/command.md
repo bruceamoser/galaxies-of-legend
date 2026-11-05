@@ -12,6 +12,6 @@ Ranks 1, 2 and 3 are purchased in order. Ranks unlock abilities; they add no pas
 
 ## Coverage direction
 
-Novice: reliable basic task and one support option. Adept: a pressured multi-step task and a meaningful reaction or alternative approach. Master: a defining high-stakes application with explicit limits. This draft adds one starter ability; the remaining coverage is scheduled in waves.
+Novice: reliable basic task and one support option. Adept: a pressured multi-step task and a meaningful reaction or alternative approach. Master: a defining high-stakes application with explicit limits.
 
 [Discipline index](../disciplines.md) · [Ability coverage](../ability-coverage.md)

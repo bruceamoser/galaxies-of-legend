@@ -2,6 +2,8 @@
 
 **Status:** Playtest proposal - personal-scale threat seed; untested and no calibrated CV.
 
+**Family:** Crews
+
 **Role:** A person trying to keep a working group alive.
 
 **HP:** 10 · **Speed:** 6 squares · **Stability:** 0 · **Physical resistance:** 0
@@ -17,6 +19,12 @@
 - **Weak:** restore 2 HP.
 - **Standard:** restore 4 HP.
 - **Strong:** restore 6 HP and reduce temporary Bleeding by 1.
+
+## Shared adversary abilities
+
+- [Call the Safe Side](../adversary-abilities/call-the-safe-side.md)
+- [Keep the Tools Clean](../adversary-abilities/keep-the-tools-clean.md)
+- [Move the Sample](../adversary-abilities/move-the-sample.md)
 
 ## Equipment and limits
 

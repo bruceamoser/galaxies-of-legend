@@ -4,6 +4,8 @@
 
 **Status:** Playtest proposal - new class and signatures, untested.
 
+**In the crew.** Give someone a reason to open the door. Your stories work best when they fit something the listener already wants or expects.
+
 ## Rules
 
 **Class foundations:** minimum 0 in Guile, Reason; HP contribution +1. No multiclassing.
@@ -19,13 +21,19 @@ Choose one class-exclusive signature at levels 1, 3 and 7. Extra signatures cost
 ## Level 1
 
 - [Plausible Cover](../cards/signature-con-artist-plausible-cover.md)
+- [Borrowed Livery](../cards/signature-con-artist-borrowed-livery.md)
+- [Pocket Story](../cards/signature-con-artist-pocket-story.md)
 
 ## Level 3
 
 - [Borrowed Authority](../cards/signature-con-artist-borrowed-authority.md)
+- [False Appointment](../cards/signature-con-artist-false-appointment.md)
+- [Change of Wardrobe](../cards/signature-con-artist-change-of-wardrobe.md)
 
 ## Level 7
 
 - [The Right Story](../cards/signature-con-artist-the-right-story.md)
+- [Paper Trail](../cards/signature-con-artist-paper-trail.md)
+- [Controlled Disclosure](../cards/signature-con-artist-controlled-disclosure.md)
 
 **Starting coin contribution:** +7 coins. See [starting coins](../starting-coins.md).

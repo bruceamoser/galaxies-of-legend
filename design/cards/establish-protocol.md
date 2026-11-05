@@ -10,7 +10,7 @@
 
 **Target / range / shape:** One willing unfamiliar community or interlocutor; ten minutes
 
-Establish a limited shared signal for one stated idea: stop, danger, exchange or safe passage. The SA sets progress, usually 3; this does not grant a language or compel agreement.
+Use [Languages and translation](../rules/languages.md) to establish a limited shared signal for one stated idea: stop, danger, exchange or safe passage. The SA sets progress, usually 3; this does not grant a language or compel agreement.
 
 - **Weak:** 1 progress; identify a potentially misleading signal.
 - **Standard:** 2 progress; identify one mutually understood sign.

@@ -1,6 +1,10 @@
 # Create Your Explorer
 
-You build a character in the same order every time. Each choice has a separate job: attributes define what you can do, your ancestry gives you a body and a history, culture and background give you a paired discipline and ability, and your class gives you training, starting ranks and a signature.
+Follow these steps to make a level-1 explorer. Have a character sheet and a place to record how you spend your Development Points (DP).
+
+Start with a role you want to play on the crew. Think about what your explorer did before they signed on and what would make them take a dangerous job. You can develop those answers as you choose an ancestry, culture, background and class.
+
+Keep a creation ledger as you go. Note where each rank, ability and coin contribution came from. That makes it easier to catch a duplicate grant and see which options are already within reach.
 
 ## 1. Assign attributes
 
@@ -19,9 +23,7 @@ The standard array is **+2, +1, +1, +0, +0, −1**. You may rearrange it, or use
 
 ## 2. Choose an ancestry
 
-Ancestry is inherited physiology; culture is upbringing. The final ancestry package will provide HP, base Speed, a coin contribution and five comparable traits, choose two. Alien ancestry material is coming from Bruce.
-
-This review contains **placeholders**, not finished ancestries. For arithmetic examples only, Human uses HP +2, base Speed 6 and +0 ancestry coins, with no granted traits. Alien A, B and C have no statistics, biology or benefits. Do not treat these slots as complete character options. The old homeworld packages are legacy environmental drafts and are excluded from creation.
+Choose one of the ten playtest ancestries in Chapter 3 and two of its five traits. Record +2 ancestry HP, base Speed 6 and +0 ancestry coins. Pick any culture and background. [Appendix A](appendix-origins.md) describes the lineages and their associated star systems. Your character may come from any system. Choose a homeworld as part of your explorer’s history.
 
 ## 3. Choose one culture and one background
 
@@ -79,6 +81,8 @@ Record current and maximum HP separately. HP does not increase automatically wit
 
 ## 8. Check the character
 
+Record **Galactic Standard and one other ordinary language** on your sheet. Choose the second language based on the people who taught you. It costs no DP. See [Languages and translation](../../rules/languages.md) in Chapter 6 for the catalog.
+
 - Every prerequisite is owned before you buy the ability.
 - Every duplicate grant has been converted to 1 DP, not a free rank.
 - You have not spent the same DP twice.
@@ -97,4 +101,22 @@ The reference progression runs to **level 10**.
 - Gain **+1 Grit** at levels 3 and 7; this does not refill earlier expenditure. Ordinary rest never refreshes Grit.
 - HP does not rise automatically with level.
 
-A character who reaches level 10 has had many opportunities to broaden their training. The game does not assume every character buys every ability in their disciplines.
+When you advance, look at what the crew needed on its last job. You can deepen a specialty or save DP toward a different one.
+
+## Worked character · Iona at level 1
+
+Iona grew up in a service cooperative and learned to keep old machines useful on a freighter. She takes the Technician class so she can diagnose a problem before the crew commits its last spare part.
+
+| Step | What Iona records |
+|---|---|
+| Attributes | Brawn 0, Fortitude 0, Agility +1, Guile 0, Knowledge +2, Reason 0. Total +3. |
+| Ancestry | Human. Get There First and A Name at Every Dock. Record +2 HP, base Speed 6 and +0 coins. |
+| Culture and background | Service Cooperative gives Engineering 1 and [Field Repair](../../cards/field-repair.md). Ship Mechanic gives Engineering 1 and [Jury-Rig](../../cards/jury-rig.md). Keep both abilities and record 1 duplicate DP for the second Engineering grant. |
+| Level 0 | 10 + 2 + 0 + 0 + 1 = 13 DP. Buy [Keep It Running](../../cards/keep-it-running.md) for 2 and [Quick Study](../../cards/quick-study.md) for 1. Close the pool with 10 unspent. |
+| Languages | Galactic Standard and Junction Portspeech. Iona learned Portspeech from her service cooperative at Waycross. |
+| Class | Technician. Knowledge +2 and Reason 0 meet the minimums. Choose Robotics 1 and Computing 1. Take [Diagnostic Pass](../../cards/signature-technician-diagnostic-pass.md) as the free signature. |
+| Level 1 | 10 + 2 + 0 + 0 = 12 DP. Buy Science 1 at its Adjacent price of 2 DP, then [Sensor Sweep](../../cards/sensor-sweep.md) for 2 DP. Close the pool with 8 unspent. |
+| Gear | 40 + 0 + 6 + 7 + 6 = 59 coins. Buy a toolkit for 40, leaving 19. [Sensor Sweep](../../cards/sensor-sweep.md) can use the ship's sensors when Iona has access to them. |
+| Sheet | Maximum and current HP 16, Speed 7, Capacity 10, toolkit Bulk 1, Grit 2, wounds 0 and death marks 0. |
+
+Iona's first job gives her several ways to help. If she can get to a damaged device, she can diagnose it or attempt a repair. If the crew has a working sensor array, she can scan for trouble before anyone leaves the ship. The plan determines which card comes out first.

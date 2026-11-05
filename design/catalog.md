@@ -4,89 +4,310 @@ Start with the character you imagine, or browse by tier.
 Each card is an editable Markdown record. Class signatures remain exclusive;
 shared abilities are open to anyone who meets the printed requirements.
 
-## Universal actions
+## Basic Actions
 
-- [Administer a Medical Dose](cards/administer-medical-dose.md) — Maneuver; level Universal; None.
-- [Basic Melee](cards/basic-melee.md) — Main Action; level Universal; None.
-- [Basic Ranged](cards/basic-ranged.md) — Main Action; level Universal; None.
-- [Stabilize](cards/stabilize.md) — Maneuver; level Universal; None.
+- [Administer a Medical Dose](cards/administer-medical-dose.md) — Maneuver; already known; no DP.
+- [Aid](cards/aid.md) — Maneuver; already known; no DP.
+- [Basic Melee](cards/basic-melee.md) — Main Action; already known; no DP.
+- [Basic Ranged](cards/basic-ranged.md) — Main Action; already known; no DP.
+- [Basic Throw](cards/basic-throw.md) — Main Action; already known; no DP.
+- [Basic Unarmed](cards/basic-unarmed.md) — Main Action; already known; no DP.
+- [Convert an Action](cards/convert-an-action.md) — Action conversion; already known; no DP.
+- [Interact](cards/interact.md) — Maneuver; already known; no DP.
+- [Stabilize](cards/stabilize.md) — Maneuver; already known; no DP.
+- [Take Cover](cards/take-cover.md) — Maneuver; already known; no DP.
 
-## Shared abilities
+## Universal Abilities
 
-- [Aim](cards/aim.md) — Maneuver; level 1; Gunnery 1.
-- [Black Market Contact](cards/black-market-contact.md) — Main Action; level 1; Subterfuge 1.
-- [Brace in Armor](cards/brace-in-armor.md) — Reaction; level 1; Armor 1.
-- [Called Shot](cards/called-shot.md) — Main Action; level 3; Gunnery 2.
-- [Clear Orders](cards/clear-orders.md) — Main Action; level 1; Command 1.
-- [Combat Medic](cards/combat-medic.md) — Main Action; level 3; Medicine 2.
-- [Emergency Jump](cards/emergency-jump.md) — Main Action; level 3; Navigation 2.
-- [Establish Protocol](cards/establish-protocol.md) — Main Action; level 1; Xenology 1.
-- [Evasive Manoeuvre](cards/evasive-maneuver.md) — Reaction; level 1; Piloting 1.
-- [Favour Owed](cards/favor-owed.md) — Main Action; level 1; Subterfuge 1.
-- [Field Repair](cards/field-repair.md) — Main Action; level 1; Engineering 1.
-- [Field Triage](cards/field-triage.md) — Main Action; level 1; Medicine 1.
-- [Find a Market](cards/find-a-market.md) — Main Action; level 1; Trade 1.
-- [Follow Evidence](cards/follow-evidence.md) — Main Action; level 1; Investigation 1.
-- [Jury-Rig](cards/jury-rig.md) — Main Action; level 1; Engineering 1.
-- [Keep It Running](cards/keep-it-running.md) — Main Action; level 1; Engineering 1.
-- [Kill Shot](cards/kill-shot.md) — Main Action; level 7; Gunnery 3.
-- [Leverage the Org](cards/leverage-the-org.md) — Main Action; level 1; Influence 1.
-- [Make Camp](cards/make-camp.md) — Main Action; level 1; Survival 1.
-- [Master Navigator](cards/master-navigator.md) — Main Action; level 7; Navigation 3.
-- [Miracle Worker](cards/miracle-worker.md) — Main Action; level 7; Engineering 3.
-- [One More Dawn](cards/one-more-dawn.md) — Passive; level 7; None.
-- [Overcharge](cards/overcharge.md) — Main Action; level 3; Engineering 2.
-- [Overwatch](cards/overwatch.md) — Reaction; level 1; Gunnery 1.
-- [Patch Wounds](cards/patch-wounds.md) — Main Action; level 1; Medicine 1.
-- [Pathfinder's Eye](cards/pathfinders-eye.md) — Main Action; level 1; Navigation 1.
-- [Plot Course](cards/plot-course.md) — Main Action; level 1; Navigation 1.
-- [Power Strike](cards/power-strike.md) — Main Action; level 1; Arms 1.
-- [Quick Study](cards/quick-study.md) — Main Action; level 1; None.
-- [Read Intent](cards/read-intent.md) — Main Action; level 1; Influence 1.
-- [Read the Drift](cards/read-the-drift.md) — Main Action; level 1; Piloting 1.
-- [Safe Shutdown](cards/safe-shutdown.md) — Main Action; level 1; Robotics 1.
-- [Secure Traverse](cards/secure-traverse.md) — Main Action; level 1; Athletics 1.
-- [Sensor Sweep](cards/sensor-sweep.md) — Main Action; level 1; Science 1.
-- [Shadow Step](cards/shadow-step.md) — Maneuver; level 1; Subterfuge 1.
-- [Shipboard Familiarity](cards/shipboard-familiarity.md) — Passive; level 1; None.
-- [Suppressing Fire](cards/suppressing-fire.md) — Main Action; level 1; Gunnery 1.
-- [Trace Access](cards/trace-access.md) — Main Action; level 1; Computing 1.
-- [Treat Bone](cards/treat-bone.md) — Main Action; level 1; Medicine 1.
-- [Treat Elemental Injury](cards/treat-elemental-injury.md) — Main Action; level 1; Medicine 1.
-- [Treat Life Injury](cards/treat-life-injury.md) — Main Action; level 1; Medicine 1.
-- [Treat Mental Trauma](cards/treat-mental-trauma.md) — Main Action; level 1; Medicine 1.
-- [Treat Radiant Injury](cards/treat-radiant-injury.md) — Main Action; level 1; Medicine 1.
-- [Treat Soft Tissue](cards/treat-soft-tissue.md) — Main Action; level 1; Medicine 1.
+- [Brace Yourself](cards/brace-yourself.md) — Reaction; level 1; 1 DP; None.
+- [Keep Your Head](cards/keep-your-head.md) — Reaction; level 1; 1 DP; None.
+- [One More Dawn](cards/one-more-dawn.md) — Passive; level 7; 8 DP; None.
+- [Plain Spoken](cards/plain-spoken.md) — Passive; level 1; 1 DP; None.
+- [Quick Look](cards/quick-look.md) — Maneuver; level 1; 1 DP; None.
+- [Quick Study](cards/quick-study.md) — Main Action; level 1; 1 DP; None.
+- [Second Wind](cards/second-wind.md) — Maneuver; level 1; 1 DP; None.
+- [Shipboard Familiarity](cards/shipboard-familiarity.md) — Passive; level 1; 1 DP; None.
+- [Steady Hands](cards/steady-hands.md) — Maneuver; level 1; 1 DP; None.
+
+## Discipline abilities
+
+- [Abort the Docking](cards/abort-the-docking.md) — Reaction; level 1; 2 DP; Piloting 1.
+- [Agree on a Stop Signal](cards/agree-on-a-stop-signal.md) — Maneuver; level 7; 8 DP; Xenology 3.
+- [Aim](cards/aim.md) — Maneuver; level 1; 2 DP; Gunnery 1.
+- [Angle the Plate](cards/angle-the-plate.md) — Reaction; level 1; 2 DP; Armor 1.
+- [Armored Extraction](cards/armored-extraction.md) — Maneuver; level 7; 8 DP; Armor 3.
+- [Ask Before Touching](cards/ask-before-touching.md) — Maneuver; level 1; 2 DP; Xenology 1.
+- [Ask for Time](cards/ask-for-time.md) — Reaction; level 1; 2 DP; Influence 1.
+- [Assess for Transport](cards/assess-for-transport.md) — Main Action; level 3; 4 DP; Medicine 2.
+- [Redirect a Routine](cards/audit-the-routine.md) — Main Action; level 3; 4 DP; Robotics 2.
+- [Bag the Fragment](cards/bag-the-fragment.md) — Maneuver; level 1; 2 DP; Investigation 1.
+- [Black Market Contact](cards/black-market-contact.md) — Main Action; level 1; 2 DP; Subterfuge 1.
+- [Brace in Armor](cards/brace-in-armor.md) — Reaction; level 1; 2 DP; Armor 1.
+- [Brace the Joint](cards/brace-the-joint.md) — Reaction; level 3; 4 DP; Engineering 2.
+- [Break the Clinch](cards/break-the-clinch.md) — Reaction; level 7; 8 DP; Arms 3.
+- [Break the Shot](cards/break-the-shot.md) — Reaction; level 1; 2 DP; Gunnery 1.
+- [Bridge the Service Gap](cards/bridge-the-service-gap.md) — Main Action; level 3; 4 DP; Engineering 2.
+- [Calibrate the Zero](cards/calibrate-the-zero.md) — Maneuver; level 3; 4 DP; Science 2.
+- [Call Clear](cards/call-clear.md) — Maneuver; level 1; 2 DP; Piloting 1.
+- [Call the Bearing](cards/call-the-bearing.md) — Maneuver; level 1; 2 DP; Gunnery 1.
+- [Call the Count](cards/call-the-count.md) — Reaction; level 1; 2 DP; Command 1.
+- [Called Shot](cards/called-shot.md) — Main Action; level 3; 4 DP; Gunnery 2.
+- [Catch a Partner](cards/catch-a-partner.md) — Reaction; level 7; 8 DP; Athletics 3.
+- [Catch the Bad Fix](cards/catch-the-bad-fix.md) — Reaction; level 3; 4 DP; Navigation 2.
+- [Catch the Confound](cards/catch-the-confound.md) — Reaction; level 7; 8 DP; Science 3.
+- [Catch the Ledge](cards/catch-the-ledge.md) — Reaction; level 1; 2 DP; Athletics 1.
+- [Catch the Shard](cards/catch-the-shard.md) — Reaction; level 3; 4 DP; Armor 2.
+- [Chain of Custody](cards/chain-of-custody.md) — Passive; level 1; 2 DP; Investigation 1.
+- [Chart Margins](cards/chart-margins.md) — Passive; level 1; 2 DP; Navigation 1.
+- [Suppress an Approach](cards/check-the-backstop.md) — Main Action; level 3; 4 DP; Gunnery 2.
+- [Check the Date](cards/check-the-date.md) — Passive; level 1; 2 DP; Medicine 1.
+- [Check the Drift](cards/check-the-drift.md) — Maneuver; level 3; 4 DP; Navigation 2.
+- [Check the Gripper](cards/check-the-gripper.md) — Maneuver; level 1; 2 DP; Robotics 1.
+- [Check the Medium](cards/check-the-medium.md) — Passive; level 1; 2 DP; Xenology 1.
+- [Check the Referent](cards/check-the-referent.md) — Reaction; level 3; 4 DP; Xenology 2.
+- [Check the Seal](cards/check-the-seal.md) — Maneuver; level 3; 4 DP; Subterfuge 2.
+- [Clarify the Offer](cards/clarify-the-offer.md) — Reaction; level 3; 4 DP; Influence 2.
+- [Clear Orders](cards/clear-orders.md) — Main Action; level 1; 2 DP; Command 1.
+- [Clear the Bind](cards/clear-the-bind.md) — Reaction; level 3; 4 DP; Arms 2.
+- [Combat Medic](cards/combat-medic.md) — Main Action; level 3; 4 DP; Medicine 2.
+- [Compare Impressions](cards/compare-impressions.md) — Maneuver; level 3; 4 DP; Investigation 2.
+- [Read a Custom](cards/compare-the-greeting.md) — Main Action; level 3; 4 DP; Xenology 2.
+- [Compare the Lots](cards/compare-the-lots.md) — Maneuver; level 3; 4 DP; Trade 2.
+- [Confirm the Signal](cards/confirm-the-signal.md) — Maneuver; level 1; 2 DP; Command 1.
+- [Coordinated Withdrawal](cards/coordinated-withdrawal.md) — Maneuver; level 7; 8 DP; Command 3.
+- [Appraise the Deal](cards/cost-the-detour.md) — Main Action; level 3; 4 DP; Trade 2.
+- [Count the Seals](cards/count-the-seals.md) — Maneuver; level 1; 2 DP; Trade 1.
+- [Cover the Lens](cards/cover-the-lens.md) — Maneuver; level 3; 4 DP; Subterfuge 2.
+- [Crawl Under Load](cards/crawl-under-load.md) — Maneuver; level 3; 4 DP; Armor 2.
+- [Cross-Check the Fix](cards/cross-check-the-landmark.md) — Main Action; level 3; 4 DP; Navigation 2.
+- [Cut the Circuit](cards/cut-the-circuit.md) — Reaction; level 7; 8 DP; Gunnery 3.
+- [Dump Stored Pressure](cards/dump-stored-pressure.md) — Reaction; level 7; 8 DP; Engineering 3.
+- [Dump Thrust](cards/dump-thrust.md) — Reaction; level 7; 8 DP; Piloting 3.
+- [Emergency Jump](cards/emergency-jump.md) — Main Action; level 3; 4 DP; Navigation 2.
+- [Establish Protocol](cards/establish-protocol.md) — Main Action; level 1; 2 DP; Xenology 1.
+- [Evasive Manoeuvre](cards/evasive-maneuver.md) — Reaction; level 1; 2 DP; Piloting 1.
+- [Favour Owed](cards/favor-owed.md) — Main Action; level 1; 2 DP; Subterfuge 1.
+- [Fence the Route](cards/fence-the-route.md) — Maneuver; level 7; 8 DP; Robotics 3.
+- [Field Repair](cards/field-repair.md) — Main Action; level 1; 2 DP; Engineering 1.
+- [Field Triage](cards/field-triage.md) — Main Action; level 1; 2 DP; Medicine 1.
+- [Find a Market](cards/find-a-market.md) — Main Action; level 1; 2 DP; Trade 1.
+- [Find the Lee](cards/find-the-lee.md) — Maneuver; level 1; 2 DP; Survival 1.
+- [Find the Shared Interest](cards/find-the-shared-interest.md) — Main Action; level 3; 4 DP; Influence 2.
+- [Fit the Harness](cards/fit-the-harness.md) — Passive; level 1; 2 DP; Armor 1.
+- [Flag the Ricochet](cards/flag-the-ricochet.md) — Reaction; level 3; 4 DP; Gunnery 2.
+- [Flag the Translation Gap](cards/flag-the-translation-gap.md) — Reaction; level 7; 8 DP; Xenology 3.
+- [Follow Evidence](cards/follow-evidence.md) — Main Action; level 1; 2 DP; Investigation 1.
+- [Freeze the Scene](cards/freeze-the-scene.md) — Reaction; level 1; 2 DP; Investigation 1.
+- [Guard the Opening](cards/guard-the-opening.md) — Reaction; level 1; 2 DP; Arms 1.
+- [Handoff Report](cards/handoff-report.md) — Maneuver; level 3; 4 DP; Medicine 2.
+- [Haul Together](cards/haul-together.md) — Maneuver; level 1; 2 DP; Athletics 1.
+- [Hold for Pickup](cards/hold-for-pickup.md) — Maneuver; level 3; 4 DP; Piloting 2.
+- [Hold the Latch](cards/hold-the-latch.md) — Reaction; level 1; 2 DP; Subterfuge 1.
+- [Hook the Strap](cards/hook-the-strap.md) — Maneuver; level 3; 4 DP; Arms 2.
+- [Isolate the Branch](cards/isolate-the-branch.md) — Maneuver; level 7; 8 DP; Engineering 3.
+- [Jury-Rig](cards/jury-rig.md) — Main Action; level 1; 2 DP; Engineering 1.
+- [Keep It Running](cards/keep-it-running.md) — Main Action; level 1; 2 DP; Engineering 1.
+- [Keep the Channel Open](cards/keep-the-channel-open.md) — Reaction; level 7; 8 DP; Influence 3.
+- [Keeper Loop](cards/keeper-loop.md) — Passive; level 1; 2 DP; Arms 1.
+- [Kill Shot](cards/kill-shot.md) — Main Action; level 7; 8 DP; Gunnery 3.
+- [Label the Control](cards/label-the-control.md) — Maneuver; level 1; 2 DP; Science 1.
+- [Leave an Emergency Cache](cards/leave-an-emergency-cache.md) — Maneuver; level 7; 8 DP; Survival 3.
+- [Leave the Line](cards/leave-the-line.md) — Reaction; level 7; 8 DP; Subterfuge 3.
+- [Leverage the Org](cards/leverage-the-org.md) — Main Action; level 1; 2 DP; Influence 1.
+- [Log the Conditions](cards/log-the-conditions.md) — Passive; level 1; 2 DP; Science 1.
+- [Make Camp](cards/make-camp.md) — Main Action; level 1; 2 DP; Survival 1.
+- [Make the Introduction](cards/make-the-introduction.md) — Maneuver; level 1; 2 DP; Influence 1.
+- [Map the Senses](cards/map-the-senses.md) — Maneuver; level 3; 4 DP; Xenology 2.
+- [Mark the Return](cards/mark-the-return.md) — Maneuver; level 1; 2 DP; Navigation 1.
+- [Mark the Sequence](cards/mark-the-sequence.md) — Maneuver; level 3; 4 DP; Investigation 2.
+- [Master Navigator](cards/master-navigator.md) — Main Action; level 7; 8 DP; Navigation 3.
+- [Match the Window](cards/match-the-window.md) — Maneuver; level 7; 8 DP; Piloting 3.
+- [Probe the Guard](cards/measure-the-reach.md) — Main Action; level 3; 4 DP; Arms 2.
+- [Miracle Worker](cards/miracle-worker.md) — Main Action; level 7; 8 DP; Engineering 3.
+- [Names and Forms](cards/names-and-forms.md) — Passive; level 1; 2 DP; Influence 1.
+- [Note the Baseline](cards/note-the-baseline.md) — Maneuver; level 1; 2 DP; Medicine 1.
+- [Offer a Neutral Signal](cards/offer-a-neutral-signal.md) — Maneuver; level 1; 2 DP; Xenology 1.
+- [Offer a Witness](cards/offer-a-witness.md) — Maneuver; level 3; 4 DP; Influence 2.
+- [Order the Retreat](cards/order-the-retreat.md) — Reaction; level 3; 4 DP; Command 2.
+- [Ordinary Exits](cards/ordinary-exits.md) — Passive; level 1; 2 DP; Subterfuge 1.
+- [Overcharge](cards/overcharge.md) — Main Action; level 3; 4 DP; Engineering 2.
+- [Overwatch](cards/overwatch.md) — Reaction; level 1; 2 DP; Gunnery 1.
+- [Pack Balance](cards/pack-balance.md) — Passive; level 1; 2 DP; Athletics 1.
+- [Pack for Rain](cards/pack-for-rain.md) — Maneuver; level 3; 4 DP; Survival 2.
+- [Packing List](cards/packing-list.md) — Passive; level 1; 2 DP; Trade 1.
+- [Pass the Guard](cards/pass-the-guard.md) — Maneuver; level 7; 8 DP; Arms 3.
+- [Patch Wounds](cards/patch-wounds.md) — Main Action; level 1; 2 DP; Medicine 1.
+- [Pathfinder's Eye](cards/pathfinders-eye.md) — Main Action; level 1; 2 DP; Navigation 1.
+- [Pause the Routine](cards/pause-the-routine.md) — Reaction; level 1; 2 DP; Robotics 1.
+- [Plant an Exit Marker](cards/plant-an-exit-marker.md) — Maneuver; level 7; 8 DP; Subterfuge 3.
+- [Plot a Safe Hold](cards/plot-a-safe-hold.md) — Maneuver; level 7; 8 DP; Navigation 3.
+- [Plot Course](cards/plot-course.md) — Main Action; level 1; 2 DP; Navigation 1.
+- [Plot the Abort Corridor](cards/plot-the-abort-corridor.md) — Maneuver; level 7; 8 DP; Navigation 3.
+- [Pocket the Tell](cards/pocket-the-tell.md) — Maneuver; level 1; 2 DP; Subterfuge 1.
+- [Power Strike](cards/power-strike.md) — Main Action; level 1; 2 DP; Arms 1.
+- [Preserve a Parallel Sample](cards/preserve-a-parallel-sample.md) — Maneuver; level 7; 8 DP; Science 3.
+- [Preserve the Airway](cards/preserve-the-airway.md) — Reaction; level 7; 8 DP; Medicine 3.
+- [Preserve the Original](cards/preserve-the-original.md) — Reaction; level 7; 8 DP; Investigation 3.
+- [Pressure Test](cards/pressure-test.md) — Maneuver; level 3; 4 DP; Engineering 2.
+- [Prevent Contamination](cards/prevent-contamination.md) — Reaction; level 3; 4 DP; Medicine 2.
+- [Pull the Cutoff](cards/pull-the-cutoff.md) — Reaction; level 1; 2 DP; Engineering 1.
+- [Quote the Unit](cards/quote-the-unit.md) — Reaction; level 1; 2 DP; Trade 1.
+- [Read Intent](cards/read-intent.md) — Main Action; level 1; 2 DP; Influence 1.
+- [Read-Only Habit](cards/read-only-habit.md) — Passive; level 1; 2 DP; Computing 1.
+- [Read the Controls](cards/read-the-controls.md) — Maneuver; level 3; 4 DP; Piloting 2.
+- [Read the Drift](cards/read-the-drift.md) — Main Action; level 1; 2 DP; Piloting 1.
+- [Assess Protection](cards/read-the-impact.md) — Main Action; level 3; 4 DP; Armor 2.
+- [Read the Scale](cards/read-the-scale.md) — Passive; level 1; 2 DP; Science 1.
+- [Read the Warning](cards/read-the-warning.md) — Reaction; level 1; 2 DP; Computing 1.
+- [Read the Water Mark](cards/read-the-water-mark.md) — Maneuver; level 3; 4 DP; Survival 2.
+- [Read the Weather Break](cards/read-the-weather-break.md) — Main Action; level 3; 4 DP; Survival 2.
+- [Reconstruct the Route](cards/reconstruct-the-route.md) — Main Action; level 3; 4 DP; Investigation 2.
+- [Record the Concession](cards/record-the-concession.md) — Maneuver; level 7; 8 DP; Influence 3.
+- [Record the Fix](cards/record-the-fix.md) — Maneuver; level 1; 2 DP; Navigation 1.
+- [Recover a Record](cards/recover-an-autosave.md) — Main Action; level 3; 4 DP; Computing 2.
+- [Recover the Approach](cards/rehearse-the-abort.md) — Main Action; level 3; 4 DP; Piloting 2.
+- [Release the Load](cards/release-the-load.md) — Reaction; level 7; 8 DP; Robotics 3.
+- [Reserve the Exit](cards/reserve-the-exit.md) — Passive; level 7; 8 DP; Command 3.
+- [Reverse Grip](cards/reverse-grip.md) — Maneuver; level 1; 2 DP; Arms 1.
+- [Rig the Haul](cards/rig-the-haul.md) — Main Action; level 3; 4 DP; Athletics 2.
+- [Rotate the Watch](cards/rotate-the-watch.md) — Maneuver; level 3; 4 DP; Command 2.
+- [Safe Disconnect](cards/safe-disconnect.md) — Reaction; level 3; 4 DP; Computing 2.
+- [Safe Sector](cards/safe-sector.md) — Passive; level 1; 2 DP; Gunnery 1.
+- [Safe Shutdown](cards/safe-shutdown.md) — Main Action; level 1; 2 DP; Robotics 1.
+- [Save a Snapshot](cards/save-a-snapshot.md) — Maneuver; level 1; 2 DP; Computing 1.
+- [Seal the Breach](cards/seal-the-breach.md) — Reaction; level 7; 8 DP; Armor 3.
+- [Seat Fit](cards/seat-fit.md) — Passive; level 1; 2 DP; Piloting 1.
+- [Secure Traverse](cards/secure-traverse.md) — Main Action; level 1; 2 DP; Athletics 1.
+- [Segment Access](cards/segment-access.md) — Maneuver; level 7; 8 DP; Computing 3.
+- [Sensor Sweep](cards/sensor-sweep.md) — Main Action; level 1; 2 DP; Science 1.
+- [Service Clearance](cards/service-clearance.md) — Passive; level 1; 2 DP; Engineering 1.
+- [Service Loop](cards/service-loop.md) — Passive; level 1; 2 DP; Robotics 1.
+- [Set a Return Point](cards/set-a-return-point.md) — Maneuver; level 3; 4 DP; Robotics 2.
+- [Set Aside a Sample](cards/set-aside-a-sample.md) — Maneuver; level 3; 4 DP; Trade 2.
+- [Coordinate the Operation](cards/set-the-rendezvous.md) — Main Action; level 3; 4 DP; Command 2.
+- [Shadow Step](cards/shadow-step.md) — Maneuver; level 1; 2 DP; Subterfuge 1.
+- [Sort the Supplies](cards/sort-the-supplies.md) — Maneuver; level 1; 2 DP; Medicine 1.
+- [Split the Consignment](cards/split-the-consignment.md) — Maneuver; level 7; 8 DP; Trade 3.
+- [Spot the Sudden Rise](cards/spot-the-sudden-rise.md) — Reaction; level 7; 8 DP; Survival 3.
+- [Stop the Trial](cards/stop-the-trial.md) — Reaction; level 3; 4 DP; Science 2.
+- [Suppressing Fire](cards/suppressing-fire.md) — Main Action; level 1; 2 DP; Gunnery 1.
+- [Swap the End Effector](cards/swap-the-end-effector.md) — Maneuver; level 3; 4 DP; Robotics 2.
+- [Swing Across](cards/swing-across.md) — Maneuver; level 7; 8 DP; Athletics 3.
+- [Tag the Feed](cards/tag-the-feed.md) — Maneuver; level 1; 2 DP; Engineering 1.
+- [Test the Boundary](cards/test-the-boundary.md) — Main Action; level 3; 4 DP; Science 2.
+- [Test the Timeline](cards/test-the-timeline.md) — Maneuver; level 7; 8 DP; Investigation 3.
+- [Tie Off the Kit](cards/tie-off-the-kit.md) — Reaction; level 1; 2 DP; Survival 1.
+- [Trace Access](cards/trace-access.md) — Main Action; level 1; 2 DP; Computing 1.
+- [Trace the Last Hop](cards/trace-the-last-hop.md) — Reaction; level 7; 8 DP; Computing 3.
+- [Track the Approach](cards/track-the-approach.md) — Maneuver; level 3; 4 DP; Gunnery 2.
+- [Track the Exposure](cards/track-the-exposure.md) — Maneuver; level 7; 8 DP; Medicine 3.
+- [Transfer the Load](cards/transfer-the-load.md) — Reaction; level 3; 4 DP; Athletics 2.
+- [Transfer the Track](cards/transfer-the-track.md) — Maneuver; level 7; 8 DP; Gunnery 3.
+- [Treat Bone](cards/treat-bone.md) — Main Action; level 1; 2 DP; Medicine 1.
+- [Treat Elemental Injury](cards/treat-elemental-injury.md) — Main Action; level 1; 2 DP; Medicine 1.
+- [Treat Life Injury](cards/treat-life-injury.md) — Main Action; level 1; 2 DP; Medicine 1.
+- [Treat Mental Trauma](cards/treat-mental-trauma.md) — Main Action; level 1; 2 DP; Medicine 1.
+- [Treat Radiant Injury](cards/treat-radiant-injury.md) — Main Action; level 1; 2 DP; Medicine 1.
+- [Treat Soft Tissue](cards/treat-soft-tissue.md) — Main Action; level 1; 2 DP; Medicine 1.
+- [Vault Low Cover](cards/vault-low-cover.md) — Maneuver; level 3; 4 DP; Athletics 2.
+- [Verify the Copy](cards/verify-the-copy.md) — Maneuver; level 3; 4 DP; Computing 2.
+- [Verify the Handoff](cards/verify-the-handoff.md) — Reaction; level 7; 8 DP; Trade 3.
+- [Watch Ledger](cards/watch-ledger.md) — Passive; level 1; 2 DP; Command 1.
+- [Find an Opening](cards/watch-the-shift-change.md) — Main Action; level 3; 4 DP; Subterfuge 2.
+- [Water Budget](cards/water-budget.md) — Passive; level 1; 2 DP; Survival 1.
+- [Wear Heavy Armour](cards/wear-heavy-armor.md) — Passive; level 3; 4 DP; Armor 2.
+- [Wear Light Armour](cards/wear-light-armor.md) — Passive; level 1; 2 DP; Armor 1.
+- [Wear Through the Shift](cards/wear-through-the-shift.md) — Passive; level 1; 2 DP; Armor 1.
 
 ## Class signatures
 
-- [Borrowed Authority](cards/signature-con-artist-borrowed-authority.md) — Main Action; level 3; Class Con Artist; minimum level 3.
-- [Plausible Cover](cards/signature-con-artist-plausible-cover.md) — Main Action; level 1; Class Con Artist; minimum level 1.
-- [The Right Story](cards/signature-con-artist-the-right-story.md) — Reaction; level 7; Class Con Artist; minimum level 7.
-- [Call the Vote](cards/signature-envoy-call-the-vote.md) — Main Action; level 3; Class Envoy; minimum level 3.
-- [Read the Room](cards/signature-envoy-read-the-room.md) — Main Action; level 1; Class Envoy; minimum level 1.
-- [Voice of the Fleet](cards/signature-envoy-voice-of-the-fleet.md) — Main Action; level 7; Class Envoy; minimum level 7.
-- [First Contact](cards/signature-explorer-first-contact.md) — Main Action; level 7; Class Explorer; minimum level 7.
-- [Survey](cards/signature-explorer-survey.md) — Main Action; level 1; Class Explorer; minimum level 1.
-- [Trailblazer](cards/signature-explorer-trailblazer.md) — Main Action; level 3; Class Explorer; minimum level 3.
-- [Field Surgery](cards/signature-medic-field-surgery.md) — Main Action; level 3; Class Medic; minimum level 3.
-- [Last Light](cards/signature-medic-last-light.md) — Reaction; level 7; Class Medic; minimum level 7.
-- [Triage](cards/signature-medic-triage.md) — Main Action; level 1; Class Medic; minimum level 1.
-- [Isolated Channel](cards/signature-operator-isolated-channel.md) — Main Action; level 3; Class Operator; minimum level 3.
-- [Leave a Way Out](cards/signature-operator-leave-a-way-out.md) — Reaction; level 7; Class Operator; minimum level 7.
-- [Quiet Entry](cards/signature-operator-quiet-entry.md) — Maneuver; level 1; Class Operator; minimum level 1.
-- [Dust Trail](cards/signature-outlaw-dust-trail.md) — Maneuver; level 3; Class Outlaw; minimum level 3.
-- [Last Way Through](cards/signature-outlaw-last-way-through.md) — Main Action; level 7; Class Outlaw; minimum level 7.
-- [Running Shot](cards/signature-outlaw-running-shot.md) — Main Action; level 1; Class Outlaw; minimum level 1.
-- [Breakthrough](cards/signature-scientist-breakthrough.md) — Main Action; level 7; Class Scientist; minimum level 7.
-- [Field Prototype](cards/signature-scientist-field-prototype.md) — Main Action; level 3; Class Scientist; minimum level 3.
-- [Hypothesis](cards/signature-scientist-hypothesis.md) — Main Action; level 1; Class Scientist; minimum level 1.
-- [Fire Discipline](cards/signature-soldier-fire-discipline.md) — Main Action; level 3; Class Soldier; minimum level 3.
-- [Hold the Line](cards/signature-soldier-hold-the-line.md) — Reaction; level 1; Class Soldier; minimum level 1.
-- [Unbroken](cards/signature-soldier-unbroken.md) — Passive; level 7; Class Soldier; minimum level 7.
-- [Drift Pilot](cards/signature-spacer-drift-pilot.md) — Maneuver; level 1; Class Spacer; minimum level 1.
-- [Power Routing](cards/signature-spacer-power-routing.md) — Main Action; level 3; Class Spacer; minimum level 3.
-- [Through the Storm](cards/signature-spacer-through-the-storm.md) — Main Action; level 7; Class Spacer; minimum level 7.
-- [Diagnostic Pass](cards/signature-technician-diagnostic-pass.md) — Main Action; level 1; Class Technician; minimum level 1.
-- [Rebuild the Interface](cards/signature-technician-rebuild-the-interface.md) — Main Action; level 7; Class Technician; minimum level 7.
-- [Remote Hands](cards/signature-technician-remote-hands.md) — Main Action; level 3; Class Technician; minimum level 3.
+- [Borrowed Authority](cards/signature-con-artist-borrowed-authority.md) — Main Action; level 3; 4 DP; Class Con Artist; minimum level 3.
+- [Borrowed Livery](cards/signature-con-artist-borrowed-livery.md) — Maneuver; level 1; 2 DP; Class Con Artist; minimum level 1.
+- [Change of Wardrobe](cards/signature-con-artist-change-of-wardrobe.md) — Maneuver; level 3; 4 DP; Class Con Artist; minimum level 3.
+- [Controlled Disclosure](cards/signature-con-artist-controlled-disclosure.md) — Reaction; level 7; 8 DP; Class Con Artist; minimum level 7.
+- [False Appointment](cards/signature-con-artist-false-appointment.md) — Main Action; level 3; 4 DP; Class Con Artist; minimum level 3.
+- [Paper Trail](cards/signature-con-artist-paper-trail.md) — Main Action; level 7; 8 DP; Class Con Artist; minimum level 7.
+- [Plausible Cover](cards/signature-con-artist-plausible-cover.md) — Main Action; level 1; 2 DP; Class Con Artist; minimum level 1.
+- [Pocket Story](cards/signature-con-artist-pocket-story.md) — Reaction; level 1; 2 DP; Class Con Artist; minimum level 1.
+- [The Right Story](cards/signature-con-artist-the-right-story.md) — Reaction; level 7; 8 DP; Class Con Artist; minimum level 7.
+- [Call the Vote](cards/signature-envoy-call-the-vote.md) — Main Action; level 3; 4 DP; Class Envoy; minimum level 3.
+- [Common Terms](cards/signature-envoy-common-terms.md) — Main Action; level 1; 2 DP; Class Envoy; minimum level 1.
+- [Cooling Interval](cards/signature-envoy-cooling-interval.md) — Reaction; level 3; 4 DP; Class Envoy; minimum level 3.
+- [Introduce the Crew](cards/signature-envoy-introduce-the-crew.md) — Maneuver; level 1; 2 DP; Class Envoy; minimum level 1.
+- [Joint Guarantee](cards/signature-envoy-joint-guarantee.md) — Main Action; level 7; 8 DP; Class Envoy; minimum level 7.
+- [Public Commitment](cards/signature-envoy-public-commitment.md) — Main Action; level 7; 8 DP; Class Envoy; minimum level 7.
+- [Read the Room](cards/signature-envoy-read-the-room.md) — Main Action; level 1; 2 DP; Class Envoy; minimum level 1.
+- [Terms of Passage](cards/signature-envoy-terms-of-passage.md) — Main Action; level 3; 4 DP; Class Envoy; minimum level 3.
+- [Voice of the Fleet](cards/signature-envoy-voice-of-the-fleet.md) — Main Action; level 7; 8 DP; Class Envoy; minimum level 7.
+- [Cache Site](cards/signature-explorer-cache-site.md) — Main Action; level 3; 4 DP; Class Explorer; minimum level 3.
+- [First Contact](cards/signature-explorer-first-contact.md) — Main Action; level 7; 8 DP; Class Explorer; minimum level 7.
+- [Guide the Crossing](cards/signature-explorer-guide-the-crossing.md) — Reaction; level 3; 4 DP; Class Explorer; minimum level 3.
+- [Mark a Traverse](cards/signature-explorer-mark-a-traverse.md) — Main Action; level 7; 8 DP; Class Explorer; minimum level 7.
+- [Read the Watershed](cards/signature-explorer-read-the-watershed.md) — Main Action; level 7; 8 DP; Class Explorer; minimum level 7.
+- [Survey](cards/signature-explorer-survey.md) — Main Action; level 1; 2 DP; Class Explorer; minimum level 1.
+- [Test the Ground](cards/signature-explorer-test-the-ground.md) — Main Action; level 1; 2 DP; Class Explorer; minimum level 1.
+- [Trail Mark](cards/signature-explorer-trail-mark.md) — Maneuver; level 1; 2 DP; Class Explorer; minimum level 1.
+- [Trailblazer](cards/signature-explorer-trailblazer.md) — Main Action; level 3; 4 DP; Class Explorer; minimum level 3.
+- [Call the Transfer](cards/signature-medic-call-the-transfer.md) — Reaction; level 3; 4 DP; Class Medic; minimum level 3.
+- [Clear a Treatment Space](cards/signature-medic-clear-a-treatment-space.md) — Main Action; level 1; 2 DP; Class Medic; minimum level 1.
+- [Field Surgery](cards/signature-medic-field-surgery.md) — Main Action; level 3; 4 DP; Class Medic; minimum level 3.
+- [Isolation Plan](cards/signature-medic-isolation-plan.md) — Main Action; level 7; 8 DP; Class Medic; minimum level 7.
+- [Last Light](cards/signature-medic-last-light.md) — Reaction; level 7; 8 DP; Class Medic; minimum level 7.
+- [Prepare a Handoff](cards/signature-medic-prepare-a-handoff.md) — Maneuver; level 1; 2 DP; Class Medic; minimum level 1.
+- [Reconstruct the Injury](cards/signature-medic-reconstruct-the-injury.md) — Main Action; level 7; 8 DP; Class Medic; minimum level 7.
+- [Toxic Exposure Interview](cards/signature-medic-toxic-exposure-interview.md) — Main Action; level 3; 4 DP; Class Medic; minimum level 3.
+- [Triage](cards/signature-medic-triage.md) — Main Action; level 1; 2 DP; Class Medic; minimum level 1.
+- [Catch the Bolt](cards/signature-operator-catch-the-bolt.md) — Reaction; level 3; 4 DP; Class Operator; minimum level 3.
+- [Count the Sweep](cards/signature-operator-count-the-sweep.md) — Main Action; level 1; 2 DP; Class Operator; minimum level 1.
+- [Countertrace](cards/signature-operator-countertrace.md) — Reaction; level 7; 8 DP; Class Operator; minimum level 7.
+- [Isolated Channel](cards/signature-operator-isolated-channel.md) — Main Action; level 3; 4 DP; Class Operator; minimum level 3.
+- [Leave a Way Out](cards/signature-operator-leave-a-way-out.md) — Reaction; level 7; 8 DP; Class Operator; minimum level 7.
+- [Quiet Entry](cards/signature-operator-quiet-entry.md) — Maneuver; level 1; 2 DP; Class Operator; minimum level 1.
+- [Quiet Hinge](cards/signature-operator-quiet-hinge.md) — Maneuver; level 1; 2 DP; Class Operator; minimum level 1.
+- [Segment the Feed](cards/signature-operator-segment-the-feed.md) — Main Action; level 7; 8 DP; Class Operator; minimum level 7.
+- [Spoof a Handshake](cards/signature-operator-spoof-a-handshake.md) — Main Action; level 3; 4 DP; Class Operator; minimum level 3.
+- [Break Pursuit](cards/signature-outlaw-break-pursuit.md) — Maneuver; level 3; 4 DP; Class Outlaw; minimum level 3.
+- [Cut Off the Chase](cards/signature-outlaw-cut-off-the-chase.md) — Main Action; level 7; 8 DP; Class Outlaw; minimum level 7.
+- [Draw the Eye](cards/signature-outlaw-draw-the-eye.md) — Main Action; level 3; 4 DP; Class Outlaw; minimum level 3.
+- [Duck Behind It](cards/signature-outlaw-duck-behind-it.md) — Reaction; level 1; 2 DP; Class Outlaw; minimum level 1.
+- [Dust Trail](cards/signature-outlaw-dust-trail.md) — Maneuver; level 3; 4 DP; Class Outlaw; minimum level 3.
+- [Fire on the Run](cards/signature-outlaw-fire-on-the-run.md) — Main Action; level 7; 8 DP; Class Outlaw; minimum level 7.
+- [Last Way Through](cards/signature-outlaw-last-way-through.md) — Main Action; level 7; 8 DP; Class Outlaw; minimum level 7.
+- [Running Shot](cards/signature-outlaw-running-shot.md) — Main Action; level 1; 2 DP; Class Outlaw; minimum level 1.
+- [Shoot and Slip](cards/signature-outlaw-shoot-and-slip.md) — Main Action; level 1; 2 DP; Class Outlaw; minimum level 1.
+- [Breakthrough](cards/signature-scientist-breakthrough.md) — Main Action; level 7; 8 DP; Class Scientist; minimum level 7.
+- [Control Sample](cards/signature-scientist-control-sample.md) — Main Action; level 1; 2 DP; Class Scientist; minimum level 1.
+- [Field Calibration](cards/signature-scientist-field-calibration.md) — Maneuver; level 1; 2 DP; Class Scientist; minimum level 1.
+- [Field Prototype](cards/signature-scientist-field-prototype.md) — Main Action; level 3; 4 DP; Class Scientist; minimum level 3.
+- [Hypothesis](cards/signature-scientist-hypothesis.md) — Main Action; level 1; 2 DP; Class Scientist; minimum level 1.
+- [Map the Interaction](cards/signature-scientist-map-the-interaction.md) — Main Action; level 7; 8 DP; Class Scientist; minimum level 7.
+- [Reproduce the Result](cards/signature-scientist-reproduce-the-result.md) — Main Action; level 7; 8 DP; Class Scientist; minimum level 7.
+- [Rule Out a Cause](cards/signature-scientist-rule-out-a-cause.md) — Main Action; level 3; 4 DP; Class Scientist; minimum level 3.
+- [Sample Under Pressure](cards/signature-scientist-sample-under-pressure.md) — Reaction; level 3; 4 DP; Class Scientist; minimum level 3.
+- [Brace the Door](cards/signature-soldier-brace-the-door.md) — Maneuver; level 1; 2 DP; Class Soldier; minimum level 1.
+- [Fire Discipline](cards/signature-soldier-fire-discipline.md) — Main Action; level 3; 4 DP; Class Soldier; minimum level 3.
+- [Hold the Angle](cards/signature-soldier-hold-the-angle.md) — Main Action; level 3; 4 DP; Class Soldier; minimum level 3.
+- [Hold the Line](cards/signature-soldier-hold-the-line.md) — Reaction; level 1; 2 DP; Class Soldier; minimum level 1.
+- [Overlapping Fire](cards/signature-soldier-overlapping-fire.md) — Main Action; level 7; 8 DP; Class Soldier; minimum level 7.
+- [Rally to Cover](cards/signature-soldier-rally-to-cover.md) — Maneuver; level 3; 4 DP; Class Soldier; minimum level 3.
+- [Shield the Withdrawal](cards/signature-soldier-shield-the-withdrawal.md) — Reaction; level 1; 2 DP; Class Soldier; minimum level 1.
+- [Stand Through the Breach](cards/signature-soldier-stand-through-the-breach.md) — Reaction; level 7; 8 DP; Class Soldier; minimum level 7.
+- [Unbroken](cards/signature-soldier-unbroken.md) — Passive; level 7; 8 DP; Class Soldier; minimum level 7.
+- [Abort Call](cards/signature-spacer-abort-call.md) — Reaction; level 3; 4 DP; Class Spacer; minimum level 3.
+- [Coordinate a Tow](cards/signature-spacer-coordinate-a-tow.md) — Main Action; level 7; 8 DP; Class Spacer; minimum level 7.
+- [Drift Pilot](cards/signature-spacer-drift-pilot.md) — Maneuver; level 1; 2 DP; Class Spacer; minimum level 1.
+- [Flight Recorder Review](cards/signature-spacer-flight-recorder-review.md) — Main Action; level 3; 4 DP; Class Spacer; minimum level 3.
+- [Plot the Dead Stick](cards/signature-spacer-plot-the-dead-stick.md) — Main Action; level 7; 8 DP; Class Spacer; minimum level 7.
+- [Power Routing](cards/signature-spacer-power-routing.md) — Main Action; level 3; 4 DP; Class Spacer; minimum level 3.
+- [Read the Approach](cards/signature-spacer-read-the-approach.md) — Main Action; level 1; 2 DP; Class Spacer; minimum level 1.
+- [Tether Check](cards/signature-spacer-tether-check.md) — Maneuver; level 1; 2 DP; Class Spacer; minimum level 1.
+- [Through the Storm](cards/signature-spacer-through-the-storm.md) — Main Action; level 7; 8 DP; Class Spacer; minimum level 7.
+- [Bench Test](cards/signature-technician-bench-test.md) — Main Action; level 1; 2 DP; Class Technician; minimum level 1.
+- [Diagnostic Pass](cards/signature-technician-diagnostic-pass.md) — Main Action; level 1; 2 DP; Class Technician; minimum level 1.
+- [Fabricate a Coupling](cards/signature-technician-fabricate-a-coupling.md) — Main Action; level 7; 8 DP; Class Technician; minimum level 7.
+- [Isolate the Fault](cards/signature-technician-isolate-the-fault.md) — Reaction; level 3; 4 DP; Class Technician; minimum level 3.
+- [Jam Release](cards/signature-technician-jam-release.md) — Main Action; level 1; 2 DP; Class Technician; minimum level 1.
+- [Program a Return](cards/signature-technician-program-a-return.md) — Main Action; level 3; 4 DP; Class Technician; minimum level 3.
+- [Rebuild the Interface](cards/signature-technician-rebuild-the-interface.md) — Main Action; level 7; 8 DP; Class Technician; minimum level 7.
+- [Recover the Recorder](cards/signature-technician-recover-the-recorder.md) — Main Action; level 7; 8 DP; Class Technician; minimum level 7.
+- [Remote Hands](cards/signature-technician-remote-hands.md) — Main Action; level 3; 4 DP; Class Technician; minimum level 3.

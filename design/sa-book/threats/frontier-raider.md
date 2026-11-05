@@ -2,6 +2,8 @@
 
 **Status:** Playtest proposal - personal-scale threat seed; untested and no calibrated CV.
 
+**Family:** Crews
+
 **Role:** An opportunist who wants cargo or access and expects a way out.
 
 **HP:** 10 · **Speed:** 6 squares · **Stability:** 0 · **Physical resistance:** 0
@@ -27,6 +29,12 @@
 - **Weak:** 2 Kinetic damage.
 - **Standard:** 3 Kinetic damage.
 - **Strong:** 4 Kinetic damage.
+
+## Shared adversary abilities
+
+- [Fold the Position](../adversary-abilities/fold-the-position.md)
+- [Expose the Flank](../adversary-abilities/expose-the-flank.md)
+- [Show the Escape Line](../adversary-abilities/show-the-escape-line.md)
 
 ## Equipment and limits
 

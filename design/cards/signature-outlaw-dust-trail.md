@@ -8,15 +8,15 @@
 
 **Action:** Maneuver · **Attribute:** Reason
 
-**Target / range / shape:** Self, during a pursuit through terrain you can see
+**Target / range / shape:** Self, with a visible escape route and usable concealment
 
-Use the ground to break a pursuer's view; you do not become invisible.
+Break line of sight during a pursuit. Normal terrain and movement reactions apply.
 
-- **Weak:** gain a Boon on your next escape check, but leave a clear trail.
-- **Standard:** gain a Boon on your next escape check.
-- **Strong:** gain the Boon and give the next check to track your trail a Bane.
+- **Weak:** Move 1 square.
+- **Standard:** Move up to 2 squares and become Hidden if you reach concealment.
+- **Strong:** Move up to 3 squares and become Hidden if you reach concealment.
 
-**Duration:** Escape Boon until your next turn ends; tracking Bane once before scene end.
+**Duration:** As stated in the effect.
 
 **Equipment / acquisition:** Requires terrain that can conceal a route
 

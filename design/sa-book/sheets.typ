@@ -32,7 +32,8 @@
  #rows(([ACTOR / PROFILE],[HP / RESISTANCE],[ACTION / TURN USED],[GOAL / WITHDRAWAL]),(1.1fr,1fr,1.2fr,1.5fr),7,height:37pt)
  #v(12pt)#field("REINFORCEMENTS / WHEN THEY ARRIVE / WHAT THE CREW CAN KNOW",height:65pt)
  #v(10pt)#grid(columns:(1fr,1fr),gutter:8pt,field("PARTY: LEVELS / HEALING / SUPPLIES",height:65pt),field("GRIT / SCARS / LASTING EFFECTS",height:65pt))
- #v(12pt)#text(size:9pt)[No calibrated GOL CV is supplied. Record the actual matchup and uncertainty. One turn per actor; no hidden extra actions. Personal survival uses the full Player's Book Chapter 7.]
+ #v(8pt)#grid(columns:(1fr,1fr),gutter:8pt,field("SEED BUDGET / RATED TOTAL / UNRATED ACTORS",height:42pt),field("ACCESS / CONTROL / MATCHUP TO TEST",height:42pt))
+ #v(8pt)#text(size:9pt)[Seed CV is provisional. Personal survival uses the full Player's Book Chapter 7.]
 ])
 #sheet("Session and design review",[
  #field("SESSION / DATE / RULE AND PROFILE VERSIONS",height:38pt)#v(10pt)

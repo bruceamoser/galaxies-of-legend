@@ -2,6 +2,8 @@
 
 Begin with intent and approach. What does the character want, what do they actually do and what is at stake? Obvious actions work without dice; impossible actions do not become possible because a player can roll well. When uncertainty has a consequence, choose the attribute or use the one printed on the declared ability.
 
+> **At the table.** The crew wants a station mechanic to reopen a service lock. Paying for the overtime is within the mechanic's authority, so the SA can accept that offer directly. If the crew asks her to break a closure order, the SA explains what she stands to lose and asks what the crew can offer in return. When a roll is needed, the player's approach tells you which attribute to use.
+
 ## One roll and fixed bands
 
 Roll 3d6 plus one of Brawn, Fortitude, Agility, Guile, Knowledge or Reason. Weak is 8 or less, Standard 9-14 and Strong 15 or more. A discipline rank is a prerequisite, not a skill modifier. Difficulty changes the Boons and Banes, never the result thresholds. Do not add a second target number such as 10 or 15 on top of the bands.

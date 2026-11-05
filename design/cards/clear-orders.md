@@ -8,17 +8,17 @@
 
 **Action:** Main Action · **Attribute:** Guile
 
-**Target / range / shape:** One willing ally who can hear you within 8 squares
+**Target / range / shape:** One willing ally within 8 squares who can hear or see your agreed signal
 
-Name a concrete task that ally can attempt. This never grants an additional action or controls another player.
+Direct one ally’s contribution to an existing progress task. Add progress only if the ally can carry out a concrete part of that task. This grants no extra action.
 
-- **Weak:** the ally gains a Boon on their next check for the task, but you take a Bane on your next check.
-- **Standard:** the ally gains a Boon on their next check for the task.
-- **Strong:** two different willing allies each gain a Boon on their next check for the task.
+- **Weak:** 1 progress.
+- **Standard:** 2 progress.
+- **Strong:** 3 progress.
 
-**Duration:** Until the end of each recipient's next turn; your Weak Bane lasts until used or scene end.
+**Duration:** Progress remains on the declared task until it resolves or circumstances invalidate it.
 
-**Equipment / acquisition:** Requires a shared language or agreed signals
+**Equipment / acquisition:** Requires appropriate access and any equipment named in the effect.
 
 ---
 
@@ -28,7 +28,7 @@ Name a concrete task that ally can attempt. This never grants an additional acti
 
 **Tags:** Command
 
-**Limits:** One instance of this card's benefit per target or task; repeat only for new progress, a new trigger or a changed situation. Pay the printed action and time.
+**Limits:** Spend the listed action. Resolve the printed result once.
 
 **ID:** clear-orders
 

@@ -2,6 +2,8 @@
 
 **Status:** Playtest proposal - personal-scale threat seed; untested and no calibrated CV.
 
+**Family:** Security and synthetics
+
 **Role:** A mobile security device with a route and a limited instruction.
 
 **HP:** 8 · **Speed:** 6 squares · **Stability:** 0 · **Physical resistance:** 1
@@ -17,6 +19,12 @@
 - **Weak:** 1 Thermal damage.
 - **Standard:** 3 Thermal damage.
 - **Strong:** 4 Thermal damage.
+
+## Shared adversary abilities
+
+- [Return to Mount](../adversary-abilities/return-to-mount.md)
+- [Clear the Lens](../adversary-abilities/clear-the-lens.md)
+- [Save the Alarm Log](../adversary-abilities/save-the-alarm-log.md)
 
 ## Equipment and limits
 

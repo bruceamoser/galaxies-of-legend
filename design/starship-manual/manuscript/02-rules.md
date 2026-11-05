@@ -1,8 +1,6 @@
 # Starships: build and operate
 
-> **Playtest proposal - construction revision.** Bruce requested ship size classes and allocated system dice. This chapter replaces the earlier endurance-only ship proposal. All ship construction budgets, capacities, damage and operating procedures remain untested design material. The character chassis and DP economy are unchanged.
-
-The crew builds a ship by choosing its size and spending its **Ship Points (SP)** to install system dice. Bigger dice are larger, more capable systems as well as more durable ones. A small hull cannot mount everything. A large hull can carry more and better modules, but has poorer Handling and needs more people, money and maintenance to use its potential.
+Choose what the ship needs to do before you buy its systems. A crew carrying urgent freight may want room in the hold and a drive that can make the route. A survey crew may spend those same points on detection and navigation. Start with the job, then see which frame can support it.
 
 ## 1. Choose a frame
 
@@ -32,7 +30,7 @@ A ship's **frame class** is its physical scale, not a character class or a stati
 
 For example, a Light ship starts with **24 SP**. Installing a d6 engine spends **2 SP**, leaving **22 SP**. Installing d4 navigation spends **1 SP**, leaving **21 SP**. Do the same for every required and optional system. A die is bought separately for each module; buying one d6 does not supply d6 to every system.
 
-The proposed price ladder is **d4 = 1 SP, d6 = 2 SP, d8 = 3 SP, d10 = 4 SP, d12 = 5 SP**. The d4/d6 prices follow Bruce's direction; the higher-die prices and each frame's SP total remain proposals for review. They are not a settled balance curve.
+Use the price ladder above for each system. The higher-die prices and frame budgets are provisional.
 
 Costs are total installed costs: d8 costs 3 SP, not 1 + 2 + 3. Upgrading an installed d6 to d8 during construction spends only **1 additional SP**, the difference between 2 and 3. Each module also occupies one module position. SP, module positions and the die ceiling are separate limits; spare SP does not bypass either of the other limits.
 
@@ -112,6 +110,8 @@ Larger sensors permit progressively wider searches. Orbital-region and system su
 
 ## 6. Installed rating, current die and load
 
+A cutter leaves the yard with d8 sensors. After a hard scan, their current die can fall to d6. The ship still carries a d8 array, but the operator has to work with the reduced reach and quality until someone repairs it. Keep both numbers on the sheet so you can see what the system can do now and what it can recover.
+
 **Installed rating** is the hardware bought at construction. **Current die** is its operating condition. A serviced system starts at its installed die. Wear steps its current die down: d12 > d10 > d8 > d6 > d4 > offline. Its **effective die** is the lower of installed rating and current die, after any permitted temporary modifiers. Current may be boosted above installed rating for endurance, but this never creates a physically larger bay or a better installed array.
 
 Use the effective die for operating quality, active sensor reach, shield DR, weapon damage, FTL range and capacitor storage/rate. Thus worn d8 sensors operating at d6 have Far reach and normal quality; their larger installed hardware remains d8 and can be restored. Cargo space, berths and the installed number of life-support occupants do not shrink when a die wears. An offline bay becomes inaccessible or unsafe to handle, not a hole that deletes cargo; an offline life-support system starts the reserve clock.
@@ -122,7 +122,7 @@ A firing check that actively uses a targeting array checks both the mount and th
 
 ## 7. Crew stations and actions
 
-Stations are jobs, not exclusive classes. Each character keeps one Main Action, one Maneuver, movement and one Reaction. Alternate turns by side as in Legend. The ship grants no separate free turn. Choose a station at turn start; switching adjacent consoles uses your Maneuver, while reaching another compartment uses normal movement. One console has one operator at a time.
+Tell the crew which stations are staffed as the scene begins. An explorer can take a station they can reach and operate. Each character keeps one Main Action, one Maneuver, movement and one Reaction. Alternate turns by side as in Legend. The ship grants no separate free turn. Choose a station at turn start; switching adjacent consoles uses your Maneuver, while reaching another compartment uses normal movement. One console has one operator at a time.
 
 A pilot may fly or fire with their Main Action, not both. Each mount fires at most once per round unless an explicit ability overrides that limit. More mounts create choices; they do not invent crew. An unattended system holds its routine setting and makes no action checks. The SA states enemy crew and mount limits before a ship scene.
 
@@ -138,6 +138,8 @@ A pilot may fly or fire with their Main Action, not both. Each mount fires at mo
 Unless stated otherwise, station Boons expire at the end of the recipient's next turn; a Weak command Bane expires after use or at scene end. No repeated copy of the same support action stacks on one check. Cards replace the baseline where their specific text applies. A Strong result grants its printed benefit, not an additional unlisted system wound.
 
 ## 8. Handling, weapons and damage
+
+When an opposing ship comes into range, establish what each crew wants. A trader trying to leave the area may spend its pilot's turn opening the range. A cutter covering an evacuation may have to stay where it is even after taking a hit. Keep the current range and each side's available stations visible as you resolve turns.
 
 Compare frame **Handling** when one powered ship contests another: higher Handling grants one Boon, lower gives one Bane, equal gives neither. Combine it with one primary system's equipment quality within the core cap. Fixed hazards use declared situational modifiers instead. Offline engines remove the Handling comparison and prevent powered manoeuvres.
 
@@ -180,6 +182,8 @@ At **0 Hull**, engines, weapons and FTL are disabled regardless of their recorde
 Offline life support gives sealed occupied compartments three ten-minute reserve intervals at or below installed occupant capacity. Above capacity, declare the shortage before departure; no automatic reserve is guaranteed. A breached compartment needs suits or immediate evacuation under personal exposure rules. Restoring life support stops the clock; sealing a leak does not create air.
 
 ## 10. Prepare an FTL jump
+
+Plan a jump before the crew needs it. The navigator checks the route and plots the approach while the engineer brings the bank up to charge. Either job can finish first. Tell the pilot when both tracks are ready and check the system dice again before committing.
 
 Install both an FTL drive and jump capacitors. Required navigation is already on the ship. A route must fit the effective drive range and capacitor capacity. Both **charge** and **navigation progress** must equal **3 times route distance**: route units 1/2/3/4/5 need 3/6/9/12/15 each. An offline capacitor bank or drive blocks jumping.
 

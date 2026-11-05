@@ -41,7 +41,7 @@ Boon: add a die, keep highest three. Bane: add a die, keep lowest three. Cancel 
 | Wound trigger | Each entry into Dying, including damage to a stable 0-HP character. Already Dying: damage adds 1 mark, not another wound. |
 | Wound roll | 3d6 + 1 die per prior scar, max 5 dice; keep highest 3, sort ascending, read 111-666. New scar added after rolling. |
 | Death roll | Fortitude: Weak +1 mark; Standard no change; Strong stabilize and clear marks. Retained 111 +2 marks; 666 restore 1 HP and clear marks. |
-| Stabilize | Universal Maneuver, adjacent, no roll; clear marks, remain at 0 and unable to act. |
+| Stabilize | Basic Action (Maneuver), adjacent, no roll; clear marks, remain at 0 and unable to act. |
 | Last Words | Wound 666 or 3 marks; speech only; death at end of second following turn. Ordinary healing, treatment, doses and Grit cannot reverse it. |
 | Wound treatment | Matching capability, full hour; one attempt per wound per day across all healers; 1/2/3 progress to RV; scar remains. |
 | Rolled HP healing | Novice/Adept/Master cost 1/3/7 HP first, bypass resistance, leave healer above 0; free hand; Life resistance reduces healing, minimum 1 where HP missing. |
@@ -91,10 +91,3 @@ Asleep, Paralyzed, Unconscious and Petrified apply three defence Banes once acro
 | 8 | 8 + 8 | — |
 | 9 | 8 + 9 | — |
 | 10 | 8 + 10 | — |
-
-## Credits
-
-- **Game design:** Bruce A. Moser
-- **System:** Legend System, first published in *Heroes of Legend*
-- **Book layout:** adapted from the Heroes of Legend Player's Book pipeline
-- **Cover art:** generated for Galaxies of Legend

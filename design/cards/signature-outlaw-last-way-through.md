@@ -8,15 +8,15 @@
 
 **Action:** Main Action · **Attribute:** Reason
 
-**Target / range / shape:** Self and up to three willing allies; one visible escape route
+**Target / range / shape:** Self and up to three willing allies within speaking distance; one visible escape route
 
-Lead the group through an existing passage. Each ally still spends normal movement; this grants neither teleportation nor an extra turn.
+Advance the crew’s escape along the route. A participant must be able to move and follow it. Ordinary terrain, reach and reactions apply.
 
-- **Weak:** give each participant a Boon on their next check to traverse the route; you take a Bane on your next check.
-- **Standard:** give each participant a Boon on their next traversal check.
-- **Strong:** give those Boons and identify one hazard that can be avoided without a roll.
+- **Weak:** You and one ally may each move 1 square toward the exit.
+- **Standard:** You and up to three allies may each move up to 2 squares toward the exit.
+- **Strong:** You and up to three allies may each move up to 3 squares toward the exit.
 
-**Duration:** Until the end of the next round.
+**Duration:** As stated in the effect.
 
 **Equipment / acquisition:** Requires a route that is physically possible
 

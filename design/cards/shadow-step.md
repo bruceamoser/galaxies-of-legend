@@ -8,9 +8,13 @@
 
 **Target / range / shape:** Self
 
-Move up to your Speed and make a Stealth check to hide if you end in cover or dim light. On a Strong result, you may move 2 additional squares.
+Choose a route up to your Speed that ends in plausible concealment. Roll Agility once.
 
-**Duration:** Instant.
+- **Weak:** move along the route. Your destination remains known.
+- **Standard:** move along the route and become Hidden if you end in concealment.
+- **Strong:** move along the route and become Hidden if you end in concealment. You may move up to 2 extra squares through continuous concealment and remain Hidden if you are not revealed.
+
+**Duration:** Movement is instant. Hidden ends under the normal [perception rules](../rules/perception.md).
 
 **Equipment / acquisition:** None
 

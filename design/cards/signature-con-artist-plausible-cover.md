@@ -8,15 +8,15 @@
 
 **Action:** Main Action · **Attribute:** Guile
 
-**Target / range / shape:** Self; one minute of preparation
+**Target / range / shape:** One listener who can communicate with you; one minute to prepare
 
-Prepare a specific mundane identity. It grants no legal access and cannot copy a biometric credential.
+Use an invented identity to make progress toward a stated social objective. At 3 progress the listener accepts the identity for the declared conversation if it is consistent with the evidence. It grants no credentials.
 
-- **Weak:** gain a Boon on one check to maintain the cover; one detail is readily testable.
-- **Standard:** gain a Boon on one check to maintain the cover.
-- **Strong:** gain a Boon on two checks to maintain the cover.
+- **Weak:** 1 progress; expose one detail the listener can verify.
+- **Standard:** 2 progress.
+- **Strong:** 3 progress.
 
-**Duration:** One scene, ending when the cover is disproved.
+**Duration:** Progress lasts until the task resolves or the situation invalidates it.
 
 **Equipment / acquisition:** Requires plausible clothing and a shared language
 

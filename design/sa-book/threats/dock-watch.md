@@ -2,6 +2,8 @@
 
 **Status:** Playtest proposal - personal-scale threat seed; untested and no calibrated CV.
 
+**Family:** Crews
+
 **Role:** A port worker tasked with keeping an approach controlled, not starting a war.
 
 **HP:** 12 · **Speed:** 6 squares · **Stability:** 0 · **Physical resistance:** 1
@@ -17,6 +19,13 @@
 - **Weak:** 2 Kinetic damage.
 - **Standard:** 3 Kinetic damage.
 - **Strong:** 5 Kinetic damage.
+
+## Shared adversary abilities
+
+- [Shut the Lane](../adversary-abilities/shut-the-lane.md)
+- [Douse the Lure](../adversary-abilities/douse-the-lure.md)
+- [Push the Gate](../adversary-abilities/push-the-gate.md)
+- [Let the Crowd Pass](../adversary-abilities/let-the-crowd-pass.md)
 
 ## Equipment and limits
 
