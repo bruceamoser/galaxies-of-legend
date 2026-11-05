@@ -8,6 +8,8 @@
 
 **Target / range / shape:** One wounded creature within reach
 
+**Healing cost:** Pay 3 HP before rolling, bypassing resistance; you must remain above 0 HP. Requires a free hand. Apply Life resistance to HP restored, minimum 1 where HP is missing, capped by maximum HP. Stabilize a Dying recipient before ordinary HP healing. It never removes a scar, restores Grit or reverses Last Words. Consume one medkit use per application.
+
 Provide emergency care under fire.
 
 - **Weak:** restore 3 HP.

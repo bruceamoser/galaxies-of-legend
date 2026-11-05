@@ -1,0 +1,29 @@
+# Service Clearance
+
+**Status:** Playtest proposal - untested.
+
+## Rules
+
+**Action:** Passive · **Attribute:** None (no roll)
+
+**Target / range / shape:** Self
+
+You can tell from visible service markings which accessible cover opens for routine maintenance and which requires a shutdown first.
+
+**Duration:** Instant unless the effect states a duration.
+
+**Equipment / acquisition:** Requires any equipment named above. Grants no equipment.
+
+---
+
+**Tier / minimum level:** 1 · **DP:** 2 · **Requirements to learn:** Engineering 1
+
+**Type:** Skill / Utility
+
+**Tags:** Engineering / Passive
+
+**Limits:** Applies only under the circumstances stated above.
+
+**ID:** service-clearance
+
+[Card conventions](../card-conventions.md) · [Catalog](../catalog.md)

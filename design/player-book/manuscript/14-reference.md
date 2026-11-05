@@ -30,32 +30,52 @@ Boon: add a die, keep highest three. Bane: add a die, keep lowest three. Cancel 
 | Far | 12 squares |
 | Extreme | Beyond 12 squares |
 
-## Damage types
+## Damage, Grit and survival
 
-| Type | Covers | Conditions often attached |
-|---|---|---|
-| **Kinetic** | Bullets, railguns, blades, impacts | Prone, Bleeding |
-| **Thermal** | Lasers, flame, plasma heat | Burning |
-| **Cryogenic** | Freeze weapons, coolant | Slowed, Frozen |
-| **Electrical** | Arcs, shocks, conduits | Stunned, Disrupted |
-| **Corrosive** | Acid, etchants, molecular damage | Corroded |
-| **Sonic** | Resonance, pressure, vibration | Dazed, Deafened |
-| **Radiation** | Reactor leaks, particle weapons | Exposure |
+| Situation | Rule |
+|---|---|
+| Personal damage | Printed outcome; highest matching resistance, cap 3; minimum 1 total per event, not per component. |
+| Weakness X | Add highest matching weakness, cap 3, before resistance; never invent an absent type. |
+| Safe breath | Full HP when safe; no Grit refund, wound cure or Last Words reversal. |
+| Grit | Start 2; +1 at levels 3 and 7, not a refill. At Dying-turn start choose 1 Grit for full HP or death roll before seeing dice. |
+| Wound trigger | Each entry into Dying, including damage to a stable 0-HP character. Already Dying: damage adds 1 mark, not another wound. |
+| Wound roll | 3d6 + 1 die per prior scar, max 5 dice; keep highest 3, sort ascending, read 111-666. New scar added after rolling. |
+| Death roll | Fortitude: Weak +1 mark; Standard no change; Strong stabilize and clear marks. Retained 111 +2 marks; 666 restore 1 HP and clear marks. |
+| Stabilize | Basic Action (Maneuver), adjacent, no roll; clear marks, remain at 0 and unable to act. |
+| Last Words | Wound 666 or 3 marks; speech only; death at end of second following turn. Ordinary healing, treatment, doses and Grit cannot reverse it. |
+| Wound treatment | Matching capability, full hour; one attempt per wound per day across all healers; 1/2/3 progress to RV; scar remains. |
+| Rolled HP healing | Novice/Adept/Master cost 1/3/7 HP first, bypass resistance, leave healer above 0; free hand; Life resistance reduces healing, minimum 1 where HP missing. |
+| Medical dose | Giver Maneuver and free hand; other recipient Reaction unless at 0; fixed HP, Life resistance, then inventory check. No outcome roll or healer cost. |
+
+## Damage families and labels
+
+Physical includes Kinetic and Sonic. Thermal is Fire; Cryogenic is Cold; Electrical is Lightning. Fire, Cold and Lightning have separate resistances but share Elemental wounds. Mental, Radiant and Life/Necrotic use their own tables. Proposed GOL aliases: Corrosive to Physical, Radiation to Radiant. These descriptions add no separate resistance pool.
 
 ## Conditions
 
-| Condition | Effect |
-|---|---|
-| **Bleeding X** | At the start of your turn, lose X HP. Treatment ends it. |
-| **Burning X** | At the start of your turn, take X Thermal damage; a Maneuver can extinguish it. |
-| **Corroded X** | Your armour's DR is reduced by X until repaired. |
-| **Dazed** | You have one fewer Maneuver on your next turn. |
-| **Deafened** | You cannot hear; social and sensor checks that rely on sound have a Bane. |
-| **Disrupted** | A powered device or system cannot be used until restarted. |
-| **Frozen** | You cannot move; breaking free is a Brawn check against 10. |
-| **Prone** | Melee attacks against you gain a Boon; standing costs half your movement. |
-| **Slowed X** | Each square of movement costs X + 1 squares. |
-| **Stunned X** | You lose X actions on your next turn. |
+Resolve temporary numbered effects at **turn end**, then decay 1. A star prevents automatic decay; track temporary and starred portions separately. A Main Action can reduce Bleeding, Burning or Freezing by 1 with a plausible method. Treatment, conditions and scars are separate tracks.
+
+| Condition | Effect | Removal / persistence |
+|---|---|---|
+| Burning X | Fire X damage at end of turn; matching resistance applies | Resolve damage, then decay; appropriate Main reduces 1 |
+| Freezing X | Cold X damage at end of turn; matching resistance applies | Resolve damage, then decay; appropriate Main reduces 1 |
+| Bleeding X | X damage at end of turn, bypasses resistance | Resolve damage, then decay; appropriate Main reduces 1 |
+| Poisoned X | X Banes to action/defense/death rolls, not inventory dice; no damage | Decay unless explicitly maintained or persistent |
+| Frightened X | X Banes while its source is perceptible; no forced choices or movement | Decay unless explicitly maintained or persistent; source must be identified |
+| Blinded X | Cannot see; no direct sight-required targeting | Duration only; decay; Blinded 1* requires its specified remedy |
+| Deafened X | Cannot hear; cannot respond to hearing-only triggers | Duration only; decay; Deafened 1* requires its specified remedy |
+| Slowed X | Speed −X, minimum 0 | Decay unless explicitly persistent |
+| Dazed X | At 1/2/3+, choose 2/1/0 of Main, Maneuver, Reaction; movement remains | Choose at turn start; no retroactive change to spent actions; decay 1 at turn end |
+| Grappled X | Movement 0; at 1/2/3+, choose 2/1/0 of Main, Maneuver, Reaction | Maintained; no decay. Force reduces 1/2/3 when a Main remains; rating 3 requires help |
+| Prone | Crawl; standing costs 2 movement | Stand or source effect; occupied prone square traversable at cost 2 |
+| Asleep X | Unaware, no actions/movement | Default numbered decay; adjacent Main wake effort reduces 1; damage ends it; source can specify persistence |
+| Paralyzed X | Aware, no actions or movement at any positive rating | Duration only; decay; no gradual return of options before 0 |
+| Unconscious | Unaware, prone, no actions/movement | Source; ordinary healing wakes only HP-caused unconsciousness |
+| Petrified | Inert solid, unaware, no actions/movement | Source defines protection and cure |
+| Hidden | Universal hidden state, not observer-specific | Ends on attack/open revelation; SA judges concealed movement |
+| Invisible | Cannot be seen; not automatically unlocated | Source; attacking ends Hidden, not automatically Invisible |
+
+Asleep, Paralyzed, Unconscious and Petrified apply three defence Banes once across overlaps. Dazed adds none. Dazed/Grappled action categories are chosen at turn start; use the greater restriction, not their sum. Prone grants no automatic attack modifier. Full explanations and all 280 wound results are in Chapter 7.
 
 ## Advancement
 
@@ -71,12 +91,3 @@ Boon: add a die, keep highest three. Bane: add a die, keep lowest three. Cancel 
 | 8 | 8 + 8 | — |
 | 9 | 8 + 9 | — |
 | 10 | 8 + 10 | — |
-
-## Credits
-
-- **Game design:** Bruce A. Moser
-- **System:** Legend System, first published in *Heroes of Legend*
-- **Book layout:** adapted from the Heroes of Legend Player's Book pipeline
-- **Cover art:** generated for Galaxies of Legend
-
-This is a digital playtest edition. Structural checks do not certify balance. Play it, break it, and write down what happened.

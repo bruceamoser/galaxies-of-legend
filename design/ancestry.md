@@ -1,8 +1,14 @@
-# Homeworlds
+# Ancestries
 
-Choose two traits from five. Homeworld is independent of culture.
+Ten playtest ancestries. Choose two of five traits. See the [origin atlas](player-book/manuscript/appendix-origins.md) for species and star systems.
 
-- [Beltborn](homeworlds/beltborn.md)
-- [Core World](homeworlds/core-world.md)
-- [Frontier Colonist](homeworlds/frontier-colonist.md)
-- [Voidborn](homeworlds/voidborn.md)
+- [Ambril](ancestries/ambril.md)
+- [Human](ancestries/human.md)
+- [Inkleaf](ancestries/inkleaf.md)
+- [Lethren](ancestries/lethren.md)
+- [Nacreth](ancestries/nacreth.md)
+- [Orivane](ancestries/orivane.md)
+- [Pellori](ancestries/pellori.md)
+- [Silev](ancestries/silev.md)
+- [Tessari](ancestries/tessari.md)
+- [Weldkin](ancestries/weldkin.md)

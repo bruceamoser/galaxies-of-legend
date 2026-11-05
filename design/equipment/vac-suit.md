@@ -6,7 +6,7 @@
 
 **Category:** Protection · **Damage type:** None · **Bulk:** 1 · **Hands:** 0 · **Cost:** 80 coins
 
-Grants DR 1 against vacuum exposure and Radiation. Includes a 6-hour air supply, a tether and a helmet lamp. Does not grant a Boon to checks.
+A working seal prevents direct pressure exposure. Grants Radiant resistance 1 against environmental radiation. Includes a six-hour air supply, a tether and a helmet lamp. Track air under [Environmental hazards](../rules/environment.md).
 
 **ID:** vac-suit
 

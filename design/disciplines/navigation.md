@@ -4,7 +4,7 @@
 
 ## Rules
 
-Astrogation, survey, FTL plotting, and finding the way when the charts end.
+Astrogation, orbital routes and FTL plotting. Survival handles ground shelter and wilderness travel; existing cards keep their printed requirements.
 
 Ranks 1, 2 and 3 are purchased in order. Rank alone grants no action, attribute
 bonus, equipment or permission to use every card in this field. A card prints the

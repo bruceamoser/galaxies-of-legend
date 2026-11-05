@@ -6,15 +6,15 @@
 
 **Action:** Main Action · **Attribute:** Reason
 
-**Target / range / shape:** One unfamiliar creature or culture that can perceive you
+**Target / range / shape:** One willing unfamiliar interlocutor or delegation with a usable shared channel
 
-Establish communication. The SA sets the progress needed (usually 3).
+Build a limited dialogue using the [language procedure](../rules/languages.md). Name the terms or topic you are trying to establish. The SA sets the progress needed (usually 3).
 
 - **Weak:** 1 progress; exchange a simple signal.
-- **Standard:** 2 progress; establish a shared vocabulary and one safe topic.
-- **Strong:** 3 progress; establish a working dialogue and learn one custom or taboo.
+- **Standard:** 2 progress; agree on words or signs for one concrete topic.
+- **Strong:** 3 progress; agree on words or signs for the stated topic and confirm one custom or taboo the interlocutor can demonstrate or explain.
 
-**Duration:** The dialogue persists.
+**Duration:** Agreed signals remain useful with the participants who learned them while the channel and meaning remain valid. This grants no fluency.
 
 **Equipment / acquisition:** None
 

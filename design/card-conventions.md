@@ -40,7 +40,10 @@ A grant supplies one missing ordinary item on acquisition. It does not supply a 
 
 ## Damage and conditions
 
-Use the seven damage types: Kinetic, Thermal, Cryogenic, Electrical, Corrosive, Sonic and Radiation. A condition is separate from a type. A card that applies a condition states its rating and duration. A card that deals damage states its type; if it can deal more than one type, split the components before resistance.
+Use Physical, Fire, Cold, Lightning, Mental, Radiant and Life/Necrotic with the descriptive GOL aliases in [damage](rules/damage.md). Conditions follow the complete [condition reference](rules/conditions.md). A card applying a condition names its rating and duration; a permanent wound remedy is not temporary condition decay.
+
+Rolled HP healing follows [Moser's law and healing](rules/healing.md): 1/3/7 HP paid before the roll by Novice/Adept/Master, bypassing resistance and leaving the healer above 0, with a free hand. Life resistance reduces ordinary healing; minimum 1 if HP is missing, cap at missing HP. Fixed medical doses use their own inventory procedure, no healer cost or outcome roll. Treatment progress is not HP healing. A long action takes its printed full time; Main Action does not compress an hour into a turn.
+
 
 ## Signatures
 
@@ -49,3 +52,9 @@ A signature should be recognizably better than a shared card of the same tier in
 ## IDs
 
 Every record ends with a stable `**ID:**` line. IDs do not change when a name changes. The build and audit use them for navigation and duplicate checks.
+
+## Write an ability a player can use
+
+A roll produces progress toward a stated goal, a condition, damage, physical movement or another concrete result, or healing. Before writing outcomes, name what success changes and what the character needs to attempt it. A rolled result should do that work directly. Use an eligible no-roll Maneuver, Reaction, or Passive for a Boon to a named attribute and a recognizable activity. Print the trigger, recipient and expiry.
+
+Prefer a recurring game situation such as investigating a scene, defending a position or diagnosing equipment. Use a narrow trigger only when it buys a distinctive effect worth preparing for. A routine observation, label or handoff is often something any explorer can already do. Do not charge DP just to permit it. Reuse existing conditions, progress, movement, resistance and healing before introducing a new rule.

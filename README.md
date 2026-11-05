@@ -2,24 +2,23 @@
 
 **A science-fiction TTRPG built on the Legend System.**
 
-Build a crew from a homeworld, culture, background and class. Roll 3d6 plus one attribute, apply Boons and Banes, and read the card's Weak, Standard or Strong outcome. The ship is a shared character: Hull, DR, systems and Consumable Dice. FTL is a preparation problem, not a travel cutscene.
+Build a crew from an ancestry, culture, background and class. Roll 3d6 plus one attribute, apply Boons and Banes, and read the card's Weak, Standard or Strong outcome. The ship is a shared character: Hull, DR, systems and Consumable Dice. FTL is a preparation problem, not a travel cutscene.
 
-This repository is the **initial playtest data set** and the Player's Book build pipeline. It is intentionally smaller than the eventual game.
+This repository is the **expanded design review** and the Player's Book build pipeline. It is intentionally smaller than the eventual game.
 
 ## Current contents
 
 | Content | Count |
 |---|---:|
-| Homeworlds | 4 |
-| Homeworld traits | 20 |
-| Cultures | 4 |
-| Backgrounds | 4 |
-| Classes | 6 |
-| Disciplines | 9 |
-| Ability cards | 48 |
-| Equipment entries | 10 |
+| Ancestry placeholders (not finished options) | 4 |
+| Cultures | 12 |
+| Backgrounds | 12 |
+| Classes | 10 |
+| Disciplines | 18 |
+| Ability cards | 78 |
+| Equipment entries | 13 |
 
-The Player's Book covers levels 1–10, character creation, abilities, equipment, harm and recovery, starships, FTL and printable sheets.
+The Player's Book covers levels 1–10, creation, abilities, equipment, the complete personal harm foundation and character sheets. The separate Starship Manual owns construction, ship operation, FTL and ship records. The Sector Architect's Book supplies base running and preparation guidance.
 
 ## Build the book
 
@@ -37,7 +36,7 @@ The PDF is written to `design/player-book/output/galaxies-of-legend-players-book
 ## Source map
 
 - [Current design](design/README.md): catalog and scope.
-- [Homeworlds](design/ancestry.md), [cultures and backgrounds](design/culture-background.md), [classes](design/class.md), [disciplines](design/disciplines.md).
+- [Ancestries](design/ancestry.md), [cultures and backgrounds](design/culture-background.md), [classes](design/class.md), [disciplines](design/disciplines.md).
 - [Abilities](design/catalog.md), [card conventions](design/card-conventions.md).
 - [Equipment](design/equipment.md), [market](design/market.md), [starting coins](design/starting-coins.md).
 - [Player's Book](design/player-book/README.md): Typst build and manuscript.
@@ -45,7 +44,7 @@ The PDF is written to `design/player-book/output/galaxies-of-legend-players-book
 
 ## Status
 
-The catalog is approved for initial playtesting. Structural checks do not certify balance. The cover and crest are real assets; interior art is a placeholder in this edition.
+The character catalog has passed structural checks. The ship system and book presentation are in design review as of 2026-11-02; this does not establish readiness for table playtesting. See [ship review delta](design/system-deltas/2026-11-02-ship-review.md). The cover and crest are real assets; interior art is a placeholder in this edition.
 
 Git history is the archive. Do not treat generated Typst or PDFs as editable sources.
 
@@ -54,4 +53,18 @@ Git history is the archive. Do not treat generated Typst or PDFs as editable sou
 - [Initial release review](release/review.md)
 - [Artwork production plan](release/artwork-plan.md)
 
-The current layout follows the brand guide: Oswald headings, Roboto body/data, Cinzel chapter titles, Stellar White pages and teal/gold accents.
+The reading-review layout uses white pages, Oswald headings, Roboto text, black and blue-teal structure with red accents. Gold is limited to rules callouts and the existing crest. Cinematic artwork establishes the tone; heavy decorative rails and missing-art boxes have been removed.
+
+## Expanded roster and ship builder
+
+The current reading revision fixes ability readability and the class-cost table. The eighteen-field roster matches HOL's field count; [coverage waves](design/ability-coverage.md) define later ability work. Ancestries are placeholders awaiting Bruce.
+
+Ships use five frame sizes, die allocation costs and required/optional modules. Run `python3 design/ship_builder.py` to check the three budgeted builds, or pass a JSON ship file. The [Starship Manual source](design/starship-manual/manuscript/02-rules.md) teaches construction and operation; the [delta](design/system-deltas/2026-11-02-expanded-roster-and-ships.md) records replacements to the earlier proposal.
+
+## Full HOL harm foundation
+
+The r3 reading proof restores the complete inherited survival system: damage and resistance, Grit, Dying, all 280 wound results, conditions, healing costs and six treatment capabilities. See [restoration provenance](design/rules/hol-restoration.json) and [the explicit delta](design/system-deltas/2026-11-02-hol-harm-restoration.md). Run `python3 -m unittest discover -s design -p 'test_*.py'` before rebuilding. After compilation, `python3 release/export-harm-review.py` packages the r3 full book and focused harm/healing review (requires pypdf).
+
+## First three-book Starter Kit
+
+Run `python3 release/build-starter-kit.py` to build and package the coordinated v0.1.0 design-review kit. The output contains the Player's Book, Starship Manual and Sector Architect's Book, release notes, checksums, page-count manifest and source archive. The package is local; ancestry placeholders, untested ship/SA numbers and the remaining design work are declared explicitly. Use `--books-only` to build/verify PDFs without packaging.

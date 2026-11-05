@@ -1,3 +1,3 @@
-A background is something you did before the first session. It might be a job, a training, a mistake or a role you inherited. It gives you a paired discipline and ability, and a reason to know someone you might otherwise never meet.
+Your background describes the work or training you did before joining the crew. A ship mechanic may still know the person who taught them to recognize a failing pump. A former fixer may have friends who still expect favors.
 
-Backgrounds do not prescribe personality. Two former ship mechanics can disagree about everything except the correct way to seal a coolant line.
+Choose one background and record its paired discipline and ability. Decide what made you leave and who would recognize you if you came back.

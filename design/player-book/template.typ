@@ -1,47 +1,41 @@
 #let forest = rgb("#0A0A0C")
 #let space = forest
-#let teal = rgb("#0e7a85")
+#let teal = rgb("#176f8c")
 #let gold = rgb("#d4af37")
 #let ivory = rgb("#eaf3f4")
-#let paper = rgb("#F4F4F6")
+#let paper = rgb("#ffffff")
 #let ink = rgb("#0A0A0C")
 #let crimson = rgb("#D92027")
 #let chapter-name = state("chapter-name", "Player’s Book")
-#let setup(body) = {
-  set document(title: "Galaxies of Legend — Player’s Book", author: "Bruce A. Moser")
+#let setup(book-title: "Player’s Book", body) = {
+  set document(title: "Galaxies of Legend — " + book-title, author: "Bruce A. Moser")
   set text(font: "Roboto", size: 10.5pt, fill: ink, lang: "en", hyphenate: true)
   set par(leading: 0.42em, spacing: 0.65em, justify: false)
   set page(width: 612pt, height: 792pt, margin: (left: 42pt, right: 42pt, top: 52pt, bottom: 46pt), fill: paper,
-    background: context {
-      place(top+left, image("art/vector/page-frame.svg",width:612pt,height:792pt))
-      for item in json("generated/space-art.json").filter(it => it.page == here().page()) {
-        place(top+left, dx:item.x*1pt, dy:item.y*1pt,
-          image("art/interior/"+item.asset+".png",width:item.width*1pt,height:item.height*1pt,fit:"contain"))
-      }
-    },
+    background: none,
     header: context {
-      grid(columns: (1fr, 1fr), text(font: "Oswald", size: 8pt, fill: forest)[Galaxies of Legend],
+      grid(columns: (1fr, 1fr), text(font: "Oswald", size: 8.5pt, fill: teal, tracking: .65pt)[GALAXIES OF LEGEND],
         align(right, text(size: 8pt, fill: forest, {
           let hs = query(heading.where(level: 1)).filter(h => h.location().page() <= here().page())
-          if hs.len() > 0 { hs.last().body } else { [Player’s Book] }
+          if hs.len() > 0 { hs.last().body } else { book-title }
         })))
-      v(3pt); image("art/vector/header-rail.svg",width:100%,height:12pt)
+      v(5pt); line(length:100%,stroke:.45pt+rgb("#8baab8"))
     },
     footer: context {
-      image("art/vector/footer-rail.svg",width:100%,height:12pt)
+      line(length:100%,stroke:.45pt+rgb("#8baab8"))
       v(3pt)
-      grid(columns: (1fr, 1fr), text(size: 8pt)[Player’s Book · Playtest Edition],
-        align(right, text(font: "Oswald", size: 9pt, counter(page).display())))
+      grid(columns: (1fr, 1fr), text(size: 8pt)[#book-title · Starter Kit Review],
+        align(right, box(fill: teal, inset: (x: 6pt, y: 1pt), text(font: "Oswald", size: 9pt, fill: white, counter(page).display()))))
     })
   set heading(numbering: none)
   show heading.where(level: 1): it => block(above: 0pt, below: 13pt)[
     #text(font: "Oswald", size: 26pt, fill: teal, weight: "bold", it.body)
-    #v(5pt)#image("art/vector/tech-rule.svg",width:100%,height:12pt)
+    #v(7pt)#line(length:52pt,stroke:3pt+crimson)
   ]
-  show heading.where(level: 2): it => block(above: 12pt, below: 6pt)[
+  show heading.where(level: 2): it => block(above: 12pt, below: 6pt, sticky: true)[
     #text(font: "Oswald", size: 14pt, fill: teal, weight: "bold", it.body)
   ]
-  show heading.where(level: 3): it => block(above: 9pt, below: 4pt)[
+  show heading.where(level: 3): it => block(above: 9pt, below: 4pt, sticky: true)[
     #text(size: 11.5pt, fill: forest, weight: "bold", it.body)
   ]
   show link: set text(fill: rgb("#0e7a85"))
@@ -52,7 +46,7 @@
 #let chapter(n, title) = {
   pagebreak(weak: true)
   chapter-name.update(title)
-  block(below: 8pt)[#text(font: "Oswald", size: 9pt, fill: crimson)[CHAPTER #n]]
+  block(below: 8pt)[#text(font: "Oswald", size: 9pt, fill: crimson)[#(if n == "A" { "APPENDIX" } else { "CHAPTER" }) #n]]
   heading(level: 1, title)
 }
 #let entry(title, key) = {
@@ -66,54 +60,55 @@
   #body
 ]
 #let art-files = json("generated/art-files.json")
-#let illustration(asset, width: 100%, height: 160pt, fit: "contain") = block(width: width, height: height, above: 8pt, below: 14pt)[
+#let illustration(asset, width: 100%, height: 160pt, fit: "contain") = block(width: width, height: if asset in art-files {height} else {0pt}, above: if asset in art-files {8pt} else {0pt}, below: if asset in art-files {14pt} else {0pt})[
   #layout(size => context { let pos=here().position(); [#metadata((asset:asset,page:pos.page,x:pos.x/1pt,y:pos.y/1pt,width:size.width/1pt,height:height/1pt)) <art-placement>] })
   #if asset in art-files {
     image("art/interior/" + asset + ".png", width: 100%, height: height, fit: fit, alt: asset.replace("-", " "))
   } else {
-    rect(width: 100%, height: height, fill: ivory, stroke: teal)[#align(center+horizon)[Artwork in production]]
+    none
   }
 ]
 // A fractional block gives the remaining page height without making a new page.
-#let tail-art(asset) = block(height: 1fr, layout(size => {
-  if size.height >= 110pt { align(center+horizon, illustration(asset, height: calc.min(size.height - 12pt, 340pt))) }
-}))
-#let rule-table(cols, head, rows, widths: auto, pad: 5pt, font-size: 9.3pt) = {
+#let tail-art(asset, limit: 340pt) = if asset in art-files {
+  block(height: 1fr, layout(size => {
+    if size.height >= 120pt {
+      align(center+horizon, illustration(asset, height: calc.min(size.height - 26pt, limit), fit: "cover"))
+    }
+  }))
+}
+#let rule-table(cols, head, rows, widths: auto, pad: 5pt, font-size: 9.3pt, numeric: ()) = {
   set text(size: font-size)
   set par(leading: 0.28em, spacing: 3pt)
-  let whole = table(columns: if widths == auto { cols } else { widths }, inset: (x: 5pt, y: pad),
-    stroke: .3pt + rgb("#b5cdd0"),
+  set table.cell(breakable: false)
+  let whole = table(columns: if widths == auto { cols } else { widths }, inset: (x: 6pt, y: pad),
+    align: (x, y) => if x in numeric {right + top} else {left + top},
+    stroke: (top: none, left: none, right: none, bottom: .4pt + rgb("#b5cdd0")),
     fill: (x,y) => if y == 0 { forest } else if calc.odd(y) { rgb("#e7eef0") } else { paper },
     table.header(repeat: true, ..head.map(c => text(fill: ivory, weight: "bold", c))),
     ..rows.flatten())
   layout(size => {
     let h = measure(block(width:size.width,whole)).height
     // Keep a short reference together. Long references retain repeated headers.
-    block(breakable:h > 620pt)[#image("art/vector/table-rail.svg",width:100%,height:5pt)#v(-2pt)#whole]
+    block(breakable:h > 620pt)[#whole]
   })
 }
 
-#let signature-menu(body) = block(width:100%,stroke:.5pt+teal,inset:7pt,breakable:false)[
-  #set text(size:9pt)
-  #set par(leading:.2em,spacing:3pt)
-  #set list(spacing:1pt)
-  #show heading.where(level:2): it => block(above:0pt,below:4pt,text(size:10pt,weight:"bold",fill:forest,it.body))
-  #body
-]
 #let cost-matrix(head,rows) = {
+  assert(rows.all(row => row.len() == head.len()), message:"Class-cost matrix row/header mismatch")
   set text(size:10pt,hyphenate:false)
-  set par(leading:.2em)
-  table(columns:(87pt,)+(1fr,)*10,inset:(x:3pt,y:5pt),align:(x,y)=>if x==0 {left} else {center},
+  set par(leading:.45em)
+  table(columns:(112pt,)+(1fr,)*(head.len()-1),inset:(x:6pt,y:7pt),align:(x,y)=>if x==0 {left} else {center},
     stroke:.4pt+rgb("#b5cdd0"),fill:(x,y)=>if y==0 {forest} else if calc.odd(y) {ivory} else {paper},
-    table.header(..head.enumerate().map(((i,c))=>text(fill:ivory,weight:"bold",if i==0 {c} else {rotate(-90deg,reflow:true,c)}))),
-    ..rows.flatten())
+    table.header(..head.map(c=>text(fill:ivory,weight:"bold",c))), ..rows.flatten())
 }
+#let action-code(action) = (("Main Action": "A", "Maneuver": "M", "Reaction": "R", "Passive": "P").at(action, default: "—"))
+#let action-mark(action) = box(inset:(x:4pt,y:2pt),radius:2pt,fill:ivory)[#text(size:8pt,weight:"bold",fill:forest,action-code(action))]
 #let ability-directory(rows) = {
   set text(size:9pt,hyphenate:false)
   set par(leading:.25em,spacing:3pt)
-  table(columns:(125pt,105pt,77pt,1fr),inset:(x:5pt,y:3.5pt),stroke:.3pt+rgb("#b5cdd0"),
+  table(columns:(110pt,120pt,76pt,1fr),inset:(x:5pt,y:3.5pt),stroke:.3pt+rgb("#b5cdd0"),
     fill:(x,y)=>if y==0 {forest} else if calc.odd(y) {ivory} else {paper},
-    table.header(repeat:true,..([Ability],[Requirements],[Action],[What it does]).map(c=>text(fill:ivory,weight:"bold",c))),
+    table.header(repeat:true,..([Ability],[Requirements],[Action],[Target / range]).map(c=>text(fill:ivory,weight:"bold",c))),
     ..rows.flatten())
 }
 #let diamond(tier) = box(width: 23pt, height: 23pt)[
@@ -122,14 +117,14 @@
 ]
 #let discipline-mark(name, rank, size: 29pt) = box(width: size + 2pt, height: size)[
   #place(center+horizon, circle(radius: size/2 - 1pt, fill: rgb("#0e7a85").transparentize(82%), stroke: .6pt + teal))
-  #place(center+horizon, text(size: size*0.32, weight: "bold", fill: forest, upper(name.slice(0, 1))))
+  #place(center+horizon, image("art/disciplines/" + name + ".svg", width:size*0.68))
   #if rank != "" {
     place(right+bottom, rect(width:12pt,height:13pt,radius:2pt,fill:ivory,stroke:.5pt+forest,
       align(center+horizon,text(size:11pt,weight:"bold",fill:forest,rank))))
   }
 ]
 
-#let card-heading(title, key, tier: none, icons: [], title-size: 11pt) = block(width:100%,fill:forest,inset:7pt)[
+#let card-heading(title, key, tier: none, icons: [], title-size: 13pt) = block(width:100%,fill:forest,inset:7pt)[
   #set text(fill:ivory)
   #show heading.where(level:3): it => block(above:0pt,below:0pt,text(size:title-size,weight:"bold",fill:ivory,it.body))
   #grid(columns: if tier == none {(1fr,auto)} else {(24pt,1fr,auto)},gutter:6pt,
@@ -137,17 +132,22 @@
     [#heading(level:3,outlined:true,title)#label(key)],
     box(icons))
 ]
-#let card(title, tier, req, action, attr, tags, price, key, body, icons: []) = {
-  let whole = block(width:100%,stroke:.7pt+teal,radius:0pt,clip:true,fill:rgb("#ffffff"),above:7pt,below:5pt)[
-    #card-heading(title,key,tier:tier,icons:icons)
-    #block(inset:(x:7pt,y:5pt))[
-      #set text(size:9.4pt)
-      #set par(leading:.27em,spacing:.45em)
-      #set list(indent:9pt,body-indent:3pt,spacing:1.5pt)
-      #text(size:8.6pt,weight:"bold")[#action · #attr]
-      #h(1fr)#text(size:8pt,price)
-      #linebreak()#text(size:8pt)[#tags · #req]
-      #v(4pt)#line(length:100%,stroke:.4pt+teal)#v(3pt)
+#let outcome-rows(rows, compact: false) = {
+  for row in rows {
+    block(width:100%,fill:rgb("#eef4f6"),inset:(x:7pt,y:if compact {3pt} else {6pt}),above:if compact {2pt} else {4pt},below:if compact {2pt} else {4pt},breakable:false)[#row]
+  }
+}
+#let card(title, tier, req, action, attr, tags, price, key, body, icons: [], compact: false) = {
+  let whole = block(width:100%,stroke:.7pt+teal,radius:0pt,clip:true,fill:rgb("#ffffff"),above:9pt,below:9pt)[
+    #card-heading(title,key,tier:tier,icons:[#action-mark(action)#icons],title-size:if compact {11pt} else {13pt})
+    #block(inset:(x:if compact {8pt} else {10pt},y:if compact {6pt} else {9pt}))[
+      #set text(size:if compact {10pt} else {10.5pt},hyphenate:false)
+      #set par(leading:if compact {.32em} else {.46em},spacing:if compact {.45em} else {.7em})
+      #set list(indent:10pt,body-indent:4pt,spacing:5pt)
+      #text(size:10pt,weight:"bold")[#action · #attr]
+      #h(1fr)#text(size:9pt,price)
+      #v(4pt)#text(size:9pt)[#req]
+      #v(6pt)#line(length:100%,stroke:.4pt+teal)#v(6pt)
       #body
     ]
   ]
@@ -157,12 +157,12 @@
     block(breakable: height > 675pt, whole)
   })
 }
-#let catalog-card(title,key,body,icons:[]) = block(width:100%,stroke:.7pt+teal,radius:0pt,clip:true,fill:rgb("#ffffff"),above:7pt,below:5pt,breakable:false)[
+#let catalog-card(title,key,body,icons:[]) = block(width:100%,stroke:.7pt+teal,radius:0pt,clip:true,fill:rgb("#ffffff"),above:9pt,below:9pt,breakable:false)[
   #card-heading(title,key,icons:icons)
   #block(inset:7pt)[
-    #set text(size:9.4pt)
-    #set par(leading:.27em,spacing:.45em)
-    #set list(indent:9pt,body-indent:3pt,spacing:1.5pt)
+    #set text(size:10.5pt,hyphenate:false)
+    #set par(leading:.46em,spacing:.7em)
+    #set list(indent:10pt,body-indent:4pt,spacing:5pt)
     #body
   ]
 ]
@@ -202,52 +202,108 @@
   ]
 ]
 
-// Prose pages are composed from paragraphs and intact short tables. The final
-// page is split near its midpoint, instead of leaving one long left column.
-#let reading-columns(items, gap:5pt) = context {
-  let w = 255pt
-  let blocks = items.map(it => block(above:0pt,below:gap,it))
-  let heights = blocks.map(it => measure(block(width:w,it)).height + gap)
-  let available = 742pt - here().position().y
-  let cursor = 0
-  while cursor < blocks.len() {
-    let end = cursor
-    let left = 0pt
-    let right = 0pt
-    let on-right = false
-    while end < blocks.len() {
-      let h = heights.at(end)
-      if not on-right and left + h <= available {left += h}
-      else {
-        on-right = true
-        if right + h > available {break}
-        right += h
-      }
-      end += 1
-    }
-    if end == cursor {
-      if available < 680pt {pagebreak(); available = 690pt}
-      else {
-        // An unusually long table retains its normal repeated-header flow.
-        columns(2,gutter:18pt,blocks.at(cursor))
-        cursor += 1
-        if cursor < blocks.len() {pagebreak()}
-      }
-    } else {
-      let best = cursor
-      let best-gap = 100000pt
-      for cut in range(cursor,end+1) {
-        let a = heights.slice(cursor,cut).sum(default:0pt)
-        let b = heights.slice(cut,end).sum(default:0pt)
-        if a <= available and b <= available and calc.abs(a - b) < best-gap {
-          best = cut; best-gap = calc.abs(a - b)
-        }
-      }
-      grid(columns:(1fr,1fr),gutter:18pt,
-        [#for it in blocks.slice(cursor,best) {it}],
-        [#for it in blocks.slice(best,end) {it}])
-      cursor = end
-      if cursor < blocks.len() {pagebreak();available=690pt}
-    }
-  }
+// Native columns use actual layout widths; whole cards move to the next column/page.
+#let reading-columns(items,gap:8pt) = columns(2,gutter:20pt)[
+  #for item in items { item; v(gap) }
+]
+
+// The wound reference needs real reading columns and a repeated family/band caption.
+#let wound-table(caption,head,rows) = {
+  set text(size:10pt,hyphenate:false)
+  set par(leading:.4em,spacing:4pt)
+  set table.cell(breakable:false)
+  table(columns:(32pt,128pt,152pt,186pt,30pt),inset:(x:5pt,y:5pt),stroke:.35pt+rgb("#b5cdd0"),
+    fill:(x,y)=>if y < 2 {forest} else if calc.odd(y) {ivory} else {paper},
+    table.header(repeat:true,
+      table.cell(colspan:5,fill:teal,text(font:"Oswald",size:12pt,fill:white,caption)),
+      ..head.map(c=>text(fill:white,weight:"bold",c))), ..rows.flatten())
 }
+
+// Ancestry profiles reserve space for a scene portrait and keep the trait menu together.
+#let ancestry-profile(title, key, asset, traits, intro) = {
+  pagebreak(weak: true)
+  block(width: 100%, fill: space, inset: 12pt)[
+    #text(font: "Oswald", size: 9pt, fill: rgb("#77c4d8"))[LINEAGE PROFILE]
+    #linebreak()
+    #text(font: "Oswald", size: 29pt, weight: "bold", fill: white, title)#label(key)
+  ]
+  v(8pt)
+  block(width: 100%, fill: ivory, inset: 10pt)[#intro]
+  v(6pt)
+  grid(columns: (1fr, 1.2fr), gutter: 18pt,
+    [#illustration(asset, height: 420pt)],
+    [
+      #text(weight: "bold")[Choose two of five.] Use each trait’s stated action and limits.
+      #v(8pt)
+      #for t in traits {
+        block(width: 100%, breakable: false, below: 6pt,
+          stroke: .5pt + rgb("#a9c4cb"), [
+            #block(width: 100%, fill: teal, inset: (x: 8pt, y: 4pt), below: 0pt)[
+              #text(fill: white, weight: "bold", size: 10pt, t.at(0))
+            ]
+            #block(width: 100%, inset: 7pt)[#t.at(1)]
+          ])
+      }
+    ])
+}
+
+#let ancestry-society(title, asset, origins, society, paths, example) = {
+  pagebreak(weak: true)
+  heading(level: 2, title + " communities")
+  grid(columns: (1fr, 1fr), gutter: 20pt,
+    [#origins],
+    [#society])
+  v(7pt)
+  grid(columns: (1fr, 1fr), gutter: 20pt,
+    [#note[#strong[Common paths] #parbreak() #paths]],
+    [#note[#strong[At the table] #parbreak() #example]])
+  tail-art(asset, limit: 235pt)
+}
+
+#let ancestry-lineup(people) = {
+  pagebreak(weak: true)
+  heading(level: 2)[Ten lineages, side by side]
+  [These ten individuals show the range of bodies a crew might bring aboard. Both rows use the same scale. Individual size and appearance vary. Select a name to read its profile.]
+  let metrics = json("art/lineage-cutout-metrics.json")
+  let rows = (people.slice(0, 5), people.slice(5))
+  let figure-width(p) = {
+    let asset = p.at(2)
+    if asset in metrics {
+      let (_, _, x0, y0, x1, y1) = metrics.at(asset)
+      calc.max(58pt, p.at(3) * 96pt * (x1 - x0) / (y1 - y0) + 4pt)
+    } else { 58pt }
+  }
+  layout(size => {
+    let largest-row = calc.max(..rows.map(row => row.map(figure-width).sum()))
+    let factor = calc.min(1, (size.width - 28pt) / largest-row)
+    let person(p) = {
+      let (title, key, asset, stature) = p
+      block(width: 100%, height: 211pt * factor, {
+        if asset in metrics {
+          let (w, h, x0, y0, x1, y1) = metrics.at(asset)
+          let scale = stature * 96pt * factor / (y1 - y0)
+          place(center + bottom,
+            dx: (w - x0 - x1) * scale / 2,
+            dy: (h - y1) * scale,
+            image("art/interior/" + asset + ".png", height: h * scale, alt: title))
+        }
+      })
+      line(length: 100%, stroke: .55pt + teal)
+      align(center)[
+        #xref(key, text(font: "Oswald", size: 11pt, title))
+        #linebreak()
+        #text(size: 8pt, str(stature) + " m")
+      ]
+    }
+    v(8pt)
+    for row in rows {
+      align(center, grid(columns: row.map(p => figure-width(p) * factor), gutter: 7pt, ..row.map(person)))
+      v(9pt)
+    }
+    text(size: 8.5pt, fill: teal)[Height is measured from the deck to the top of the standing figure.]
+  })
+}
+
+
+// Keep cards in aligned pairs so the next row starts together.
+#let ability-pages(cards) = grid(columns: (1fr, 1fr), column-gutter: 18pt, row-gutter: 3pt, ..cards)

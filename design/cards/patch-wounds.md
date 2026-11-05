@@ -8,7 +8,9 @@
 
 **Target / range / shape:** One wounded creature within reach
 
-Treat wounds.
+**Healing cost:** Pay 1 HP before rolling, bypassing resistance; you must remain above 0 HP. Requires a free hand. Apply Life resistance to HP restored, minimum 1 where HP is missing, capped by maximum HP. Stabilize a Dying recipient before ordinary HP healing. It never removes a scar, restores Grit or reverses Last Words. Consume one medkit use per application.
+
+Restore immediate HP; this is not an RV wound-treatment attempt.
 
 - **Weak:** restore 2 HP.
 - **Standard:** restore 4 HP.

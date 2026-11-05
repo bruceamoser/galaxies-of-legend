@@ -1,25 +1,17 @@
-# Open decisions
+# Open design decisions
 
-This is the initial data set. The following are deliberately deferred or marked playtest.
+**Current state: expanded design review, not approved for a mission or table playtest.**
 
-## Deferred content
+- Eighteen disciplines; ten classes; twelve cultures and twelve backgrounds. New rules and expanded affinities are playtest proposals.
+- The Working Ten are adopted for the candidate manuscript. Review trait frequency, strongest pairs and the provisional species baselines after playtest.
+- [Ability coverage](ability-coverage.md) schedules later waves; current breadth is not a complete catalog.
+- [Ship construction](ships/construction.json) and the [ship chapter](starship-manual/manuscript/02-rules.md) define frame budgets and meaningful installed dice. The earlier endurance-only proposal is superseded.
+- Ship purchase prices, labour times, crew costs, oversized weapons, mixed-scale combat, boarding and advancement remain open.
+- Fuel, spare parts and service pricing remain open. Frame points and module capacity are not money.
+- Final interior illustration program and print proofing remain outstanding.
 
-- **Operator, Outlaw, Con Artist, Psion/Altered.** The class roster is seeded with six planet-first archetypes. The remaining four need distinct signatures before they earn a slot.
-- **Species separate from homeworld.** Homeworld currently occupies the origin slot. If species is added, it must share one combined origin budget.
-- **Bestiary and adversaries.** The first book contains no creature catalog. The SA uses the ability format to build threats.
-- **Example characters.** The first book has no pregenerated heroes. Character creation is tested from the procedure.
-- **Interior art.** The cover and crest are real assets. Interior chapter art is a placeholder in the template.
+The Legend attributes, character DP economy and creation-stage sequence are unchanged. All authored deltas record the proposed changes for review.
 
-## Playtest numbers
+## HOL foundation restored
 
-- Ship Hull, DR and starting system dice are seed values.
-- FTL clock sizes and route progress targets are seed values.
-- The wound table is a single d6 abstraction, not the final wound system.
-- Conditions use simple ratings; the final game may add decay and treatment procedures.
-- DR and damage-type resistance order is: type resistance first, then DR. This needs testing.
-
-## Chassis fidelity
-
-- The six attributes, 3d6 roll, bands and boons/banes are inherited from the Legend System.
-- The character chassis is fixed: two of five homeworld traits; paired culture and background grants; class minimums, HP, coins, two starting ranks, rank prices and signatures at 1, 3 and 7.
-- A change to any of those requires a system delta with rule changed, replacement, reason and balance impact.
+The full [damage](rules/damage.md), [recovery](rules/recovery.md), [healing](rules/healing.md), [conditions](rules/conditions.md) and [280-result wound reference](rules/wounds.md) replace the earlier simplified survival chapter. See the [restoration delta](system-deltas/2026-11-02-hol-harm-restoration.md) for sci-fi terminology mappings and medical presentation. Corrosive/Radiation mappings remain proposals; Grit refill and the compact d6 wound table are removed.

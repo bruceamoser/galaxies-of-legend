@@ -7,11 +7,11 @@ The Markdown in this directory is the approved source for *Galaxies of Legend*. 
 - Describe what a character actually does. A vivid sentence is good; a slogan is not a procedure.
 - Put the mechanical permission in the **Rules** section. Flavor never grants a sense, item, movement mode, resistance or immunity.
 - Use **Sector Architect (SA)** for the facilitator.
-- Use **homeworld**, **culture**, **background**, **class**, **discipline**, **ability**, **station**, **Hull**, **DR** and **Consumable Die** consistently.
+- Use **ancestry**, **culture**, **background**, **class**, **discipline**, **ability**, **station**, **Hull**, **DR** and **Consumable Die** consistently.
 
 ## Structure
 
-- Homeworld: HP, base Speed, coin contribution, five traits, choose two.
+- Ancestry: HP, base Speed, coin contribution, five traits, choose two. The Working Ten are the candidate roster. Appendix A holds descriptive species and star system baselines. Legacy homeworlds are reference only.
 - Culture and background: one paired rank-1 discipline and ability. Do not mix pairs.
 - Class: two attribute minimums, HP, coins, two starting rank-1 disciplines, rank prices, signatures at 1/3/7.
 - Discipline: ranks 1–3 are prerequisites. They grant no passive bonus by default.

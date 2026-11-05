@@ -1,0 +1,11 @@
+[
+ {"name":"Scout Cutter","frame":"light","modules":[
+ {"id":"engines","type":"engines","die":"d8"},{"id":"nav","type":"navigation","die":"d8"},{"id":"sensors","type":"sensors","die":"d8"},{"id":"air","type":"life_support","die":"d6"},{"id":"comms","type":"communications","die":"d4"},
+ {"id":"jump","type":"ftl","die":"d8"},{"id":"bank","type":"capacitors","die":"d8"},{"id":"pulse","type":"weapons","die":"d6"},{"id":"shield","type":"defences","die":"d6"},{"id":"hold","type":"cargo","die":"d6"}]},
+ {"name":"Free Trader","frame":"light","modules":[
+ {"id":"engines","type":"engines","die":"d6"},{"id":"nav","type":"navigation","die":"d6"},{"id":"sensors","type":"sensors","die":"d4"},{"id":"air","type":"life_support","die":"d6"},{"id":"comms","type":"communications","die":"d4"},
+ {"id":"hold","type":"cargo","die":"d10"},{"id":"jump","type":"ftl","die":"d6"},{"id":"bank","type":"capacitors","die":"d6"},{"id":"turret","type":"weapons","die":"d4"},{"id":"shield","type":"defences","die":"d8"},{"id":"clinic","type":"medical","die":"d6"},{"id":"shop","type":"workshop","die":"d6"}]},
+ {"name":"System Shuttle","frame":"launch","modules":[
+ {"id":"engines","type":"engines","die":"d8"},{"id":"nav","type":"navigation","die":"d4"},{"id":"sensors","type":"sensors","die":"d4"},{"id":"air","type":"life_support","die":"d6"},{"id":"comms","type":"communications","die":"d4"},
+ {"id":"hold","type":"cargo","die":"d6"},{"id":"shield","type":"defences","die":"d4"},{"id":"clinic","type":"medical","die":"d4"}]}
+]

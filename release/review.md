@@ -11,3 +11,41 @@ Release limitations: interior placeholders; four deferred classes; no adversary 
 Before a public final edition: test complete character creation, combat, healing, power transfer and jump preparation; resolve fuel/time economy; develop threats and a starter scenario; check level 1/3/7 signatures and progression through level 10; approve art rights and final layout. Initial playtest publication does not imply any of these are complete.
 
 Build evidence: 58-page PDF compiled with the available Typst Python runtime 0.15.0. The repository specifies CLI 0.15.1; that exact runtime was not available in this environment. A rendered overview was reviewed for page flow. Brand typography and colors applied from the supplied guide. Final print proofing remains outstanding.
+
+## Reading review - 2026-11-02
+
+Bruce has not approved the ship system or overall book look for table playtesting. The new local reading review expands ship procedures, records proposals in a system delta, and adds a two-page ship record. The visual proof uses cinematic working-ship and crew art with quieter page furniture. All ship timing, damage, repair budgets and action procedures remain proposed. The character chassis and DP economy are unchanged.
+
+Built with Typst 0.15.1. Catalog audit: 48 cards, 4 homeworlds, 6 classes, all 384 coin combinations in range. Rendered pages inspected. This review does not constitute a new published release.
+
+## Expanded reading revision r2 - 2026-11-02
+
+Addresses Bruce's screenshots: larger ability body text, separated shaded outcome rows, simplified metadata, high-contrast marks, native card flow, and a class-cost table sized from actual headers. Ten classes are split across two five-class tables, with eighteen verified discipline rows in each.
+
+Roster: 18 disciplines, 10 classes, 12 cultures, 12 backgrounds, 69 abilities. Nine new starter cards and twelve new signatures form a limited bridge wave; broad coverage is explicitly deferred. Ancestries are placeholders awaiting Bruce; old homeworld packages are legacy reference only. The provisional Human arithmetic scaffold grants no traits.
+
+Ship construction now uses five frames, weighted die allocation, required and optional modules, installed/current capability, and three exact-budget example builds. This supersedes the endurance-only draft. The ship sheet includes construction costs and capacities. The CLI checker has fourteen passing rejection and consistency tests. The catalog audit checks 1,440 provisional Human origin/class purses, range 55-68; it does not claim complete ancestry builds.
+
+All additions are playtest proposals. This is a local reading revision, not a published release or mission. Typst 0.15.1 compilation, all-page render review, PDF text/manifest checks and the ship checks were completed.
+
+## HOL harm restoration r3 - 2026-11-02
+
+Restores the complete shared damage, resistance, weakness, Grit, Dying, stabilization, death marks, Last Words, condition timing, healing economy and wound treatment foundation from HOL commit 25b80c9. All five wound tables retain their 280 source entries exactly, including treatment labels and Recovery Values. Six treatment capabilities, Stabilize, One More Dawn and fixed-value medical supply use are included; current medical cards and sheets are reconciled. Sci-fi damage aliases and mappings are explicit in the delta; Corrosive and Radiation assignments remain proposals.
+
+Current catalog: 78 abilities and 13 equipment entries, with the existing 18 disciplines, 10 classes and 12 cultures/backgrounds each. The first reading proof has 124 pages, with full Chapter 7 on pages 48-74. The focused 44-page excerpt adds the relevant care cards, supplies, quick references and corrected sheets. Typst 0.15.1 compilation passed. Twenty-two source/ship regression tests pass; PDF export confirms all 56 sorted codes in every wound family. Full-page render contact sheets and detailed wound/treatment/teaching pages were inspected.
+
+This corrects the earlier simplified draft; it does not certify game balance or publish a new release. Source commits and PDFs remain local.
+
+## First three-book Starter Kit review - 2026-11-02
+
+Ship construction, all operating procedures and the two ship records move to the dedicated Starship Manual. The Player's Book retains all 78 abilities, the complete HOL survival system and all 280 wound results, with Chapter 10 reduced to a companion guide. Cross-book pointers distinguish class signatures in Chapter 4 from shared abilities in Chapter 8.
+
+The base Sector Architect's Book has nine chapters, eight explicit untested personal-scale threat profiles and four worksheets. It covers rulings, sector/faction preparation, situations, encounters, hazards, rewards and campaign consequences without inventing a calibrated GOL encounter budget. No starter mission is added.
+
+Independent Typst builds produce the Player's Book (109 pages), Starship Manual (22 pages) and Sector Architect's Book (23 pages). Twenty-eight source/ship/book-boundary checks pass. All-page renders and detailed profile, reference and worksheet pages were reviewed; the isolated hazard overflow was removed. Packaging validates all five full wound families, both 18-by-5 discipline tables, moved ship records, profiles, SA worksheets and matching archive hashes. The local v0.1.0 design-review package includes all three PDFs, notes, source snapshot and manifest/checksums. Ancestries and new ship/SA mechanics remain open review material.
+
+## SP teaching revision - sp-worked-1
+
+Clarifies Ship Points as the size-based construction pool: each installed die spends its listed SP. Higher-die prices and frame totals remain proposals; no pricing or operating numbers change. The validator now reports explicit total/spent/remaining SP and a running ledger. A completed Scout Cutter sheet appears on Starship Manual page 10 beside the Chapter 2 construction teaching; blank records remain at the back. A three-page worked-build handout combines the SP ledger, completed form and matching blank construction sheet.
+
+The coordinated kit remains v0.1.0 design-review, revision sp-worked-1: Player's Book 109 pages, Starship Manual 23 pages and SA book 23 pages. Thirty-one regression checks pass. The worked sheet and updated SP teaching/form pages were rendered and inspected.

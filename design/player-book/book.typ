@@ -18,24 +18,23 @@
   #v(10pt)
   #text(font: "Oswald", size: 18pt, fill: teal)[Player’s Book]
   #v(10pt)
-  #text(size: 13pt)[Levels 1–10 · Playtest Edition]
+  #text(size: 13pt)[Levels 1–10 · Starter Kit Review]
   #v(18pt)
   #text(font: "Oswald", size: 13pt)[Game design by Bruce A. Moser]
 ]
 #v(22pt)
 #block(width: 100%, inset: 12pt, fill: ivory)[
-  This book contains the player rules and the initial character catalog for
-  *Galaxies of Legend*: character creation, advancement, abilities, equipment,
-  harm and recovery, starships, and FTL travel.
+  This book contains character creation, advancement, abilities, equipment and the complete Legend rules for personal damage, Grit, wounds, conditions, healing and recovery.
 
-  This is a digital playtest edition built from editable Markdown. The cover and
-  crest are original assets. Interior art is a placeholder in this first edition.
-  Structural checks do not certify balance.
+  The *Starship Manual* contains ship construction and operation, crew stations, ship combat, FTL and ship sheets. The *Sector Architect’s Book* supports adjudication, preparation, encounters, hazards, threats and campaigns. Chapter 10 provides the companion-book reading guide.
+
+  This is the first three-book Starter Kit review edition. The Working Ten ancestry profiles, ship construction and SA values are provisional. This edition is for reading and design review.
+
 ]
 #v(14pt)
-#text(size: 9pt)[Manuscript and layout prepared with Codex under Bruce’s direction.
+#text(size: 9pt)[Legend System rules and original game design by Bruce A. Moser. Manuscript and layout prepared with Codex under Bruce’s direction. Interior artwork generated with AI assistance.
 Starter Kit v#release.version · #release.date.
-Initial playtest data set.]
+Three-book Starter Kit · Design review.]
 #pagebreak()
 #outline(title: [Contents], depth: 1)
 #pagebreak()
@@ -47,7 +46,7 @@ Initial playtest data set.]
   #v(14pt)
   #text(font: "Oswald", size: 20pt, fill: space)[Galaxies of Legend]
   #v(4pt)
-  #text(font: "Oswald", size: 11pt, fill: teal)[Player’s Book · Playtest Edition]
+  #text(font: "Oswald", size: 11pt, fill: teal)[Player’s Book · Design Review]
   #v(8pt)
   #text(size: 9pt)[Version #release.version · #release.date]
   #v(2pt)

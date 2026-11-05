@@ -1,0 +1,231 @@
+{
+  "status": "playtest proposal - untested",
+  "grades": {
+    "d4": -1,
+    "d6": 0,
+    "d8": 1,
+    "d10": 2,
+    "d12": 3
+  },
+  "frames": {
+    "launch": {
+      "name": "Launch / shuttle",
+      "max_modules": 8,
+      "max_die": "d8",
+      "hull": 12,
+      "handling": 2,
+      "scale": 1,
+      "sp": 12
+    },
+    "light": {
+      "name": "Light ship / cutter",
+      "max_modules": 12,
+      "max_die": "d10",
+      "hull": 24,
+      "handling": 1,
+      "scale": 2,
+      "sp": 24
+    },
+    "medium": {
+      "name": "Medium ship / frigate",
+      "max_modules": 16,
+      "max_die": "d12",
+      "hull": 40,
+      "handling": 0,
+      "scale": 4,
+      "sp": 36
+    },
+    "heavy": {
+      "name": "Heavy ship / cruiser",
+      "max_modules": 22,
+      "max_die": "d12",
+      "hull": 64,
+      "handling": -1,
+      "scale": 8,
+      "sp": 50
+    },
+    "capital": {
+      "name": "Capital ship",
+      "max_modules": 30,
+      "max_die": "d12",
+      "hull": 100,
+      "handling": -2,
+      "scale": 16,
+      "sp": 70
+    }
+  },
+  "required": [
+    "engines",
+    "navigation",
+    "sensors",
+    "life_support",
+    "communications"
+  ],
+  "systems": {
+    "engines": {
+      "name": "Sublight engines",
+      "repeatable": false
+    },
+    "navigation": {
+      "name": "Navigation suite",
+      "repeatable": false
+    },
+    "sensors": {
+      "name": "Sensors",
+      "repeatable": false
+    },
+    "life_support": {
+      "name": "Life support",
+      "repeatable": false
+    },
+    "communications": {
+      "name": "Communications",
+      "repeatable": false
+    },
+    "capacitors": {
+      "name": "Jump capacitors",
+      "repeatable": false
+    },
+    "ftl": {
+      "name": "FTL drive",
+      "repeatable": false
+    },
+    "cargo": {
+      "name": "Cargo bay",
+      "repeatable": true
+    },
+    "medical": {
+      "name": "Med bay",
+      "repeatable": true
+    },
+    "weapons": {
+      "name": "Weapon mount",
+      "repeatable": true
+    },
+    "targeting": {
+      "name": "Targeting array",
+      "repeatable": false
+    },
+    "defences": {
+      "name": "Shield generator",
+      "repeatable": false
+    },
+    "workshop": {
+      "name": "Workshop",
+      "repeatable": true
+    },
+    "hangar": {
+      "name": "Hangar",
+      "repeatable": true
+    }
+  },
+  "performance": {
+    "sensor_reach": {
+      "d4": "Near",
+      "d6": "Far",
+      "d8": "Extreme",
+      "d10": "local orbital region",
+      "d12": "local system survey"
+    },
+    "cargo_units": {
+      "d4": 2,
+      "d6": 4,
+      "d8": 8,
+      "d10": 16,
+      "d12": 32
+    },
+    "life_support_people": {
+      "d4": 2,
+      "d6": 4,
+      "d8": 8,
+      "d10": 16,
+      "d12": 32
+    },
+    "medical_beds": {
+      "d4": 1,
+      "d6": 2,
+      "d8": 3,
+      "d10": 4,
+      "d12": 6
+    },
+    "workshop_projects": {
+      "d4": 1,
+      "d6": 2,
+      "d8": 3,
+      "d10": 4,
+      "d12": 6
+    },
+    "hangar_launches": {
+      "d4": 0,
+      "d6": 1,
+      "d8": 2,
+      "d10": 3,
+      "d12": 4
+    },
+    "jump_range": {
+      "d4": 1,
+      "d6": 2,
+      "d8": 3,
+      "d10": 4,
+      "d12": 5
+    },
+    "capacitor_segments": {
+      "d4": 3,
+      "d6": 6,
+      "d8": 9,
+      "d10": 12,
+      "d12": 15
+    },
+    "charge_minutes": {
+      "d4": 10,
+      "d6": 8,
+      "d8": 6,
+      "d10": 4,
+      "d12": 2
+    },
+    "shield_dr": {
+      "d4": 1,
+      "d6": 2,
+      "d8": 3,
+      "d10": 4,
+      "d12": 5
+    },
+    "weapon_damage": {
+      "d4": [
+        2,
+        3,
+        4
+      ],
+      "d6": [
+        3,
+        5,
+        7
+      ],
+      "d8": [
+        4,
+        6,
+        8
+      ],
+      "d10": [
+        5,
+        7,
+        9
+      ],
+      "d12": [
+        6,
+        8,
+        10
+      ]
+    }
+  },
+  "point_unit": "SP",
+  "point_name": "Ship Points",
+  "pricing_status": "d4 = 1 SP and d6 = 2 SP follow Bruce's direction; d8/d10/d12 = 3/4/5 SP and frame totals remain review proposals.",
+  "die_sp_cost": {
+    "d4": 1,
+    "d6": 2,
+    "d8": 3,
+    "d10": 4,
+    "d12": 5
+  }
+}
