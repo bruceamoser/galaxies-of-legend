@@ -101,8 +101,8 @@ def package(books):
               'worked_example':{'file':str(example.relative_to(dest)),'pages':3,'interactive_fields':94,'sha256':sha(example.read_bytes())},
               'painted_ship_sheets':{'file':str(painted.relative_to(dest)),'pages':6,'interactive_fields':394,'sha256':sha(painted.read_bytes())},
               'source_archive':{'file':source_zip.name,'sha256':sha(source_zip.read_bytes()),'files':len(listing)},
-              'checks':['catalog and source links','31 source/ship/book-boundary regression tests','three independent Typst builds','all 280 wound codes present','correct book ownership','18x5 cost tables','8 threat profiles and 4 SA worksheets','six painted hull records and 394 interactive fields','ZIP integrity and SHA-256'],
-              'limits':['ancestries incomplete','new ship/SA values untested','encounter CV uncalibrated','no starter mission','local design review; no public publication']}
+              'checks':['catalog and source links','source, ship and book-boundary regression tests','three independent Typst builds','all 280 wound codes present','correct book ownership','18x5 cost tables','all authored adversaries and 4 SA worksheets','six painted hull records and 394 interactive fields','ZIP integrity and SHA-256'],
+              'limits':['ancestry and character options are playtest proposals','new ship and SA values untested','encounter CV uncalibrated','no starter mission']}
     (dest/'MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
     payload=[dest/'README.md',dest/'RELEASE-NOTES.md',dest/'MANIFEST.json',source_zip,example,painted]+[dest/b['file'] for b in books]
     checksums=''.join(sha(p.read_bytes())+'  '+str(p.relative_to(dest))+'\n' for p in sorted(payload))
